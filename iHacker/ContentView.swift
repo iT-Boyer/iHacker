@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import RemoteImageView
 struct ContentView: View {
     var body: some View {
         Text("Hello, world!")
