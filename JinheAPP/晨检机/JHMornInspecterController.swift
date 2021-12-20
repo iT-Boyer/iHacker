@@ -19,7 +19,7 @@ class JHMornInspecterController: JHBaseNavVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navTitle = "晨检机"
-        
+        createView()
     }
 }
 
@@ -43,11 +43,27 @@ extension JHMornInspecterController
         self.view.addSubview(imageView)
         self.view.addSubview(faceBtn)
         
+        title.snp.makeConstraints { make in
+            make.centerX.equalTo(self.view)
+            make.top.equalTo(self.navBar.snp.bottom).offset(60)
+        }
+        
+        imageView.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.size.equalTo(CGSize(width: 250, height: 300))
+        }
+        
+        faceBtn.snp.makeConstraints { make in
+            make.bottom.equalTo(-kEmptyBottomHeight)
+            make.centerX.equalToSuperview()
+            make.height.equalTo(45)
+            make.left.equalTo(25)
+        }
         
         
     }
     
     @objc func startCamera(_ btn:UIButton) {
-        
+        print("去识别...")
     }
 }
