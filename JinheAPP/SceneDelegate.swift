@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = ViewController()
+            window.rootViewController = JHMornInspecterController(title: "晨检机")
             self.window = window
             window.makeKeyAndVisible()
         }

@@ -34,6 +34,7 @@
 		B3EF8D5D27702E22003140A9 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B3EF8D5C27702E22003140A9 /* SnapKit */; };
 		B3EF8D5F27702E22003140A9 /* SwifterSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B3EF8D5E27702E22003140A9 /* SwifterSwift */; };
 		B3EF8D6127702E22003140A9 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = B3EF8D6027702E22003140A9 /* SwiftyJSON */; };
+		B3EF8D64277030CC003140A9 /* JHMornInspecterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EF8D63277030CC003140A9 /* JHMornInspecterController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,7 @@
 		B3EF8D4427702958003140A9 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B3EF8D4527702958003140A9 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B3EF8D4A27702B4F003140A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B3EF8D63277030CC003140A9 /* JHMornInspecterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHMornInspecterController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,6 +225,7 @@
 		B3EF8D142770287F003140A9 /* JinheAPP */ = {
 			isa = PBXGroup;
 			children = (
+				B3EF8D6227703084003140A9 /* 晨检机 */,
 				B3EF8D4327702958003140A9 /* AppDelegate.swift */,
 				B3EF8D4527702958003140A9 /* SceneDelegate.swift */,
 				B3EF8D4427702958003140A9 /* ViewController.swift */,
@@ -249,6 +252,14 @@
 				B3EF8D3827702882003140A9 /* JinheAPPUITestsLaunchTests.swift */,
 			);
 			path = JinheAPPUITests;
+			sourceTree = "<group>";
+		};
+		B3EF8D6227703084003140A9 /* 晨检机 */ = {
+			isa = PBXGroup;
+			children = (
+				B3EF8D63277030CC003140A9 /* JHMornInspecterController.swift */,
+			);
+			path = "晨检机";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -515,6 +526,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3EF8D4727702959003140A9 /* ViewController.swift in Sources */,
+				B3EF8D64277030CC003140A9 /* JHMornInspecterController.swift in Sources */,
 				B3EF8D4627702958003140A9 /* AppDelegate.swift in Sources */,
 				B3EF8D4827702959003140A9 /* SceneDelegate.swift in Sources */,
 			);
