@@ -73,7 +73,7 @@ class JHMornCameraController: JHBaseNavVC {
         }
         
         ensureBtn.snp.makeConstraints { make in
-            make.bottom.equalTo(-kEmptyBottomHeight)
+            make.bottom.equalTo(-kEmptyBottomHeight - 20)
             make.centerX.equalToSuperview()
             make.size.equalTo(CGSize(width: 70, height: 70))
         }

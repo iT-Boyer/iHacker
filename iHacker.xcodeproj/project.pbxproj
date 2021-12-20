@@ -46,6 +46,7 @@
 		B3EF8D7D27706642003140A9 /* MBProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = B3EF8D7C27706642003140A9 /* MBProgressHUD */; };
 		B3EF8D8127706D62003140A9 /* JHMornCameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EF8D8027706D62003140A9 /* JHMornCameraController.swift */; };
 		B3EF8D8327706E8F003140A9 /* JHMornUpPhotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EF8D8227706E8F003140A9 /* JHMornUpPhotoController.swift */; };
+		B3EF8D8927709056003140A9 /* JHUniversalResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B3EF8D8827709056003140A9 /* JHUniversalResource.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +113,7 @@
 		B3EF8D7627705EA0003140A9 /* RegisterFaceInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = RegisterFaceInfo.json; sourceTree = "<group>"; };
 		B3EF8D8027706D62003140A9 /* JHMornCameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHMornCameraController.swift; sourceTree = "<group>"; };
 		B3EF8D8227706E8F003140A9 /* JHMornUpPhotoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHMornUpPhotoController.swift; sourceTree = "<group>"; };
+		B3EF8D8827709056003140A9 /* JHUniversalResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = JHUniversalResource.bundle; path = ../../../JHBasePackage/JHBaseDemo/JHBaseDemo/JHUniversalResource.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -290,6 +292,7 @@
 		B3EF8D6527705044003140A9 /* Resoures */ = {
 			isa = PBXGroup;
 			children = (
+				B3EF8D8827709056003140A9 /* JHUniversalResource.bundle */,
 				B3EF8D7127705EA0003140A9 /* JSON */,
 				B3EF8D662770508B003140A9 /* ipFile.plist */,
 			);
@@ -524,6 +527,7 @@
 				B3EF8D7727705EA0003140A9 /* SaveMorningCheckImg.json in Resources */,
 				B3EF8D4B27702B4F003140A9 /* Main.storyboard in Resources */,
 				B3EF8D7827705EA0003140A9 /* GetSimilarityScore.json in Resources */,
+				B3EF8D8927709056003140A9 /* JHUniversalResource.bundle in Resources */,
 				B3EF8D7927705EA0003140A9 /* GetMorningCheckSettingByStoreId.json in Resources */,
 				B3EF8D7A27705EA0003140A9 /* GetEmployeeFaceInfoByOrgIdUserId.json in Resources */,
 				B3EF8D2227702881003140A9 /* LaunchScreen.storyboard in Resources */,

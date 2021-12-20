@@ -61,7 +61,7 @@ extension JHMornInspecterController
         }
         
         faceBtn.snp.makeConstraints { make in
-            make.bottom.equalTo(-kEmptyBottomHeight)
+            make.bottom.equalTo(-kEmptyBottomHeight - 20)
             make.centerX.equalToSuperview()
             make.height.equalTo(45)
             make.left.equalTo(25)
