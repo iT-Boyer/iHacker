@@ -14,9 +14,9 @@ import SwiftyJSON
 import MBProgressHUD
 
 fileprivate extension Selector {
-    static let cameraClick = #selector(JHMornInspecterController.startFaceAction)
-//    static let cameraClick = #selector(JHMornInspecterController.startCamera(_:))
-//    static let cyanButtonClick = #selector(ViewController.cyanButtonClick)
+//    static let cameraClick = #selector(JHMornInspecterController.startFaceAction)
+    static let cameraClick = #selector(JHMornInspecterController.startCamera(_:))
+
 }
 
 
@@ -70,6 +70,8 @@ extension JHMornInspecterController
     
     @objc func startCamera(_ btn:UIButton) {
         print("去识别...")
+        let vc = JHMornCameraController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -90,7 +92,7 @@ extension JHMornInspecterController
                 headers: ["Content-Type":"application/json"]
             )
             // 模拟弱网
-            stubReponse.requestTime(3, responseTime: 2)
+            stubReponse.requestTime(1, responseTime: 2)
             return stubReponse
         }
     }
@@ -104,15 +106,13 @@ extension JHMornInspecterController
         let orgId = JHBaseInfo.orgID
         let requestDic = ["userId":userId,"orgId":orgId]
         
-        var response: DataResponse<Data?, AFError>?
         let hud = MBProgressHUD.showAdded(to: view, animated: true)
         hud.removeFromSuperViewOnHide = true
-        AF.request(urlStr, parameters: requestDic)
-            .response { resp in
-                response = resp
-                let json = JSON(resp.data)
-                print(json)
-                hud.hide(animated: false)
-            }
+        let request = JN.post(urlStr, parameters: requestDic, headers: nil)
+        request.response { response in
+            let json = JSON(response.data!)
+            print(json)
+            hud.hide(animated: false)
+        }
     }
 }

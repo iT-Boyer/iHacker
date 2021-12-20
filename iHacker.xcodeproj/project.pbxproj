@@ -44,6 +44,8 @@
 		B3EF8D7A27705EA0003140A9 /* GetEmployeeFaceInfoByOrgIdUserId.json in Resources */ = {isa = PBXBuildFile; fileRef = B3EF8D7527705EA0003140A9 /* GetEmployeeFaceInfoByOrgIdUserId.json */; };
 		B3EF8D7B27705EA0003140A9 /* RegisterFaceInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = B3EF8D7627705EA0003140A9 /* RegisterFaceInfo.json */; };
 		B3EF8D7D27706642003140A9 /* MBProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = B3EF8D7C27706642003140A9 /* MBProgressHUD */; };
+		B3EF8D8127706D62003140A9 /* JHMornCameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EF8D8027706D62003140A9 /* JHMornCameraController.swift */; };
+		B3EF8D8327706E8F003140A9 /* JHMornUpPhotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EF8D8227706E8F003140A9 /* JHMornUpPhotoController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +110,8 @@
 		B3EF8D7427705EA0003140A9 /* GetMorningCheckSettingByStoreId.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetMorningCheckSettingByStoreId.json; sourceTree = "<group>"; };
 		B3EF8D7527705EA0003140A9 /* GetEmployeeFaceInfoByOrgIdUserId.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetEmployeeFaceInfoByOrgIdUserId.json; sourceTree = "<group>"; };
 		B3EF8D7627705EA0003140A9 /* RegisterFaceInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = RegisterFaceInfo.json; sourceTree = "<group>"; };
+		B3EF8D8027706D62003140A9 /* JHMornCameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHMornCameraController.swift; sourceTree = "<group>"; };
+		B3EF8D8227706E8F003140A9 /* JHMornUpPhotoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHMornUpPhotoController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -277,6 +281,8 @@
 			isa = PBXGroup;
 			children = (
 				B3EF8D63277030CC003140A9 /* JHMornInspecterController.swift */,
+				B3EF8D8027706D62003140A9 /* JHMornCameraController.swift */,
+				B3EF8D8227706E8F003140A9 /* JHMornUpPhotoController.swift */,
 			);
 			path = "晨检机";
 			sourceTree = "<group>";
@@ -574,6 +580,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3EF8D8127706D62003140A9 /* JHMornCameraController.swift in Sources */,
+				B3EF8D8327706E8F003140A9 /* JHMornUpPhotoController.swift in Sources */,
 				B3EF8D4727702959003140A9 /* ViewController.swift in Sources */,
 				B3EF8D64277030CC003140A9 /* JHMornInspecterController.swift in Sources */,
 				B3EF8D4627702958003140A9 /* AppDelegate.swift in Sources */,

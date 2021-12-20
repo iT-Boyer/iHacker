@@ -21,7 +21,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = JHMornInspecterController(title: "晨检机")
+            let nav = UINavigationController(rootViewController: JHMornInspecterController(title: "晨检机"))
+            window.rootViewController = nav
             self.window = window
             window.makeKeyAndVisible()
         }
