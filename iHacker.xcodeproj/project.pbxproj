@@ -23,6 +23,17 @@
 		B3EF8D4727702959003140A9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EF8D4427702958003140A9 /* ViewController.swift */; };
 		B3EF8D4827702959003140A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EF8D4527702958003140A9 /* SceneDelegate.swift */; };
 		B3EF8D4B27702B4F003140A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3EF8D4927702B4F003140A9 /* Main.storyboard */; };
+		B3EF8D4D27702E21003140A9 /* JHBase in Frameworks */ = {isa = PBXBuildFile; productRef = B3EF8D4C27702E21003140A9 /* JHBase */; };
+		B3EF8D4F27702E21003140A9 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B3EF8D4E27702E21003140A9 /* Alamofire */; };
+		B3EF8D5127702E21003140A9 /* CSQLite in Frameworks */ = {isa = PBXBuildFile; productRef = B3EF8D5027702E21003140A9 /* CSQLite */; };
+		B3EF8D5327702E21003140A9 /* ESPullToRefresh in Frameworks */ = {isa = PBXBuildFile; productRef = B3EF8D5227702E21003140A9 /* ESPullToRefresh */; };
+		B3EF8D5527702E21003140A9 /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = B3EF8D5427702E21003140A9 /* GRDB */; };
+		B3EF8D5727702E21003140A9 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B3EF8D5627702E21003140A9 /* IQKeyboardManagerSwift */; };
+		B3EF8D5927702E22003140A9 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = B3EF8D5827702E22003140A9 /* Kingfisher */; };
+		B3EF8D5B27702E22003140A9 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = B3EF8D5A27702E22003140A9 /* Moya */; };
+		B3EF8D5D27702E22003140A9 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B3EF8D5C27702E22003140A9 /* SnapKit */; };
+		B3EF8D5F27702E22003140A9 /* SwifterSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B3EF8D5E27702E22003140A9 /* SwifterSwift */; };
+		B3EF8D6127702E22003140A9 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = B3EF8D6027702E22003140A9 /* SwiftyJSON */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +119,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3EF8D5127702E21003140A9 /* CSQLite in Frameworks */,
+				B3EF8D5527702E21003140A9 /* GRDB in Frameworks */,
+				B3EF8D5B27702E22003140A9 /* Moya in Frameworks */,
+				B3EF8D5F27702E22003140A9 /* SwifterSwift in Frameworks */,
+				B3EF8D6127702E22003140A9 /* SwiftyJSON in Frameworks */,
+				B3EF8D5927702E22003140A9 /* Kingfisher in Frameworks */,
+				B3EF8D4D27702E21003140A9 /* JHBase in Frameworks */,
+				B3EF8D5327702E21003140A9 /* ESPullToRefresh in Frameworks */,
+				B3EF8D5D27702E22003140A9 /* SnapKit in Frameworks */,
+				B3EF8D4F27702E21003140A9 /* Alamofire in Frameworks */,
+				B3EF8D5727702E21003140A9 /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +322,19 @@
 			dependencies = (
 			);
 			name = JinheAPP;
+			packageProductDependencies = (
+				B3EF8D4C27702E21003140A9 /* JHBase */,
+				B3EF8D4E27702E21003140A9 /* Alamofire */,
+				B3EF8D5027702E21003140A9 /* CSQLite */,
+				B3EF8D5227702E21003140A9 /* ESPullToRefresh */,
+				B3EF8D5427702E21003140A9 /* GRDB */,
+				B3EF8D5627702E21003140A9 /* IQKeyboardManagerSwift */,
+				B3EF8D5827702E22003140A9 /* Kingfisher */,
+				B3EF8D5A27702E22003140A9 /* Moya */,
+				B3EF8D5C27702E22003140A9 /* SnapKit */,
+				B3EF8D5E27702E22003140A9 /* SwifterSwift */,
+				B3EF8D6027702E22003140A9 /* SwiftyJSON */,
+			);
 			productName = JinheAPP;
 			productReference = B3EF8D132770287E003140A9 /* JinheAPP.app */;
 			productType = "com.apple.product-type.application";
@@ -989,6 +1024,53 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B3EF8D4C27702E21003140A9 /* JHBase */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = JHBase;
+		};
+		B3EF8D4E27702E21003140A9 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Alamofire;
+		};
+		B3EF8D5027702E21003140A9 /* CSQLite */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CSQLite;
+		};
+		B3EF8D5227702E21003140A9 /* ESPullToRefresh */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ESPullToRefresh;
+		};
+		B3EF8D5427702E21003140A9 /* GRDB */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = GRDB;
+		};
+		B3EF8D5627702E21003140A9 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = IQKeyboardManagerSwift;
+		};
+		B3EF8D5827702E22003140A9 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Kingfisher;
+		};
+		B3EF8D5A27702E22003140A9 /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Moya;
+		};
+		B3EF8D5C27702E22003140A9 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SnapKit;
+		};
+		B3EF8D5E27702E22003140A9 /* SwifterSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SwifterSwift;
+		};
+		B3EF8D6027702E22003140A9 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SwiftyJSON;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B38108D6276CE97B0033F57D /* Project object */;
 }
