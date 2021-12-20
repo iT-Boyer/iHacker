@@ -159,7 +159,7 @@ extension JHMornCameraController:AVCapturePhotoCaptureDelegate
     }
     
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
-        if error != nil {
+        if error == nil {
             let data = photo.fileDataRepresentation()
             self.photo = UIImage(data: data!)
         }
