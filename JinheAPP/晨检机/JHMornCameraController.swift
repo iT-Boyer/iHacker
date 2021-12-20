@@ -7,6 +7,7 @@
 
 import JHBase
 import UIKit
+import AVFoundation
 
 class JHMornCameraController: JHBaseNavVC {
     
@@ -15,10 +16,25 @@ class JHMornCameraController: JHBaseNavVC {
     var iconView:UIImageView!
     var ensureBtn:UIButton!
     
+    //相机属性
+    var imageOutput:AVCapturePhotoOutput!
+    var imageInput:AVCaptureDeviceInput!
+    var session:AVCaptureSession!
+    var previewLayer:AVCaptureVideoPreviewLayer!
+    
+    
+    public var photo:UIImage!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navTitle = "晨检拍照"
         createView()
+        customCamera()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        session.stopRunning()
     }
     
     func createView() {
@@ -33,7 +49,7 @@ class JHMornCameraController: JHBaseNavVC {
         iconView = UIImageView(image: UIImage(named: "morincheckhander"))
         ensureBtn = UIButton()
         ensureBtn.setImage(UIImage(named: "morncheckcamerabtn"), for: .normal)
-        ensureBtn.addTarget(self, action: Selector(""), for: .touchDown)
+        ensureBtn.addTarget(self, action: #selector(takePhtoClick), for: .touchDown)
         
         view.addSubview(bgView)
         view.addSubview(tipLabel)
@@ -62,4 +78,91 @@ class JHMornCameraController: JHBaseNavVC {
             make.size.equalTo(CGSize(width: 70, height: 70))
         }
     }
+    @objc func takePhtoClick()
+    {
+        let set = AVCapturePhotoSettings()
+        imageOutput.capturePhoto(with: set, delegate: self)
+    }
+    
+    func refresh(_ tip:String, icon:String) {
+        iconView.image = UIImage(named: icon)
+        tipLabel.text = tip
+    }
+}
+
+// 自定义拍照页面
+extension JHMornCameraController
+{
+    func customCamera() {
+        //
+        session = AVCaptureSession()
+        if session.canSetSessionPreset(.hd1280x720) {
+            session.canSetSessionPreset(.hd1280x720)
+        }
+        let device = AVCaptureDevice.default(for: .video)
+        imageInput = try! AVCaptureDeviceInput(device: device!)
+        
+        if session.canAddInput(imageInput) {
+            session.addInput(imageInput)
+        }
+        
+        imageOutput = AVCapturePhotoOutput()
+        if session.canAddOutput(imageOutput) {
+            session.addOutput(imageOutput)
+            let connection = imageOutput.connection(with: .video)
+            if connection!.isVideoStabilizationSupported {
+                connection?.preferredVideoStabilizationMode = .cinematic
+            }
+        }
+        imageOutput.connections.last?.videoOrientation = .portrait
+        session.startRunning()
+        
+        //拍照场景layer
+        previewLayer = AVCaptureVideoPreviewLayer(session: session)
+        bgView.layoutIfNeeded()
+        previewLayer.frame = bgView.bounds
+        previewLayer.videoGravity = .resizeAspectFill
+        bgView.layer.addSublayer(previewLayer)
+    }
+}
+
+//MARK: - api
+extension JHMornCameraController:AVCapturePhotoCaptureDelegate
+{
+    public func changeDeviceAction() {
+        if session == nil {
+            return
+        }
+        if session.isRunning {
+            session.startRunning()
+        }
+        session.beginConfiguration()
+        
+        //
+        let curDevice = imageInput.device
+        var toChangeDevice:AVCaptureDevice!
+        if curDevice.position == .back {
+            toChangeDevice = cameraWithPosition(position: .front)
+        }else{
+            toChangeDevice = cameraWithPosition(position: .back)
+        }
+    }
+    
+    func cameraWithPosition(position:AVCaptureDevice.Position)->AVCaptureDevice?{
+        let devices = AVCaptureDevice.devices(for: .video)
+        for device in devices {
+            if device.position == position {
+                return device
+            }
+        }
+        return nil
+    }
+    
+    func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
+        if error != nil {
+            let data = photo.fileDataRepresentation()
+            self.photo = UIImage(data: data!)
+        }
+    }
+    
 }
