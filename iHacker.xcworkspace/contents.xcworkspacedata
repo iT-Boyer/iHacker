@@ -10,4 +10,10 @@
    <FileRef
       location = "group:../JHThirdPackage">
    </FileRef>
+   <FileRef
+      location = "group:../OHHTTPStubs">
+   </FileRef>
+   <FileRef
+      location = "group:../MBProgressHUD">
+   </FileRef>
 </Workspace>

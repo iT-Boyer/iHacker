@@ -7,9 +7,15 @@
 
 import JHBase
 import UIKit
+import Alamofire
+import OHHTTPStubs
+import OHHTTPStubsSwift
+import SwiftyJSON
+import MBProgressHUD
 
 fileprivate extension Selector {
-    static let cameraClick = #selector(JHMornInspecterController.startCamera(_:))
+    static let cameraClick = #selector(JHMornInspecterController.startFaceAction)
+//    static let cameraClick = #selector(JHMornInspecterController.startCamera(_:))
 //    static let cyanButtonClick = #selector(ViewController.cyanButtonClick)
 }
 
@@ -20,6 +26,7 @@ class JHMornInspecterController: JHBaseNavVC {
         super.viewDidLoad()
         self.navTitle = "晨检机"
         createView()
+        installOHHTTPStubs()
     }
 }
 
@@ -59,11 +66,53 @@ extension JHMornInspecterController
             make.height.equalTo(45)
             make.left.equalTo(25)
         }
-        
-        
     }
     
     @objc func startCamera(_ btn:UIButton) {
         print("去识别...")
+    }
+}
+
+// 网络请求
+extension JHMornInspecterController
+{
+    // 模拟数据
+    func installOHHTTPStubs(){
+        let host = JHBaseDomain.domain(for: "api_host_ebc")
+        stub(condition: isHost(host)) { request in
+          // Stub it with our "wsresponse.json" stub file
+            let urlStr = request.url?.path
+            let fileName = urlStr!.lastPathComponent+".json"
+            
+            let stubReponse = HTTPStubsResponse(
+                fileAtPath: OHPathForFile(fileName, type(of: self))!,
+                statusCode: 200,
+                headers: ["Content-Type":"application/json"]
+            )
+            // 模拟弱网
+            stubReponse.requestTime(3, responseTime: 2)
+            return stubReponse
+        }
+    }
+    
+    // 人脸识别
+    @objc func startFaceAction() {
+        
+        let urlStr = JHBaseDomain.fullURL(with: "api_host_ebc", path: "/Jinher.AMP.EBC.SV.EmployeeQuerySV.svc/GetEmployeeFaceInfoByOrgIdUserId")
+        
+        let userId = JHBaseInfo.userID
+        let orgId = JHBaseInfo.orgID
+        let requestDic = ["userId":userId,"orgId":orgId]
+        
+        var response: DataResponse<Data?, AFError>?
+        let hud = MBProgressHUD.showAdded(to: view, animated: true)
+        hud.removeFromSuperViewOnHide = true
+        AF.request(urlStr, parameters: requestDic)
+            .response { resp in
+                response = resp
+                let json = JSON(resp.data)
+                print(json)
+                hud.hide(animated: false)
+            }
     }
 }

@@ -1,0 +1,7 @@
+{
+    "Data": {
+        "JsonResult": "{\"Data\":{\"Id\":\"8069b08e-47f9-46b2-9479-727c19bf029a\",\"OrgId\":\"38c55922-9668-47f2-bc51-70eb7105fa29\",\"EmployeeId\":\"8e3b7222-43d7-483f-8d4c-f37721422be7\",\"UserId\":\"b58eb369-2104-40d5-ad2b-45a786e0bc68\",\"Name\":\"霍暑光\",\"LoginAccount\":\"13522834108\",\"ImgUrl\":\"https://fileserver.iuoooo.com/Jinher.JAP.BaseApp.FileServer.UI/FileManage/GetFile?fileURL=29e54e46-3e17-4ca4-8f03-db71fb8f967d/TempDirectory/59244c92-bda1-4b29-954d-62802947fbc5_E15BC1F9-BD07-4850-A4CD-822EB8C30ACE.png\",\"SubTime\":\"\\/Date(1634871425000+0800)\\/\",\"ModifiedOn\":\"\\/Date(1634871425000+0800)\\/\"},\"IsSuccess\":true,\"Message\":null,\"StatusCode\":\"200\"}"
+    },
+    "IsSuccess": true,
+    "Message": "操作成功"
+}

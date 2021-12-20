@@ -1,0 +1,19 @@
+{
+    "Content": {
+        "ProvinceCode": "1-160000",
+        "CityCode": "",
+        "SubId": "00000000-0000-0000-0000-000000000000",
+        "AreaCode": "",
+        "StepCode": [
+            "1",
+            "2",
+            "3",
+            "5"
+        ]
+    },
+    "Message": null,
+    "IsSuccess": true,
+    "Code": null,
+    "Data": null,
+    "Detail": null
+}

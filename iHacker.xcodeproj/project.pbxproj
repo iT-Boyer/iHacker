@@ -35,6 +35,15 @@
 		B3EF8D5F27702E22003140A9 /* SwifterSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B3EF8D5E27702E22003140A9 /* SwifterSwift */; };
 		B3EF8D6127702E22003140A9 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = B3EF8D6027702E22003140A9 /* SwiftyJSON */; };
 		B3EF8D64277030CC003140A9 /* JHMornInspecterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EF8D63277030CC003140A9 /* JHMornInspecterController.swift */; };
+		B3EF8D672770508B003140A9 /* ipFile.plist in Resources */ = {isa = PBXBuildFile; fileRef = B3EF8D662770508B003140A9 /* ipFile.plist */; };
+		B3EF8D6E27705B3D003140A9 /* OHHTTPStubs in Frameworks */ = {isa = PBXBuildFile; productRef = B3EF8D6D27705B3D003140A9 /* OHHTTPStubs */; };
+		B3EF8D7027705B3D003140A9 /* OHHTTPStubsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B3EF8D6F27705B3D003140A9 /* OHHTTPStubsSwift */; };
+		B3EF8D7727705EA0003140A9 /* SaveMorningCheckImg.json in Resources */ = {isa = PBXBuildFile; fileRef = B3EF8D7227705EA0003140A9 /* SaveMorningCheckImg.json */; };
+		B3EF8D7827705EA0003140A9 /* GetSimilarityScore.json in Resources */ = {isa = PBXBuildFile; fileRef = B3EF8D7327705EA0003140A9 /* GetSimilarityScore.json */; };
+		B3EF8D7927705EA0003140A9 /* GetMorningCheckSettingByStoreId.json in Resources */ = {isa = PBXBuildFile; fileRef = B3EF8D7427705EA0003140A9 /* GetMorningCheckSettingByStoreId.json */; };
+		B3EF8D7A27705EA0003140A9 /* GetEmployeeFaceInfoByOrgIdUserId.json in Resources */ = {isa = PBXBuildFile; fileRef = B3EF8D7527705EA0003140A9 /* GetEmployeeFaceInfoByOrgIdUserId.json */; };
+		B3EF8D7B27705EA0003140A9 /* RegisterFaceInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = B3EF8D7627705EA0003140A9 /* RegisterFaceInfo.json */; };
+		B3EF8D7D27706642003140A9 /* MBProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = B3EF8D7C27706642003140A9 /* MBProgressHUD */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +102,12 @@
 		B3EF8D4527702958003140A9 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B3EF8D4A27702B4F003140A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B3EF8D63277030CC003140A9 /* JHMornInspecterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHMornInspecterController.swift; sourceTree = "<group>"; };
+		B3EF8D662770508B003140A9 /* ipFile.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ipFile.plist; sourceTree = "<group>"; };
+		B3EF8D7227705EA0003140A9 /* SaveMorningCheckImg.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SaveMorningCheckImg.json; sourceTree = "<group>"; };
+		B3EF8D7327705EA0003140A9 /* GetSimilarityScore.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetSimilarityScore.json; sourceTree = "<group>"; };
+		B3EF8D7427705EA0003140A9 /* GetMorningCheckSettingByStoreId.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetMorningCheckSettingByStoreId.json; sourceTree = "<group>"; };
+		B3EF8D7527705EA0003140A9 /* GetEmployeeFaceInfoByOrgIdUserId.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetEmployeeFaceInfoByOrgIdUserId.json; sourceTree = "<group>"; };
+		B3EF8D7627705EA0003140A9 /* RegisterFaceInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = RegisterFaceInfo.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +136,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3EF8D7027705B3D003140A9 /* OHHTTPStubsSwift in Frameworks */,
 				B3EF8D5127702E21003140A9 /* CSQLite in Frameworks */,
 				B3EF8D5527702E21003140A9 /* GRDB in Frameworks */,
 				B3EF8D5B27702E22003140A9 /* Moya in Frameworks */,
@@ -128,7 +144,9 @@
 				B3EF8D6127702E22003140A9 /* SwiftyJSON in Frameworks */,
 				B3EF8D5927702E22003140A9 /* Kingfisher in Frameworks */,
 				B3EF8D4D27702E21003140A9 /* JHBase in Frameworks */,
+				B3EF8D6E27705B3D003140A9 /* OHHTTPStubs in Frameworks */,
 				B3EF8D5327702E21003140A9 /* ESPullToRefresh in Frameworks */,
+				B3EF8D7D27706642003140A9 /* MBProgressHUD in Frameworks */,
 				B3EF8D5D27702E22003140A9 /* SnapKit in Frameworks */,
 				B3EF8D4F27702E21003140A9 /* Alamofire in Frameworks */,
 				B3EF8D5727702E21003140A9 /* IQKeyboardManagerSwift in Frameworks */,
@@ -225,6 +243,7 @@
 		B3EF8D142770287F003140A9 /* JinheAPP */ = {
 			isa = PBXGroup;
 			children = (
+				B3EF8D6527705044003140A9 /* Resoures */,
 				B3EF8D6227703084003140A9 /* 晨检机 */,
 				B3EF8D4327702958003140A9 /* AppDelegate.swift */,
 				B3EF8D4527702958003140A9 /* SceneDelegate.swift */,
@@ -260,6 +279,27 @@
 				B3EF8D63277030CC003140A9 /* JHMornInspecterController.swift */,
 			);
 			path = "晨检机";
+			sourceTree = "<group>";
+		};
+		B3EF8D6527705044003140A9 /* Resoures */ = {
+			isa = PBXGroup;
+			children = (
+				B3EF8D7127705EA0003140A9 /* JSON */,
+				B3EF8D662770508B003140A9 /* ipFile.plist */,
+			);
+			path = Resoures;
+			sourceTree = "<group>";
+		};
+		B3EF8D7127705EA0003140A9 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				B3EF8D7227705EA0003140A9 /* SaveMorningCheckImg.json */,
+				B3EF8D7327705EA0003140A9 /* GetSimilarityScore.json */,
+				B3EF8D7427705EA0003140A9 /* GetMorningCheckSettingByStoreId.json */,
+				B3EF8D7527705EA0003140A9 /* GetEmployeeFaceInfoByOrgIdUserId.json */,
+				B3EF8D7627705EA0003140A9 /* RegisterFaceInfo.json */,
+			);
+			path = JSON;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -345,6 +385,9 @@
 				B3EF8D5C27702E22003140A9 /* SnapKit */,
 				B3EF8D5E27702E22003140A9 /* SwifterSwift */,
 				B3EF8D6027702E22003140A9 /* SwiftyJSON */,
+				B3EF8D6D27705B3D003140A9 /* OHHTTPStubs */,
+				B3EF8D6F27705B3D003140A9 /* OHHTTPStubsSwift */,
+				B3EF8D7C27706642003140A9 /* MBProgressHUD */,
 			);
 			productName = JinheAPP;
 			productReference = B3EF8D132770287E003140A9 /* JinheAPP.app */;
@@ -472,9 +515,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3EF8D7727705EA0003140A9 /* SaveMorningCheckImg.json in Resources */,
 				B3EF8D4B27702B4F003140A9 /* Main.storyboard in Resources */,
+				B3EF8D7827705EA0003140A9 /* GetSimilarityScore.json in Resources */,
+				B3EF8D7927705EA0003140A9 /* GetMorningCheckSettingByStoreId.json in Resources */,
+				B3EF8D7A27705EA0003140A9 /* GetEmployeeFaceInfoByOrgIdUserId.json in Resources */,
 				B3EF8D2227702881003140A9 /* LaunchScreen.storyboard in Resources */,
 				B3EF8D1F27702881003140A9 /* Assets.xcassets in Resources */,
+				B3EF8D672770508B003140A9 /* ipFile.plist in Resources */,
+				B3EF8D7B27705EA0003140A9 /* RegisterFaceInfo.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1081,6 +1130,18 @@
 		B3EF8D6027702E22003140A9 /* SwiftyJSON */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SwiftyJSON;
+		};
+		B3EF8D6D27705B3D003140A9 /* OHHTTPStubs */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = OHHTTPStubs;
+		};
+		B3EF8D6F27705B3D003140A9 /* OHHTTPStubsSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = OHHTTPStubsSwift;
+		};
+		B3EF8D7C27706642003140A9 /* MBProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MBProgressHUD;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
