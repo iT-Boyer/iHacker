@@ -114,6 +114,7 @@
 		B3EF8D8027706D62003140A9 /* JHMornCameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHMornCameraController.swift; sourceTree = "<group>"; };
 		B3EF8D8227706E8F003140A9 /* JHMornUpPhotoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHMornUpPhotoController.swift; sourceTree = "<group>"; };
 		B3EF8D8827709056003140A9 /* JHUniversalResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = JHUniversalResource.bundle; path = ../../../JHBasePackage/JHBaseDemo/JHBaseDemo/JHUniversalResource.bundle; sourceTree = "<group>"; };
+		B3EF8D8A27716F54003140A9 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +207,7 @@
 		B38108E0276CE97B0033F57D /* iHacker */ = {
 			isa = PBXGroup;
 			children = (
+				B3EF8D8A27716F54003140A9 /* README.md */,
 				B38108E1276CE97B0033F57D /* iHackerApp.swift */,
 				B38108E3276CE97B0033F57D /* ContentView.swift */,
 				B38108E5276CE97D0033F57D /* Assets.xcassets */,

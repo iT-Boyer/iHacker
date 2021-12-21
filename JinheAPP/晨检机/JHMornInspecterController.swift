@@ -70,7 +70,7 @@ extension JHMornInspecterController
     
     @objc func startCamera(_ btn:UIButton) {
         print("去识别...")
-        let vc = JHMornCameraController()
+        let vc = JHMornUpPhotoController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

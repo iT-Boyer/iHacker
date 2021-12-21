@@ -9,7 +9,7 @@ import JHBase
 import UIKit
 import AVFoundation
 
-class JHMornCameraController: JHBaseNavVC {
+class JHMornCameraController: JHBaseNavVC,AVCapturePhotoCaptureDelegate {
     
     var bgView:UIImageView!
     var tipLabel:UILabel!
@@ -21,9 +21,6 @@ class JHMornCameraController: JHBaseNavVC {
     var imageInput:AVCaptureDeviceInput!
     var session:AVCaptureSession!
     var previewLayer:AVCaptureVideoPreviewLayer!
-    
-    
-    public var photo:UIImage!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -127,7 +124,7 @@ extension JHMornCameraController
 }
 
 //MARK: - api
-extension JHMornCameraController:AVCapturePhotoCaptureDelegate
+extension JHMornCameraController
 {
     public func changeDeviceAction() {
         if session == nil {
@@ -157,12 +154,4 @@ extension JHMornCameraController:AVCapturePhotoCaptureDelegate
         }
         return nil
     }
-    
-    func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
-        if error == nil {
-            let data = photo.fileDataRepresentation()
-            self.photo = UIImage(data: data!)
-        }
-    }
-    
 }
