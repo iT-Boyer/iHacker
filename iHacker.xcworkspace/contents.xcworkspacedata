@@ -14,6 +14,12 @@
       location = "group:../OHHTTPStubs">
    </FileRef>
    <FileRef
+      location = "group:../Quick">
+   </FileRef>
+   <FileRef
+      location = "group:../Nimble">
+   </FileRef>
+   <FileRef
       location = "group:../MBProgressHUD">
    </FileRef>
 </Workspace>

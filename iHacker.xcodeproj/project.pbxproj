@@ -16,9 +16,6 @@
 		B38108FF276CE97D0033F57D /* iHackerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38108FE276CE97D0033F57D /* iHackerUITestsLaunchTests.swift */; };
 		B3EF8D1F27702881003140A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3EF8D1E27702881003140A9 /* Assets.xcassets */; };
 		B3EF8D2227702881003140A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3EF8D2027702881003140A9 /* LaunchScreen.storyboard */; };
-		B3EF8D2D27702881003140A9 /* JinheAPPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EF8D2C27702881003140A9 /* JinheAPPTests.swift */; };
-		B3EF8D3727702882003140A9 /* JinheAPPUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EF8D3627702882003140A9 /* JinheAPPUITests.swift */; };
-		B3EF8D3927702882003140A9 /* JinheAPPUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EF8D3827702882003140A9 /* JinheAPPUITestsLaunchTests.swift */; };
 		B3EF8D4627702958003140A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EF8D4327702958003140A9 /* AppDelegate.swift */; };
 		B3EF8D4727702959003140A9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EF8D4427702958003140A9 /* ViewController.swift */; };
 		B3EF8D4827702959003140A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EF8D4527702958003140A9 /* SceneDelegate.swift */; };
@@ -51,6 +48,14 @@
 		B3EF8D8F2771A751003140A9 /* Landmarks.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EF8D8E2771A751003140A9 /* Landmarks.swift */; };
 		B3EF8D912771AAE2003140A9 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EF8D902771AAE2003140A9 /* MapView.swift */; };
 		B3EF8D932771ACDE003140A9 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EF8D922771ACDE003140A9 /* CircleImage.swift */; };
+		B3EF8D9C2771B712003140A9 /* JHMornUploadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EF8D9B2771B712003140A9 /* JHMornUploadModel.swift */; };
+		B3EF8D9F2771BD33003140A9 /* JHDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EF8D9E2771BD33003140A9 /* JHDelegate.swift */; };
+		B3EF8DCD2771C46E003140A9 /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = B3EF8DCC2771C46E003140A9 /* Nimble */; };
+		B3EF8DCF2771C46E003140A9 /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = B3EF8DCE2771C46E003140A9 /* Quick */; };
+		B3EF8DD12771C49B003140A9 /* JinheAPPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EF8DD02771C49B003140A9 /* JinheAPPTests.swift */; };
+		B3EF8DD42771C4AE003140A9 /* JinheAPPUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EF8DD22771C4AE003140A9 /* JinheAPPUITestsLaunchTests.swift */; };
+		B3EF8DD52771C4AE003140A9 /* JinheAPPUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EF8DD32771C4AE003140A9 /* JinheAPPUITests.swift */; };
+		B3EF8DD72771C4EF003140A9 /* JNRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EF8DD62771C4EF003140A9 /* JNRequestTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,10 +105,7 @@
 		B3EF8D2127702881003140A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B3EF8D2327702881003140A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B3EF8D2827702881003140A9 /* JinheAPPTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JinheAPPTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B3EF8D2C27702881003140A9 /* JinheAPPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JinheAPPTests.swift; sourceTree = "<group>"; };
 		B3EF8D3227702881003140A9 /* JinheAPPUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JinheAPPUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B3EF8D3627702882003140A9 /* JinheAPPUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JinheAPPUITests.swift; sourceTree = "<group>"; };
-		B3EF8D3827702882003140A9 /* JinheAPPUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JinheAPPUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B3EF8D4327702958003140A9 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B3EF8D4427702958003140A9 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B3EF8D4527702958003140A9 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -125,6 +127,12 @@
 		B3EF8D922771ACDE003140A9 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
 		B3EF8D942771AD7B003140A9 /* ProjectFiles.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ProjectFiles.md; sourceTree = "<group>"; };
 		B3EF8D952771AD9B003140A9 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		B3EF8D9B2771B712003140A9 /* JHMornUploadModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHMornUploadModel.swift; sourceTree = "<group>"; };
+		B3EF8D9E2771BD33003140A9 /* JHDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHDelegate.swift; sourceTree = "<group>"; };
+		B3EF8DD02771C49B003140A9 /* JinheAPPTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JinheAPPTests.swift; sourceTree = "<group>"; };
+		B3EF8DD22771C4AE003140A9 /* JinheAPPUITestsLaunchTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JinheAPPUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B3EF8DD32771C4AE003140A9 /* JinheAPPUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JinheAPPUITests.swift; sourceTree = "<group>"; };
+		B3EF8DD62771C4EF003140A9 /* JNRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JNRequestTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +182,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3EF8DCF2771C46E003140A9 /* Quick in Frameworks */,
+				B3EF8DCD2771C46E003140A9 /* Nimble in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,7 +288,8 @@
 		B3EF8D2B27702881003140A9 /* JinheAPPTests */ = {
 			isa = PBXGroup;
 			children = (
-				B3EF8D2C27702881003140A9 /* JinheAPPTests.swift */,
+				B3EF8DD02771C49B003140A9 /* JinheAPPTests.swift */,
+				B3EF8DD62771C4EF003140A9 /* JNRequestTests.swift */,
 			);
 			path = JinheAPPTests;
 			sourceTree = "<group>";
@@ -286,8 +297,8 @@
 		B3EF8D3527702882003140A9 /* JinheAPPUITests */ = {
 			isa = PBXGroup;
 			children = (
-				B3EF8D3627702882003140A9 /* JinheAPPUITests.swift */,
-				B3EF8D3827702882003140A9 /* JinheAPPUITestsLaunchTests.swift */,
+				B3EF8DD32771C4AE003140A9 /* JinheAPPUITests.swift */,
+				B3EF8DD22771C4AE003140A9 /* JinheAPPUITestsLaunchTests.swift */,
 			);
 			path = JinheAPPUITests;
 			sourceTree = "<group>";
@@ -295,6 +306,8 @@
 		B3EF8D6227703084003140A9 /* 晨检机 */ = {
 			isa = PBXGroup;
 			children = (
+				B3EF8D9D2771BCF5003140A9 /* Delegate */,
+				B3EF8D9A2771B6F6003140A9 /* Models */,
 				B3EF8D63277030CC003140A9 /* JHMornInspecterController.swift */,
 				B3EF8D8027706D62003140A9 /* JHMornCameraController.swift */,
 				B3EF8D8227706E8F003140A9 /* JHMornUpPhotoController.swift */,
@@ -335,6 +348,22 @@
 				B3EF8D8E2771A751003140A9 /* Landmarks.swift */,
 			);
 			path = Landmarks;
+			sourceTree = "<group>";
+		};
+		B3EF8D9A2771B6F6003140A9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B3EF8D9B2771B712003140A9 /* JHMornUploadModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B3EF8D9D2771BCF5003140A9 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				B3EF8D9E2771BD33003140A9 /* JHDelegate.swift */,
+			);
+			path = Delegate;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -442,6 +471,10 @@
 				B3EF8D2A27702881003140A9 /* PBXTargetDependency */,
 			);
 			name = JinheAPPTests;
+			packageProductDependencies = (
+				B3EF8DCC2771C46E003140A9 /* Nimble */,
+				B3EF8DCE2771C46E003140A9 /* Quick */,
+			);
 			productName = JinheAPPTests;
 			productReference = B3EF8D2827702881003140A9 /* JinheAPPTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -614,8 +647,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3EF8D9F2771BD33003140A9 /* JHDelegate.swift in Sources */,
 				B3EF8D8127706D62003140A9 /* JHMornCameraController.swift in Sources */,
 				B3EF8D8327706E8F003140A9 /* JHMornUpPhotoController.swift in Sources */,
+				B3EF8D9C2771B712003140A9 /* JHMornUploadModel.swift in Sources */,
 				B3EF8D4727702959003140A9 /* ViewController.swift in Sources */,
 				B3EF8D64277030CC003140A9 /* JHMornInspecterController.swift in Sources */,
 				B3EF8D4627702958003140A9 /* AppDelegate.swift in Sources */,
@@ -627,7 +662,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3EF8D2D27702881003140A9 /* JinheAPPTests.swift in Sources */,
+				B3EF8DD12771C49B003140A9 /* JinheAPPTests.swift in Sources */,
+				B3EF8DD72771C4EF003140A9 /* JNRequestTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -635,8 +671,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3EF8D3927702882003140A9 /* JinheAPPUITestsLaunchTests.swift in Sources */,
-				B3EF8D3727702882003140A9 /* JinheAPPUITests.swift in Sources */,
+				B3EF8DD52771C4AE003140A9 /* JinheAPPUITests.swift in Sources */,
+				B3EF8DD42771C4AE003140A9 /* JinheAPPUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1184,6 +1220,14 @@
 		B3EF8D7C27706642003140A9 /* MBProgressHUD */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = MBProgressHUD;
+		};
+		B3EF8DCC2771C46E003140A9 /* Nimble */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Nimble;
+		};
+		B3EF8DCE2771C46E003140A9 /* Quick */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Quick;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

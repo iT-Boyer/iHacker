@@ -9,6 +9,7 @@ import UIKit
 import JHBase
 import AVFoundation
 
+
 class JHMornUpPhotoController: JHMornCameraController {
 
     var preView:UIImageView!

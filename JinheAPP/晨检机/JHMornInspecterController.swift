@@ -22,11 +22,21 @@ fileprivate extension Selector {
 
 class JHMornInspecterController: JHBaseNavVC {
     
+    var checkArr:[JHMornUploadModel]!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navTitle = "晨检机"
         createView()
         installOHHTTPStubs()
+        
+        let hand = JHMornUploadModel()
+        hand.tip = "请进行手部卫生拍摄"
+        hand.icon = "morincheckhander"
+        let cloth = JHMornUploadModel()
+        cloth.tip = "请进行工作衣帽拍摄"
+        cloth.icon = "mornchecktouxiang"
+        checkArr = [hand,cloth]
     }
 }
 
@@ -81,7 +91,8 @@ extension JHMornInspecterController
     // 模拟数据
     func installOHHTTPStubs(){
         let host = JHBaseDomain.domain(for: "api_host_ebc")
-        stub(condition: isHost(host)) { request in
+        let host2 = JHBaseDomain.domain(for: "api_host_ripx")
+        stub(condition: isHost(host)||isHost(host2)) { request in
           // Stub it with our "wsresponse.json" stub file
             let urlStr = request.url?.path
             let fileName = urlStr!.lastPathComponent+".json"
@@ -114,5 +125,54 @@ extension JHMornInspecterController
             print(json)
             hud.hide(animated: false)
         }
+    }
+}
+
+extension JHMornInspecterController:JHMornUploadPhotoDelegate
+{
+    func afterUpload(_ imgmodel: [JHMornUploadModel], complated: Bool) {
+        
+    }
+    
+    func submit() {
+        let urlStr = JHBaseDomain.fullURL(with: "api_host_ripx", path: "/api/MorningCheck/SaveMorningCheckImg")
+        
+        let hand = checkArr[0]
+        let cloth = checkArr[1]
+        let userId = JHBaseInfo.userID
+        let orgId = JHBaseInfo.orgID
+        let requestDic = ["UserId":userId,
+                          "OrgId":orgId,
+                          "SubId":userId,
+                          "HandCheckImg":hand.url,
+                          "WorkclothesCheckImg":cloth.url,
+        ]
+        let hud = MBProgressHUD.showAdded(to: view, animated: true)
+        hud.removeFromSuperViewOnHide = true
+        let request = JN.post(urlStr, parameters: requestDic)
+        request.response { response in
+            //
+            let json = JSON(response.data!)
+            print(json)
+            hud.hide(animated: false)
+        }
+    }
+    
+    func requestAuthenticationType() {
+        let urlStr = JHBaseDomain.fullURL(with: "api_host_ripx", path: "/api/MorningCheck/GetMorningCheckSettingByStoreId")
+        let requestDic = ["storeId":"sskks"]
+        let hud = MBProgressHUD.showAdded(to: view, animated: true)
+        hud.removeFromSuperViewOnHide = true
+        let request = JN.post(urlStr, parameters: requestDic)
+        request.response { response in
+            //
+            let json = JSON(response.data!)
+            print(json)
+            hud.hide(animated: false)
+        }
+    }
+    
+    func toAuthentication(_ stepCode:[String]) {
+        // 金和浏览器
     }
 }
