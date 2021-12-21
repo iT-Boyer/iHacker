@@ -153,7 +153,12 @@ extension JHMornInspecterController:JHMornUploadPhotoDelegate
         request.response { response in
             //
             let json = JSON(response.data!)
-            print(json)
+            let success = json["IsSuccess"].boolValue
+            if success {
+                self.requestAuthenticationType()
+            }else{
+                print("图片上传失败")
+            }
             hud.hide(animated: false)
         }
     }
@@ -167,7 +172,13 @@ extension JHMornInspecterController:JHMornUploadPhotoDelegate
         request.response { response in
             //
             let json = JSON(response.data!)
-            print(json)
+            let success = json["IsSuccess"].boolValue
+            if success {
+                let stepCode:[String] = json["Content"]["StepCode"].rawValue as! [String]
+                self.toAuthentication(stepCode)
+            }else{
+                print("响应失败")
+            }
             hud.hide(animated: false)
         }
     }
