@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol JHMornUploadPhotoDelegate{
+protocol JHMornUploadPhotoDelegate:NSObject{
     func afterUpload(_ imgmodel:[JHMornUploadModel], complated:Bool)
 }
 

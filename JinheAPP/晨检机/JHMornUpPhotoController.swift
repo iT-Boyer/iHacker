@@ -13,9 +13,12 @@ import AVFoundation
 class JHMornUpPhotoController: JHMornCameraController {
 
     var preView:UIImageView!
+    var checkArr:[JHMornUploadModel] = []
+    weak var delegate:JHMornUploadPhotoDelegate?
+    var currentIndex = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     override func createView() {
@@ -66,7 +69,38 @@ class JHMornUpPhotoController: JHMornCameraController {
         }
         super.createView()
     }
+}
+
+extension JHMornUpPhotoController
+{
+    func submitPhoto(_ local:String,url:String) {
+        //
+        let imgModel = self.checkArr[self.currentIndex]
+        imgModel.localPath = local
+        imgModel.url = url
+        imgModel.image = self.preView.image
+        
+        if self.currentIndex == self.checkArr.count - 1 {
+            self.navigationController?.popToRootViewController(animated: true)
+            //https://stackoverflow.com/questions/24167791/what-is-the-swift-equivalent-of-respondstoselector
+            self.delegate?.afterUpload(self.checkArr, complated: true)
+        }else{
+            nextStepPhoto()
+        }
+    }
     
+    func nextStepPhoto() {
+        self.view.sendSubviewToBack(self.preView)
+        self.changeDeviceAction()
+        self.currentIndex = self.currentIndex + 1
+        let imgModel = self.checkArr[self.currentIndex]
+        self.refresh(imgModel.tip, icon: imgModel.icon)
+    }
+    
+    func reCamraAction()
+    {
+        self.view.sendSubviewToBack(self.preView)
+    }
 }
 
 extension JHMornUpPhotoController

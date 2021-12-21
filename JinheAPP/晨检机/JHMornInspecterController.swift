@@ -81,6 +81,8 @@ extension JHMornInspecterController
     @objc func startCamera(_ btn:UIButton) {
         print("去识别...")
         let vc = JHMornUpPhotoController()
+        vc.checkArr = checkArr
+        vc.delegate = self
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
@@ -131,7 +133,7 @@ extension JHMornInspecterController
 extension JHMornInspecterController:JHMornUploadPhotoDelegate
 {
     func afterUpload(_ imgmodel: [JHMornUploadModel], complated: Bool) {
-        
+        submit()
     }
     
     func submit() {
@@ -184,6 +186,6 @@ extension JHMornInspecterController:JHMornUploadPhotoDelegate
     }
     
     func toAuthentication(_ stepCode:[String]) {
-        // 金和浏览器
+        //TODO: 金和浏览器
     }
 }
