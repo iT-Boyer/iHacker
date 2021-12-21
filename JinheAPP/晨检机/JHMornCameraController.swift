@@ -38,7 +38,7 @@ class JHMornCameraController: JHBaseNavVC,AVCapturePhotoCaptureDelegate {
         bgView = UIImageView()
         tipLabel = UILabel()
         tipLabel.textAlignment = .center
-        tipLabel.text = "请进行收不卫生拍摄"
+        tipLabel.text = "请进行手部卫生拍摄"
         tipLabel.backgroundColor = UIColor(white: 0, alpha: 0.6)
         tipLabel.layer.masksToBounds = true
         tipLabel.layer.cornerRadius = 20

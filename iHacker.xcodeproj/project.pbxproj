@@ -47,6 +47,10 @@
 		B3EF8D8127706D62003140A9 /* JHMornCameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EF8D8027706D62003140A9 /* JHMornCameraController.swift */; };
 		B3EF8D8327706E8F003140A9 /* JHMornUpPhotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EF8D8227706E8F003140A9 /* JHMornUpPhotoController.swift */; };
 		B3EF8D8927709056003140A9 /* JHUniversalResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B3EF8D8827709056003140A9 /* JHUniversalResource.bundle */; };
+		B3EF8D8D2771A5A5003140A9 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EF8D8C2771A5A5003140A9 /* CircleView.swift */; };
+		B3EF8D8F2771A751003140A9 /* Landmarks.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EF8D8E2771A751003140A9 /* Landmarks.swift */; };
+		B3EF8D912771AAE2003140A9 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EF8D902771AAE2003140A9 /* MapView.swift */; };
+		B3EF8D932771ACDE003140A9 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EF8D922771ACDE003140A9 /* CircleImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +119,12 @@
 		B3EF8D8227706E8F003140A9 /* JHMornUpPhotoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHMornUpPhotoController.swift; sourceTree = "<group>"; };
 		B3EF8D8827709056003140A9 /* JHUniversalResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = JHUniversalResource.bundle; path = ../../../JHBasePackage/JHBaseDemo/JHBaseDemo/JHUniversalResource.bundle; sourceTree = "<group>"; };
 		B3EF8D8A27716F54003140A9 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		B3EF8D8C2771A5A5003140A9 /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
+		B3EF8D8E2771A751003140A9 /* Landmarks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Landmarks.swift; sourceTree = "<group>"; };
+		B3EF8D902771AAE2003140A9 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		B3EF8D922771ACDE003140A9 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
+		B3EF8D942771AD7B003140A9 /* ProjectFiles.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ProjectFiles.md; sourceTree = "<group>"; };
+		B3EF8D952771AD9B003140A9 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +217,7 @@
 		B38108E0276CE97B0033F57D /* iHacker */ = {
 			isa = PBXGroup;
 			children = (
+				B3EF8D8B2771A56D003140A9 /* Landmarks */,
 				B3EF8D8A27716F54003140A9 /* README.md */,
 				B38108E1276CE97B0033F57D /* iHackerApp.swift */,
 				B38108E3276CE97B0033F57D /* ContentView.swift */,
@@ -311,6 +322,19 @@
 				B3EF8D7627705EA0003140A9 /* RegisterFaceInfo.json */,
 			);
 			path = JSON;
+			sourceTree = "<group>";
+		};
+		B3EF8D8B2771A56D003140A9 /* Landmarks */ = {
+			isa = PBXGroup;
+			children = (
+				B3EF8D952771AD9B003140A9 /* README.md */,
+				B3EF8D942771AD7B003140A9 /* ProjectFiles.md */,
+				B3EF8D902771AAE2003140A9 /* MapView.swift */,
+				B3EF8D8C2771A5A5003140A9 /* CircleView.swift */,
+				B3EF8D922771ACDE003140A9 /* CircleImage.swift */,
+				B3EF8D8E2771A751003140A9 /* Landmarks.swift */,
+			);
+			path = Landmarks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -560,8 +584,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3EF8D8D2771A5A5003140A9 /* CircleView.swift in Sources */,
 				B38108E4276CE97B0033F57D /* ContentView.swift in Sources */,
+				B3EF8D912771AAE2003140A9 /* MapView.swift in Sources */,
 				B38108E2276CE97B0033F57D /* iHackerApp.swift in Sources */,
+				B3EF8D8F2771A751003140A9 /* Landmarks.swift in Sources */,
+				B3EF8D932771ACDE003140A9 /* CircleImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
