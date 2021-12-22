@@ -19,19 +19,13 @@ class JNRequestTests: QuickSpec {
     override func spec() {
         describe("访问接口解析") {
             // 模拟数据接口
-            var inspecter:JHMornInspecterController!
             var expectation:XCTestExpectation!
             beforeEach {
-                inspecter = JHMornInspecterController()
-                inspecter.installOHHTTPStubs()
+                installOHHTTPStubs()
                 expectation = self.expectation(description: "token认证")
             }
             
-            xit("提交照片信息") {
-                inspecter.submit()
-            }
-            
-            it("图片上传:SaveMorningCheckImg") {
+            xit("提交晨检拍照信息:SaveMorningCheckImg") {
                 let urlStr = JHBaseDomain.fullURL(with: "api_host_ripx", path: "/api/MorningCheck/SaveMorningCheckImg")
                 let request = JN.post(urlStr, parameters: [:])
                 request.response { response in
@@ -39,9 +33,9 @@ class JNRequestTests: QuickSpec {
                     let json = JSON(response.data!)
                     let success = json["IsSuccess"].boolValue
                     if success {
-                        print("图片上传成功")
+                        print("提交晨检拍照信息成功")
                     }else{
-                        print("图片上传失败")
+                        print("提交晨检拍照信息失败")
                     }
                     //在异步方法被测试的相关的回调中实现那个期望值
                     expectation.fulfill()

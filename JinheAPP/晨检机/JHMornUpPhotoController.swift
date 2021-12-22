@@ -37,7 +37,7 @@ class JHMornUpPhotoController: JHMornCameraController {
         submitBtn.layer.cornerRadius = 22.5
         submitBtn.titleLabel!.font = UIFont.systemFont(ofSize: 17, weight: .bold)
         submitBtn.setTitle("确定", for: .normal)
-        submitBtn.addTarget(self, action: Selector(""), for: .touchDown)
+        submitBtn.addTarget(self, action: #selector(JHMornInspecterController.startCamera(_:)), for: .touchDown)
         
         let photo = UIImageView()
         preView = photo
@@ -100,6 +100,10 @@ extension JHMornUpPhotoController
     func reCamraAction()
     {
         self.view.sendSubviewToBack(self.preView)
+    }
+    
+    func upload() {
+        
     }
 }
 

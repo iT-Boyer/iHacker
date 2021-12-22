@@ -8,8 +8,6 @@
 import JHBase
 import UIKit
 import Alamofire
-import OHHTTPStubs
-import OHHTTPStubsSwift
 import SwiftyJSON
 import MBProgressHUD
 
@@ -79,7 +77,6 @@ extension JHMornInspecterController
     }
     
     @objc func startCamera(_ btn:UIButton) {
-        print("去识别...")
         let vc = JHMornUpPhotoController()
         vc.checkArr = checkArr
         vc.delegate = self
@@ -89,27 +86,7 @@ extension JHMornInspecterController
 
 // 网络请求
 extension JHMornInspecterController
-{
-    // 模拟数据
-    func installOHHTTPStubs(){
-        let host = JHBaseDomain.domain(for: "api_host_ebc")
-        let host2 = JHBaseDomain.domain(for: "api_host_ripx")
-        stub(condition: isHost(host)||isHost(host2)) { request in
-          // Stub it with our "wsresponse.json" stub file
-            let urlStr = request.url?.path
-            let fileName = urlStr!.lastPathComponent+".json"
-            
-            let stubReponse = HTTPStubsResponse(
-                fileAtPath: OHPathForFile(fileName, type(of: self))!,
-                statusCode: 200,
-                headers: ["Content-Type":"application/json"]
-            )
-            // 模拟弱网
-            stubReponse.requestTime(1, responseTime: 2)
-            return stubReponse
-        }
-    }
-    
+{    
     // 人脸识别
     @objc func startFaceAction() {
         
