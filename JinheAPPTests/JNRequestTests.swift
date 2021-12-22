@@ -110,6 +110,7 @@ class JNRequestTests: QuickSpec {
             it("AF上传多内容方式") {
                 
                 let request = AF.upload(multipartFormData: { multipartFormData in
+                    multipartFormData.
                     multipartFormData.append("test.png", withName: "UploadFileName")
                     multipartFormData.append(true, withName: "IsClient")
                     multipartFormData.append(0, withName: "StartPosition")
