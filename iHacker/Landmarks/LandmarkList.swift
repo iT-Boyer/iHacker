@@ -7,13 +7,16 @@
 
 import SwiftUI
 import MapKit
-
+import Combine
 struct LandmarkList: View {
+    //设置commbine环境
+    @EnvironmentObject var modelData:ModelData
+    
     // 仅展示收藏的row
     @State private var showFavoritesOnly = false
     // 筛选返回收藏的数据源
     var filterLandmarks:[Landmark]{
-        landmarks.filter { landmark in
+        modelData.landmarks.filter { landmark in
             (!showFavoritesOnly || landmark.isFavorite)
         }
     }
@@ -46,6 +49,7 @@ struct LandmarkList_Previews: PreviewProvider {
     static var previews: some View {
         
         return LandmarkList()
+                        .environmentObject(ModelData())
         
         
         //ForEach 以与 list 相同的方式对集合进行操作,这样我们就可以在任何可以使用子视图的地方使用它，比如 stacks ， lists ，groups 等。

@@ -32,6 +32,7 @@ struct LandmarkRow:View
 
 struct LandmarkRow_Previews:PreviewProvider
 {
+    static var landmarks = ModelData().landmarks
     // previews 可以返回多个View someview
     // previewLayout 预览视图布局方法。辅助在开发中的多个视图的布局样式。
     // Group容器，可以批量处理多个View的样式。
@@ -47,7 +48,7 @@ struct LandmarkRow_Previews:PreviewProvider
         //使用group分组，group的设置会作用到每一个View上
         Group{
             LandmarkRow(landmark: landmarks[2])
-//            LandmarkRow(landmark: landmarks[3])
+            LandmarkRow(landmark: landmarks[3])
         }.previewLayout(.fixed(width: 390, height: 50))
         
     }

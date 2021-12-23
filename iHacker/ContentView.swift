@@ -8,18 +8,12 @@
 import SwiftUI
 struct ContentView: View {
     var body: some View {
-        HStack {
-            Text("Hello, world!")
-                .padding()
-            
-            Text("nihao")
-        }
-        
+        LandmarkList()
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView().environmentObject(ModelData())
     }
 }
