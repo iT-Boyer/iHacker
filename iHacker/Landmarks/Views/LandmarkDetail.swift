@@ -13,9 +13,10 @@ struct LandmarkDetail: View {
     
     var landmark:Landmark
     
-    // 访问环境对象，求出索引
+    // 访问环境对象，便于$绑定操作
     @EnvironmentObject var modelData:ModelData
     
+    // 已知一个对象，求在数组中的索引
     var landmarkIndex:Int{
         modelData.landmarks.firstIndex(where: { $0.id == landmark.id})!
     }
