@@ -408,9 +408,9 @@
 		B3EF8D8B2771A56D003140A9 /* Landmarks */ = {
 			isa = PBXGroup;
 			children = (
+				B3498A662772B5E000557C2F /* Models */,
 				B3498A6E2772EBB900557C2F /* Views */,
 				B3498A692772B5FF00557C2F /* Resources */,
-				B3498A662772B5E000557C2F /* Models */,
 				B3EF8D952771AD9B003140A9 /* README.md */,
 				B3EF8D942771AD7B003140A9 /* ProjectFiles.md */,
 				B3EF8D8E2771A751003140A9 /* LandmarkList.swift */,

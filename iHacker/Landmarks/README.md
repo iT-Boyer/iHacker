@@ -20,7 +20,8 @@ You can specify the device to use in the active scheme, in code, or by previewin
 
 在View视图中添加接收参数的属性，并更新UI展示。
 1. 头像：图片实例
-2. 地图：坐标
+2. 地图：坐标 
+https://developer.apple.com/sf-symbols/
 
 ## 更新视图的方式
 1. 修改@state属性，视图使用$语法监听属性变更，出发视图刷新。响应式UI刷新。
