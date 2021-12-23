@@ -26,9 +26,15 @@ https://developer.apple.com/sf-symbols/
 ## 更新视图的方式
 1. 修改@state属性，视图使用$语法监听属性变更，出发视图刷新。响应式UI刷新。
 
-## 绑定的作用是什么？
-What’s the role of a binding?
+### Which of the following passes data downward in the view hierarchy?
 
+You use this attribute in views that are lower down in the view hierarchy to receive data from views that are higher up.
+
+You apply this modifier so that views further down in the view hierarchy can read data objects passed down through the environment.
+
+
+### What’s the role of a binding?
+绑定的作用是什么？
 
 It’s a value and a way to change that value.
 A binding controls the storage for a value, so you can pass data around to different views that need to read or write it.
@@ -43,7 +49,7 @@ It’s a way to freeze a value temporarily so that other views don’t update du
 A binding doesn’t prevent updates. Instead, it propagates updates to different views in your app.
 
 
-Which is the correct way to create state for a view?
+### Which is the correct way to create state for a view?
 
 @State var showFavoritesOnly = false
 Always mark state properties as private because state should be specific to a view and its child views.
