@@ -10,6 +10,8 @@ import Combine
 //ModelData: observable object 是数据的自定义对象，它可以从 SwiftUI 环境中的存储绑定到视图上
 //ObservableObject 需要使用 @published 关键语句注明哪个属性为发布者，发布对其数据的任何更改，以便其订阅者可以获取其更改。
 //这时，就可以回到LandmarkList视图，设置接收数据相关环境配置
+// 第一步：声明存储器 @EnvironmentObject var modelData:ModelData
+// 第二步：装载环境  ContentView().environmentObject(ModelData())
 class ModelData: ObservableObject {
     
     @Published var landmarks:[Landmark] = loadT("landmarkData.json")

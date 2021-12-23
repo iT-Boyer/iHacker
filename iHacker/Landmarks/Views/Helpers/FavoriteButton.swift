@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// 支持绑定存储器属性和状态属性的视图，便于更新状态。
 struct FavoriteButton:View {
     @Binding var isSet:Bool
     
