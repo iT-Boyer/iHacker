@@ -10,26 +10,8 @@ import MapKit
 
 struct LandmarkList: View {
     // 仅展示收藏的row
-    @State var showFavoritesOnly = false
-    
-    func filterFavorites() -> [Landmark] {
-        // 筛选返回收藏的数据源
-        let filterArr = landmarks.compactMap { landmark -> Landmark? in
-            let isFavorite = landmark.isFavorite
-            //仅展示
-            if showFavoritesOnly{
-                if isFavorite {
-                    return landmark
-                }else{
-                    return nil
-                }
-            }else{
-                return landmark
-            }
-        }
-        return filterArr
-    }
-    
+    @State private var showFavoritesOnly = false
+    // 筛选返回收藏的数据源
     var filterLandmarks:[Landmark]{
         landmarks.filter { landmark in
             (!showFavoritesOnly || landmark.isFavorite)
@@ -38,18 +20,20 @@ struct LandmarkList: View {
     
     var body: some View {
         NavigationView{
-            VStack{
+            // 列表中可以嵌套不同类型的视图：例如：Row和Toggle视图
+            List{
                 // 开关
                 Toggle(isOn: $showFavoritesOnly) {
-                    Text("")
+                    Text("仅看收藏")
                 }.padding()
                 
-                // 列表
-                List(filterLandmarks){ landmark in
-                    NavigationLink{
+                // ForEach列表
+                ForEach(filterLandmarks) { landmark in
+                    
+                    NavigationLink {
                         LandmarkDetail(landmark: landmark)
                     } label: {
-                        LandmarkRow(landmark:landmark)
+                        LandmarkRow(landmark: landmark)
                     }
                 }
             }
