@@ -6,42 +6,46 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct LandmarkDetail: View {
+    var landmark:Landmark
     var body: some View {
-        VStack {
-            
-            MapView()
-                .frame(height: 200, alignment: .top)
+        ScrollView {
+            MapView(coordinate: landmark.locationCoordinate)
+                .frame(height: 300, alignment: .top)
                 .ignoresSafeArea()
-            CircleView()
-                .offset(y: -100)
-                .padding(.bottom,-100)
+            CircleImage(image: landmark.image)
+                .offset(y: -120)
+                .padding(.bottom,-120)
             
             VStack(alignment: .leading){
-                Text("张三家")
+                Text(landmark.name)
                     .font(.title)
-                Divider()
                 HStack{
-                    Text("二拨子新村")
-                        .font(.title2)
+                    Text(landmark.park)
                     Spacer()
-                    Text("回龙观")
-                        .font(.title2)
-                }.foregroundColor(.gray)
+                    Text(landmark.state)
+                }
+                .font(.subheadline)
+                .foregroundColor(.secondary)
+                
                 Divider()
-              Spacer()
-                Text("关于")
+                
+                Text("关于\(landmark.name)")
                     .font(.title2)
-                Text("学习开发技巧")
+                Text(landmark.description)
             }.padding()
-            Spacer()
+            
         }
+        .navigationTitle(landmark.name)
+        .navigationBarTitleDisplayMode(.inline)
+        
     }
 }
 
 struct LandmarkDetail_Previews: PreviewProvider {
     static var previews: some View {
-        LandmarkDetail()
+        LandmarkDetail(landmark: landmarks[3])
     }
 }
