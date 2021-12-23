@@ -75,12 +75,22 @@ class JNRequestTests: QuickSpec {
             var imageData:Data!
             var expectation:XCTestExpectation!
             var headers:HTTPHeaders!
+            var params:[String:Data]!
             beforeEach {
                 expectation = self.expectation(description: "上传成功")
                 serverUrl = JHBaseDomain.fullURL(with: "api_host_upfileserver", path: "/Jinher.JAP.BaseApp.FileServer.SV.FileSV.svc/UploadMobileFile")
-                let image = UIImage(named: "mornchecktouxiang")
+                let image = UIImage(named: "morncheckcamerabtn")
                 imageData = image?.compressedData()
                 headers = ["Authentication": "YgAhCMxEehT4N/DmhKkA/M0npN3KO0X8PMrNl17+hogw944GDGpzvypteMemdWb9nlzz7mk1jBa/0fpOtxeZUA==","Content-Type":"form/data"]
+                
+                let dics:[String:Any] = ["UploadFileName":"test.png",
+                                             "IsClient":"1",
+                                             "StartPosition":imageData.count/8,
+                                             "FileSize":"1",
+                                             "isFromMobilePhone":"1"
+                ]
+                
+                params = createParameterDictionary(parameters: dics)
             }
             
             xit("上传图片接口联调") {
@@ -94,7 +104,7 @@ class JNRequestTests: QuickSpec {
                 self.waitForExpectations(timeout: timeout)
             }
             
-            fit("AF框架上传金和服务器") {
+            xit("AF框架上传金和服务器") {
                 let expectation = self.expectation(description: "upload should complete")
                 // When
                 let request = AF.upload(imageData, to: serverUrl, method: .post, headers: headers).response { resp in
@@ -102,27 +112,67 @@ class JNRequestTests: QuickSpec {
                     print("返回值：\(json)")
                     expectation.fulfill()
                 }
-                
-
                 self.waitForExpectations(timeout: timeout)
             }
             
-            it("AF上传多内容方式") {
+            fit("AF上传多内容方式") {
                 
-                let request = AF.upload(multipartFormData: { multipartFormData in
-                    multipartFormData.
-                    multipartFormData.append("test.png", withName: "UploadFileName")
-                    multipartFormData.append(true, withName: "IsClient")
-                    multipartFormData.append(0, withName: "StartPosition")
-                    multipartFormData.append(imageData.length/8, withName: "FileSize")
-                    multipartFormData.append(true, withName: "isFromMobilePhone")
-                    multipartFormData.append(imageData, withName: "FileDataFromPhone", fileName: "test.png", mimeType: "image/png")
-                }, to: serverUrl, method: .post, headers: headers)
-                
-                request.response { response in
-                    //
+                AF.upload(multipartFormData: { multipartFormData in
+                    
+//                    for (key, value) in params {
+//                        multipartFormData.append(value, withName: key)
+//                    }
+                    if let data = imageData{
+                        multipartFormData.append(data, withName: "FileDataFromPhone", fileName: "\(Date().timeIntervalSince1970).png", mimeType: "image/png")
+                    }
+                }, to: serverUrl, method: .post, headers: headers).responseJSON { response in
+                    
+//                    print(response)
+                    
+                    if let err = response.error{
+                        print(err)
+                        return
+                    }
+                    print("Succesfully uploaded")
+                    
+                    let json = response.data
+                    
+                    if (json != nil)
+                    {
+                        let jsonObject = JSON(json!)
+                        print(jsonObject)
+                        let filePath = jsonObject["FilePath"].string
+                        let fileUrl = JHBaseDomain.fullURL(with: "api_host_upfileserver", path: "/Jinher.JAP.BaseApp.FileServer.UI/FileManage/GetFile?fileURL=\(filePath!)")
+                        print("文件服务器路径：\(fileUrl)")
+                    }
+                    expectation.fulfill()
+                }
+                self.waitForExpectations(timeout: timeout)
+            }
+            
+            func createParameterDictionary(parameters:[String:Any]) -> [String: Data]? {
+                var params: [String: Data] = [:]
+                for (key, value) in parameters {
+                    if let temp = value as? String {
+                        params[key] = temp.data(using: .utf8)!
+                    }
+                    if let temp = value as? Int {
+                        params[key] = "\(temp)".data(using: .utf8)!
+                    }
+                    if let temp = value as? NSArray {
+                        temp.forEach({ element in
+                            let keyObj = key + "[]"
+                            if let string = element as? String {
+                                params[keyObj] = string.data(using: .utf8)!
+                            } else
+                            if let num = element as? Int {
+                                params[keyObj] = "\(num)".data(using: .utf8)!
+                            }
+                        })
+                    }
                 }
                 
+                return params
             }
         }
     }
