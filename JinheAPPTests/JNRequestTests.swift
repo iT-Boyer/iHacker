@@ -118,10 +118,10 @@ class JNRequestTests: QuickSpec {
             fit("AF上传多内容方式") {
                 
                 AF.upload(multipartFormData: { multipartFormData in
-                    
-//                    for (key, value) in params {
-//                        multipartFormData.append(value, withName: key)
-//                    }
+                    // params相关入参，不影响图片正常上传
+                    for (key, value) in params {
+                        multipartFormData.append(value, withName: key)
+                    }
                     if let data = imageData{
                         multipartFormData.append(data, withName: "FileDataFromPhone", fileName: "\(Date().timeIntervalSince1970).png", mimeType: "image/png")
                     }
