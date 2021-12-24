@@ -5,6 +5,9 @@
       location = "container:iHacker.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:../Landmarks">
+   </FileRef>
+   <FileRef
       location = "group:../JHBasePackage">
    </FileRef>
    <FileRef
