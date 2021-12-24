@@ -33,19 +33,21 @@ class NotificationCenterPublisherTests: QuickSpec {
     override func spec() {
 
         describe("操作符的使用方法串讲") {
-            let expectation = self.expectation(description: self.debugDescription)
-            var data:Data!
+            let expectation = self.expectation(description: "Combine操作符练习")
+            var note:Notification!
             beforeEach {
                 let filename = "landmarkData.json"
                 let testBundle = Bundle(for: type(of: self))
                 if let file = testBundle.url(forResource: filename, withExtension: nil)
                 {
-                    data = try! Data(contentsOf: file)
+                    let data = try! Data(contentsOf: file)
+                    //初始化通知和负载对象
+                    note = Notification(name: .myExampleNotification, userInfo: ["data":data])
                 }
             }
             
             //操作符 处理相关流数据
-            it("map操作符使用") {
+            xit("map操作符使用") {
                 //声明通知发布者
                 let publisher = NotificationCenter.default.publisher(for: .myExampleNotification)
                     .map { notif -> Data in
@@ -56,10 +58,35 @@ class NotificationCenterPublisherTests: QuickSpec {
                     expectation.fulfill()
                 })
                 //发送通知和负载对象
-                let note = Notification(name: .myExampleNotification, userInfo: ["data":data as Any])
                 NotificationCenter.default.post(note)
                 // 异步等待
                 self.waitForExpectations(timeout: 5)
+            }
+            
+            fit("trymap操作符") {
+                let publisher = NotificationCenter.default.publisher(for: .myExampleNotification)
+                    .map { notif -> Data in
+                        let userInfo = notif.userInfo
+                        return userInfo?["data"] as! Data
+                    }.tryMap { data -> [LandmarkT] in
+                        //json解析
+                        print("通知数据:\(data)")
+                        let landmarks:[LandmarkT] = try JSONDecoder().decode([LandmarkT].self, from: data)
+                        return landmarks
+                    }.sink { error in
+                        print("JSON解析失败：\(error)")
+                        
+                        //1 订阅者有两种结果时，需要在每一处添加fullfill方法。
+                        expectation.fulfill()
+                    } receiveValue: { landmarks in
+                        
+                        print("订阅者接收到的json数据：\(landmarks)")
+                        
+                        //2 订阅者有两种结果时，需要在每一处添加fullfill方法。
+                        expectation.fulfill()
+                    }
+                NotificationCenter.default.post(note)
+                self.waitForExpectations(timeout: 10)
             }
         }
     }
