@@ -13,6 +13,7 @@
 		B3498ABD2773242400557C2F /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3498ABC2773242400557C2F /* Env.swift */; };
 		B3498AC527733AF500557C2F /* ENV.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3498AC427733AF500557C2F /* ENV.swift */; };
 		B38078E52775746A0082ECCD /* Landmarks in Frameworks */ = {isa = PBXBuildFile; productRef = B38078E42775746A0082ECCD /* Landmarks */; };
+		B38079282775A2D10082ECCD /* CombineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38079272775A2D10082ECCD /* CombineTests.swift */; };
 		B38108E2276CE97B0033F57D /* iHackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38108E1276CE97B0033F57D /* iHackerApp.swift */; };
 		B38108E4276CE97B0033F57D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38108E3276CE97B0033F57D /* ContentView.swift */; };
 		B38108E6276CE97D0033F57D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B38108E5276CE97D0033F57D /* Assets.xcassets */; };
@@ -95,6 +96,7 @@
 		B3498A752772F1A000557C2F /* QuickTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickTests.swift; sourceTree = "<group>"; };
 		B3498ABC2773242400557C2F /* Env.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Env.swift; sourceTree = "<group>"; };
 		B3498AC427733AF500557C2F /* ENV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ENV.swift; sourceTree = "<group>"; };
+		B38079272775A2D10082ECCD /* CombineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineTests.swift; sourceTree = "<group>"; };
 		B38108DE276CE97B0033F57D /* iHacker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iHacker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B38108E1276CE97B0033F57D /* iHackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iHackerApp.swift; sourceTree = "<group>"; };
 		B38108E3276CE97B0033F57D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -267,6 +269,7 @@
 			children = (
 				B38108F2276CE97D0033F57D /* iHackerTests.swift */,
 				B3498A752772F1A000557C2F /* QuickTests.swift */,
+				B38079272775A2D10082ECCD /* CombineTests.swift */,
 			);
 			path = iHackerTests;
 			sourceTree = "<group>";
@@ -638,6 +641,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B38079282775A2D10082ECCD /* CombineTests.swift in Sources */,
 				B38108F3276CE97D0033F57D /* iHackerTests.swift in Sources */,
 				B3498A762772F1A000557C2F /* QuickTests.swift in Sources */,
 			);
