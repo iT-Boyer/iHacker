@@ -32,7 +32,7 @@ extension Notification.Name {
 class NotificationCenterPublisherTests: QuickSpec {
     override func spec() {
 
-        describe("操作符的使用方法串讲") {
+        describe("串讲") {
             let expectation = self.expectation(description: "Combine操作符练习")
             var note:Notification!
             beforeEach {
@@ -47,7 +47,7 @@ class NotificationCenterPublisherTests: QuickSpec {
             }
             
             //操作符 处理相关流数据
-            xit("map操作符使用") {
+            xit("map") {
                 //声明通知发布者
                 let publisher = NotificationCenter.default.publisher(for: .myExampleNotification)
                     .map { notif -> Data in
@@ -63,7 +63,7 @@ class NotificationCenterPublisherTests: QuickSpec {
                 self.waitForExpectations(timeout: 5)
             }
             
-            fit("trymap操作符") {
+            fit("trymap") {
                 let publisher = NotificationCenter.default.publisher(for: .myExampleNotification)
                     .map { notif -> Data in
                         let userInfo = notif.userInfo
