@@ -10,8 +10,6 @@
 		B3498A722772F17000557C2F /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = B3498A712772F17000557C2F /* Quick */; };
 		B3498A742772F17B00557C2F /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = B3498A732772F17B00557C2F /* Nimble */; };
 		B3498A762772F1A000557C2F /* QuickTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3498A752772F1A000557C2F /* QuickTests.swift */; };
-		B3498ABD2773242400557C2F /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3498ABC2773242400557C2F /* Env.swift */; };
-		B3498AC527733AF500557C2F /* ENV.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3498AC427733AF500557C2F /* ENV.swift */; };
 		B38078E52775746A0082ECCD /* Landmarks in Frameworks */ = {isa = PBXBuildFile; productRef = B38078E42775746A0082ECCD /* Landmarks */; };
 		B38079282775A2D10082ECCD /* CombineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38079272775A2D10082ECCD /* CombineTests.swift */; };
 		B380792B2775B4470082ECCD /* landmarkData.json in Resources */ = {isa = PBXBuildFile; fileRef = B380792A2775B4470082ECCD /* landmarkData.json */; };
@@ -24,44 +22,6 @@
 		B38108F3276CE97D0033F57D /* iHackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38108F2276CE97D0033F57D /* iHackerTests.swift */; };
 		B38108FD276CE97D0033F57D /* iHackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38108FC276CE97D0033F57D /* iHackerUITests.swift */; };
 		B38108FF276CE97D0033F57D /* iHackerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38108FE276CE97D0033F57D /* iHackerUITestsLaunchTests.swift */; };
-		B3EF8D1F27702881003140A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3EF8D1E27702881003140A9 /* Assets.xcassets */; };
-		B3EF8D2227702881003140A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3EF8D2027702881003140A9 /* LaunchScreen.storyboard */; };
-		B3EF8D4627702958003140A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EF8D4327702958003140A9 /* AppDelegate.swift */; };
-		B3EF8D4727702959003140A9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EF8D4427702958003140A9 /* ViewController.swift */; };
-		B3EF8D4827702959003140A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EF8D4527702958003140A9 /* SceneDelegate.swift */; };
-		B3EF8D4B27702B4F003140A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3EF8D4927702B4F003140A9 /* Main.storyboard */; };
-		B3EF8D4D27702E21003140A9 /* JHBase in Frameworks */ = {isa = PBXBuildFile; productRef = B3EF8D4C27702E21003140A9 /* JHBase */; };
-		B3EF8D4F27702E21003140A9 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B3EF8D4E27702E21003140A9 /* Alamofire */; };
-		B3EF8D5127702E21003140A9 /* CSQLite in Frameworks */ = {isa = PBXBuildFile; productRef = B3EF8D5027702E21003140A9 /* CSQLite */; };
-		B3EF8D5327702E21003140A9 /* ESPullToRefresh in Frameworks */ = {isa = PBXBuildFile; productRef = B3EF8D5227702E21003140A9 /* ESPullToRefresh */; };
-		B3EF8D5527702E21003140A9 /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = B3EF8D5427702E21003140A9 /* GRDB */; };
-		B3EF8D5727702E21003140A9 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B3EF8D5627702E21003140A9 /* IQKeyboardManagerSwift */; };
-		B3EF8D5927702E22003140A9 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = B3EF8D5827702E22003140A9 /* Kingfisher */; };
-		B3EF8D5B27702E22003140A9 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = B3EF8D5A27702E22003140A9 /* Moya */; };
-		B3EF8D5D27702E22003140A9 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B3EF8D5C27702E22003140A9 /* SnapKit */; };
-		B3EF8D5F27702E22003140A9 /* SwifterSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B3EF8D5E27702E22003140A9 /* SwifterSwift */; };
-		B3EF8D6127702E22003140A9 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = B3EF8D6027702E22003140A9 /* SwiftyJSON */; };
-		B3EF8D64277030CC003140A9 /* JHMornInspecterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EF8D63277030CC003140A9 /* JHMornInspecterController.swift */; };
-		B3EF8D672770508B003140A9 /* ipFile.plist in Resources */ = {isa = PBXBuildFile; fileRef = B3EF8D662770508B003140A9 /* ipFile.plist */; };
-		B3EF8D6E27705B3D003140A9 /* OHHTTPStubs in Frameworks */ = {isa = PBXBuildFile; productRef = B3EF8D6D27705B3D003140A9 /* OHHTTPStubs */; };
-		B3EF8D7027705B3D003140A9 /* OHHTTPStubsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B3EF8D6F27705B3D003140A9 /* OHHTTPStubsSwift */; };
-		B3EF8D7727705EA0003140A9 /* SaveMorningCheckImg.json in Resources */ = {isa = PBXBuildFile; fileRef = B3EF8D7227705EA0003140A9 /* SaveMorningCheckImg.json */; };
-		B3EF8D7827705EA0003140A9 /* GetSimilarityScore.json in Resources */ = {isa = PBXBuildFile; fileRef = B3EF8D7327705EA0003140A9 /* GetSimilarityScore.json */; };
-		B3EF8D7927705EA0003140A9 /* GetMorningCheckSettingByStoreId.json in Resources */ = {isa = PBXBuildFile; fileRef = B3EF8D7427705EA0003140A9 /* GetMorningCheckSettingByStoreId.json */; };
-		B3EF8D7A27705EA0003140A9 /* GetEmployeeFaceInfoByOrgIdUserId.json in Resources */ = {isa = PBXBuildFile; fileRef = B3EF8D7527705EA0003140A9 /* GetEmployeeFaceInfoByOrgIdUserId.json */; };
-		B3EF8D7B27705EA0003140A9 /* RegisterFaceInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = B3EF8D7627705EA0003140A9 /* RegisterFaceInfo.json */; };
-		B3EF8D7D27706642003140A9 /* MBProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = B3EF8D7C27706642003140A9 /* MBProgressHUD */; };
-		B3EF8D8127706D62003140A9 /* JHMornCameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EF8D8027706D62003140A9 /* JHMornCameraController.swift */; };
-		B3EF8D8327706E8F003140A9 /* JHMornUpPhotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EF8D8227706E8F003140A9 /* JHMornUpPhotoController.swift */; };
-		B3EF8D8927709056003140A9 /* JHUniversalResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B3EF8D8827709056003140A9 /* JHUniversalResource.bundle */; };
-		B3EF8D9C2771B712003140A9 /* JHMornUploadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EF8D9B2771B712003140A9 /* JHMornUploadModel.swift */; };
-		B3EF8D9F2771BD33003140A9 /* JHDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EF8D9E2771BD33003140A9 /* JHDelegate.swift */; };
-		B3EF8DCD2771C46E003140A9 /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = B3EF8DCC2771C46E003140A9 /* Nimble */; };
-		B3EF8DCF2771C46E003140A9 /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = B3EF8DCE2771C46E003140A9 /* Quick */; };
-		B3EF8DD12771C49B003140A9 /* JinheAPPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EF8DD02771C49B003140A9 /* JinheAPPTests.swift */; };
-		B3EF8DD42771C4AE003140A9 /* JinheAPPUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EF8DD22771C4AE003140A9 /* JinheAPPUITestsLaunchTests.swift */; };
-		B3EF8DD52771C4AE003140A9 /* JinheAPPUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EF8DD32771C4AE003140A9 /* JinheAPPUITests.swift */; };
-		B3EF8DD72771C4EF003140A9 /* JNRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EF8DD62771C4EF003140A9 /* JNRequestTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,26 +39,10 @@
 			remoteGlobalIDString = B38108DD276CE97B0033F57D;
 			remoteInfo = iHacker;
 		};
-		B3EF8D2927702881003140A9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B38108D6276CE97B0033F57D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B3EF8D122770287E003140A9;
-			remoteInfo = JinheAPP;
-		};
-		B3EF8D3327702882003140A9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B38108D6276CE97B0033F57D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B3EF8D122770287E003140A9;
-			remoteInfo = JinheAPP;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		B3498A752772F1A000557C2F /* QuickTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickTests.swift; sourceTree = "<group>"; };
-		B3498ABC2773242400557C2F /* Env.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Env.swift; sourceTree = "<group>"; };
-		B3498AC427733AF500557C2F /* ENV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ENV.swift; sourceTree = "<group>"; };
 		B38079272775A2D10082ECCD /* CombineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineTests.swift; sourceTree = "<group>"; };
 		B380792A2775B4470082ECCD /* landmarkData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = landmarkData.json; sourceTree = "<group>"; };
 		B380792C2775B4B60082ECCD /* LandmarkT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkT.swift; sourceTree = "<group>"; };
@@ -113,33 +57,7 @@
 		B38108F8276CE97D0033F57D /* iHackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iHackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B38108FC276CE97D0033F57D /* iHackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iHackerUITests.swift; sourceTree = "<group>"; };
 		B38108FE276CE97D0033F57D /* iHackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iHackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		B3EF8D132770287E003140A9 /* JinheAPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JinheAPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		B3EF8D1E27702881003140A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		B3EF8D2127702881003140A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		B3EF8D2327702881003140A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B3EF8D2827702881003140A9 /* JinheAPPTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JinheAPPTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B3EF8D3227702881003140A9 /* JinheAPPUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JinheAPPUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B3EF8D4327702958003140A9 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B3EF8D4427702958003140A9 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B3EF8D4527702958003140A9 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B3EF8D4A27702B4F003140A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		B3EF8D63277030CC003140A9 /* JHMornInspecterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHMornInspecterController.swift; sourceTree = "<group>"; };
-		B3EF8D662770508B003140A9 /* ipFile.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ipFile.plist; sourceTree = "<group>"; };
-		B3EF8D7227705EA0003140A9 /* SaveMorningCheckImg.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SaveMorningCheckImg.json; sourceTree = "<group>"; };
-		B3EF8D7327705EA0003140A9 /* GetSimilarityScore.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetSimilarityScore.json; sourceTree = "<group>"; };
-		B3EF8D7427705EA0003140A9 /* GetMorningCheckSettingByStoreId.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetMorningCheckSettingByStoreId.json; sourceTree = "<group>"; };
-		B3EF8D7527705EA0003140A9 /* GetEmployeeFaceInfoByOrgIdUserId.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetEmployeeFaceInfoByOrgIdUserId.json; sourceTree = "<group>"; };
-		B3EF8D7627705EA0003140A9 /* RegisterFaceInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = RegisterFaceInfo.json; sourceTree = "<group>"; };
-		B3EF8D8027706D62003140A9 /* JHMornCameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHMornCameraController.swift; sourceTree = "<group>"; };
-		B3EF8D8227706E8F003140A9 /* JHMornUpPhotoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHMornUpPhotoController.swift; sourceTree = "<group>"; };
-		B3EF8D8827709056003140A9 /* JHUniversalResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = JHUniversalResource.bundle; path = ../../../JHBasePackage/JHBaseDemo/JHBaseDemo/JHUniversalResource.bundle; sourceTree = "<group>"; };
 		B3EF8D8A27716F54003140A9 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		B3EF8D9B2771B712003140A9 /* JHMornUploadModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHMornUploadModel.swift; sourceTree = "<group>"; };
-		B3EF8D9E2771BD33003140A9 /* JHDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHDelegate.swift; sourceTree = "<group>"; };
-		B3EF8DD02771C49B003140A9 /* JinheAPPTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JinheAPPTests.swift; sourceTree = "<group>"; };
-		B3EF8DD22771C4AE003140A9 /* JinheAPPUITestsLaunchTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JinheAPPUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		B3EF8DD32771C4AE003140A9 /* JinheAPPUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JinheAPPUITests.swift; sourceTree = "<group>"; };
-		B3EF8DD62771C4EF003140A9 /* JNRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JNRequestTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,62 +85,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B3EF8D102770287E003140A9 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B3EF8D7027705B3D003140A9 /* OHHTTPStubsSwift in Frameworks */,
-				B3EF8D5127702E21003140A9 /* CSQLite in Frameworks */,
-				B3EF8D5527702E21003140A9 /* GRDB in Frameworks */,
-				B3EF8D5B27702E22003140A9 /* Moya in Frameworks */,
-				B3EF8D5F27702E22003140A9 /* SwifterSwift in Frameworks */,
-				B3EF8D6127702E22003140A9 /* SwiftyJSON in Frameworks */,
-				B3EF8D5927702E22003140A9 /* Kingfisher in Frameworks */,
-				B3EF8D4D27702E21003140A9 /* JHBase in Frameworks */,
-				B3EF8D6E27705B3D003140A9 /* OHHTTPStubs in Frameworks */,
-				B3EF8D5327702E21003140A9 /* ESPullToRefresh in Frameworks */,
-				B3EF8D7D27706642003140A9 /* MBProgressHUD in Frameworks */,
-				B3EF8D5D27702E22003140A9 /* SnapKit in Frameworks */,
-				B3EF8D4F27702E21003140A9 /* Alamofire in Frameworks */,
-				B3EF8D5727702E21003140A9 /* IQKeyboardManagerSwift in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B3EF8D2527702881003140A9 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B3EF8DCF2771C46E003140A9 /* Quick in Frameworks */,
-				B3EF8DCD2771C46E003140A9 /* Nimble in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B3EF8D2F27702881003140A9 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B3498ABB277323E200557C2F /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				B3498ABC2773242400557C2F /* Env.swift */,
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
-		B3498AC327733AD200557C2F /* env */ = {
-			isa = PBXGroup;
-			children = (
-				B3498AC427733AF500557C2F /* ENV.swift */,
-			);
-			path = env;
-			sourceTree = "<group>";
-		};
 		B38079292775B3E90082ECCD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -238,9 +103,6 @@
 				B38108E0276CE97B0033F57D /* iHacker */,
 				B38108F1276CE97D0033F57D /* iHackerTests */,
 				B38108FB276CE97D0033F57D /* iHackerUITests */,
-				B3EF8D142770287F003140A9 /* JinheAPP */,
-				B3EF8D2B27702881003140A9 /* JinheAPPTests */,
-				B3EF8D3527702882003140A9 /* JinheAPPUITests */,
 				B38108DF276CE97B0033F57D /* Products */,
 				B3EF8BBE2770228D003140A9 /* Frameworks */,
 			);
@@ -252,9 +114,6 @@
 				B38108DE276CE97B0033F57D /* iHacker.app */,
 				B38108EE276CE97D0033F57D /* iHackerTests.xctest */,
 				B38108F8276CE97D0033F57D /* iHackerUITests.xctest */,
-				B3EF8D132770287E003140A9 /* JinheAPP.app */,
-				B3EF8D2827702881003140A9 /* JinheAPPTests.xctest */,
-				B3EF8D3227702881003140A9 /* JinheAPPUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -305,92 +164,6 @@
 			children = (
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		B3EF8D142770287F003140A9 /* JinheAPP */ = {
-			isa = PBXGroup;
-			children = (
-				B3EF8D6527705044003140A9 /* Resoures */,
-				B3EF8D6227703084003140A9 /* 晨检机 */,
-				B3EF8D4327702958003140A9 /* AppDelegate.swift */,
-				B3EF8D4527702958003140A9 /* SceneDelegate.swift */,
-				B3EF8D4427702958003140A9 /* ViewController.swift */,
-				B3EF8D1E27702881003140A9 /* Assets.xcassets */,
-				B3EF8D4927702B4F003140A9 /* Main.storyboard */,
-				B3EF8D2027702881003140A9 /* LaunchScreen.storyboard */,
-				B3EF8D2327702881003140A9 /* Info.plist */,
-			);
-			path = JinheAPP;
-			sourceTree = "<group>";
-		};
-		B3EF8D2B27702881003140A9 /* JinheAPPTests */ = {
-			isa = PBXGroup;
-			children = (
-				B3498AC327733AD200557C2F /* env */,
-				B3EF8DD02771C49B003140A9 /* JinheAPPTests.swift */,
-				B3EF8DD62771C4EF003140A9 /* JNRequestTests.swift */,
-			);
-			path = JinheAPPTests;
-			sourceTree = "<group>";
-		};
-		B3EF8D3527702882003140A9 /* JinheAPPUITests */ = {
-			isa = PBXGroup;
-			children = (
-				B3EF8DD32771C4AE003140A9 /* JinheAPPUITests.swift */,
-				B3EF8DD22771C4AE003140A9 /* JinheAPPUITestsLaunchTests.swift */,
-			);
-			path = JinheAPPUITests;
-			sourceTree = "<group>";
-		};
-		B3EF8D6227703084003140A9 /* 晨检机 */ = {
-			isa = PBXGroup;
-			children = (
-				B3498ABB277323E200557C2F /* Utils */,
-				B3EF8D9D2771BCF5003140A9 /* Delegate */,
-				B3EF8D9A2771B6F6003140A9 /* Models */,
-				B3EF8D63277030CC003140A9 /* JHMornInspecterController.swift */,
-				B3EF8D8027706D62003140A9 /* JHMornCameraController.swift */,
-				B3EF8D8227706E8F003140A9 /* JHMornUpPhotoController.swift */,
-			);
-			path = "晨检机";
-			sourceTree = "<group>";
-		};
-		B3EF8D6527705044003140A9 /* Resoures */ = {
-			isa = PBXGroup;
-			children = (
-				B3EF8D8827709056003140A9 /* JHUniversalResource.bundle */,
-				B3EF8D7127705EA0003140A9 /* JSON */,
-				B3EF8D662770508B003140A9 /* ipFile.plist */,
-			);
-			path = Resoures;
-			sourceTree = "<group>";
-		};
-		B3EF8D7127705EA0003140A9 /* JSON */ = {
-			isa = PBXGroup;
-			children = (
-				B3EF8D7227705EA0003140A9 /* SaveMorningCheckImg.json */,
-				B3EF8D7327705EA0003140A9 /* GetSimilarityScore.json */,
-				B3EF8D7427705EA0003140A9 /* GetMorningCheckSettingByStoreId.json */,
-				B3EF8D7527705EA0003140A9 /* GetEmployeeFaceInfoByOrgIdUserId.json */,
-				B3EF8D7627705EA0003140A9 /* RegisterFaceInfo.json */,
-			);
-			path = JSON;
-			sourceTree = "<group>";
-		};
-		B3EF8D9A2771B6F6003140A9 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				B3EF8D9B2771B712003140A9 /* JHMornUploadModel.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		B3EF8D9D2771BCF5003140A9 /* Delegate */ = {
-			isa = PBXGroup;
-			children = (
-				B3EF8D9E2771BD33003140A9 /* JHDelegate.swift */,
-			);
-			path = Delegate;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -456,79 +229,6 @@
 			productReference = B38108F8276CE97D0033F57D /* iHackerUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
-		B3EF8D122770287E003140A9 /* JinheAPP */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B3EF8D3A27702882003140A9 /* Build configuration list for PBXNativeTarget "JinheAPP" */;
-			buildPhases = (
-				B3EF8D0F2770287E003140A9 /* Sources */,
-				B3EF8D102770287E003140A9 /* Frameworks */,
-				B3EF8D112770287E003140A9 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = JinheAPP;
-			packageProductDependencies = (
-				B3EF8D4C27702E21003140A9 /* JHBase */,
-				B3EF8D4E27702E21003140A9 /* Alamofire */,
-				B3EF8D5027702E21003140A9 /* CSQLite */,
-				B3EF8D5227702E21003140A9 /* ESPullToRefresh */,
-				B3EF8D5427702E21003140A9 /* GRDB */,
-				B3EF8D5627702E21003140A9 /* IQKeyboardManagerSwift */,
-				B3EF8D5827702E22003140A9 /* Kingfisher */,
-				B3EF8D5A27702E22003140A9 /* Moya */,
-				B3EF8D5C27702E22003140A9 /* SnapKit */,
-				B3EF8D5E27702E22003140A9 /* SwifterSwift */,
-				B3EF8D6027702E22003140A9 /* SwiftyJSON */,
-				B3EF8D6D27705B3D003140A9 /* OHHTTPStubs */,
-				B3EF8D6F27705B3D003140A9 /* OHHTTPStubsSwift */,
-				B3EF8D7C27706642003140A9 /* MBProgressHUD */,
-			);
-			productName = JinheAPP;
-			productReference = B3EF8D132770287E003140A9 /* JinheAPP.app */;
-			productType = "com.apple.product-type.application";
-		};
-		B3EF8D2727702881003140A9 /* JinheAPPTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B3EF8D3D27702882003140A9 /* Build configuration list for PBXNativeTarget "JinheAPPTests" */;
-			buildPhases = (
-				B3EF8D2427702881003140A9 /* Sources */,
-				B3EF8D2527702881003140A9 /* Frameworks */,
-				B3EF8D2627702881003140A9 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				B3EF8D2A27702881003140A9 /* PBXTargetDependency */,
-			);
-			name = JinheAPPTests;
-			packageProductDependencies = (
-				B3EF8DCC2771C46E003140A9 /* Nimble */,
-				B3EF8DCE2771C46E003140A9 /* Quick */,
-			);
-			productName = JinheAPPTests;
-			productReference = B3EF8D2827702881003140A9 /* JinheAPPTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		B3EF8D3127702881003140A9 /* JinheAPPUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B3EF8D4027702882003140A9 /* Build configuration list for PBXNativeTarget "JinheAPPUITests" */;
-			buildPhases = (
-				B3EF8D2E27702881003140A9 /* Sources */,
-				B3EF8D2F27702881003140A9 /* Frameworks */,
-				B3EF8D3027702881003140A9 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				B3EF8D3427702882003140A9 /* PBXTargetDependency */,
-			);
-			name = JinheAPPUITests;
-			productName = JinheAPPUITests;
-			productReference = B3EF8D3227702881003140A9 /* JinheAPPUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -550,18 +250,6 @@
 						CreatedOnToolsVersion = 13.2;
 						TestTargetID = B38108DD276CE97B0033F57D;
 					};
-					B3EF8D122770287E003140A9 = {
-						CreatedOnToolsVersion = 13.2.1;
-						LastSwiftMigration = 1320;
-					};
-					B3EF8D2727702881003140A9 = {
-						CreatedOnToolsVersion = 13.2.1;
-						TestTargetID = B3EF8D122770287E003140A9;
-					};
-					B3EF8D3127702881003140A9 = {
-						CreatedOnToolsVersion = 13.2.1;
-						TestTargetID = B3EF8D122770287E003140A9;
-					};
 				};
 			};
 			buildConfigurationList = B38108D9276CE97B0033F57D /* Build configuration list for PBXProject "iHacker" */;
@@ -580,9 +268,6 @@
 				B38108DD276CE97B0033F57D /* iHacker */,
 				B38108ED276CE97D0033F57D /* iHackerTests */,
 				B38108F7276CE97D0033F57D /* iHackerUITests */,
-				B3EF8D122770287E003140A9 /* JinheAPP */,
-				B3EF8D2727702881003140A9 /* JinheAPPTests */,
-				B3EF8D3127702881003140A9 /* JinheAPPUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -606,37 +291,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		B38108F6276CE97D0033F57D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B3EF8D112770287E003140A9 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B3EF8D7727705EA0003140A9 /* SaveMorningCheckImg.json in Resources */,
-				B3EF8D4B27702B4F003140A9 /* Main.storyboard in Resources */,
-				B3EF8D7827705EA0003140A9 /* GetSimilarityScore.json in Resources */,
-				B3EF8D8927709056003140A9 /* JHUniversalResource.bundle in Resources */,
-				B3EF8D7927705EA0003140A9 /* GetMorningCheckSettingByStoreId.json in Resources */,
-				B3EF8D7A27705EA0003140A9 /* GetEmployeeFaceInfoByOrgIdUserId.json in Resources */,
-				B3EF8D2227702881003140A9 /* LaunchScreen.storyboard in Resources */,
-				B3EF8D1F27702881003140A9 /* Assets.xcassets in Resources */,
-				B3EF8D672770508B003140A9 /* ipFile.plist in Resources */,
-				B3EF8D7B27705EA0003140A9 /* RegisterFaceInfo.json in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B3EF8D2627702881003140A9 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B3EF8D3027702881003140A9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -676,41 +330,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B3EF8D0F2770287E003140A9 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B3EF8D9F2771BD33003140A9 /* JHDelegate.swift in Sources */,
-				B3EF8D8127706D62003140A9 /* JHMornCameraController.swift in Sources */,
-				B3EF8D8327706E8F003140A9 /* JHMornUpPhotoController.swift in Sources */,
-				B3498ABD2773242400557C2F /* Env.swift in Sources */,
-				B3EF8D9C2771B712003140A9 /* JHMornUploadModel.swift in Sources */,
-				B3EF8D4727702959003140A9 /* ViewController.swift in Sources */,
-				B3EF8D64277030CC003140A9 /* JHMornInspecterController.swift in Sources */,
-				B3EF8D4627702958003140A9 /* AppDelegate.swift in Sources */,
-				B3EF8D4827702959003140A9 /* SceneDelegate.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B3EF8D2427702881003140A9 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B3EF8DD12771C49B003140A9 /* JinheAPPTests.swift in Sources */,
-				B3498AC527733AF500557C2F /* ENV.swift in Sources */,
-				B3EF8DD72771C4EF003140A9 /* JNRequestTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B3EF8D2E27702881003140A9 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B3EF8DD52771C4AE003140A9 /* JinheAPPUITests.swift in Sources */,
-				B3EF8DD42771C4AE003140A9 /* JinheAPPUITestsLaunchTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -724,36 +343,7 @@
 			target = B38108DD276CE97B0033F57D /* iHacker */;
 			targetProxy = B38108F9276CE97D0033F57D /* PBXContainerItemProxy */;
 		};
-		B3EF8D2A27702881003140A9 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B3EF8D122770287E003140A9 /* JinheAPP */;
-			targetProxy = B3EF8D2927702881003140A9 /* PBXContainerItemProxy */;
-		};
-		B3EF8D3427702882003140A9 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B3EF8D122770287E003140A9 /* JinheAPP */;
-			targetProxy = B3EF8D3327702882003140A9 /* PBXContainerItemProxy */;
-		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		B3EF8D2027702881003140A9 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B3EF8D2127702881003140A9 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		B3EF8D4927702B4F003140A9 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B3EF8D4A27702B4F003140A9 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		B3810900276CE97D0033F57D /* Debug */ = {
@@ -1007,137 +597,6 @@
 			};
 			name = Release;
 		};
-		B3EF8D3B27702882003140A9 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2C4H9T5RF5;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = JinheAPP/Info.plist;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jinhe.APP;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		B3EF8D3C27702882003140A9 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2C4H9T5RF5;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = JinheAPP/Info.plist;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jinhe.APP;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		B3EF8D3E27702882003140A9 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jinhe.APP.JinheAPPTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JinheAPP.app/JinheAPP";
-			};
-			name = Debug;
-		};
-		B3EF8D3F27702882003140A9 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jinhe.APP.JinheAPPTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JinheAPP.app/JinheAPP";
-			};
-			name = Release;
-		};
-		B3EF8D4127702882003140A9 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jinhe.APP.JinheAPPUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = JinheAPP;
-			};
-			name = Debug;
-		};
-		B3EF8D4227702882003140A9 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jinhe.APP.JinheAPPUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = JinheAPP;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1177,33 +636,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B3EF8D3A27702882003140A9 /* Build configuration list for PBXNativeTarget "JinheAPP" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B3EF8D3B27702882003140A9 /* Debug */,
-				B3EF8D3C27702882003140A9 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		B3EF8D3D27702882003140A9 /* Build configuration list for PBXNativeTarget "JinheAPPTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B3EF8D3E27702882003140A9 /* Debug */,
-				B3EF8D3F27702882003140A9 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		B3EF8D4027702882003140A9 /* Build configuration list for PBXNativeTarget "JinheAPPUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B3EF8D4127702882003140A9 /* Debug */,
-				B3EF8D4227702882003140A9 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1218,70 +650,6 @@
 		B38078E42775746A0082ECCD /* Landmarks */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Landmarks;
-		};
-		B3EF8D4C27702E21003140A9 /* JHBase */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = JHBase;
-		};
-		B3EF8D4E27702E21003140A9 /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Alamofire;
-		};
-		B3EF8D5027702E21003140A9 /* CSQLite */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = CSQLite;
-		};
-		B3EF8D5227702E21003140A9 /* ESPullToRefresh */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = ESPullToRefresh;
-		};
-		B3EF8D5427702E21003140A9 /* GRDB */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = GRDB;
-		};
-		B3EF8D5627702E21003140A9 /* IQKeyboardManagerSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = IQKeyboardManagerSwift;
-		};
-		B3EF8D5827702E22003140A9 /* Kingfisher */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Kingfisher;
-		};
-		B3EF8D5A27702E22003140A9 /* Moya */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Moya;
-		};
-		B3EF8D5C27702E22003140A9 /* SnapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = SnapKit;
-		};
-		B3EF8D5E27702E22003140A9 /* SwifterSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = SwifterSwift;
-		};
-		B3EF8D6027702E22003140A9 /* SwiftyJSON */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = SwiftyJSON;
-		};
-		B3EF8D6D27705B3D003140A9 /* OHHTTPStubs */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = OHHTTPStubs;
-		};
-		B3EF8D6F27705B3D003140A9 /* OHHTTPStubsSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = OHHTTPStubsSwift;
-		};
-		B3EF8D7C27706642003140A9 /* MBProgressHUD */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = MBProgressHUD;
-		};
-		B3EF8DCC2771C46E003140A9 /* Nimble */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Nimble;
-		};
-		B3EF8DCE2771C46E003140A9 /* Quick */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Quick;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

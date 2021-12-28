@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:iWorker/iWorker.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "container:iHacker.xcodeproj">
    </FileRef>
    <FileRef

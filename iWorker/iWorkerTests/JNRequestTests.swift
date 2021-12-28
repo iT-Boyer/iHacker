@@ -12,7 +12,7 @@ import JHBase
 import OHHTTPStubs
 import OHHTTPStubsSwift
 import SwiftyJSON
-@testable import JinheAPP
+@testable import iWorker
 import XCTest
 import Alamofire
 
@@ -26,7 +26,7 @@ class JNRequestTests: QuickSpec {
                 expectation = self.expectation(description: "token认证")
             }
             
-            xit("提交晨检拍照信息:SaveMorningCheckImg") {
+            it("提交晨检拍照信息:SaveMorningCheckImg") {
                 let urlStr = JHBaseDomain.fullURL(with: "api_host_ripx", path: "/api/MorningCheck/SaveMorningCheckImg")
                 let request = JN.post(urlStr, parameters: [:])
                 request.response { response in
@@ -47,7 +47,7 @@ class JNRequestTests: QuickSpec {
                 })
             }
             
-            xit("晨检配置：GetMorningCheckSettingByStoreId") {
+            it("晨检配置：GetMorningCheckSettingByStoreId") {
                 let urlStr = JHBaseDomain.fullURL(with: "api_host_ripx", path: "/api/MorningCheck/GetMorningCheckSettingByStoreId")
                 let request = JN.post(urlStr, parameters: [:])
                 request.response { response in

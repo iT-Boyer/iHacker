@@ -1,13 +1,13 @@
 //
-//  JinheAPPUITestsLaunchTests.swift
-//  JinheAPPUITests
+//  iWorkerUITestsLaunchTests.swift
+//  iWorkerUITests
 //
-//  Created by boyer on 2021/12/20.
+//  Created by boyer on 2021/12/28.
 //
 
 import XCTest
 
-class JinheAPPUITestsLaunchTests: XCTestCase {
+class iWorkerUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true

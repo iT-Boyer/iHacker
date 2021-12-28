@@ -1,13 +1,13 @@
 //
-//  JinheAPPUITests.swift
-//  JinheAPPUITests
+//  iWorkerUITests.swift
+//  iWorkerUITests
 //
-//  Created by boyer on 2021/12/20.
+//  Created by boyer on 2021/12/28.
 //
 
 import XCTest
 
-class JinheAPPUITests: XCTestCase {
+class iWorkerUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
