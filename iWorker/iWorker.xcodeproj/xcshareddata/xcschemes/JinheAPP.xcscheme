@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B3EF8D122770287E003140A9"
+               BlueprintIdentifier = "B38D8941277C2A4300888EFB"
                BuildableName = "JinheAPP.app"
                BlueprintName = "JinheAPP"
-               ReferencedContainer = "container:iHacker.xcodeproj">
+               ReferencedContainer = "container:iWorker.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -28,26 +28,6 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B3EF8D2727702881003140A9"
-               BuildableName = "JinheAPPTests.xctest"
-               BlueprintName = "JinheAPPTests"
-               ReferencedContainer = "container:iHacker.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B3EF8D3127702881003140A9"
-               BuildableName = "JinheAPPUITests.xctest"
-               BlueprintName = "JinheAPPUITests"
-               ReferencedContainer = "container:iHacker.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -64,10 +44,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B3EF8D122770287E003140A9"
+            BlueprintIdentifier = "B38D8941277C2A4300888EFB"
             BuildableName = "JinheAPP.app"
             BlueprintName = "JinheAPP"
-            ReferencedContainer = "container:iHacker.xcodeproj">
+            ReferencedContainer = "container:iWorker.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -81,10 +61,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B3EF8D122770287E003140A9"
+            BlueprintIdentifier = "B38D8941277C2A4300888EFB"
             BuildableName = "JinheAPP.app"
             BlueprintName = "JinheAPP"
-            ReferencedContainer = "container:iHacker.xcodeproj">
+            ReferencedContainer = "container:iWorker.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
