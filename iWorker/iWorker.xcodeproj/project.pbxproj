@@ -226,6 +226,7 @@
 		B3BC83D7277C75D70023257B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B3BC83DC277C76100023257B /* RuntimeCmd-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RuntimeCmd-Bridging-Header.h"; sourceTree = "<group>"; };
 		B3BC83DD277C76110023257B /* Teacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Teacher.swift; sourceTree = "<group>"; };
+		B3BC83DF277C77B40023257B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -552,6 +553,7 @@
 				B3BC83D7277C75D70023257B /* main.m */,
 				B3BC83DD277C76110023257B /* Teacher.swift */,
 				B3BC83DC277C76100023257B /* RuntimeCmd-Bridging-Header.h */,
+				B3BC83DF277C77B40023257B /* README.md */,
 			);
 			path = RuntimeCmd;
 			sourceTree = "<group>";
