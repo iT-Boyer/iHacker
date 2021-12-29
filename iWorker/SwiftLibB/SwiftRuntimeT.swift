@@ -18,7 +18,7 @@ public class SwiftRuntimeT: NSObject {
     //oc runtime调用swift方法
     //断言：dynamic 修饰之后，可以在objc_send方法中获取到
     @objc
-    public dynamic func sharedT() {
+    public func sharedT() {
         print("方法名："+#function)
     }
 }

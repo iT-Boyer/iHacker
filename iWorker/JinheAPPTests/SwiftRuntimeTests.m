@@ -35,7 +35,18 @@
 
 - (void)testSwiftRuntime {
     JHOneReflectVC *oc = [JHOneReflectVC new];
-    [oc swiftRuntimeT];
+    [oc swiftMethod];
 }
 
+-(void)testOCRuntime
+{
+    JHOneReflectVC *oc = [JHOneReflectVC new];
+    [oc OCMethod];
+}
+
+-(void)testSwiftConfig
+{
+    JHOneReflectVC *oc = [JHOneReflectVC new];
+    [oc swiftConfig];
+}
 @end

@@ -10,7 +10,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface JHOneReflectVC : UIViewController
--(void)swiftRuntimeT;
+-(void)swiftMethod;
+-(void)OCMethod;
+-(void)swiftConfig;
 @end
 
 NS_ASSUME_NONNULL_END

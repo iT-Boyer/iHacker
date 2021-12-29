@@ -69,6 +69,11 @@
 		B38D89AB277C33C800888EFB /* SwiftRuntimeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B38D89AA277C33C800888EFB /* SwiftRuntimeTests.m */; };
 		B38D89AD277C3C4D00888EFB /* libObjcLibA.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B38D897B277C2A8D00888EFB /* libObjcLibA.a */; };
 		B38D89B6277C40F300888EFB /* SwiftConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38D89B5277C40F300888EFB /* SwiftConfig.swift */; };
+		B38D89BE277C480700888EFB /* SwiftLibBTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38D89BD277C480700888EFB /* SwiftLibBTests.swift */; };
+		B38D89BF277C480700888EFB /* libSwiftLibB.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B38D8993277C2AD900888EFB /* libSwiftLibB.a */; };
+		B38D89C6277C482A00888EFB /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = B38D89C5277C482A00888EFB /* Nimble */; };
+		B38D89C8277C482A00888EFB /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = B38D89C7277C482A00888EFB /* Quick */; };
+		B38D89CB277C488700888EFB /* RuntimeAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38D89CA277C488700888EFB /* RuntimeAPITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +118,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = B38D897A277C2A8D00888EFB;
 			remoteInfo = ObjcLibA;
+		};
+		B38D89C0277C480700888EFB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B38D8893277B199400888EFB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B38D8992277C2AD900888EFB;
+			remoteInfo = SwiftLibB;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -196,6 +208,9 @@
 		B38D89AA277C33C800888EFB /* SwiftRuntimeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwiftRuntimeTests.m; sourceTree = "<group>"; };
 		B38D89B4277C40F200888EFB /* JinheAPP-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JinheAPP-Bridging-Header.h"; sourceTree = "<group>"; };
 		B38D89B5277C40F300888EFB /* SwiftConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftConfig.swift; sourceTree = "<group>"; };
+		B38D89BB277C480700888EFB /* SwiftLibBTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftLibBTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B38D89BD277C480700888EFB /* SwiftLibBTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftLibBTests.swift; sourceTree = "<group>"; };
+		B38D89CA277C488700888EFB /* RuntimeAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuntimeAPITests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -275,6 +290,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B38D89B8277C480700888EFB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B38D89C8277C482A00888EFB /* Quick in Frameworks */,
+				B38D89BF277C480700888EFB /* libSwiftLibB.a in Frameworks */,
+				B38D89C6277C482A00888EFB /* Nimble in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -289,6 +314,7 @@
 				B38D8969277C2A4700888EFB /* JinheAPPUITests */,
 				B38D897C277C2A8D00888EFB /* ObjcLibA */,
 				B38D8994277C2AD900888EFB /* SwiftLibB */,
+				B38D89BC277C480700888EFB /* SwiftLibBTests */,
 				B38D889C277B199400888EFB /* Products */,
 				B38D8915277B1BAE00888EFB /* Frameworks */,
 			);
@@ -305,6 +331,7 @@
 				B38D8966277C2A4700888EFB /* JinheAPPUITests.xctest */,
 				B38D897B277C2A8D00888EFB /* libObjcLibA.a */,
 				B38D8993277C2AD900888EFB /* libSwiftLibB.a */,
+				B38D89BB277C480700888EFB /* SwiftLibBTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -486,6 +513,15 @@
 			path = ReflectControllers;
 			sourceTree = "<group>";
 		};
+		B38D89BC277C480700888EFB /* SwiftLibBTests */ = {
+			isa = PBXGroup;
+			children = (
+				B38D89BD277C480700888EFB /* SwiftLibBTests.swift */,
+				B38D89CA277C488700888EFB /* RuntimeAPITests.swift */,
+			);
+			path = SwiftLibBTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -656,6 +692,28 @@
 			productReference = B38D8993277C2AD900888EFB /* libSwiftLibB.a */;
 			productType = "com.apple.product-type.library.static";
 		};
+		B38D89BA277C480700888EFB /* SwiftLibBTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B38D89C2277C480700888EFB /* Build configuration list for PBXNativeTarget "SwiftLibBTests" */;
+			buildPhases = (
+				B38D89B7277C480700888EFB /* Sources */,
+				B38D89B8277C480700888EFB /* Frameworks */,
+				B38D89B9277C480700888EFB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B38D89C1277C480700888EFB /* PBXTargetDependency */,
+			);
+			name = SwiftLibBTests;
+			packageProductDependencies = (
+				B38D89C5277C482A00888EFB /* Nimble */,
+				B38D89C7277C482A00888EFB /* Quick */,
+			);
+			productName = SwiftLibBTests;
+			productReference = B38D89BB277C480700888EFB /* SwiftLibBTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -695,6 +753,9 @@
 					B38D8992277C2AD900888EFB = {
 						CreatedOnToolsVersion = 13.2.1;
 					};
+					B38D89BA277C480700888EFB = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
 				};
 			};
 			buildConfigurationList = B38D8896277B199400888EFB /* Build configuration list for PBXProject "iWorker" */;
@@ -718,6 +779,7 @@
 				B38D8965277C2A4700888EFB /* JinheAPPUITests */,
 				B38D897A277C2A8D00888EFB /* ObjcLibA */,
 				B38D8992277C2AD900888EFB /* SwiftLibB */,
+				B38D89BA277C480700888EFB /* SwiftLibBTests */,
 			);
 		};
 /* End PBXProject section */
@@ -772,6 +834,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		B38D8964277C2A4700888EFB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B38D89B9277C480700888EFB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -885,6 +954,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B38D89B7277C480700888EFB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B38D89BE277C480700888EFB /* SwiftLibBTests.swift in Sources */,
+				B38D89CB277C488700888EFB /* RuntimeAPITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -917,6 +995,11 @@
 			isa = PBXTargetDependency;
 			target = B38D897A277C2A8D00888EFB /* ObjcLibA */;
 			targetProxy = B38D89B2277C3CA200888EFB /* PBXContainerItemProxy */;
+		};
+		B38D89C1277C480700888EFB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B38D8992277C2AD900888EFB /* SwiftLibB */;
+			targetProxy = B38D89C0277C480700888EFB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1207,6 +1290,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = JinheAPP/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -1237,6 +1321,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = JinheAPP/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -1373,6 +1458,36 @@
 			};
 			name = Release;
 		};
+		B38D89C3277C480700888EFB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jinhe.-iWorker.SwiftLibBTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B38D89C4277C480700888EFB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jinhe.-iWorker.SwiftLibBTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1457,6 +1572,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		B38D89C2277C480700888EFB /* Build configuration list for PBXNativeTarget "SwiftLibBTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B38D89C3277C480700888EFB /* Debug */,
+				B38D89C4277C480700888EFB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1529,6 +1653,14 @@
 			productName = Nimble;
 		};
 		B38D89A3277C31A300888EFB /* Quick */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Quick;
+		};
+		B38D89C5277C482A00888EFB /* Nimble */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Nimble;
+		};
+		B38D89C7277C482A00888EFB /* Quick */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Quick;
 		};

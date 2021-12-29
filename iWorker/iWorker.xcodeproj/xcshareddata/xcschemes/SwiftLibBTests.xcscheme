@@ -16,19 +16,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B38D895B277C2A4600888EFB"
-               BuildableName = "JinheAPPTests.xctest"
-               BlueprintName = "JinheAPPTests"
-               ReferencedContainer = "container:iWorker.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B38D8965277C2A4700888EFB"
-               BuildableName = "JinheAPPUITests.xctest"
-               BlueprintName = "JinheAPPUITests"
+               BlueprintIdentifier = "B38D89BA277C480700888EFB"
+               BuildableName = "SwiftLibBTests.xctest"
+               BlueprintName = "SwiftLibBTests"
                ReferencedContainer = "container:iWorker.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -44,16 +34,6 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B38D8941277C2A4300888EFB"
-            BuildableName = "JinheAPP.app"
-            BlueprintName = "JinheAPP"
-            ReferencedContainer = "container:iWorker.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -61,15 +41,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B38D8941277C2A4300888EFB"
-            BuildableName = "JinheAPP.app"
-            BlueprintName = "JinheAPP"
-            ReferencedContainer = "container:iWorker.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

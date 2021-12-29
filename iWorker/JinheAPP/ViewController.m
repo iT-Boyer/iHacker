@@ -18,5 +18,9 @@
     // Do any additional setup after loading the view.
 }
 
++(void)classmethod
+{
+    NSLog(@"我是类方法");
+}
 
 @end
