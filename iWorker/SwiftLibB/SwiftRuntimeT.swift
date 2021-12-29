@@ -12,6 +12,7 @@ import UIKit
  参考：https://runningyoung.github.io/2016/05/01/2016-05-01-Swift-Read2/
  */
 
+@objc(SwiftRuntimeT)
 public class SwiftRuntimeT: NSObject {
 
     //oc runtime调用swift方法

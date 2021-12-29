@@ -68,6 +68,7 @@
 		B38D89A6277C31CB00888EFB /* SwiftRuntimeSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = B38D89A5277C31CB00888EFB /* SwiftRuntimeSpec.m */; };
 		B38D89AB277C33C800888EFB /* SwiftRuntimeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B38D89AA277C33C800888EFB /* SwiftRuntimeTests.m */; };
 		B38D89AD277C3C4D00888EFB /* libObjcLibA.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B38D897B277C2A8D00888EFB /* libObjcLibA.a */; };
+		B38D89B6277C40F300888EFB /* SwiftConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38D89B5277C40F300888EFB /* SwiftConfig.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -193,6 +194,8 @@
 		B38D899F277C2ED400888EFB /* JHOneReflectVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHOneReflectVC.m; sourceTree = "<group>"; };
 		B38D89A5277C31CB00888EFB /* SwiftRuntimeSpec.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwiftRuntimeSpec.m; sourceTree = "<group>"; };
 		B38D89AA277C33C800888EFB /* SwiftRuntimeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwiftRuntimeTests.m; sourceTree = "<group>"; };
+		B38D89B4277C40F200888EFB /* JinheAPP-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JinheAPP-Bridging-Header.h"; sourceTree = "<group>"; };
+		B38D89B5277C40F300888EFB /* SwiftConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftConfig.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -431,6 +434,8 @@
 				B38D8952277C2A4600888EFB /* LaunchScreen.storyboard */,
 				B38D8955277C2A4600888EFB /* Info.plist */,
 				B38D8956277C2A4600888EFB /* main.m */,
+				B38D89B5277C40F300888EFB /* SwiftConfig.swift */,
+				B38D89B4277C40F200888EFB /* JinheAPP-Bridging-Header.h */,
 			);
 			path = JinheAPP;
 			sourceTree = "<group>";
@@ -674,6 +679,7 @@
 					};
 					B38D8941277C2A4300888EFB = {
 						CreatedOnToolsVersion = 13.2.1;
+						LastSwiftMigration = 1320;
 					};
 					B38D895B277C2A4600888EFB = {
 						CreatedOnToolsVersion = 13.2.1;
@@ -835,6 +841,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B38D894C277C2A4300888EFB /* ViewController.m in Sources */,
+				B38D89B6277C40F300888EFB /* SwiftConfig.swift in Sources */,
 				B38D8946277C2A4300888EFB /* AppDelegate.m in Sources */,
 				B38D8957277C2A4600888EFB /* main.m in Sources */,
 				B38D8949277C2A4300888EFB /* SceneDelegate.m in Sources */,
@@ -1196,6 +1203,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1213,6 +1221,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jinhe.-iWorker.JinheAPP";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "JinheAPP/JinheAPP-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1222,6 +1233,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1239,6 +1251,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jinhe.-iWorker.JinheAPP";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "JinheAPP/JinheAPP-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -1246,6 +1260,7 @@
 		B38D8970277C2A4700888EFB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1263,6 +1278,7 @@
 		B38D8971277C2A4700888EFB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1280,6 +1296,7 @@
 		B38D8972277C2A4700888EFB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1295,6 +1312,7 @@
 		B38D8973277C2A4700888EFB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
