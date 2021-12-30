@@ -5,8 +5,7 @@
 //  Created by boyer on 2021/12/29.
 //
 
-import UIKit
-
+import Foundation
 /**
  1. 模拟oc调用swift的public方法（金和的井盖菜单逻辑）
  参考：https://runningyoung.github.io/2016/05/01/2016-05-01-Swift-Read2/

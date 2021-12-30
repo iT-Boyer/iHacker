@@ -12,7 +12,6 @@
 		B3821F68277C8B79005FFF8E /* Dog.m in Sources */ = {isa = PBXBuildFile; fileRef = B3821F67277C8B79005FFF8E /* Dog.m */; };
 		B3821F6B277C8BF1005FFF8E /* RuntimeCmdSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3821F6A277C8BF1005FFF8E /* RuntimeCmdSpec.swift */; };
 		B3821F6E277C8F3C005FFF8E /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3821F6D277C8F3C005FFF8E /* Person.swift */; };
-		B3821F6F277CAEE1005FFF8E /* libSwiftLibB.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B38D8993277C2AD900888EFB /* libSwiftLibB.a */; };
 		B38D889F277B199400888EFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38D889E277B199400888EFB /* AppDelegate.swift */; };
 		B38D88A1277B199400888EFB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38D88A0277B199400888EFB /* SceneDelegate.swift */; };
 		B38D88A3277B199400888EFB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38D88A2277B199400888EFB /* ViewController.swift */; };
@@ -82,6 +81,7 @@
 		B38D89CB277C488700888EFB /* RuntimeAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38D89CA277C488700888EFB /* RuntimeAPITests.swift */; };
 		B3BC83D8277C75D70023257B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B3BC83D7277C75D70023257B /* main.m */; };
 		B3BC83DE277C76110023257B /* Teacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BC83DD277C76110023257B /* Teacher.swift */; };
+		B3BC83E7277D4CA00023257B /* RuntimeOCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B3BC83E6277D4CA00023257B /* RuntimeOCTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -241,6 +241,7 @@
 		B3BC83DC277C76100023257B /* RuntimeCmd-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RuntimeCmd-Bridging-Header.h"; sourceTree = "<group>"; };
 		B3BC83DD277C76110023257B /* Teacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Teacher.swift; sourceTree = "<group>"; };
 		B3BC83DF277C77B40023257B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		B3BC83E6277D4CA00023257B /* RuntimeOCTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RuntimeOCTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -248,7 +249,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3821F6F277CAEE1005FFF8E /* libSwiftLibB.a in Frameworks */,
 				B3821F64277C8AE8005FFF8E /* Quick in Frameworks */,
 				B3821F62277C8AE8005FFF8E /* Nimble in Frameworks */,
 			);
@@ -353,30 +353,16 @@
 		B3821F5B277C8A03005FFF8E /* RuntimeCmdTests */ = {
 			isa = PBXGroup;
 			children = (
-				B3821F71277CB0BD005FFF8E /* Modulemap */,
-				B3821F6C277C8F1F005FFF8E /* swift */,
-				B3821F69277C8B7F005FFF8E /* objc */,
-				B3821F65277C8B79005FFF8E /* RuntimeCmdTests-Bridging-Header.h */,
-				B3821F6A277C8BF1005FFF8E /* RuntimeCmdSpec.swift */,
-			);
-			path = RuntimeCmdTests;
-			sourceTree = "<group>";
-		};
-		B3821F69277C8B7F005FFF8E /* objc */ = {
-			isa = PBXGroup;
-			children = (
+				B3BC83DF277C77B40023257B /* README.md */,
 				B3821F66277C8B79005FFF8E /* Dog.h */,
 				B3821F67277C8B79005FFF8E /* Dog.m */,
-			);
-			path = objc;
-			sourceTree = "<group>";
-		};
-		B3821F6C277C8F1F005FFF8E /* swift */ = {
-			isa = PBXGroup;
-			children = (
 				B3821F6D277C8F3C005FFF8E /* Person.swift */,
+				B3821F71277CB0BD005FFF8E /* Modulemap */,
+				B3821F65277C8B79005FFF8E /* RuntimeCmdTests-Bridging-Header.h */,
+				B3821F6A277C8BF1005FFF8E /* RuntimeCmdSpec.swift */,
+				B3BC83E6277D4CA00023257B /* RuntimeOCTests.m */,
 			);
-			path = swift;
+			path = RuntimeCmdTests;
 			sourceTree = "<group>";
 		};
 		B3821F71277CB0BD005FFF8E /* Modulemap */ = {
@@ -617,7 +603,6 @@
 				B3BC83D7277C75D70023257B /* main.m */,
 				B3BC83DD277C76110023257B /* Teacher.swift */,
 				B3BC83DC277C76100023257B /* RuntimeCmd-Bridging-Header.h */,
-				B3BC83DF277C77B40023257B /* README.md */,
 			);
 			path = RuntimeCmd;
 			sourceTree = "<group>";
@@ -1030,6 +1015,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3821F68277C8B79005FFF8E /* Dog.m in Sources */,
+				B3BC83E7277D4CA00023257B /* RuntimeOCTests.m in Sources */,
 				B3821F6B277C8BF1005FFF8E /* RuntimeCmdSpec.swift in Sources */,
 				B3821F6E277C8F3C005FFF8E /* Person.swift in Sources */,
 			);
@@ -1656,11 +1642,14 @@
 		B38D8998277C2AD900888EFB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "watchsimulator watchos macosx iphonesimulator iphoneos driverkit appletvsimulator appletvos";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1669,11 +1658,14 @@
 		B38D8999277C2AD900888EFB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "watchsimulator watchos macosx iphonesimulator iphoneos driverkit appletvsimulator appletvos";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

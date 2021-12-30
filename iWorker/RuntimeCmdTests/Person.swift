@@ -16,7 +16,11 @@ class Person: NSObject {
     
     @objc var name:String = ""
     
-    @objc dynamic func like(_ animal:String)->String {
+    @objc class func shared() -> Person {
+        return Person()
+    }
+    
+    @objc func like(_ animal:String)->String {
         return "\(name) like \(animal)"
     }
 }
