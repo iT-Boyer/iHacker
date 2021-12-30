@@ -12,13 +12,13 @@ import SwiftLibB
 
 class RuntimeAPITests: QuickSpec {
     override func spec() {
-        describe("swiftRuntimeAPI") {
+        describe("SwiftLibB") {
             
-            it("打印SwiftRuntimeT的动态方法") {
+            it("打印SwiftLibB的动态方法") {
                 var methodCount:UInt32 = 0
                 
                 //方法
-                let methodlist = class_copyMethodList(SwiftRuntimeT.self, &methodCount)
+                let methodlist = class_copyMethodList(SwiftLibB.self, &methodCount)
                 for  i in 0..<numericCast(methodCount) {
                     if let method = methodlist?[i]{
                         let methodName = method_getName(method);
@@ -30,7 +30,7 @@ class RuntimeAPITests: QuickSpec {
                 
                 // 属性
                 var count:UInt32 = 0
-                let proList = class_copyPropertyList(SwiftRuntimeT.self, &count)
+                let proList = class_copyPropertyList(SwiftLibB.self, &count)
                 for  i in 0..<numericCast(count) {
                     if let property = proList?[i]{
                         let propertyName = property_getName(property);

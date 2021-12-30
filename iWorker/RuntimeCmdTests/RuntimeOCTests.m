@@ -7,7 +7,6 @@
 
 #import <XCTest/XCTest.h>
 #import <objc/message.h>
-//#import "RuntimeCmdTests-Swift.h"
 
 @interface RuntimeOCTests : XCTestCase
 

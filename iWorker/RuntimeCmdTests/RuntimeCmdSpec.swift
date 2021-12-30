@@ -23,7 +23,7 @@ class RuntimeCmdSpec: QuickSpec {
         
         describe("Env环境runtime方法") {
             it("读取类的方法和属性") {
-                methodAndProList(Person.self)
+                Tools.methodAndProList(Person.self)
             }
         }
     }
