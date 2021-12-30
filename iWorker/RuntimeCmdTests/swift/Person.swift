@@ -10,13 +10,13 @@ import Foundation
 /// oc 调用
 /// 1. public 权限
 /// 2. @objc
-/// 3. dy
+/// 3. dynamic
 
-public class Person: NSObject {
+class Person: NSObject {
     
-    @objc public var name:String = ""
+    @objc var name:String = ""
     
-    @objc func like(_ animal:String)->String {
+    @objc dynamic func like(_ animal:String)->String {
         return "\(name) like \(animal)"
     }
 }

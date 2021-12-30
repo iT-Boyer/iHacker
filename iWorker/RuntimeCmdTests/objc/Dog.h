@@ -6,7 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-//#import "RuntimeCmdTests-Swift.h"
+#import "RuntimeCmdTests-Swift.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

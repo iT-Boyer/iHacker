@@ -1,0 +1,16 @@
+module SwiftOC {
+  umbrella header "SwiftOC-umbrella.h"
+
+  export *
+  module * { export * }
+  
+  explicit module SwiftOC-umbrella {
+
+        header"SwiftOC-umbrella.h"
+
+        link"SwiftOC-umbrella"
+
+        export *
+
+    }
+}
