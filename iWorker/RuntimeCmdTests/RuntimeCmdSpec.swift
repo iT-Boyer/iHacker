@@ -8,6 +8,7 @@
 
 import Quick
 import Nimble
+import SwiftLibB
 
 class RuntimeCmdSpec: QuickSpec {
     override func spec() {
@@ -22,8 +23,14 @@ class RuntimeCmdSpec: QuickSpec {
         }
         
         describe("Env环境runtime方法") {
-            it("读取类的方法和属性") {
+            xit("读取类的方法和属性") {
                 Tools.methodAndProList(Person.self)
+            }
+            it("读取class") {
+//                let lib = SwiftLibB()
+//                let cls = objc_getClass("SwiftLibB")
+//                ((id(*)(id, Selector))objc_msgSend)(cls, Selector(""))
+//                print("\(cls)")
             }
         }
     }

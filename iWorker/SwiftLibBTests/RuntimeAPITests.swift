@@ -17,6 +17,7 @@ class RuntimeAPITests: QuickSpec {
             it("打印SwiftLibB的动态方法") {
                 var methodCount:UInt32 = 0
                 
+                let cls = objc_getClass("SwiftLibB")
                 //方法
                 let methodlist = class_copyMethodList(SwiftLibB.self, &methodCount)
                 for  i in 0..<numericCast(methodCount) {

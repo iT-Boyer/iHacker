@@ -17,7 +17,7 @@ public class SwiftLibB:NSObject {
 
     //oc runtime调用swift方法
     //断言：dynamic 修饰之后，可以在objc_send方法中获取到
-    @objc public func shared() {
-        print(#file+#function+"\(#line)")
+    @objc class public func shared() {
+        print("文件名："+#file+"\n方法名："+#function+"\n行数：\(#line)")
     }
 }

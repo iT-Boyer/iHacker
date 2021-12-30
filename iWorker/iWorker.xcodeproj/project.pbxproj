@@ -85,6 +85,7 @@
 		B3BC83EB277D69B90023257B /* ObjcCallSwiftLibBTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B3BC83EA277D69B90023257B /* ObjcCallSwiftLibBTests.m */; };
 		B3BC83ED277D6A440023257B /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BC83EC277D6A440023257B /* Tools.swift */; };
 		B3BC83EE277D6D170023257B /* libSwiftLibB.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B38D8993277C2AD900888EFB /* libSwiftLibB.a */; };
+		B3DA503E277D8D13009B6A0E /* SecondB.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DA503D277D8D13009B6A0E /* SecondB.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -254,6 +255,7 @@
 		B3BC83E8277D66450023257B /* Env.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Env.swift; sourceTree = "<group>"; };
 		B3BC83EA277D69B90023257B /* ObjcCallSwiftLibBTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjcCallSwiftLibBTests.m; sourceTree = "<group>"; };
 		B3BC83EC277D6A440023257B /* Tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
+		B3DA503D277D8D13009B6A0E /* SecondB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondB.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -590,6 +592,7 @@
 			isa = PBXGroup;
 			children = (
 				B38D8995277C2AD900888EFB /* SwiftLibB.swift */,
+				B3DA503D277D8D13009B6A0E /* SecondB.swift */,
 			);
 			path = SwiftLibB;
 			sourceTree = "<group>";
@@ -1120,6 +1123,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B38D8996277C2AD900888EFB /* SwiftLibB.swift in Sources */,
+				B3DA503E277D8D13009B6A0E /* SecondB.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1228,6 +1232,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1252,6 +1257,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
