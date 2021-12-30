@@ -20,5 +20,11 @@ class RuntimeCmdSpec: QuickSpec {
                 expect(call).to(equal("旺旺2"))
             }
         }
+        
+        describe("Env环境runtime方法") {
+            it("读取类的方法和属性") {
+                methodAndProList(Person.self)
+            }
+        }
     }
 }
