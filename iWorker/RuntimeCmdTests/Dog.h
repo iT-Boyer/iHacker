@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 ///叫声
 -(NSString *)call;
 
++(NSString *)callCls;
 @end
 
 NS_ASSUME_NONNULL_END

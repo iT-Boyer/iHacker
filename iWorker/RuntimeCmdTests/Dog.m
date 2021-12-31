@@ -23,4 +23,9 @@
     return @"旺旺";
 }
 
++(NSString *)callCls
+{
+    NSLog(@"汪汪.....类方法");
+    return @"旺旺";
+}
 @end

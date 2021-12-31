@@ -13,7 +13,7 @@ import Foundation
 
 class RuntimeCmdSpec: QuickSpec {
     override func spec() {
-        describe("混编") {
+        xdescribe("混编") {
             it("swift桥接头调用objc") {
                 //1. 桥接文件
                 //2. 添加import头文件
@@ -23,12 +23,12 @@ class RuntimeCmdSpec: QuickSpec {
             }
         }
         
-        describe("Env环境runtime方法") {
+        describe("swift使用runtime") {
             xit("读取类的方法和属性") {
                 Tools.showClsRuntime(cls:Person.self)
             }
             
-            it("swift使用runtime调用OC") {
+            xit("swift使用runtime调用OC") {
                 //1. 获取类
                 let cls:AnyClass = objc_getClass("Dog") as! AnyClass
                 // 2. 创建对象
@@ -44,6 +44,15 @@ class RuntimeCmdSpec: QuickSpec {
                     // 5. 调用实例方法，拿到返回值
                     let result:String = obj.perform(sel).retain().takeRetainedValue() as! String
                     expect(result).to(equal("旺旺a"))
+                }
+            }
+            
+            it("类方法调用") {
+                let cls:AnyClass = objc_getClass("Dog") as! AnyClass
+                let sel = #selector(Dog.callCls)
+                if let myClass = cls as? NSObjectProtocol {
+                    let result = myClass.perform(sel).retain().takeRetainedValue()
+                    print(result)
                 }
             }
         }
