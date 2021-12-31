@@ -9,28 +9,42 @@
 import Quick
 import Nimble
 import SwiftLibB
+import Foundation
 
 class RuntimeCmdSpec: QuickSpec {
     override func spec() {
         describe("混编") {
-            it("swift调用objc") {
+            it("swift桥接头调用objc") {
                 //1. 桥接文件
                 //2. 添加import头文件
                 let dog = Dog()
                 let call = dog.call()
-                expect(call).to(equal("旺旺2"))
+                expect(call).to(equal("旺旺s"))
             }
         }
         
         describe("Env环境runtime方法") {
             xit("读取类的方法和属性") {
-                Tools.methodAndProList(Person.self)
+                Tools.showClsRuntime(cls:Person.self)
             }
-            it("读取class") {
-//                let lib = SwiftLibB()
-//                let cls = objc_getClass("SwiftLibB")
-//                ((id(*)(id, Selector))objc_msgSend)(cls, Selector(""))
-//                print("\(cls)")
+            
+            it("swift使用runtime调用OC") {
+                //1. 获取类
+                let cls:AnyClass = objc_getClass("Dog") as! AnyClass
+                // 2. 创建对象
+                let obj:NSObject = class_createInstance(cls,0) as! NSObject
+                // 3. 初始化实例方法
+                //    1. 当Dog.h不作桥接时，sel = Selector(("call"))
+                //    2. 当Dog.h在桥接中时，sel = #selector(Dog.call)
+                let sel = #selector(Dog.call)
+                // 该方法无效
+                let clsmethod = class_respondsToSelector(cls, sel)
+                // 4. 判断实例是否支持实例方法
+                if obj.responds(to: sel) {
+                    // 5. 调用实例方法，拿到返回值
+                    let result:String = obj.perform(sel).retain().takeRetainedValue() as! String
+                    expect(result).to(equal("旺旺a"))
+                }
             }
         }
     }

@@ -27,14 +27,14 @@
     libBCls = objc_getClass("SwiftLibB.SwiftLibB");
     if (libBCls) {
         //读取类的方法
-        [Tools methodAndProList:libBCls];
+        [Tools showClsRuntimeWithCls:libBCls];
         libBObj = [libBCls new];
     }
     //类2
     Class libBSecondCls = objc_getClass("SwiftLibB.SecondB");
     if (libBSecondCls) {
         //读取类的方法
-        [Tools methodAndProList:libBSecondCls];
+        [Tools showClsRuntimeWithCls:libBSecondCls];
     }
 }
 

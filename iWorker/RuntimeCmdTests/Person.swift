@@ -20,7 +20,7 @@ class Person: NSObject {
         return Person()
     }
     
-    @objc func like(_ animal:String)->String {
+    @objc dynamic func like(_ animal:String)->String {
         return "\(name) like \(animal)"
     }
 }

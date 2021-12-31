@@ -6,6 +6,7 @@
 //
 
 #import "Dog.h"
+#import <objc/message.h>
 
 @implementation Dog
 
@@ -13,10 +14,12 @@
 -(NSString *)owner
 {
     return @"张三";
+    
 }
 
 -(NSString *)call
 {
+    NSLog(@"汪汪.....");
     return @"旺旺";
 }
 

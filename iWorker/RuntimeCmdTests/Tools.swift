@@ -11,34 +11,63 @@ import Foundation
 /// 1. 获取类的方法和属性清单
 class Tools: NSObject {
     
-    
-    
     /// 获取类的方法和属性清单
     /// - Parameter type: class.self
-    @objc static func methodAndProList(_ type:AnyClass) {
+    @objc static func showClsRuntime (cls : AnyClass) {
+        print("start methodList")
         
         var methodCount:UInt32 = 0
         //方法
-        let methodlist = class_copyMethodList(type, &methodCount)
+        let methodList = class_copyMethodList(cls, &methodCount)
         for  i in 0..<numericCast(methodCount) {
-            if let method = methodlist?[i]{
-                let methodName = method_getName(method);
+            if let method = methodList?[i]{
+                let methodName = method_getName(method)
+                let methodType = method_getTypeEncoding(method)
+                let returnType = method_copyReturnType(method)
                 print("方法列表：\(String(describing: methodName))")
+                print("方法类型：\(String(describing: methodType))")
+                print("returnType：\(String(describing: returnType))")
             }else{
                 print("not found method");
             }
         }
+        free(methodList)
+        print("end methodList")
         
         // 属性
+        print("start proList")
         var count:UInt32 = 0
-        let proList = class_copyPropertyList(type, &count)
+        let proList = class_copyPropertyList(cls, &count)
         for  i in 0..<numericCast(count) {
             if let property = proList?[i]{
-                let propertyName = property_getName(property);
-                print("属性列表：\(String(utf8String: propertyName)!)")
+                let propertyName = property_getName(property)
+                let propertyAttributes = property_getAttributes(property)
+                print("属性名：\(String(utf8String: propertyName)!)")
+                print("属性：\(String(describing: propertyAttributes))")
             }else{
                 print("not found property");
             }
         }
+        free(proList)
+        print("end proList")
+    }
+
+    ///Method Swizzeing runtime动态替换方法，必须有dynamic关键字
+    func methodSwizze(cls : AnyClass,originalSelector : Selector , swizzeSelector : Selector)  {
+        
+        
+        guard let originalMethod = class_getInstanceMethod(cls, originalSelector),
+        let swizzeMethod = class_getInstanceMethod(cls, swizzeSelector) else {
+            return
+        }
+        
+        let didAddMethod = class_addMethod(cls, originalSelector, method_getImplementation(swizzeMethod), method_getTypeEncoding(swizzeMethod))
+        
+        if didAddMethod {
+            class_replaceMethod(cls, swizzeSelector, method_getImplementation(originalMethod), method_getTypeEncoding(originalMethod))
+        }else {
+            method_exchangeImplementations(originalMethod, swizzeMethod)
+        }
+        
     }
 }
