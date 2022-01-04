@@ -18,6 +18,7 @@
 {
     Class libBCls;
     id libBObj;
+    Class secondCls;
 }
 - (void)setUp {
     // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -27,14 +28,14 @@
     libBCls = objc_getClass("SwiftLibB.SwiftLibB");
     if (libBCls) {
         //读取类的方法
-        [Tools showClsRuntimeWithCls:libBCls];
+//        [Tools showClsRuntimeWithCls:libBCls];
         libBObj = [libBCls new];
     }
     //类2
-    Class libBSecondCls = objc_getClass("SwiftLibB.SecondB");
-    if (libBSecondCls) {
+    secondCls = objc_getClass("SwiftLibB.SecondB");
+    if (secondCls) {
         //读取类的方法
-        [Tools showClsRuntimeWithCls:libBSecondCls];
+        [Tools showClsRuntimeWithCls:secondCls];
     }
 }
 
@@ -49,6 +50,12 @@
 -(void)testSwiftLibB
 {
     ((void(*)(id, SEL))objc_msgSend)(libBCls, @selector(shared));
+}
+
+/// 验证oc调用swiftlibB库中单利
+-(void)testSwiftLibBa
+{
+    ((void(*)(id, SEL))objc_msgSend)(secondCls, @selector(shareda));
 }
 
 
