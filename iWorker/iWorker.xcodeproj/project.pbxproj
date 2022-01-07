@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B32303382787EDBD0056BDCC /* JHUnitJoinOrgViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32303372787EDBD0056BDCC /* JHUnitJoinOrgViewController.swift */; };
+		B323033A27880CF80056BDCC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B38D88A4277B199400888EFB /* Main.storyboard */; };
 		B3821F62277C8AE8005FFF8E /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = B3821F61277C8AE8005FFF8E /* Nimble */; };
 		B3821F64277C8AE8005FFF8E /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = B3821F63277C8AE8005FFF8E /* Quick */; };
 		B3821F68277C8B79005FFF8E /* Dog.m in Sources */ = {isa = PBXBuildFile; fileRef = B3821F67277C8B79005FFF8E /* Dog.m */; };
@@ -15,7 +17,6 @@
 		B38D889F277B199400888EFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38D889E277B199400888EFB /* AppDelegate.swift */; };
 		B38D88A1277B199400888EFB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38D88A0277B199400888EFB /* SceneDelegate.swift */; };
 		B38D88A3277B199400888EFB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38D88A2277B199400888EFB /* ViewController.swift */; };
-		B38D88A6277B199400888EFB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B38D88A4277B199400888EFB /* Main.storyboard */; };
 		B38D88A8277B199700888EFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B38D88A7277B199700888EFB /* Assets.xcassets */; };
 		B38D88AB277B199700888EFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B38D88A9277B199700888EFB /* LaunchScreen.storyboard */; };
 		B38D88B6277B199700888EFB /* iWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38D88B5277B199700888EFB /* iWorkerTests.swift */; };
@@ -179,6 +180,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B32303372787EDBD0056BDCC /* JHUnitJoinOrgViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHUnitJoinOrgViewController.swift; sourceTree = "<group>"; };
 		B3821F5A277C8A03005FFF8E /* RuntimeCmdTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RuntimeCmdTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3821F65277C8B79005FFF8E /* RuntimeCmdTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RuntimeCmdTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		B3821F66277C8B79005FFF8E /* Dog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Dog.h; sourceTree = "<group>"; };
@@ -365,6 +367,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B32303362787ED7C0056BDCC /* 连锁集团 */ = {
+			isa = PBXGroup;
+			children = (
+				B32303372787EDBD0056BDCC /* JHUnitJoinOrgViewController.swift */,
+			);
+			path = "连锁集团";
+			sourceTree = "<group>";
+		};
 		B3821F5B277C8A03005FFF8E /* RuntimeCmdTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -395,6 +405,7 @@
 		B38D8892277B199400888EFB = {
 			isa = PBXGroup;
 			children = (
+				B38D88D0277B19D700888EFB /* Utils */,
 				B38D889D277B199400888EFB /* iWorker */,
 				B38D88B4277B199700888EFB /* iWorkerTests */,
 				B38D88BE277B199700888EFB /* iWorkerUITests */,
@@ -432,6 +443,7 @@
 		B38D889D277B199400888EFB /* iWorker */ = {
 			isa = PBXGroup;
 			children = (
+				B32303362787ED7C0056BDCC /* 连锁集团 */,
 				B38D88D8277B19D700888EFB /* 晨检机 */,
 				B38D889E277B199400888EFB /* AppDelegate.swift */,
 				B38D88A0277B199400888EFB /* SceneDelegate.swift */,
@@ -492,7 +504,6 @@
 			children = (
 				B38D890E277B1ACD00888EFB /* JHUniversalResource.bundle */,
 				B38D8900277B1AC000888EFB /* Resoures */,
-				B38D88D0277B19D700888EFB /* Utils */,
 				B38D88D2277B19D700888EFB /* Delegate */,
 				B38D88D4277B19D700888EFB /* Models */,
 				B38D88D5277B19D700888EFB /* JHMornInspecterController.swift */,
@@ -949,13 +960,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B38D8909277B1AC000888EFB /* SaveMorningCheckImg.json in Resources */,
+				B323033A27880CF80056BDCC /* Main.storyboard in Resources */,
 				B38D88AB277B199700888EFB /* LaunchScreen.storyboard in Resources */,
 				B38D890A277B1AC000888EFB /* GetSimilarityScore.json in Resources */,
 				B38D890F277B1ACD00888EFB /* JHUniversalResource.bundle in Resources */,
 				B38D890B277B1AC000888EFB /* GetMorningCheckSettingByStoreId.json in Resources */,
 				B38D890C277B1AC000888EFB /* GetEmployeeFaceInfoByOrgIdUserId.json in Resources */,
 				B38D88A8277B199700888EFB /* Assets.xcassets in Resources */,
-				B38D88A6277B199400888EFB /* Main.storyboard in Resources */,
 				B38D8908277B1AC000888EFB /* ipFile.plist in Resources */,
 				B38D890D277B1AC000888EFB /* RegisterFaceInfo.json in Resources */,
 			);
@@ -1056,6 +1067,7 @@
 				B38D889F277B199400888EFB /* AppDelegate.swift in Sources */,
 				B38D88A1277B199400888EFB /* SceneDelegate.swift in Sources */,
 				B38D8939277B1C7300888EFB /* JHMornCameraController.swift in Sources */,
+				B32303382787EDBD0056BDCC /* JHUnitJoinOrgViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1400,9 +1412,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = iWorker/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "使用相机说明";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1427,9 +1439,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = iWorker/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "使用相机说明";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
