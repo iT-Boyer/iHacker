@@ -9,7 +9,7 @@ import JHBase
 import UIKit
 
 class JHUnitJoinOrgViewController: JHBaseNavVC {
-
+    var storeId:String!
     override func viewDidLoad() {
         createView()
     }
@@ -141,12 +141,18 @@ class JHUnitJoinOrgViewController: JHBaseNavVC {
     
     @objc
     func joinOrgAction(_:UIButton) {
-        print("joinOrgAction------")
+        let search = JHUnitOrgSearchController()
+        search.isAddChild = false
+        search.storeId = self.storeId
+        self.navigationController?.pushViewController(search, completion: nil)
     }
     
     @objc
     func addChildAction(_:UIButton) {
-        print("addChildAction------")
+        let search = JHUnitOrgSearchController()
+        search.isAddChild = true
+        search.storeId = self.storeId
+        self.navigationController?.pushViewController(search, completion: nil)
         
     }
 }
