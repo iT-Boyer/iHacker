@@ -6,7 +6,7 @@ swift混编库在集成后，可以在反射类文件中实现通过oc运行时�
 
 前提：swift接口类需要集成NSObject 或 @objc 修饰。
 
-1. OC runtime调用swift类方法调用实现如下
+1. OC runtime调用swift类方法
 ```objc
 //方式1
 UIViewController *morn = ((UIViewController * (*)(id, SEL))objc_msgSend)(mornCls,NSSelectorFromString(@"shared"));
@@ -14,7 +14,7 @@ UIViewController *morn = ((UIViewController * (*)(id, SEL))objc_msgSend)(mornCls
 UIViewController *morn = [mornCls performSelector:NSSelectorFromString(@"shared")];
 ```
 
-2. OC 实runtime调用swift例方法的调用
+2. OC runtime调用swift实例方法
 
 可行方式： 通过`objc_getClass`拿到Class，使用new方法实例化对象。
 ```objc
@@ -59,6 +59,19 @@ if let myClass = cls as? NSObjectProtocol {
 ```swift
     login.perform(codemethod).retain().takeRetainedValue()
 ```
+
+## swift组件独立编译（金和依赖库的特殊性）
+
+金和库使用一个JHThirdPackage库，来统一管理第三方库，在组件中只需要依赖这个库即可。
+
+这样导致 `JHThirdPackage` 无法导出完整的 `swiftmodule` 头文件，对于想独立编译一个组件是不可能的。
+
+这样组件就无法通过依赖 `swiftmodule` 实现独立编译，只能通过两种方式实现：
+
+1.  不要配置PackageDependencies, 要将组件拖到正在联调的项目，利用现有的Package环境，实现编译
+2.  想实现独立编译，必须配置Project 的 Package Dependencies, 依赖JHThird 和 JHBase
+
+[混编在模块化:组件化项目中的实践](https://github.com/ShannonChenCHN/ASwiftTour/tree/master/Presentation/ObjC-Swift%20%E6%B7%B7%E7%BC%96%E5%9C%A8%E6%A8%A1%E5%9D%97%E5%8C%96:%E7%BB%84%E4%BB%B6%E5%8C%96%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84%E5%AE%9E%E8%B7%B5#module-stability)
 
 
 https://blog.csdn.net/loveqcx123/article/details/76976053

@@ -51,7 +51,7 @@ class RuntimeCmdSpec: QuickSpec {
                 let cls:AnyClass = objc_getClass("Dog") as! AnyClass
                 let sel = #selector(Dog.callCls)
                 if let myClass = cls as? NSObjectProtocol {
-                    let result = myClass.perform(sel).retain().takeRetainedValue()
+                    let result = myClass.perform(sel).retain().takeUnretainedValue()//takeRetainedValue()
                     print(result)
                 }
             }
