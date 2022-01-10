@@ -256,7 +256,7 @@
 		B3BC83D7277C75D70023257B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B3BC83DC277C76100023257B /* RuntimeCmd-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RuntimeCmd-Bridging-Header.h"; sourceTree = "<group>"; };
 		B3BC83DD277C76110023257B /* Teacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Teacher.swift; sourceTree = "<group>"; };
-		B3BC83DF277C77B40023257B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		B3BC83DF277C77B40023257B /* swift 和 OC 混编相关方法汇总.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "swift 和 OC 混编相关方法汇总.md"; sourceTree = "<group>"; };
 		B3BC83E6277D4CA00023257B /* RuntimeOCTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RuntimeOCTests.m; sourceTree = "<group>"; };
 		B3BC83E8277D66450023257B /* Env.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Env.swift; sourceTree = "<group>"; };
 		B3BC83EA277D69B90023257B /* ObjcCallSwiftLibBTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjcCallSwiftLibBTests.m; sourceTree = "<group>"; };
@@ -384,7 +384,7 @@
 		B3821F5B277C8A03005FFF8E /* RuntimeCmdTests */ = {
 			isa = PBXGroup;
 			children = (
-				B3BC83DF277C77B40023257B /* README.md */,
+				B3BC83DF277C77B40023257B /* swift 和 OC 混编相关方法汇总.md */,
 				B3BC83E8277D66450023257B /* Env.swift */,
 				B3BC83EC277D6A440023257B /* Tools.swift */,
 				B3821F66277C8B79005FFF8E /* Dog.h */,

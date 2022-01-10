@@ -1,6 +1,6 @@
-#  说明
+#  swift 和 OC 混编相关方法汇总
 
-## 金和主工程反射类调用组件内swift接口（代替组件内OC封装swift问题）
+## 金和主工程反射类调用组件内swift接口（代替组件内OC封装swift和JHBaseNavVC继承冲突）
 
 swift混编库在集成后，可以在反射类文件中实现通过oc运行时（objc_getClass）拿到Class，实例化调用组件库中的Swift相关类的方法
 
@@ -24,7 +24,7 @@ UIViewController *morn = [mornCls new];
 [morn performSelector:@selector(testOC:) withObject:@"hhah"];
 ```
 
-## Swift使用runtime调用OC方法（解决JHBase集成大组件问题）
+## Swift使用runtime调用OC方法（解藕JHBase组件集成大组件登录模块）
 
 前提：OC的头文件不需要添加在桥接文件
 
