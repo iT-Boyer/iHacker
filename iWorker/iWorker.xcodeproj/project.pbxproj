@@ -11,6 +11,7 @@
 		B323033A27880CF80056BDCC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B38D88A4277B199400888EFB /* Main.storyboard */; };
 		B323033C278827350056BDCC /* JHUnitOrgBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B323033B278827350056BDCC /* JHUnitOrgBaseViewController.swift */; };
 		B323033E278827670056BDCC /* JHUnitOrgSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B323033D278827670056BDCC /* JHUnitOrgSearchController.swift */; };
+		B323035A278C11240056BDCC /* UnitOrgChainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3230359278C11240056BDCC /* UnitOrgChainModel.swift */; };
 		B3821F62277C8AE8005FFF8E /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = B3821F61277C8AE8005FFF8E /* Nimble */; };
 		B3821F64277C8AE8005FFF8E /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = B3821F63277C8AE8005FFF8E /* Quick */; };
 		B3821F68277C8B79005FFF8E /* Dog.m in Sources */ = {isa = PBXBuildFile; fileRef = B3821F67277C8B79005FFF8E /* Dog.m */; };
@@ -185,6 +186,7 @@
 		B32303372787EDBD0056BDCC /* JHUnitJoinOrgViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHUnitJoinOrgViewController.swift; sourceTree = "<group>"; };
 		B323033B278827350056BDCC /* JHUnitOrgBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHUnitOrgBaseViewController.swift; sourceTree = "<group>"; };
 		B323033D278827670056BDCC /* JHUnitOrgSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHUnitOrgSearchController.swift; sourceTree = "<group>"; };
+		B3230359278C11240056BDCC /* UnitOrgChainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitOrgChainModel.swift; sourceTree = "<group>"; };
 		B3821F5A277C8A03005FFF8E /* RuntimeCmdTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RuntimeCmdTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3821F65277C8B79005FFF8E /* RuntimeCmdTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RuntimeCmdTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		B3821F66277C8B79005FFF8E /* Dog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Dog.h; sourceTree = "<group>"; };
@@ -374,11 +376,20 @@
 		B32303362787ED7C0056BDCC /* 连锁集团 */ = {
 			isa = PBXGroup;
 			children = (
+				B3230358278C110A0056BDCC /* Models */,
 				B32303372787EDBD0056BDCC /* JHUnitJoinOrgViewController.swift */,
 				B323033B278827350056BDCC /* JHUnitOrgBaseViewController.swift */,
 				B323033D278827670056BDCC /* JHUnitOrgSearchController.swift */,
 			);
 			path = "连锁集团";
+			sourceTree = "<group>";
+		};
+		B3230358278C110A0056BDCC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B3230359278C11240056BDCC /* UnitOrgChainModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		B3821F5B277C8A03005FFF8E /* RuntimeCmdTests */ = {
@@ -1106,6 +1117,7 @@
 				B38D8937277B1C7300888EFB /* JHMornUpPhotoController.swift in Sources */,
 				B38D8938277B1C7300888EFB /* JHMornInspecterController.swift in Sources */,
 				B38D88A3277B199400888EFB /* ViewController.swift in Sources */,
+				B323035A278C11240056BDCC /* UnitOrgChainModel.swift in Sources */,
 				B38D893B277B1CD800888EFB /* JHMornUploadModel.swift in Sources */,
 				B38D8936277B1C6D00888EFB /* Env.swift in Sources */,
 				B38D889F277B199400888EFB /* AppDelegate.swift in Sources */,

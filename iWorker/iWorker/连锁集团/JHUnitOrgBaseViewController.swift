@@ -12,9 +12,9 @@ import ESPullToRefresh
 class JHUnitOrgBaseViewController: JHBaseNavVC{
 
     var storeId:String!
-    var isAddChild:Bool!
-    var dataArray:[Any]!
-    var pageIndex:Int!
+    var isAddChild = false
+    var dataArray:[Any] = []
+    var pageIndex = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +27,7 @@ class JHUnitOrgBaseViewController: JHBaseNavVC{
     
     func createView(){
         //列表
+        self.view.addSubview(tableView)
         self.tableView.es.addPullToRefresh {
             [unowned self] in
             /// 在这里做刷新相关事件
@@ -71,12 +72,14 @@ extension JHUnitOrgBaseViewController:UITableViewDataSource,UITableViewDelegate
 {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //
-        3
+        dataArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //
-        UITableViewCell()
+        let cell:UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "Test")!
+        cell.textLabel?.text = "sdf"
+        return cell
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
