@@ -12,6 +12,11 @@
 		B323033C278827350056BDCC /* JHUnitOrgBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B323033B278827350056BDCC /* JHUnitOrgBaseViewController.swift */; };
 		B323033E278827670056BDCC /* JHUnitOrgSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B323033D278827670056BDCC /* JHUnitOrgSearchController.swift */; };
 		B323035A278C11240056BDCC /* UnitOrgChainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3230359278C11240056BDCC /* UnitOrgChainModel.swift */; };
+		B323035E278C2B490056BDCC /* JHUnitOrgSearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B323035D278C2B490056BDCC /* JHUnitOrgSearchCell.swift */; };
+		B3230360278C2B7D0056BDCC /* JHUnitOrgBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B323035F278C2B7D0056BDCC /* JHUnitOrgBaseCell.swift */; };
+		B3230362278C2BAA0056BDCC /* JHUnitOrgBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3230361278C2BAA0056BDCC /* JHUnitOrgBaseModel.swift */; };
+		B3230364278C2C370056BDCC /* JHUnitOrgHigherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3230363278C2C370056BDCC /* JHUnitOrgHigherModel.swift */; };
+		B3230365278C301F0056BDCC /* JHUniversalResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B323035B278C28820056BDCC /* JHUniversalResource.bundle */; };
 		B3821F62277C8AE8005FFF8E /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = B3821F61277C8AE8005FFF8E /* Nimble */; };
 		B3821F64277C8AE8005FFF8E /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = B3821F63277C8AE8005FFF8E /* Quick */; };
 		B3821F68277C8B79005FFF8E /* Dog.m in Sources */ = {isa = PBXBuildFile; fileRef = B3821F67277C8B79005FFF8E /* Dog.m */; };
@@ -31,7 +36,6 @@
 		B38D890B277B1AC000888EFB /* GetMorningCheckSettingByStoreId.json in Resources */ = {isa = PBXBuildFile; fileRef = B38D8905277B1AC000888EFB /* GetMorningCheckSettingByStoreId.json */; };
 		B38D890C277B1AC000888EFB /* GetEmployeeFaceInfoByOrgIdUserId.json in Resources */ = {isa = PBXBuildFile; fileRef = B38D8906277B1AC000888EFB /* GetEmployeeFaceInfoByOrgIdUserId.json */; };
 		B38D890D277B1AC000888EFB /* RegisterFaceInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = B38D8907277B1AC000888EFB /* RegisterFaceInfo.json */; };
-		B38D890F277B1ACD00888EFB /* JHUniversalResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B38D890E277B1ACD00888EFB /* JHUniversalResource.bundle */; };
 		B38D8912277B1B3300888EFB /* ENV.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38D8911277B1B3300888EFB /* ENV.swift */; };
 		B38D8914277B1B3A00888EFB /* JNRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38D8913277B1B3A00888EFB /* JNRequestTests.swift */; };
 		B38D8917277B1BAE00888EFB /* JHBase in Frameworks */ = {isa = PBXBuildFile; productRef = B38D8916277B1BAE00888EFB /* JHBase */; };
@@ -187,6 +191,11 @@
 		B323033B278827350056BDCC /* JHUnitOrgBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHUnitOrgBaseViewController.swift; sourceTree = "<group>"; };
 		B323033D278827670056BDCC /* JHUnitOrgSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHUnitOrgSearchController.swift; sourceTree = "<group>"; };
 		B3230359278C11240056BDCC /* UnitOrgChainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitOrgChainModel.swift; sourceTree = "<group>"; };
+		B323035B278C28820056BDCC /* JHUniversalResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = JHUniversalResource.bundle; sourceTree = "<group>"; };
+		B323035D278C2B490056BDCC /* JHUnitOrgSearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHUnitOrgSearchCell.swift; sourceTree = "<group>"; };
+		B323035F278C2B7D0056BDCC /* JHUnitOrgBaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHUnitOrgBaseCell.swift; sourceTree = "<group>"; };
+		B3230361278C2BAA0056BDCC /* JHUnitOrgBaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHUnitOrgBaseModel.swift; sourceTree = "<group>"; };
+		B3230363278C2C370056BDCC /* JHUnitOrgHigherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHUnitOrgHigherModel.swift; sourceTree = "<group>"; };
 		B3821F5A277C8A03005FFF8E /* RuntimeCmdTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RuntimeCmdTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3821F65277C8B79005FFF8E /* RuntimeCmdTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RuntimeCmdTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		B3821F66277C8B79005FFF8E /* Dog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Dog.h; sourceTree = "<group>"; };
@@ -220,7 +229,6 @@
 		B38D8905277B1AC000888EFB /* GetMorningCheckSettingByStoreId.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetMorningCheckSettingByStoreId.json; sourceTree = "<group>"; };
 		B38D8906277B1AC000888EFB /* GetEmployeeFaceInfoByOrgIdUserId.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetEmployeeFaceInfoByOrgIdUserId.json; sourceTree = "<group>"; };
 		B38D8907277B1AC000888EFB /* RegisterFaceInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = RegisterFaceInfo.json; sourceTree = "<group>"; };
-		B38D890E277B1ACD00888EFB /* JHUniversalResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = JHUniversalResource.bundle; path = ../../../../JHBasePackage/JHBaseDemo/JHBaseDemo/JHUniversalResource.bundle; sourceTree = "<group>"; };
 		B38D8911277B1B3300888EFB /* ENV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ENV.swift; sourceTree = "<group>"; };
 		B38D8913277B1B3A00888EFB /* JNRequestTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JNRequestTests.swift; sourceTree = "<group>"; };
 		B38D8942277C2A4300888EFB /* JinheAPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JinheAPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -376,6 +384,7 @@
 		B32303362787ED7C0056BDCC /* 连锁集团 */ = {
 			isa = PBXGroup;
 			children = (
+				B323035C278C2B2B0056BDCC /* Views */,
 				B3230358278C110A0056BDCC /* Models */,
 				B32303372787EDBD0056BDCC /* JHUnitJoinOrgViewController.swift */,
 				B323033B278827350056BDCC /* JHUnitOrgBaseViewController.swift */,
@@ -388,8 +397,19 @@
 			isa = PBXGroup;
 			children = (
 				B3230359278C11240056BDCC /* UnitOrgChainModel.swift */,
+				B3230361278C2BAA0056BDCC /* JHUnitOrgBaseModel.swift */,
+				B3230363278C2C370056BDCC /* JHUnitOrgHigherModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		B323035C278C2B2B0056BDCC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B323035F278C2B7D0056BDCC /* JHUnitOrgBaseCell.swift */,
+				B323035D278C2B490056BDCC /* JHUnitOrgSearchCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		B3821F5B277C8A03005FFF8E /* RuntimeCmdTests */ = {
@@ -467,6 +487,7 @@
 				B38D88A2277B199400888EFB /* ViewController.swift */,
 				B38D88A4277B199400888EFB /* Main.storyboard */,
 				B38D88A7277B199700888EFB /* Assets.xcassets */,
+				B323035B278C28820056BDCC /* JHUniversalResource.bundle */,
 				B38D88A9277B199700888EFB /* LaunchScreen.storyboard */,
 				B38D88AC277B199700888EFB /* Info.plist */,
 			);
@@ -519,7 +540,6 @@
 		B38D88D8277B19D700888EFB /* 晨检机 */ = {
 			isa = PBXGroup;
 			children = (
-				B38D890E277B1ACD00888EFB /* JHUniversalResource.bundle */,
 				B38D8900277B1AC000888EFB /* Resoures */,
 				B38D88D2277B19D700888EFB /* Delegate */,
 				B38D88D4277B19D700888EFB /* Models */,
@@ -981,8 +1001,8 @@
 				B38D8909277B1AC000888EFB /* SaveMorningCheckImg.json in Resources */,
 				B323033A27880CF80056BDCC /* Main.storyboard in Resources */,
 				B38D88AB277B199700888EFB /* LaunchScreen.storyboard in Resources */,
+				B3230365278C301F0056BDCC /* JHUniversalResource.bundle in Resources */,
 				B38D890A277B1AC000888EFB /* GetSimilarityScore.json in Resources */,
-				B38D890F277B1ACD00888EFB /* JHUniversalResource.bundle in Resources */,
 				B38D890B277B1AC000888EFB /* GetMorningCheckSettingByStoreId.json in Resources */,
 				B38D890C277B1AC000888EFB /* GetEmployeeFaceInfoByOrgIdUserId.json in Resources */,
 				B38D88A8277B199700888EFB /* Assets.xcassets in Resources */,
@@ -1116,12 +1136,16 @@
 				B38D893A277B1C7300888EFB /* JHDelegate.swift in Sources */,
 				B38D8937277B1C7300888EFB /* JHMornUpPhotoController.swift in Sources */,
 				B38D8938277B1C7300888EFB /* JHMornInspecterController.swift in Sources */,
+				B3230364278C2C370056BDCC /* JHUnitOrgHigherModel.swift in Sources */,
 				B38D88A3277B199400888EFB /* ViewController.swift in Sources */,
 				B323035A278C11240056BDCC /* UnitOrgChainModel.swift in Sources */,
 				B38D893B277B1CD800888EFB /* JHMornUploadModel.swift in Sources */,
+				B323035E278C2B490056BDCC /* JHUnitOrgSearchCell.swift in Sources */,
 				B38D8936277B1C6D00888EFB /* Env.swift in Sources */,
 				B38D889F277B199400888EFB /* AppDelegate.swift in Sources */,
+				B3230362278C2BAA0056BDCC /* JHUnitOrgBaseModel.swift in Sources */,
 				B38D88A1277B199400888EFB /* SceneDelegate.swift in Sources */,
+				B3230360278C2B7D0056BDCC /* JHUnitOrgBaseCell.swift in Sources */,
 				B323033C278827350056BDCC /* JHUnitOrgBaseViewController.swift in Sources */,
 				B38D8939277B1C7300888EFB /* JHMornCameraController.swift in Sources */,
 				B323033E278827670056BDCC /* JHUnitOrgSearchController.swift in Sources */,

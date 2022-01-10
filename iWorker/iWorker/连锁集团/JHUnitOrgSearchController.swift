@@ -22,11 +22,13 @@ class JHUnitOrgSearchController: JHUnitOrgBaseViewController {
     var searchTxt:String!
     var selectAllBtn:UIButton!
     
+    var chainModel:UnitOrgChainModel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navTitle = "搜索页"
         dataArray = ["2","2","2","2"]
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Test")
+        tableView.register(JHUnitOrgSearchCell.self, forCellReuseIdentifier: "JHUnitOrgSearchCell")
     }
     
     override func createView() {
@@ -36,16 +38,11 @@ class JHUnitOrgSearchController: JHUnitOrgBaseViewController {
             make.top.equalTo(self.navBar.snp.bottom)
             make.left.right.equalToSuperview()
         }
-        tableView.snp.makeConstraints { make in
-            make.top.equalTo(self.navBar.snp.bottom)
-            make.bottom.left.right.equalToSuperview()
-            make.height.equalTo(70)
-        }
+        
         selectAllView.snp.makeConstraints { make in
-            make.top.equalTo(tableView.snp.bottom)
-            make.bottom.equalToSuperview()
-            make.left.right.equalToSuperview()
             make.height.equalTo(70)
+            make.top.equalTo(tableView.snp.bottom)
+            make.bottom.left.right.equalToSuperview()
         }
     }
     
@@ -53,7 +50,7 @@ class JHUnitOrgSearchController: JHUnitOrgBaseViewController {
     lazy var selectAllView = { () -> UIView in
         var rootView = UIView()
         rootView.backgroundColor = .white
-        rootView.isHidden = true
+        rootView.isHidden = false //true
         let all = UIButton()
         self.selectAllBtn = all
         all.setImage(.init(named: "unitorgselect"), for: .normal)
@@ -61,7 +58,7 @@ class JHUnitOrgSearchController: JHUnitOrgBaseViewController {
         all.addTarget(self, action: #selector(selectAllAction(_:)), for: .touchDown)
         let lab = UILabel()
         self.selectNumLab = lab
-        lab.text = ""
+        lab.text = "已选择0个企业"
         lab.font = .systemFont(ofSize: 14)
         lab.textColor = .init(hexString: "333333")
         let commit = UIButton()
@@ -107,5 +104,16 @@ class JHUnitOrgSearchController: JHUnitOrgBaseViewController {
     @objc
     func commitAction(_ btn:UIButton) {
         
+    }
+}
+
+extension JHUnitOrgSearchController
+{
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
+        //
+        let cell:UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "JHUnitOrgSearchCell")!
+        cell.textLabel?.text = "sdf"
+        return cell
     }
 }

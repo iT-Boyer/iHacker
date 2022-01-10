@@ -53,7 +53,7 @@ class JHUnitOrgBaseViewController: JHBaseNavVC{
     
     //MARK: getter
     lazy var tableView = { () -> UITableView in 
-        let tbl = UITableView()
+        let tbl = UITableView(frame: .zero, style: .grouped)
         tbl.delegate = self
         tbl.dataSource = self
         tbl.showsVerticalScrollIndicator = false
@@ -63,23 +63,19 @@ class JHUnitOrgBaseViewController: JHBaseNavVC{
         tbl.rowHeight = UITableView.automaticDimension
         tbl.tableFooterView = UIView()
         tbl.separatorStyle = .none
-        
         return tbl
     }()
 }
 
 extension JHUnitOrgBaseViewController:UITableViewDataSource,UITableViewDelegate
 {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        UITableViewCell()
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //
         dataArray.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //
-        let cell:UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "Test")!
-        cell.textLabel?.text = "sdf"
-        return cell
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
