@@ -9,11 +9,15 @@ import UIKit
 
 class JHUnitOrgBaseCell: UITableViewCell {
 
+    typealias AddClosure = (JHUnitOrgBaseModel)->()
     var rootView:UIView!
     var name:UILabel!
     var addr:UILabel!
     var creditCode:UILabel!
     var licenceCode:UILabel!
+    
+    var SelecteAction:AddClosure!
+    var block:(()->())?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
