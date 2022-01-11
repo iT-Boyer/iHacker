@@ -16,6 +16,7 @@ class JHUnitOrgBaseCell: UITableViewCell {
     var creditCode:UILabel!
     var licenceCode:UILabel!
     
+    var selectBtn:UIButton?
     var SelecteAction:AddClosure!
     var block:(()->())?
     
@@ -60,7 +61,9 @@ class JHUnitOrgBaseCell: UITableViewCell {
                 licenceCode.isHidden = true
             }
             
-            
+            if let selectedBtn = selectBtn , let state = model.selected{
+                selectedBtn.isSelected = state
+            }
             if let ccode = model.creditCode, ccode.count > 0 {
                 let creditCodeStr = "信用代码："+model.creditCode
                 creditCode.text = creditCodeStr

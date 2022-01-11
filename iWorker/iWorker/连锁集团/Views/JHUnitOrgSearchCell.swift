@@ -9,17 +9,15 @@ import UIKit
 
 class JHUnitOrgSearchCell: JHUnitOrgBaseCell {
 
-    var selectBtn:UIButton!
-    
     override func createView() {
         super.createView()
         selectBtn = UIButton()
-        selectBtn.setImage(.init(named: "unitorgselect"), for: .normal)
-        selectBtn.setImage(.init(named: "unitorgselected"), for: .selected)
-        selectBtn.addTarget(self, action: #selector(selectAction(btn:)), for: .touchDown)
-        contentView.addSubview(selectBtn)
-        selectBtn.imageEdgeInsets = UIEdgeInsets.init(top: 10, left: 18, bottom: 10, right: 18)
-        selectBtn.snp.makeConstraints { make in
+        selectBtn!.setImage(.init(named: "unitorgselect"), for: .normal)
+        selectBtn!.setImage(.init(named: "unitorgselected"), for: .selected)
+        selectBtn!.addTarget(self, action: #selector(selectAction(btn:)), for: .touchDown)
+        contentView.addSubview(selectBtn!)
+        selectBtn!.imageEdgeInsets = UIEdgeInsets.init(top: 10, left: 18, bottom: 10, right: 18)
+        selectBtn!.snp.makeConstraints { make in
             make.right.equalToSuperview()
             make.centerY.equalTo(name.snp.centerY)
             make.size.equalTo(CGSize(width: 22+36, height: 22+20))
@@ -28,11 +26,10 @@ class JHUnitOrgSearchCell: JHUnitOrgBaseCell {
             make.right.equalTo(-22-10-8)
         }
     }
+    
     @objc
     func selectAction(btn:UIButton) {
         if let block = self.SelecteAction {
-            btn.isSelected = !btn.isSelected
-            self.model.selected = btn.isSelected
             block(model)
         }
     }

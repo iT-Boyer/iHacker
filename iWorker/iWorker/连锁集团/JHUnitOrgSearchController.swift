@@ -136,24 +136,25 @@ extension JHUnitOrgSearchController
     {
         //
         let cell:JHUnitOrgSearchCell = tableView.dequeueReusableCell(withIdentifier: "JHUnitOrgSearchCell")! as! JHUnitOrgSearchCell
-        cell.model = dataArray[indexPath.row]
-        if let selected = cell.model.selected {
-            cell.selectBtn.isSelected = selected
-        }
-        cell.SelecteAction = { model in
-            if self.isAddChild {
-                if !model.selected! {
-                    self.selectAllBtn.isSelected = false
+        let model = dataArray[indexPath.row]
+        cell.model = model
+        if (cell.SelecteAction == nil) {
+            cell.SelecteAction = { mod in
+                if self.isAddChild {
+                    if mod.selected == false {
+                        self.selectAllBtn.isSelected = false
+                    }
+                }else{
+                    for org in self.dataArray {
+                        org.selected = false
+                    }
+                    mod.selected = true
                 }
-            }else{
-                for org in self.dataArray {
-                    org.selected = false
-                }
-                model.selected = true
+                //
+                let select = self.dataArray.filter {$0.selected!}
+                self.selectNumLab.text = "已选择\(select.count)个企业"
+                tableView.reloadData()
             }
-            //
-            let select = self.dataArray.filter {$0.selected!}
-            self.selectNumLab.text = "已选择\(select.count)个企业"
         }
         return cell
     }
