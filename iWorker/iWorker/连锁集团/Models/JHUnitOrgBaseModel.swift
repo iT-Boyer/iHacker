@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import GRDB
 
-class JHUnitOrgBaseModel: NSObject {
+class JHUnitOrgBaseModel: NSObject,Codable {
 
     var storeId:String!
     var companyName:String!
@@ -16,5 +17,14 @@ class JHUnitOrgBaseModel: NSObject {
     var licenceCode:String!
     
     //标识选中状态
-    var selected = false
+    var selected:Bool?
+    
+    static func parsed<T:Decodable>(data:Data) -> T {
+        do{
+            let decoder = JSONDecoder()
+            return try decoder.decode(T.self, from: data)
+        }catch{
+            fatalError(#function+"解析失败：\(error)")
+        }
+    }
 }

@@ -18,7 +18,7 @@ import Alamofire
 
 class JNRequestTests: QuickSpec {
     override func spec() {
-        describe("访问接口解析") {
+        xdescribe("访问接口解析") {
             // 模拟数据接口
             var expectation:XCTestExpectation!
             beforeEach {
@@ -70,7 +70,7 @@ class JNRequestTests: QuickSpec {
             }
         }
         
-        describe("上传金和图片") {
+        xdescribe("上传金和图片") {
             var serverUrl:String!
             var imageData:Data!
             var expectation:XCTestExpectation!
@@ -173,6 +173,37 @@ class JNRequestTests: QuickSpec {
                 }
                 
                 return params
+            }
+        }
+        
+        describe("演示JSONDecoder系统库的使用") {
+            
+            // 模拟数据接口
+            var expectation:XCTestExpectation!
+            beforeEach {
+                installOHHTTPStubs()
+                expectation = self.expectation(description: "解析")
+            }
+            
+            fit("解析数组") {
+                let urlStr = JHBaseDomain.fullURL(with: "api_host_patrol", path: "/api/Simple/GetFirmChainList")
+                let requestDic = ["appId":JHBaseInfo.appID,
+                                  "condition": "",
+                                  "pageIndex":1,
+                                  "pageSize":20] as [String : Any]
+                let request = JN.post(urlStr, parameters: requestDic, headers: nil)
+                request.response { response in
+                    let json = JSON(response.data!)
+                    let storeList = try! json["storeList"].rawData()
+//                    let dataArray = try! JSONDecoder().decode(JHUnitOrgBaseModel.self, from: storeList)
+                    let dataArray:[JHUnitOrgBaseModel] = JHUnitOrgBaseModel.parsed(data: storeList)
+                    expectation.fulfill()
+                }
+//                self.wait(for: [expectation], timeout: 20)
+                self.waitForExpectations(timeout: 20, handler: { error in
+                    //
+                    print("错误信息:\(String(describing: error?.localizedDescription))")
+                })
             }
         }
     }

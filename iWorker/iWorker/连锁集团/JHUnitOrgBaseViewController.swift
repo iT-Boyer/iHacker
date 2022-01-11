@@ -13,12 +13,13 @@ class JHUnitOrgBaseViewController: JHBaseNavVC{
 
     var storeId:String!
     var isAddChild = false
-    var dataArray:[Any] = []
+    var dataArray:[JHUnitOrgBaseModel]! = []
     var pageIndex = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
         createView()
+        installOHHTTPStubs()
     }
     //
     func loadData() {
@@ -73,9 +74,13 @@ extension JHUnitOrgBaseViewController:UITableViewDataSource,UITableViewDelegate
         UITableViewCell()
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        dataArray.count
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //
-        dataArray.count
+        1
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import JHBase
+import SwiftyJSON
+import MBProgressHUD
 
 protocol JHUnitOrgDelegate:NSObject {
     func refeshChainDataWhenAdd()
@@ -27,8 +30,28 @@ class JHUnitOrgSearchController: JHUnitOrgBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navTitle = "搜索页"
-        dataArray = ["2","2","2","2"]
         tableView.register(JHUnitOrgSearchCell.self, forCellReuseIdentifier: "JHUnitOrgSearchCell")
+        loadData()
+    }
+    
+    override func loadData() {
+        
+        let urlStr = JHBaseDomain.fullURL(with: "api_host_patrol", path: "/api/Simple/GetFirmChainList")
+        let requestDic = ["appId":JHBaseInfo.appID,
+                          "condition":searchTxt ?? "",
+                          "pageIndex":1,
+                          "pageSize":20] as [String : Any]
+        
+        let hud = MBProgressHUD.showAdded(to: view, animated: true)
+        hud.removeFromSuperViewOnHide = true
+        let request = JN.post(urlStr, parameters: requestDic, headers: nil)
+        request.response { response in
+            let json = JSON(response.data!)
+            let storeData = try! json["storeList"].rawData()
+            self.dataArray = JHUnitOrgBaseModel.parsed(data: storeData)
+            hud.hide(animated: false)
+            self.tableView.reloadData()
+        }
     }
     
     override func createView() {
@@ -112,8 +135,8 @@ extension JHUnitOrgSearchController
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         //
-        let cell:UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "JHUnitOrgSearchCell")!
-        cell.textLabel?.text = "sdf"
+        let cell:JHUnitOrgSearchCell = tableView.dequeueReusableCell(withIdentifier: "JHUnitOrgSearchCell")! as! JHUnitOrgSearchCell
+        cell.model = dataArray[indexPath.row]
         return cell
     }
 }

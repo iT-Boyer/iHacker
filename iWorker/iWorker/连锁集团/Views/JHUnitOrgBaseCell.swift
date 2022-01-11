@@ -9,15 +9,151 @@ import UIKit
 
 class JHUnitOrgBaseCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    var rootView:UIView!
+    var name:UILabel!
+    var addr:UILabel!
+    var creditCode:UILabel!
+    var licenceCode:UILabel!
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        selectionStyle = .none
+        contentView.backgroundColor = .init(hexString: "F5F5F5")
+        createView()
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
-
+    var model:JHUnitOrgBaseModel!{
+        didSet{
+            let nameStr = "企业名称："+model.companyName
+            let addrStr = "地       址："+model.address
+            name.text = nameStr
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.alignment = .left
+            let emptylen = addr.font.pointSize * 5
+            paragraphStyle.headIndent = emptylen
+            var attr = AttributedString(addrStr)
+            attr.font = .systemFont(ofSize: 15)
+            attr.foregroundColor = .init(hexString: "333333")
+            attr.paragraphStyle = paragraphStyle
+            addr.attributedText = NSAttributedString(attr)
+            //隐藏逻辑
+            if let code = model.licenceCode, code.count > 0 {
+                let licenceCodeStr = "许可证号："+model.licenceCode
+                licenceCode.text = licenceCodeStr
+                licenceCode.snp.updateConstraints { make in
+                    make.height.equalTo(45)
+                }
+                licenceCode.isHidden = false
+                let line = licenceCode.subviews[0]
+                line.isHidden = false
+            }else{
+                licenceCode.snp.updateConstraints { make in
+                    make.height.equalTo(0)
+                }
+                licenceCode.isHidden = true
+            }
+            
+            
+            if let ccode = model.creditCode, ccode.count > 0 {
+                let creditCodeStr = "信用代码："+model.creditCode
+                creditCode.text = creditCodeStr
+                creditCode.snp.updateConstraints { make in
+                    make.height.equalTo(45)
+                }
+                creditCode.isHidden = false
+                let line = creditCode.subviews[0]
+                line.isHidden = licenceCode.isHidden ? true : false
+            }else{
+                creditCode.snp.updateConstraints { make in
+                    make.height.equalTo(0)
+                }
+                creditCode.isHidden = true
+                let line = creditCode.subviews[0]
+                line.isHidden = true
+            }
+            
+            if creditCode.isHidden && licenceCode.isHidden {
+                let line = addr.subviews[0]
+                line.isHidden = true
+            }else{
+                let line = addr.subviews[0]
+                line.isHidden = false
+            }
+        }
+    }
+    func createView() {
+        rootView = UIView()
+        rootView.backgroundColor = .white
+        rootView.layer.cornerRadius = 4
+        name = createLab()
+        name.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(showName))
+        name.addGestureRecognizer(tap)
+        addr = createLab()
+        addr.numberOfLines = 0
+        creditCode = createLab()
+        licenceCode = createLab()
+        let line = licenceCode.subviews[0]
+        line.isHidden = true
+        rootView.addSubview(name)
+        rootView.addSubview(addr)
+        rootView.addSubview(creditCode)
+        rootView.addSubview(licenceCode)
+        contentView.addSubview(rootView)
+        
+        rootView.snp.makeConstraints { make in
+            make.left.equalTo(12)
+            make.centerX.equalToSuperview()
+            make.top.centerY.equalToSuperview()
+        }
+        name.snp.makeConstraints { make in
+            make.left.equalTo(12)
+            make.right.equalTo(-12)
+            make.top.equalToSuperview()
+            make.height.equalTo(45)
+        }
+        addr.snp.makeConstraints { make in
+            make.left.equalTo(12)
+            make.right.equalTo(-12)
+            make.top.equalTo(name.snp.bottom)
+            make.height.greaterThanOrEqualTo(45)
+        }
+        creditCode.snp.makeConstraints { make in
+            make.left.equalTo(12)
+            make.right.equalTo(-12)
+            make.top.equalTo(addr.snp.bottom)
+            make.height.equalTo(45)
+        }
+        licenceCode.snp.makeConstraints { make in
+            make.left.equalTo(12)
+            make.right.equalTo(-12)
+            make.top.equalTo(creditCode.snp.bottom)
+            make.height.equalTo(45)
+            make.bottom.equalToSuperview()
+        }
+    }
+    
+    func createLab() -> UILabel {
+        let lab = UILabel()
+        lab.textColor = .init(hexString: "333333")
+        lab.font = .systemFont(ofSize: 15)
+        let line = UIView()
+        line.backgroundColor = .init(hexString: "EEEEEE")
+        lab.addSubview(line)
+        line.snp.makeConstraints { make in
+            make.bottom.equalToSuperview()
+            make.height.equalTo(0.5)
+            make.left.equalToSuperview()
+            make.width.equalTo(UIScreen.main.bounds.size.width - 48)
+        }
+        return lab
+    }
+    
+    @objc
+    func showName() {
+        
+    }
 }

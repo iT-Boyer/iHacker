@@ -17,6 +17,11 @@
 		B3230362278C2BAA0056BDCC /* JHUnitOrgBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3230361278C2BAA0056BDCC /* JHUnitOrgBaseModel.swift */; };
 		B3230364278C2C370056BDCC /* JHUnitOrgHigherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3230363278C2C370056BDCC /* JHUnitOrgHigherModel.swift */; };
 		B3230365278C301F0056BDCC /* JHUniversalResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B323035B278C28820056BDCC /* JHUniversalResource.bundle */; };
+		B323036D278D3B460056BDCC /* ModifyFirmChain.json in Resources */ = {isa = PBXBuildFile; fileRef = B3230368278D3B460056BDCC /* ModifyFirmChain.json */; };
+		B323036E278D3B460056BDCC /* CheckEnterChain.json in Resources */ = {isa = PBXBuildFile; fileRef = B3230369278D3B460056BDCC /* CheckEnterChain.json */; };
+		B323036F278D3B460056BDCC /* GetFirmChainList.json in Resources */ = {isa = PBXBuildFile; fileRef = B323036A278D3B460056BDCC /* GetFirmChainList.json */; };
+		B3230370278D3B460056BDCC /* GetEnterChainList.json in Resources */ = {isa = PBXBuildFile; fileRef = B323036B278D3B460056BDCC /* GetEnterChainList.json */; };
+		B3230371278D3B460056BDCC /* getCooperateStepList.json in Resources */ = {isa = PBXBuildFile; fileRef = B323036C278D3B460056BDCC /* getCooperateStepList.json */; };
 		B3821F62277C8AE8005FFF8E /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = B3821F61277C8AE8005FFF8E /* Nimble */; };
 		B3821F64277C8AE8005FFF8E /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = B3821F63277C8AE8005FFF8E /* Quick */; };
 		B3821F68277C8B79005FFF8E /* Dog.m in Sources */ = {isa = PBXBuildFile; fileRef = B3821F67277C8B79005FFF8E /* Dog.m */; };
@@ -196,6 +201,11 @@
 		B323035F278C2B7D0056BDCC /* JHUnitOrgBaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHUnitOrgBaseCell.swift; sourceTree = "<group>"; };
 		B3230361278C2BAA0056BDCC /* JHUnitOrgBaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHUnitOrgBaseModel.swift; sourceTree = "<group>"; };
 		B3230363278C2C370056BDCC /* JHUnitOrgHigherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHUnitOrgHigherModel.swift; sourceTree = "<group>"; };
+		B3230368278D3B460056BDCC /* ModifyFirmChain.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ModifyFirmChain.json; sourceTree = "<group>"; };
+		B3230369278D3B460056BDCC /* CheckEnterChain.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CheckEnterChain.json; sourceTree = "<group>"; };
+		B323036A278D3B460056BDCC /* GetFirmChainList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetFirmChainList.json; sourceTree = "<group>"; };
+		B323036B278D3B460056BDCC /* GetEnterChainList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetEnterChainList.json; sourceTree = "<group>"; };
+		B323036C278D3B460056BDCC /* getCooperateStepList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = getCooperateStepList.json; sourceTree = "<group>"; };
 		B3821F5A277C8A03005FFF8E /* RuntimeCmdTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RuntimeCmdTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3821F65277C8B79005FFF8E /* RuntimeCmdTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RuntimeCmdTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		B3821F66277C8B79005FFF8E /* Dog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Dog.h; sourceTree = "<group>"; };
@@ -384,6 +394,7 @@
 		B32303362787ED7C0056BDCC /* 连锁集团 */ = {
 			isa = PBXGroup;
 			children = (
+				B3230367278D3B460056BDCC /* JSON */,
 				B323035C278C2B2B0056BDCC /* Views */,
 				B3230358278C110A0056BDCC /* Models */,
 				B32303372787EDBD0056BDCC /* JHUnitJoinOrgViewController.swift */,
@@ -410,6 +421,19 @@
 				B323035D278C2B490056BDCC /* JHUnitOrgSearchCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		B3230367278D3B460056BDCC /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				B3230368278D3B460056BDCC /* ModifyFirmChain.json */,
+				B3230369278D3B460056BDCC /* CheckEnterChain.json */,
+				B323036A278D3B460056BDCC /* GetFirmChainList.json */,
+				B323036B278D3B460056BDCC /* GetEnterChainList.json */,
+				B323036C278D3B460056BDCC /* getCooperateStepList.json */,
+			);
+			name = JSON;
+			path = "../../../../SupervisionSel/SupervisionSel/Classes/Controller/我的组织/JSON";
 			sourceTree = "<group>";
 		};
 		B3821F5B277C8A03005FFF8E /* RuntimeCmdTests */ = {
@@ -1001,9 +1025,14 @@
 				B38D8909277B1AC000888EFB /* SaveMorningCheckImg.json in Resources */,
 				B323033A27880CF80056BDCC /* Main.storyboard in Resources */,
 				B38D88AB277B199700888EFB /* LaunchScreen.storyboard in Resources */,
+				B323036F278D3B460056BDCC /* GetFirmChainList.json in Resources */,
+				B323036E278D3B460056BDCC /* CheckEnterChain.json in Resources */,
+				B3230370278D3B460056BDCC /* GetEnterChainList.json in Resources */,
 				B3230365278C301F0056BDCC /* JHUniversalResource.bundle in Resources */,
 				B38D890A277B1AC000888EFB /* GetSimilarityScore.json in Resources */,
+				B323036D278D3B460056BDCC /* ModifyFirmChain.json in Resources */,
 				B38D890B277B1AC000888EFB /* GetMorningCheckSettingByStoreId.json in Resources */,
+				B3230371278D3B460056BDCC /* getCooperateStepList.json in Resources */,
 				B38D890C277B1AC000888EFB /* GetEmployeeFaceInfoByOrgIdUserId.json in Resources */,
 				B38D88A8277B199700888EFB /* Assets.xcassets in Resources */,
 				B38D8908277B1AC000888EFB /* ipFile.plist in Resources */,
