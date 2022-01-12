@@ -7,6 +7,8 @@
 
 import UIKit
 import JHBase
+import Alamofire
+import SwiftyJSON
 import AVFoundation
 
 
@@ -29,7 +31,7 @@ class JHMornUpPhotoController: JHMornCameraController {
         resetBtn.setTitleColor(.white, for: .normal)
         resetBtn.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .bold)
         resetBtn.setTitle("重新拍摄", for: .normal)
-        resetBtn.addTarget(self, action: Selector(""), for: .touchDown)
+        resetBtn.addTarget(self, action: #selector(reCamraAction), for: .touchDown)
         
         let submitBtn = UIButton()
         submitBtn.backgroundColor = UIColor(hexString: "07C58F")
@@ -37,7 +39,7 @@ class JHMornUpPhotoController: JHMornCameraController {
         submitBtn.layer.cornerRadius = 22.5
         submitBtn.titleLabel!.font = UIFont.systemFont(ofSize: 17, weight: .bold)
         submitBtn.setTitle("确定", for: .normal)
-        submitBtn.addTarget(self, action: #selector(JHMornInspecterController.startCamera(_:)), for: .touchDown)
+        submitBtn.addTarget(self, action: #selector(upload), for: .touchDown)
         
         let photo = UIImageView()
         preView = photo
@@ -97,13 +99,38 @@ extension JHMornUpPhotoController
         self.refresh(imgModel.tip, icon: imgModel.icon)
     }
     
-    func reCamraAction()
+    @objc func reCamraAction()
     {
         self.view.sendSubviewToBack(self.preView)
     }
-    
+    @objc
     func upload() {
+        let serverUrl = JHBaseDomain.fullURL(with: "api_host_upfileserver", path: "/Jinher.JAP.BaseApp.FileServer.SV.FileSV.svc/UploadMobileFile")
+        let headers:HTTPHeaders = ["Authentication": "YgAhCMxEehT4N/DmhKkA/M0npN3KO0X8PMrNl17+hogw944GDGpzvypteMemdWb9nlzz7mk1jBa/0fpOtxeZUA==","Content-Type":"form/data"]
         
+        AF.upload(multipartFormData: { multipartFormData in
+            // params相关入参，不影响图片正常上传
+            let imageData = self.preView.image?.compressedData()
+            if let data = imageData{
+                multipartFormData.append(data, withName: "FileDataFromPhone", fileName: "\(Date().timeIntervalSince1970).png", mimeType: "image/png")
+            }
+        }, to: serverUrl, method: .post, headers: headers).responseJSON { response in
+            
+            if let err = response.error{
+                print(err)
+                return
+            }
+            
+            let json = response.data
+            
+            if (json != nil)
+            {
+                let jsonObject = JSON(json!)
+                let filePath = jsonObject["FilePath"].string
+                let fileUrl = JHBaseDomain.fullURL(with: "api_host_upfileserver", path: "/Jinher.JAP.BaseApp.FileServer.UI/FileManage/GetFile?fileURL=\(filePath!)")
+                self.submitPhoto("", url: fileUrl)
+            }
+        }
     }
 }
 

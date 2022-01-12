@@ -16,7 +16,6 @@ class JHUnitOrgBaseCell: UITableViewCell {
     var creditCode:UILabel!
     var licenceCode:UILabel!
     
-    var selectBtn:UIButton?
     var SelecteAction:AddClosure!
     var block:(()->())?
     
@@ -32,8 +31,8 @@ class JHUnitOrgBaseCell: UITableViewCell {
     }
     var model:JHUnitOrgBaseModel!{
         didSet{
-            let nameStr = "企业名称："+model.companyName
-            let addrStr = "地       址："+model.address
+            let nameStr = "企业名称：" + (model.companyName ?? "")
+            let addrStr = "地       址：" + (model.address ?? "")
             name.text = nameStr
             let paragraphStyle = NSMutableParagraphStyle()
             paragraphStyle.alignment = .left
@@ -46,7 +45,7 @@ class JHUnitOrgBaseCell: UITableViewCell {
             addr.attributedText = NSAttributedString(attr)
             //隐藏逻辑
             if let code = model.licenceCode, code.count > 0 {
-                let licenceCodeStr = "许可证号："+model.licenceCode
+                let licenceCodeStr = "许可证号："+code
                 licenceCode.text = licenceCodeStr
                 licenceCode.snp.updateConstraints { make in
                     make.height.equalTo(45)
@@ -61,11 +60,8 @@ class JHUnitOrgBaseCell: UITableViewCell {
                 licenceCode.isHidden = true
             }
             
-            if let selectedBtn = selectBtn , let state = model.selected{
-                selectedBtn.isSelected = state
-            }
-            if let ccode = model.creditCode, ccode.count > 0 {
-                let creditCodeStr = "信用代码："+model.creditCode
+            if model.creditCode!.count > 0 {
+                let creditCodeStr = "信用代码："+model.creditCode!
                 creditCode.text = creditCodeStr
                 creditCode.snp.updateConstraints { make in
                     make.height.equalTo(45)

@@ -143,10 +143,21 @@ extension JHMornCameraController
         }else{
             toChangeDevice = cameraWithPosition(position: .back)
         }
+        
+        let toChangeDeviceInput = try! AVCaptureDeviceInput(device: toChangeDevice)
+        session.removeInput(self.imageInput)
+        if self.session.canAddInput(toChangeDeviceInput) {
+            self.session.addInput(toChangeDeviceInput)
+            self.imageInput = toChangeDeviceInput
+        }
+        self.session.commitConfiguration()
     }
     
     func cameraWithPosition(position:AVCaptureDevice.Position)->AVCaptureDevice?{
-        let devices = AVCaptureDevice.devices(for: .video)
+        // 'devices(for:)' was deprecated in iOS 10.0: Use AVCaptureDeviceDiscoverySession instead.
+        // let devices = AVCaptureDevice.devices(for: .video)
+        let devices = AVCaptureDevice.DiscoverySession.init(deviceTypes: [AVCaptureDevice.DeviceType.builtInWideAngleCamera], mediaType: .video, position: .front).devices
+        
         for device in devices {
             if device.position == position {
                 return device

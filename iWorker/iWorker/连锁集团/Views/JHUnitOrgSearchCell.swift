@@ -9,6 +9,7 @@ import UIKit
 
 class JHUnitOrgSearchCell: JHUnitOrgBaseCell {
 
+    var selectBtn:UIButton!
     override func createView() {
         super.createView()
         selectBtn = UIButton()
@@ -24,6 +25,16 @@ class JHUnitOrgSearchCell: JHUnitOrgBaseCell {
         }
         name.snp.updateConstraints { make in
             make.right.equalTo(-22-10-8)
+        }
+    }
+    
+    override var model: JHUnitOrgBaseModel!{
+        didSet{
+            if let state = model.selected {
+                selectBtn.isSelected = state
+            }else{
+                selectBtn.isSelected = false
+            }
         }
     }
     

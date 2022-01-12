@@ -10,11 +10,11 @@ import GRDB
 
 class JHUnitOrgBaseModel: NSObject,Codable {
 
-    var storeId:String!
-    var companyName:String!
-    var address:String!
-    var creditCode:String!
-    var licenceCode:String!
+    var storeId:String?
+    var companyName:String?
+    var address:String?
+    var creditCode:String?
+    var licenceCode:String?
     
     //标识选中状态
     var selected:Bool?
