@@ -8,14 +8,14 @@
 import UIKit
 
 class UnitOrgChainModel: NSObject {
-    var account:String!
-    var storeId:String!
-    var appId:String!
-    var bindStoreList:[UnitOrgStoreModel]!
-    var state:Int!
+    var account:String?
+    var storeId:String?
+    var appId:String?
+    var bindStoreList:[UnitOrgStoreModel]?
+    var state:Int?
     
     class UnitOrgStoreModel: NSObject {
-        var bindId:String!
-        var companyName:String!
+        var bindId:String?
+        var companyName:String?
     }
 }
