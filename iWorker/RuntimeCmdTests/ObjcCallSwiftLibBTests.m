@@ -43,7 +43,7 @@
 -(void)testSwiftLibBObj
 {
     [SwiftLibB shared];
-    [SecondB shared];
+//    [SecondB shared];
 }
 
 /// 验证oc调用swiftlibB库中的类方法
@@ -56,6 +56,12 @@
 -(void)testSwiftLibBa
 {
     ((void(*)(id, SEL))objc_msgSend)(secondCls, @selector(shareda));
+}
+
+-(void)testSwiftLibCallme
+{
+    ((void(*)(id, SEL,NSString*))objc_msgSend)(libBObj, @selector(callMe:),@"大神");
+    ((void(*)(id, SEL,NSString*))objc_msgSend)(libBObj, @selector(callMeinEx:),@"大神");
 }
 
 

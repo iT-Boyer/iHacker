@@ -216,11 +216,18 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) SecondB * _N
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+@class NSString;
 
 SWIFT_CLASS_NAMED("SwiftLibB")
 @interface SwiftLibB : NSObject
 + (void)shared;
+- (void)callMe:(NSString * _Nonnull)name;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+@interface SwiftLibB (SWIFT_EXTENSION(SwiftLibB))
+- (void)callMeinEx:(NSString * _Nonnull)name;
 @end
 
 #if __has_attribute(external_source_symbol)

@@ -20,4 +20,14 @@ public class SwiftLibB:NSObject {
     @objc class public func shared() {
         print("文件名："+#file+"\n方法名："+#function+"\n行数：\(#line)")
     }
+    @objc public func callMe(_ name:String) {
+        print("请叫我：\(name)")
+    }
+}
+
+extension SwiftLibB
+{
+    @objc public func callMeinEx(_ name:String) {
+        print("Ex请叫我：\(name)")
+    }
 }
