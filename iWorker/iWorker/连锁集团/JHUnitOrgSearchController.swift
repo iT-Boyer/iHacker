@@ -173,9 +173,19 @@ class JHUnitOrgSearchController: JHUnitOrgBaseViewController {
         }
         return rootView
     }()
+    
     @objc
-    func selectAllAction(_ but:UIButton) {
-        
+    func selectAllAction(_ btn:UIButton) {
+        btn.isSelected = !btn.isSelected
+        for model in self.dataArray {
+            model.selected = btn.isSelected
+        }
+        if btn.isSelected {
+            self.selectNumLab.text = "已选择\(self.dataArray.count)个企业"
+        }else{
+            self.selectNumLab.text = "已选择0个企业"
+        }
+        self.tableView.reloadData()
     }
     @objc
     func commitAction(_ btn:UIButton) {

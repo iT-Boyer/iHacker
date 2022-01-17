@@ -30,17 +30,14 @@ class JHUnitOrgSearchCell: JHUnitOrgBaseCell {
     
     override var model: JHUnitOrgBaseModel!{
         didSet{
-            if let state = model.selected {
-                selectBtn.isSelected = state
-            }else{
-                selectBtn.isSelected = false
-            }
+            selectBtn.isSelected = model.selected ?? false
         }
     }
     
     @objc
     func selectAction(btn:UIButton) {
         if let block = self.SelecteAction {
+            model.selected = !(model.selected ?? false)
             block(model)
         }
     }

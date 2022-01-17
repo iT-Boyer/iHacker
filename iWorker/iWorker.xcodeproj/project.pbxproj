@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B313EF3A278EDCD40089625F /* StoreDSelSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B313EF39278EDCD40089625F /* StoreDSelSearchBar.swift */; };
+		B32225BA2795753500953EF3 /* JHUnitOrgAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32225B92795753500953EF3 /* JHUnitOrgAlertController.swift */; };
 		B32303382787EDBD0056BDCC /* JHUnitJoinOrgViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32303372787EDBD0056BDCC /* JHUnitJoinOrgViewController.swift */; };
 		B323033A27880CF80056BDCC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B38D88A4277B199400888EFB /* Main.storyboard */; };
 		B323033C278827350056BDCC /* JHUnitOrgBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B323033B278827350056BDCC /* JHUnitOrgBaseViewController.swift */; };
@@ -194,6 +195,7 @@
 
 /* Begin PBXFileReference section */
 		B313EF39278EDCD40089625F /* StoreDSelSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDSelSearchBar.swift; sourceTree = "<group>"; };
+		B32225B92795753500953EF3 /* JHUnitOrgAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHUnitOrgAlertController.swift; sourceTree = "<group>"; };
 		B32303372787EDBD0056BDCC /* JHUnitJoinOrgViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHUnitJoinOrgViewController.swift; sourceTree = "<group>"; };
 		B323033B278827350056BDCC /* JHUnitOrgBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHUnitOrgBaseViewController.swift; sourceTree = "<group>"; };
 		B323033D278827670056BDCC /* JHUnitOrgSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHUnitOrgSearchController.swift; sourceTree = "<group>"; };
@@ -402,6 +404,7 @@
 				B32303372787EDBD0056BDCC /* JHUnitJoinOrgViewController.swift */,
 				B323033B278827350056BDCC /* JHUnitOrgBaseViewController.swift */,
 				B323033D278827670056BDCC /* JHUnitOrgSearchController.swift */,
+				B32225B92795753500953EF3 /* JHUnitOrgAlertController.swift */,
 			);
 			path = "连锁集团";
 			sourceTree = "<group>";
@@ -1173,6 +1176,7 @@
 				B323035A278C11240056BDCC /* UnitOrgChainModel.swift in Sources */,
 				B38D893B277B1CD800888EFB /* JHMornUploadModel.swift in Sources */,
 				B323035E278C2B490056BDCC /* JHUnitOrgSearchCell.swift in Sources */,
+				B32225BA2795753500953EF3 /* JHUnitOrgAlertController.swift in Sources */,
 				B38D8936277B1C6D00888EFB /* Env.swift in Sources */,
 				B38D889F277B199400888EFB /* AppDelegate.swift in Sources */,
 				B3230362278C2BAA0056BDCC /* JHUnitOrgBaseModel.swift in Sources */,

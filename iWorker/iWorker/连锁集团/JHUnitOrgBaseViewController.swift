@@ -12,7 +12,7 @@ import ESPullToRefresh
 class JHUnitOrgBaseViewController: JHBaseNavVC{
 
     var storeId:String!
-    var isAddChild = false
+    var isAddChild:Bool!
     var dataArray:[JHUnitOrgBaseModel]! = []
     var pageIndex = 0
 
