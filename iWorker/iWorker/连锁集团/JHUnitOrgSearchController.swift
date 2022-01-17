@@ -20,7 +20,7 @@ protocol JHUnitOrgDelegate:NSObject {
 class JHUnitOrgSearchController: JHUnitOrgBaseViewController {
     
     weak var delegate:JHUnitOrgDelegate?
-    var ibSearchBar:UISearchBar!
+    var ibSearchBar:StoreDSelSearchBar!
     var selectNumLab:UILabel!
     var searchTxt:String!
     var selectAllBtn:UIButton!
@@ -30,8 +30,8 @@ class JHUnitOrgSearchController: JHUnitOrgBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navTitle = "搜索页"
+        _ = self.searchView
         tableView.register(JHUnitOrgSearchCell.self, forCellReuseIdentifier: "JHUnitOrgSearchCell")
-        loadData()
     }
     
     override func loadData() {
@@ -70,6 +70,59 @@ class JHUnitOrgSearchController: JHUnitOrgBaseViewController {
     }
     
     //MARK: getter
+    lazy var searchView: UIView = {
+        
+        var rootView = UIView()
+        ibSearchBar = StoreDSelSearchBar(with: "请输入企业名称或社会信用代码", handler: { text in
+            //
+            self.searchTxt = text
+            self.loadData()
+        }, clear: {
+            //
+            self.searchTxt = ""
+            if self.dataArray.count > 0{
+                self.dataArray.removeAll()
+                self.view.addSubview(self.emptyView)
+                self.tableView.reloadData()
+                self.selectNumLab.text = "已选择0个企业"
+                self.selectAllView.isHidden = true
+            }
+        })
+        
+        
+        ibSearchBar.searchBar.searchTextPositionAdjustment = .init(horizontal: 6, vertical: 0)
+        ibSearchBar.searchBar.setPositionAdjustment(.init(horizontal: 10, vertical: 0), for: .search)
+        ibSearchBar.searchBar.setPositionAdjustment(.init(horizontal: -10, vertical: 0), for: .clear)
+        let searchIcon:UIImage? = .init(named: "searchicon") ?? nil
+        let clearIcon:UIImage? = .init(named: "clearicon") ?? nil
+        ibSearchBar.searchBar.setImage(searchIcon, for: .search, state: .normal)
+        ibSearchBar.searchBar.setImage(clearIcon, for: .clear, state: .normal)
+        self.navBar.backBtn.isHidden = true
+        self.navBar.addSubview(self.ibSearchBar)
+        self.ibSearchBar.snp.makeConstraints { make in
+            make.height.equalTo(30)
+            make.leading.equalToSuperview().offset(12)
+            make.centerY.equalTo(self.navBar.titleLabel.snp.centerY)
+        }
+        
+        //取消按钮
+        let cancelBtn = UIButton()
+        cancelBtn.setTitle("取消", for: .normal)
+        cancelBtn.titleLabel?.font = .systemFont(ofSize: 14)
+        cancelBtn.setTitleColor(.init(hexString: "333333"), for: .normal)
+        cancelBtn.addTarget(self, action: #selector(backBtnClicked(_:)), for: .touchDown)
+        self.navBar.addSubview(cancelBtn)
+        cancelBtn.snp.makeConstraints { make in
+            make.right.equalToSuperview()
+            make.width.equalTo(54)
+            make.left.equalTo(self.ibSearchBar.snp.right)
+            make.centerY.equalTo(self.navBar.titleLabel.snp.centerY)
+        }
+        
+        
+        return rootView
+    }()
+    
     lazy var selectAllView = { () -> UIView in
         var rootView = UIView()
         rootView.backgroundColor = .white
