@@ -23,7 +23,7 @@ class RuntimeCmdSpec: QuickSpec {
             }
         }
         
-        describe("swift使用runtime") {
+        xdescribe("swift使用runtime") {
             xit("读取类的方法和属性") {
                 Tools.showClsRuntime(cls:Person.self)
             }
@@ -34,7 +34,7 @@ class RuntimeCmdSpec: QuickSpec {
                 // 2. 创建对象
                 let obj:NSObject = class_createInstance(cls,0) as! NSObject
                 // 3. 初始化实例方法
-                //    1. 当Dog.h不作桥接时，sel = Selector(("call"))
+//                    1. 当Dog.h不作桥接时，sel = Selector(("call"))
                 //    2. 当Dog.h在桥接中时，sel = #selector(Dog.call)
                 let sel = #selector(Dog.call)
                 // 该方法无效
@@ -49,10 +49,28 @@ class RuntimeCmdSpec: QuickSpec {
             
             it("类方法调用") {
                 let cls:AnyClass = objc_getClass("Dog") as! AnyClass
-                let sel = #selector(Dog.callCls)
+                let sel = #selector(Dog.callCls) //Dog.callCls
                 if let myClass = cls as? NSObjectProtocol {
                     let result = myClass.perform(sel).retain().takeUnretainedValue()//takeRetainedValue()
                     print(result)
+                }
+            }
+            
+            // AnyClass 替换为 NSObject.Type 获取Class即可
+            it("OC构造器问题:class_createInstance不执行") {
+                //1. 获取类
+//                let cls:AnyClass = objc_getClass("Dog") as! AnyClass
+                let cls:NSObject.Type = objc_getClass("Dog") as! NSObject.Type
+                // 2. 创建对象
+//                let obj:NSObject = class_createInstance(cls,0) as! NSObject
+                let obj = cls.init()
+                //let name = Selector(("name"))
+                let name = #selector(getter: Dog.name)
+                // 4. 判断实例是否支持实例方法
+                if obj.responds(to: name) {
+                    // 5. 调用实例方法，拿到返回值
+                    let result:String? = obj.perform(name).retain().takeRetainedValue() as? String
+                    expect(result).to(equal("哈士奇"))
                 }
             }
         }

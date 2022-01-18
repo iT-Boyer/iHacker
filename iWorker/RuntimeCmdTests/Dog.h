@@ -11,6 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Dog : NSObject
 
+@property (strong, nonatomic) NSString *name;
 ///铲屎官
 -(NSString *)owner;
 ///叫声

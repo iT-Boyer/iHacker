@@ -8,8 +8,18 @@
 #import "Dog.h"
 #import <objc/message.h>
 
+
 @implementation Dog
 
+-(instancetype)init
+{
+    self = [super init];
+    if(self)
+    {
+        self.name = @"哈士奇";
+    }
+    return self;
+}
 
 -(NSString *)owner
 {
