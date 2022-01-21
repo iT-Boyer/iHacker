@@ -25,6 +25,7 @@
 		B323036F278D3B460056BDCC /* GetFirmChainList.json in Resources */ = {isa = PBXBuildFile; fileRef = B323036A278D3B460056BDCC /* GetFirmChainList.json */; };
 		B3230370278D3B460056BDCC /* GetEnterChainList.json in Resources */ = {isa = PBXBuildFile; fileRef = B323036B278D3B460056BDCC /* GetEnterChainList.json */; };
 		B3230371278D3B460056BDCC /* getCooperateStepList.json in Resources */ = {isa = PBXBuildFile; fileRef = B323036C278D3B460056BDCC /* getCooperateStepList.json */; };
+		B345589E279A837E00EFAB54 /* WKWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B345589D279A837E00EFAB54 /* WKWebViewController.m */; };
 		B3821F62277C8AE8005FFF8E /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = B3821F61277C8AE8005FFF8E /* Nimble */; };
 		B3821F64277C8AE8005FFF8E /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = B3821F63277C8AE8005FFF8E /* Quick */; };
 		B3821F68277C8B79005FFF8E /* Dog.m in Sources */ = {isa = PBXBuildFile; fileRef = B3821F67277C8B79005FFF8E /* Dog.m */; };
@@ -212,6 +213,8 @@
 		B323036A278D3B460056BDCC /* GetFirmChainList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetFirmChainList.json; sourceTree = "<group>"; };
 		B323036B278D3B460056BDCC /* GetEnterChainList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetEnterChainList.json; sourceTree = "<group>"; };
 		B323036C278D3B460056BDCC /* getCooperateStepList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = getCooperateStepList.json; sourceTree = "<group>"; };
+		B345589C279A837E00EFAB54 /* WKWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKWebViewController.h; sourceTree = "<group>"; };
+		B345589D279A837E00EFAB54 /* WKWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKWebViewController.m; sourceTree = "<group>"; };
 		B3821F5A277C8A03005FFF8E /* RuntimeCmdTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RuntimeCmdTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3821F65277C8B79005FFF8E /* RuntimeCmdTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RuntimeCmdTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		B3821F66277C8B79005FFF8E /* Dog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Dog.h; sourceTree = "<group>"; };
@@ -631,6 +634,8 @@
 		B38D8943277C2A4300888EFB /* JinheAPP */ = {
 			isa = PBXGroup;
 			children = (
+				B345589C279A837E00EFAB54 /* WKWebViewController.h */,
+				B345589D279A837E00EFAB54 /* WKWebViewController.m */,
 				B38D899D277C2E1600888EFB /* ReflectControllers */,
 				B38D8944277C2A4300888EFB /* AppDelegate.h */,
 				B38D8945277C2A4300888EFB /* AppDelegate.m */,
@@ -1228,6 +1233,7 @@
 				B38D894C277C2A4300888EFB /* ViewController.m in Sources */,
 				B38D89B6277C40F300888EFB /* SwiftConfig.swift in Sources */,
 				B38D8946277C2A4300888EFB /* AppDelegate.m in Sources */,
+				B345589E279A837E00EFAB54 /* WKWebViewController.m in Sources */,
 				B38D8957277C2A4600888EFB /* main.m in Sources */,
 				B38D8949277C2A4300888EFB /* SceneDelegate.m in Sources */,
 				B38D89A0277C2ED400888EFB /* JHOneReflectVC.m in Sources */,
