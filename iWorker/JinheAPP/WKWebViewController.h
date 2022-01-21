@@ -6,10 +6,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <WebKit/WebKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface WKWebViewController : UIViewController
+@interface WKWebViewController : UIViewController<UIWebViewDelegate>
 
 @end
 
