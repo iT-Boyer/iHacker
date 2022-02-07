@@ -118,8 +118,6 @@ class JHUnitOrgSearchController: JHUnitOrgBaseViewController {
             make.left.equalTo(self.ibSearchBar.snp.right)
             make.centerY.equalTo(self.navBar.titleLabel.snp.centerY)
         }
-        
-        
         return rootView
     }()
     
@@ -189,7 +187,48 @@ class JHUnitOrgSearchController: JHUnitOrgBaseViewController {
     }
     @objc
     func commitAction(_ btn:UIButton) {
+        let commit = JHUnitOrgAlertController(title: "", message: "确认加入该企业?", image: UIImage(), style: .JHAlertControllerStyleAlert)
+        let cancel = JHAlertAction("取消", style: .JHAlertActionStyleDefault)
+        cancel.titleLabel?.font = .systemFont(ofSize: 16)
+        cancel.setTitleColor(.initWithHex("272727"), for: .normal)
+        cancel.backgroundColor = .initWithHex("F6F6F6")
+        cancel.layer.masksToBounds = true
+        cancel.layer.cornerRadius = 19
         
+        let ok = JHAlertAction.init("加入", style: .JHAlertActionStyleDefault) {
+            
+            let select = self.dataArray.filter {($0.selected ?? false)}
+            if select.count == 0 {
+                return
+            }
+            self.chainModel = UnitOrgChainModel()
+            self.chainModel.appId = JHBaseInfo.appID
+            self.chainModel.storeId = self.storeId
+            self.chainModel.account = JHBaseInfo.userAccount
+            for model:JHUnitOrgBaseModel in select {
+                let store = UnitOrgStoreModel()
+                store.bindId = model.storeId
+                store.companyName = model.companyName
+                self.chainModel.bindStoreList?.append(store)
+            }
+            if self.isAddChild {
+                self.chainModel.state = 1
+            }else{
+                self.chainModel.state = 2
+            }
+            
+            // 添加
+            self.addEnterChain()
+        }
+        ok.titleLabel?.font = .systemFont(ofSize: 16)
+        ok.setTitleColor(.white, for: .normal)
+        ok.backgroundColor = .initWithHex("04A174")
+        ok.layer.masksToBounds = true
+        ok.layer.cornerRadius = 19
+        
+        commit.addAction(action: cancel)
+        commit.addAction(action: ok)
+        self.present(commit, animated: true, completion: nil)
     }
 }
 
@@ -220,5 +259,13 @@ extension JHUnitOrgSearchController
             }
         }
         return cell
+    }
+}
+
+extension JHUnitOrgSearchController
+{
+    func addEnterChain()
+    {
+        
     }
 }

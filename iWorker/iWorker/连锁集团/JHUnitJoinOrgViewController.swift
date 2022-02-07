@@ -153,6 +153,5 @@ class JHUnitJoinOrgViewController: JHBaseNavVC {
         search.isAddChild = true
         search.storeId = self.storeId
         self.navigationController?.pushViewController(search, completion: nil)
-        
     }
 }

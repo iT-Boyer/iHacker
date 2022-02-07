@@ -13,9 +13,9 @@ class UnitOrgChainModel: NSObject {
     var appId:String?
     var bindStoreList:[UnitOrgStoreModel]?
     var state:Int?
-    
-    class UnitOrgStoreModel: NSObject {
-        var bindId:String?
-        var companyName:String?
-    }
+}
+
+class UnitOrgStoreModel: NSObject {
+    var bindId:String?
+    var companyName:String?
 }
