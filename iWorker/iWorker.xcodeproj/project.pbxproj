@@ -27,6 +27,8 @@
 		B3306D3B27B107A9005E7DDC /* AddEnterChain.json in Resources */ = {isa = PBXBuildFile; fileRef = B3306D3A27B10766005E7DDC /* AddEnterChain.json */; };
 		B3306D3D27B10922005E7DDC /* JHUnitOrgHigherController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3306D3C27B10922005E7DDC /* JHUnitOrgHigherController.swift */; };
 		B3306D3F27B1093E005E7DDC /* JHUnitOrgLowerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3306D3E27B1093E005E7DDC /* JHUnitOrgLowerController.swift */; };
+		B3306D4127B111C1005E7DDC /* JHUnitOrgHigherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3306D4027B111C1005E7DDC /* JHUnitOrgHigherCell.swift */; };
+		B3306D4327B124EC005E7DDC /* JHUnitOrgChangeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3306D4227B124EC005E7DDC /* JHUnitOrgChangeController.swift */; };
 		B345589E279A837E00EFAB54 /* WKWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B345589D279A837E00EFAB54 /* WKWebViewController.m */; };
 		B3821F62277C8AE8005FFF8E /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = B3821F61277C8AE8005FFF8E /* Nimble */; };
 		B3821F64277C8AE8005FFF8E /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = B3821F63277C8AE8005FFF8E /* Quick */; };
@@ -217,6 +219,8 @@
 		B3306D3A27B10766005E7DDC /* AddEnterChain.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AddEnterChain.json; sourceTree = "<group>"; };
 		B3306D3C27B10922005E7DDC /* JHUnitOrgHigherController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHUnitOrgHigherController.swift; sourceTree = "<group>"; };
 		B3306D3E27B1093E005E7DDC /* JHUnitOrgLowerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHUnitOrgLowerController.swift; sourceTree = "<group>"; };
+		B3306D4027B111C1005E7DDC /* JHUnitOrgHigherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHUnitOrgHigherCell.swift; sourceTree = "<group>"; };
+		B3306D4227B124EC005E7DDC /* JHUnitOrgChangeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHUnitOrgChangeController.swift; sourceTree = "<group>"; };
 		B345589C279A837E00EFAB54 /* WKWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKWebViewController.h; sourceTree = "<group>"; };
 		B345589D279A837E00EFAB54 /* WKWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKWebViewController.m; sourceTree = "<group>"; };
 		B3821F5A277C8A03005FFF8E /* RuntimeCmdTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RuntimeCmdTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -415,6 +419,7 @@
 				B3306D3C27B10922005E7DDC /* JHUnitOrgHigherController.swift */,
 				B3306D3E27B1093E005E7DDC /* JHUnitOrgLowerController.swift */,
 				B323033D278827670056BDCC /* JHUnitOrgSearchController.swift */,
+				B3306D4227B124EC005E7DDC /* JHUnitOrgChangeController.swift */,
 				B32225B92795753500953EF3 /* JHUnitOrgAlertController.swift */,
 			);
 			path = "连锁集团";
@@ -436,6 +441,7 @@
 				B323035F278C2B7D0056BDCC /* JHUnitOrgBaseCell.swift */,
 				B323035D278C2B490056BDCC /* JHUnitOrgSearchCell.swift */,
 				B313EF39278EDCD40089625F /* StoreDSelSearchBar.swift */,
+				B3306D4027B111C1005E7DDC /* JHUnitOrgHigherCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1190,6 +1196,8 @@
 				B38D88A3277B199400888EFB /* ViewController.swift in Sources */,
 				B323035A278C11240056BDCC /* UnitOrgChainModel.swift in Sources */,
 				B38D893B277B1CD800888EFB /* JHMornUploadModel.swift in Sources */,
+				B3306D4127B111C1005E7DDC /* JHUnitOrgHigherCell.swift in Sources */,
+				B3306D4327B124EC005E7DDC /* JHUnitOrgChangeController.swift in Sources */,
 				B3306D3D27B10922005E7DDC /* JHUnitOrgHigherController.swift in Sources */,
 				B323035E278C2B490056BDCC /* JHUnitOrgSearchCell.swift in Sources */,
 				B32225BA2795753500953EF3 /* JHUnitOrgAlertController.swift in Sources */,
