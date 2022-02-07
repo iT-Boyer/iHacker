@@ -82,7 +82,7 @@ class JHUnitOrgAlertController: UIViewController {
         alertActionStackView.snp.makeConstraints { make in
             make.top.equalTo(alertMessage.snp.bottom).offset(24)
             make.left.equalTo(27)
-            make.centerX.equalToSuperview() 
+            make.centerX.equalToSuperview()
             make.bottom.equalTo(-18)
             make.height.equalTo(38)
         }

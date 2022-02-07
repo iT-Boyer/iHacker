@@ -209,7 +209,7 @@ class JHUnitOrgSearchController: JHUnitOrgBaseViewController {
                 let store = UnitOrgStoreModel()
                 store.bindId = model.storeId
                 store.companyName = model.companyName
-                self.chainModel.bindStoreList?.append(store)
+                self.chainModel.bindStoreList.append(store)
             }
             if self.isAddChild {
                 self.chainModel.state = 1
@@ -266,6 +266,41 @@ extension JHUnitOrgSearchController
 {
     func addEnterChain()
     {
+        let urlStr = JHBaseDomain.fullURL(with: "api_host_patrol", path: "/api/Simple/AddEnterChain")
+        let requestDic = self.chainModel.dataJ
         
+        let hud = MBProgressHUD.showAdded(to: view, animated: true)
+        hud.removeFromSuperViewOnHide = true
+        let request = JN.post(urlStr, parameters: requestDic, headers: nil)
+        request.response { response in
+            let json = JSON(response.data!)
+            let result = json["IsSuccess"].boolValue
+            if result {
+                if let del = self.delegate {
+                    del.refeshChainDataWhenAdd()
+                    self.backBtnClicked(UIButton())
+                }else{
+                    if self.isAddChild {
+                        let lower = JHUnitOrgLowerController()
+                        lower.storeId = self.storeId
+                        self.navigationController?.pushViewController(lower, animated: true)
+                    }else{
+                        let manager = JHUnitOrgHigherController()
+                        manager.storeId = self.storeId
+                        self.navigationController?.pushViewController(manager, animated: true)
+                    }
+                }
+            }else{
+                let msg = json["Message"].stringValue
+                let alertView = UIAlertController.init(title: nil, message: msg, preferredStyle: .alert)
+                var attr = AttributedString(msg)
+                attr.font = .systemFont(ofSize: 16)
+                attr.foregroundColor = .init(hexString: "333333")
+                alertView.setValue(NSAttributedString(attr), forKey: "attributedMessage")
+                let cancel = UIAlertAction.init(title: "我知道了", style: .default, handler: nil)
+                alertView.addAction(cancel)
+                self.present(alertView, animated: true, completion: nil)
+            }
+        }
     }
 }
