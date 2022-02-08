@@ -8,10 +8,10 @@
       location = "group:iWorker/iWorker.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../Landmarks">
+      location = "group:../JHBasePackage">
    </FileRef>
    <FileRef
-      location = "group:../JHBasePackage">
+      location = "group:../Landmarks">
    </FileRef>
    <FileRef
       location = "group:../JHThirdPackage">

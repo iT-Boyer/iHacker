@@ -7,9 +7,28 @@
 
 import SwiftUI
 import Landmarks
+import Wesplit
+
 struct ContentView: View {
     var body: some View {
-        Landmarks()
+        // TODO: 列表
+        NavigationView{
+            List{
+                NavigationLink {
+                    Landmarks()
+                } label: {
+                    Text("官方案例")
+                }
+                
+                NavigationLink {
+                    Wesplit()
+                } label: {
+                    Text("Websplit")
+                }
+
+
+            }.navigationTitle("hack100天")
+        }
     }
 }
 

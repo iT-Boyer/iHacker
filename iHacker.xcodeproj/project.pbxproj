@@ -10,7 +10,6 @@
 		B3498A722772F17000557C2F /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = B3498A712772F17000557C2F /* Quick */; };
 		B3498A742772F17B00557C2F /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = B3498A732772F17B00557C2F /* Nimble */; };
 		B3498A762772F1A000557C2F /* QuickTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3498A752772F1A000557C2F /* QuickTests.swift */; };
-		B38078E52775746A0082ECCD /* Landmarks in Frameworks */ = {isa = PBXBuildFile; productRef = B38078E42775746A0082ECCD /* Landmarks */; };
 		B38079282775A2D10082ECCD /* CombineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38079272775A2D10082ECCD /* CombineTests.swift */; };
 		B380792B2775B4470082ECCD /* landmarkData.json in Resources */ = {isa = PBXBuildFile; fileRef = B380792A2775B4470082ECCD /* landmarkData.json */; };
 		B380792D2775B4B70082ECCD /* LandmarkT.swift in Sources */ = {isa = PBXBuildFile; fileRef = B380792C2775B4B60082ECCD /* LandmarkT.swift */; };
@@ -65,7 +64,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B38078E52775746A0082ECCD /* Landmarks in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,7 +181,6 @@
 			);
 			name = iHacker;
 			packageProductDependencies = (
-				B38078E42775746A0082ECCD /* Landmarks */,
 			);
 			productName = iHacker;
 			productReference = B38108DE276CE97B0033F57D /* iHacker.app */;
@@ -646,10 +643,6 @@
 		B3498A732772F17B00557C2F /* Nimble */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Nimble;
-		};
-		B38078E42775746A0082ECCD /* Landmarks */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Landmarks;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
