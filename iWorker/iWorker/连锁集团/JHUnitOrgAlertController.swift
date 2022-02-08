@@ -17,11 +17,15 @@ class JHUnitOrgAlertController: UIViewController {
     private var alertTitle: UILabel!
     private var alertMessage: UILabel!
     private var alertActionStackView: UIStackView!
-    var style: JHAlertControllerStyle
-    // MARK: 交互提示框
-    init(title: String!, message: String!, image: UIImage!, style: JHAlertControllerStyle) {
-        self.style = style
+    var style: JHAlertControllerStyle!
+    var afterDelay = 0.0
+    init() {
         super.init(nibName: nil, bundle: nil)
+    }
+    // MARK: 交互提示框
+    convenience init(title: String!, message: String!, image: UIImage!, style: JHAlertControllerStyle) {
+        self.init()
+        self.style = style
         self.modalPresentationStyle = .overCurrentContext
         self.modalTransitionStyle = .coverVertical
         createView()
@@ -40,9 +44,10 @@ class JHUnitOrgAlertController: UIViewController {
         modalPresentationStyle = .overCurrentContext
         modalTransitionStyle = .coverVertical
         alertMessage.text = msg
+        afterDelay = after
     }
     override func viewDidLoad() {
-        
+        super.viewDidLoad()
     }
     override var modalPresentationStyle: UIModalPresentationStyle{
         set{
@@ -50,6 +55,17 @@ class JHUnitOrgAlertController: UIViewController {
         }
         get{
             .overCurrentContext
+        }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        if self.style == .JHAlertControllerStyleToast {
+            self.alertView.layer.shadowColor   = UIColor(white: 0, alpha: 0.07).cgColor
+            self.alertView.layer.shadowOffset  = CGSize.zero
+            self.alertView.layer.shadowOpacity = 1
+            self.alertView.layer.shadowRadius  = 8
+            self.perform(#selector(dismiss(animated:completion:)), with:nil, afterDelay: afterDelay)
         }
     }
     func createView() {
@@ -89,8 +105,7 @@ class JHUnitOrgAlertController: UIViewController {
     }
     func createMsgView() {
         view.backgroundColor = .clear
-        alertView = UIView()
-        alertView.backgroundColor = .white
+        alertView = JHShapeView(corners: [.bottomLeft, .bottomRight, .topRight], radii: .init(width: 14, height: 14),fillColor: .white)
         alertMessage = UILabel()
         alertMessage.numberOfLines = 0
         alertMessage.textAlignment = .center

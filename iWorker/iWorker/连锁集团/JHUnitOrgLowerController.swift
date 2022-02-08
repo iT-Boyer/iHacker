@@ -15,7 +15,7 @@ class JHUnitOrgLowerController: JHUnitOrgHigherController {
         self.operateBtn.setTitle("继续添加子公司", for: .normal)
         self.tableView.register(JHUnitOrgBaseCell.self, forCellReuseIdentifier: "JHUnitOrgBaseCell")
     }
-    
+
     override func createView() {
         super.createView()
         let titleView = UIView()

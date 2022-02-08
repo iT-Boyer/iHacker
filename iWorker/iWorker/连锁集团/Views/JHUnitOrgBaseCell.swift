@@ -157,6 +157,9 @@ class JHUnitOrgBaseCell: UITableViewCell {
     
     @objc
     func showName() {
-        
+        // TODO: 浮动提示门店名称
+        let alert = JHUnitOrgAlertController()
+        alert.showMessage(self.model.companyName ?? "", after: 3, style: .JHAlertControllerStyleToast)
+        UIViewController.topMostVC?.present(alert, animated: true, completion: nil)
     }
 }
