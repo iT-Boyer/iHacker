@@ -11,9 +11,11 @@ import JHBase
 
 class ViewController: JHBaseNavVC {
 
-    var rows:[(String, AnyClass)]{
+    var rows:[(String, UIViewController.Type)]{
         [("晨检机",JHMornInspecterController.self),
-         ("连锁集团",JHUnitJoinOrgViewController.self)]
+         ("| 连锁集团",JHUnitJoinOrgViewController.self),
+         ("|- 上级",JHUnitOrgHigherController.self),
+         ("|- 下级",JHUnitOrgLowerController.self)]
     }
     
     override func viewDidLoad() {
@@ -55,8 +57,12 @@ extension ViewController:UITableViewDataSource,UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cls: AnyClass = rows[indexPath.row].1
-        let vc:UIViewController = class_createInstance(cls,0) as! UIViewController
-        self.navigationController?.pushViewController(vc, completion: nil)
+//        let cls: AnyClass = rows[indexPath.row].1
+//        let vc:UIViewController = class_createInstance(cls,0) as! UIViewController
+        let cls:UIViewController.Type  = rows[indexPath.row].1
+        let vc = cls.init()
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .fullScreen
+        self.present(nav, animated: true, completion: nil)
     }
 }

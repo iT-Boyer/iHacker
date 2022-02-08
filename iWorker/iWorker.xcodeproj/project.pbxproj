@@ -29,6 +29,7 @@
 		B3306D3F27B1093E005E7DDC /* JHUnitOrgLowerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3306D3E27B1093E005E7DDC /* JHUnitOrgLowerController.swift */; };
 		B3306D4127B111C1005E7DDC /* JHUnitOrgHigherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3306D4027B111C1005E7DDC /* JHUnitOrgHigherCell.swift */; };
 		B3306D4327B124EC005E7DDC /* JHUnitOrgChangeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3306D4227B124EC005E7DDC /* JHUnitOrgChangeController.swift */; };
+		B3306D4527B23303005E7DDC /* DelFirmChain.json in Resources */ = {isa = PBXBuildFile; fileRef = B3306D4427B232FC005E7DDC /* DelFirmChain.json */; };
 		B345589E279A837E00EFAB54 /* WKWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B345589D279A837E00EFAB54 /* WKWebViewController.m */; };
 		B3821F62277C8AE8005FFF8E /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = B3821F61277C8AE8005FFF8E /* Nimble */; };
 		B3821F64277C8AE8005FFF8E /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = B3821F63277C8AE8005FFF8E /* Quick */; };
@@ -221,6 +222,7 @@
 		B3306D3E27B1093E005E7DDC /* JHUnitOrgLowerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHUnitOrgLowerController.swift; sourceTree = "<group>"; };
 		B3306D4027B111C1005E7DDC /* JHUnitOrgHigherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHUnitOrgHigherCell.swift; sourceTree = "<group>"; };
 		B3306D4227B124EC005E7DDC /* JHUnitOrgChangeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHUnitOrgChangeController.swift; sourceTree = "<group>"; };
+		B3306D4427B232FC005E7DDC /* DelFirmChain.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = DelFirmChain.json; sourceTree = "<group>"; };
 		B345589C279A837E00EFAB54 /* WKWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKWebViewController.h; sourceTree = "<group>"; };
 		B345589D279A837E00EFAB54 /* WKWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKWebViewController.m; sourceTree = "<group>"; };
 		B3821F5A277C8A03005FFF8E /* RuntimeCmdTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RuntimeCmdTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -451,6 +453,7 @@
 			children = (
 				B3230368278D3B460056BDCC /* ModifyFirmChain.json */,
 				B3306D3A27B10766005E7DDC /* AddEnterChain.json */,
+				B3306D4427B232FC005E7DDC /* DelFirmChain.json */,
 				B3230369278D3B460056BDCC /* CheckEnterChain.json */,
 				B323036A278D3B460056BDCC /* GetFirmChainList.json */,
 				B323036B278D3B460056BDCC /* GetEnterChainList.json */,
@@ -1051,6 +1054,7 @@
 				B38D8909277B1AC000888EFB /* SaveMorningCheckImg.json in Resources */,
 				B323033A27880CF80056BDCC /* Main.storyboard in Resources */,
 				B38D88AB277B199700888EFB /* LaunchScreen.storyboard in Resources */,
+				B3306D4527B23303005E7DDC /* DelFirmChain.json in Resources */,
 				B323036F278D3B460056BDCC /* GetFirmChainList.json in Resources */,
 				B3306D3B27B107A9005E7DDC /* AddEnterChain.json in Resources */,
 				B323036E278D3B460056BDCC /* CheckEnterChain.json in Resources */,

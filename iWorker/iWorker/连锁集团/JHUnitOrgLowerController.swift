@@ -62,7 +62,7 @@ class JHUnitOrgLowerController: JHUnitOrgHigherController {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: "删除") { action, sourceView, completionHandler in
             if self.dataArray.count > indexPath.section {
-                self.chainModel = self.dataArray[indexPath.section] as! JHUnitOrgHigherModel
+                self.chainModel = self.dataArray[indexPath.section] as? JHUnitOrgHigherModel
                 self.delfirmAcion()
             }
         }

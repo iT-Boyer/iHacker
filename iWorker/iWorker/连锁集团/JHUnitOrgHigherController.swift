@@ -88,8 +88,44 @@ class JHUnitOrgHigherController: JHUnitOrgBaseViewController {
     }
     
     func delFirmChain() {
+        let urlStr = JHBaseDomain.fullURL(with: "api_host_patrol", path: "/api/Simple/DelFirmChain")
+        let requestDic = ["chainId":self.chainModel.chainId ?? "", //绑定关系数据ID
+                          "storeId":self.storeId ?? "",
+                          "state":state, //1:更换我的上级 2:添加我的下级
+                        ] as [String : Any]
         
+        let hud = MBProgressHUD.showAdded(to: view, animated: true)
+        hud.removeFromSuperViewOnHide = true
+        let request = JN.post(urlStr, parameters: requestDic, headers: nil)
+        request.response { response in
+            let json = JSON(response.data!)
+            let result = json["IsSuccess"].boolValue
+            let msg = json["Message"].stringValue
+            if result {
+                self.delAfterAction()
+            }else{
+                let alertView = UIAlertController.init(title: nil, message: msg, preferredStyle: .alert)
+                var attr = AttributedString(msg)
+                attr.font = .systemFont(ofSize: 16)
+                attr.foregroundColor = .init(hexString: "333333")
+                alertView.setValue(NSAttributedString(attr), forKey: "attributedMessage")
+                let cancel = UIAlertAction.init(title: "我知道了", style: .default, handler: nil)
+                alertView.addAction(cancel)
+                self.present(alertView, animated: true, completion: nil)
+            }
+        }
     }
+    
+    func delAfterAction() {
+        self.dataArray.removeAll(self.chainModel)
+        self.tableView.reloadData()
+        if self.dataArray.count == 0 {
+            let join = JHUnitJoinOrgViewController()
+            join.storeId = self.storeId
+            self.navigationController?.pushViewController(join, animated: true)
+        }
+    }
+    
     override func backBtnClicked(_ btn: UIButton) {
         self.navigationController?.dismiss(animated: true, completion: nil)
     }
@@ -97,7 +133,7 @@ class JHUnitOrgHigherController: JHUnitOrgBaseViewController {
         super.loadData()
         let urlStr = JHBaseDomain.fullURL(with: "api_host_patrol", path: "/api/Simple/GetEnterChainList")
         let requestDic = ["appId":JHBaseInfo.appID,
-                          "storeId":self.storeId,
+                          "storeId":self.storeId ?? "",
                           "pageIndex":1,
                           "pageSize":20] as [String : Any]
         
