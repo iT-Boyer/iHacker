@@ -31,8 +31,9 @@ class JHUnitOrgHigherController: JHUnitOrgBaseViewController {
         let bottom = UIView()
         bottom.backgroundColor = .white
         let delBtn = UIButton()
+        self.operateBtn = delBtn
         delBtn.layer.cornerRadius = 4
-        delBtn.backgroundColor = .initWithHex("")
+        delBtn.backgroundColor = .initWithHex("04A174")
         delBtn.titleLabel?.font = .systemFont(ofSize: 18)
         delBtn.setTitleColor(.white, for: .normal)
         delBtn.setTitle("删除", for: .normal)
