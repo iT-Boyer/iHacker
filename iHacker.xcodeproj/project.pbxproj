@@ -21,6 +21,8 @@
 		B38108F3276CE97D0033F57D /* iHackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38108F2276CE97D0033F57D /* iHackerTests.swift */; };
 		B38108FD276CE97D0033F57D /* iHackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38108FC276CE97D0033F57D /* iHackerUITests.swift */; };
 		B38108FF276CE97D0033F57D /* iHackerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38108FE276CE97D0033F57D /* iHackerUITestsLaunchTests.swift */; };
+		B39C61E027B36AFB009E7D7B /* MyLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39C61DF27B36AFB009E7D7B /* MyLibrary.swift */; };
+		B39C61E127B36C07009E7D7B /* Wesplit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39C61DC27B36AC5009E7D7B /* Wesplit.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,8 @@
 		B38108F8276CE97D0033F57D /* iHackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iHackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B38108FC276CE97D0033F57D /* iHackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iHackerUITests.swift; sourceTree = "<group>"; };
 		B38108FE276CE97D0033F57D /* iHackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iHackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B39C61DC27B36AC5009E7D7B /* Wesplit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Wesplit.swift; path = ../../../Landmarks/Sources/Wesplit/Wesplit.swift; sourceTree = "<group>"; };
+		B39C61DF27B36AFB009E7D7B /* MyLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyLibrary.swift; sourceTree = "<group>"; };
 		B3EF8D8A27716F54003140A9 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -119,6 +123,8 @@
 		B38108E0276CE97B0033F57D /* iHacker */ = {
 			isa = PBXGroup;
 			children = (
+				B39C61DE27B36AFB009E7D7B /* MyLibrary */,
+				B39C61DB27B36A96009E7D7B /* Wesplit */,
 				B3EF8D8A27716F54003140A9 /* README.md */,
 				B38108E1276CE97B0033F57D /* iHackerApp.swift */,
 				B38108E3276CE97B0033F57D /* ContentView.swift */,
@@ -155,6 +161,23 @@
 				B38108FE276CE97D0033F57D /* iHackerUITestsLaunchTests.swift */,
 			);
 			path = iHackerUITests;
+			sourceTree = "<group>";
+		};
+		B39C61DB27B36A96009E7D7B /* Wesplit */ = {
+			isa = PBXGroup;
+			children = (
+				B39C61DC27B36AC5009E7D7B /* Wesplit.swift */,
+			);
+			path = Wesplit;
+			sourceTree = "<group>";
+		};
+		B39C61DE27B36AFB009E7D7B /* MyLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				B39C61DF27B36AFB009E7D7B /* MyLibrary.swift */,
+			);
+			name = MyLibrary;
+			path = ../../Landmarks/Sources/MyLibrary;
 			sourceTree = "<group>";
 		};
 		B3EF8BBE2770228D003140A9 /* Frameworks */ = {
@@ -301,6 +324,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B39C61E127B36C07009E7D7B /* Wesplit.swift in Sources */,
+				B39C61E027B36AFB009E7D7B /* MyLibrary.swift in Sources */,
 				B38108E4276CE97B0033F57D /* ContentView.swift in Sources */,
 				B38108E2276CE97B0033F57D /* iHackerApp.swift in Sources */,
 			);

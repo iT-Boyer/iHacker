@@ -6,9 +6,9 @@
 //
 
 import SwiftUI
-import Landmarks
-import Wesplit
-import MyLibrary
+//import Landmarks
+//import Wesplit
+//import MyLibrary
 
 struct ContentView: View {
     var body: some View {
@@ -16,7 +16,7 @@ struct ContentView: View {
         NavigationView{
             List{
                 NavigationLink {
-                    MyLibrary(image: .init(systemName: "star.slash.fill"))
+                    MyLibrary(image: Image.init("turtlerock", bundle: nil))
                        .offset(x: 0, y: -130)
                        .padding(.bottom, -130)
                 } label: {
@@ -24,18 +24,10 @@ struct ContentView: View {
                 }
                 
                 NavigationLink {
-                    Landmarks()
-                } label: {
-                    Text("官方案例")
-                }
-                
-                NavigationLink {
                     Wesplit()
                 } label: {
                     Text("Websplit")
                 }
-
-
             }.navigationTitle("hack100天")
         }
     }
