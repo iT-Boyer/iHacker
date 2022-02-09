@@ -8,12 +8,21 @@
 import SwiftUI
 import Landmarks
 import Wesplit
+import MyLibrary
 
 struct ContentView: View {
     var body: some View {
         // TODO: 列表
         NavigationView{
             List{
+                NavigationLink {
+                    MyLibrary(image: .init(systemName: "star.slash.fill"))
+                       .offset(x: 0, y: -130)
+                       .padding(.bottom, -130)
+                } label: {
+                    Text("MyLibrary")
+                }
+                
                 NavigationLink {
                     Landmarks()
                 } label: {
