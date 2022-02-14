@@ -7,6 +7,7 @@
 
 import UIKit
 import MBProgressHUD
+import SwifterSwift
 
 class StoreDSelSearchBar: UIView {
     
@@ -54,10 +55,19 @@ class StoreDSelSearchBar: UIView {
         }
         searchBar.barTintColor = .clear
         searchBar.tintColor = .init(red: 153/255.0, green: 153/255.0, blue: 153/255.0, alpha: 1.0)
-        var attr = AttributedString(placeholder)
-        attr.foregroundColor = .init(hexString: "ABAAAA")
-        attr.font = .systemFont(ofSize: 14)
-        searchBar.searchTextField.attributedPlaceholder = NSAttributedString(attr)
+        var attr:NSAttributedString!
+        if #available(iOS 15, *) {
+            var attrNew = AttributedString(placeholder)
+            attrNew.foregroundColor = .init(hexString: "ABAAAA")
+            attrNew.font = .systemFont(ofSize: 14)
+            attr = NSAttributedString(attrNew)
+        } else {
+            // Fallback on earlier versions
+            let attrNew: [NSAttributedString.Key : Any] = [.font: UIFont.systemFont(ofSize: 14),
+                                                        .foregroundColor: UIColor(hexString: "ABAAAA")!]
+            attr = NSAttributedString.init(string: placeholder, attributes: attrNew)
+        }
+        searchBar.searchTextField.attributedPlaceholder = attr
         searchBar.searchTextField.backgroundColor = .clear
         searchBar.searchTextField.background = nil
     }

@@ -32,7 +32,7 @@ class JHUnitOrgBaseViewController: JHBaseNavVC{
         self.tableView.es.addPullToRefresh {
             [unowned self] in
             /// 在这里做刷新相关事件
-            pageIndex = pageIndex + 1
+            pageIndex = 1
             loadData()
 //            /// 如果你的刷新事件成功，设置completion自动重置footer的状态
 //            self.tableView.es.stopPullToRefresh()
@@ -43,7 +43,7 @@ class JHUnitOrgBaseViewController: JHBaseNavVC{
         self.tableView.es.addInfiniteScrolling {
             [unowned self] in
             /// 在这里做加载更多相关事件
-            pageIndex = 1
+            pageIndex = pageIndex + 1
             loadData()
 //            /// 如果你的加载更多事件成功，调用es_stopLoadingMore()重置footer状态
 //            self.tableView.es.stopLoadingMore()

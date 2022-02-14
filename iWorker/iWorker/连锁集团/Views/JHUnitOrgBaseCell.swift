@@ -38,11 +38,21 @@ class JHUnitOrgBaseCell: UITableViewCell {
             paragraphStyle.alignment = .left
             let emptylen = addr.font.pointSize * 5
             paragraphStyle.headIndent = emptylen
-            var attr = AttributedString(addrStr)
-            attr.font = .systemFont(ofSize: 15)
-            attr.foregroundColor = .init(hexString: "333333")
-            attr.paragraphStyle = paragraphStyle
-            addr.attributedText = NSAttributedString(attr)
+            var attr:NSAttributedString!
+            if #available(iOS 15, *) {
+                var attrNew = AttributedString(addrStr)
+                attrNew.font = .systemFont(ofSize: 15)
+                attrNew.foregroundColor = .init(hexString: "333333")
+                attrNew.paragraphStyle = paragraphStyle
+                attr = NSAttributedString(attrNew)
+            } else {
+                // Fallback on earlier versions
+                let arr: [NSAttributedString.Key : Any] = [.font: UIFont.systemFont(ofSize: 16),
+                                                            .foregroundColor: UIColor(hexString: "333333")!,
+                                                           .paragraphStyle:paragraphStyle]
+                attr = NSAttributedString.init(string: addrStr, attributes: arr)
+            }
+            addr.attributedText = attr
             //隐藏逻辑
             if let code = model.licenceCode, code.count > 0 {
                 let licenceCodeStr = "许可证号："+code

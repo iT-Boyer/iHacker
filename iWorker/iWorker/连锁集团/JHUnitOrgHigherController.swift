@@ -105,10 +105,19 @@ class JHUnitOrgHigherController: JHUnitOrgBaseViewController {
                 self.delAfterAction()
             }else{
                 let alertView = UIAlertController.init(title: nil, message: msg, preferredStyle: .alert)
-                var attr = AttributedString(msg)
-                attr.font = .systemFont(ofSize: 16)
-                attr.foregroundColor = .init(hexString: "333333")
-                alertView.setValue(NSAttributedString(attr), forKey: "attributedMessage")
+                var attr:NSAttributedString!
+                if #available(iOS 15, *) {
+                    var attrNew = AttributedString(msg)
+                    attrNew.font = .systemFont(ofSize: 16)
+                    attrNew.foregroundColor = .init(hexString: "333333")
+                    attr = NSAttributedString(attrNew)
+                } else {
+                    // Fallback on earlier versions
+                    let arr: [NSAttributedString.Key : Any] = [.font: UIFont.systemFont(ofSize: 16),
+                                                                .foregroundColor: UIColor(hexString: "333333")!]
+                    attr = NSAttributedString.init(string: msg, attributes: arr)
+                }
+                alertView.setValue(attr, forKey: "attributedMessage")
                 let cancel = UIAlertAction.init(title: "我知道了", style: .default, handler: nil)
                 alertView.addAction(cancel)
                 self.present(alertView, animated: true, completion: nil)

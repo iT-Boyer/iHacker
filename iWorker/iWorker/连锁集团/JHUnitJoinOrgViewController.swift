@@ -123,20 +123,30 @@ class JHUnitJoinOrgViewController: JHBaseNavVC {
     
     func attrFontFor(text:String) -> NSAttributedString {
         
-        var attr = AttributedString(text)
-        attr.font = .systemFont(ofSize: 16)
-        attr.foregroundColor = .init(hexString: "04A174")
-        
-        let range = attr.range(of: "我要")!
-        attr[range].foregroundColor = .init(hexString: "333333")
-        
-        return NSAttributedString(attr)
-        
-        let arr = [NSAttributedString.Key.font:UIFont.systemFont(ofSize: 16),
-                   NSAttributedString.Key.foregroundColor:UIColor(hexString: "04A174")
-                  ]
-        let string = AttributedString(text, attributes: AttributeContainer(arr as [NSAttributedString.Key : Any]))
-        return NSAttributedString.init(string)
+        if #available(iOS 15, *) {
+            var attr = AttributedString(text)
+            attr.font = .systemFont(ofSize: 16)
+            attr.foregroundColor = .init(hexString: "04A174")
+            
+            let range = attr.range(of: "我要")!
+            attr[range].foregroundColor = .init(hexString: "333333")
+            return NSAttributedString(attr)
+        } else {
+            let attrString = NSMutableAttributedString(string: "我要\(text)")
+            let attr: [NSAttributedString.Key : Any] = [.font: UIFont.systemFont(ofSize: 16),
+                                                        .foregroundColor: UIColor(hexString: "04A174")!]
+            
+            attrString.addAttributes(attr,
+                                     range: NSRange(location: 0, length: attrString.length))
+            
+            let strSubAttr1: [NSMutableAttributedString.Key: Any] = [.font: UIFont.systemFont(ofSize: 16),
+                                                                     .foregroundColor: UIColor(hexString: "333333")!]
+//            let strSubAttr2: [NSMutableAttributedString.Key: Any] = [.font: UIFont.systemFont(ofSize: 16),.foregroundColor: UIColor(hexString: "04A174")!]
+            
+            attrString.addAttributes(strSubAttr1, range: NSRange(location: 0, length: 2))
+//            attrString.addAttributes(strSubAttr2, range: NSRange(location: 2, length: 5))
+            return attrString
+        }
     }
     
     @objc
