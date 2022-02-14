@@ -114,7 +114,7 @@ class JHUnitJoinOrgViewController: JHBaseNavVC {
         
         arrow.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.right.equalToSuperview()
+            make.right.equalTo(-30)
             make.size.equalTo(CGSize(width: 22, height: 22))
         }
 
