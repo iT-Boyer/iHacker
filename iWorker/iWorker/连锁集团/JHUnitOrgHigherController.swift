@@ -22,8 +22,8 @@ class JHUnitOrgHigherController: JHUnitOrgBaseViewController {
         super.viewDidLoad()
         self.navTitle = "组织管理"
         self.state = 2
-        self.storeId = ""
-        loadData()
+        self.storeId = "test"
+        loadData(true)
     }
     
     override func createView() {
@@ -97,12 +97,18 @@ class JHUnitOrgHigherController: JHUnitOrgBaseViewController {
         let hud = MBProgressHUD.showAdded(to: view, animated: true)
         hud.removeFromSuperViewOnHide = true
         let request = JN.post(urlStr, parameters: requestDic, headers: nil)
-        request.response { response in
-            let json = JSON(response.data!)
+        request.response { [weak self] response in
+            hud.hide(animated: true)
+            guard let weakSelf = self else { return }
+            guard let data = response.data else {
+//                MBProgressHUD.displayError(kInternetError)
+                return
+            }
+            let json = JSON(data)
             let result = json["IsSuccess"].boolValue
             let msg = json["Message"].stringValue
             if result {
-                self.delAfterAction()
+                weakSelf.delAfterAction()
             }else{
                 let alertView = UIAlertController.init(title: nil, message: msg, preferredStyle: .alert)
                 var attr:NSAttributedString!
@@ -120,7 +126,7 @@ class JHUnitOrgHigherController: JHUnitOrgBaseViewController {
                 alertView.setValue(attr, forKey: "attributedMessage")
                 let cancel = UIAlertAction.init(title: "我知道了", style: .default, handler: nil)
                 alertView.addAction(cancel)
-                self.present(alertView, animated: true, completion: nil)
+                weakSelf.present(alertView, animated: true, completion: nil)
             }
         }
     }
@@ -133,13 +139,14 @@ class JHUnitOrgHigherController: JHUnitOrgBaseViewController {
             join.storeId = self.storeId
             self.navigationController?.pushViewController(join, animated: true)
         }
+        loadData()
     }
     
     override func backBtnClicked(_ btn: UIButton) {
         self.navigationController?.dismiss(animated: true, completion: nil)
     }
-    override func loadData() {
-        super.loadData()
+    override func loadData(_ isRefresh: Bool = false) {
+        super.loadData(isRefresh)
         let urlStr = JHBaseDomain.fullURL(with: "api_host_patrol", path: "/api/Simple/GetEnterChainList")
         let requestDic = ["appId":JHBaseInfo.appID,
                           "storeId":self.storeId ?? "",
@@ -149,54 +156,63 @@ class JHUnitOrgHigherController: JHUnitOrgBaseViewController {
         let hud = MBProgressHUD.showAdded(to: view, animated: true)
         hud.removeFromSuperViewOnHide = true
         let request = JN.post(urlStr, parameters: requestDic, headers: nil)
-        request.response { response in
-            
-            let json = JSON(response.data!)
+        request.response { [weak self] response in
+            hud.hide(animated: false)
+            guard let weakSelf = self else { return }
+            guard let data = response.data else {
+//                MBProgressHUD.displayError(kInternetError)
+                return
+            }
+            let json = JSON(data)
             let result = json["IsSuccess"].boolValue
             if result {
                 let dataArray = json["enterChainList"].arrayValue
                 let totalCount = json["totalCount"].intValue
                 if dataArray.count > 0 {
-                    if self.pageIndex == 1 {
-                        self.dataArray.removeAll()
+                    if weakSelf.pageIndex == 1 {
+                        weakSelf.dataArray.removeAll()
                     }
-                    self.hideEmptyView()
+                    weakSelf.hideEmptyView()
                     for modelJ:JSON in dataArray {
                         var isExist = false
                         let model:JHUnitOrgHigherModel = JHUnitOrgHigherModel.parsed(data: try!modelJ.rawData()) 
-                        for origin:JHUnitOrgBaseModel in self.dataArray {
-                            if origin.storeId == model.storeId {
+                        for origin:JHUnitOrgBaseModel in weakSelf.dataArray {
+                            if origin.bindId == model.bindId {
                                 isExist = true
                                 break
                             }
                         }
                         if !isExist {
-                            self.dataArray.append(model)
+                            weakSelf.dataArray.append(model)
                         }
                     }
-                    if self.dataArray.count >= totalCount {
+                    if weakSelf.dataArray.count >= totalCount {
                         let index = totalCount/20
                         if totalCount%20>0 {
-                            self.pageIndex = index + 1
+                            weakSelf.pageIndex = index + 1
                         }else{
-                            self.pageIndex = index
+                            weakSelf.pageIndex = index
                         }
                     }else{
-                        
+                        weakSelf.pageIndex += 1
                     }
                 }else{
-                    if self.pageIndex == 1 {
-                        self.dataArray.removeAll()
-                        self.bottomView.isHidden = true
-                        self.showNoDataView()
+                    if weakSelf.pageIndex == 1 {
+                        weakSelf.dataArray.removeAll()
+                        weakSelf.bottomView.isHidden = true
+                        weakSelf.showNoDataView()
                     }
                 }
-                hud.hide(animated: false)
-                /// 如果你的加载更多事件成功，调用es_stopLoadingMore()重置footer状态
-                self.tableView.es.stopLoadingMore()
-                /// 通过es_noticeNoMoreData()设置footer暂无数据状态
-                self.tableView.es.noticeNoMoreData()
-                self.tableView.reloadData()
+                if isRefresh {
+                    weakSelf.tableView.es.stopPullToRefresh()
+                }else{
+                    if weakSelf.dataArray.count >= totalCount {
+                        weakSelf.tableView.es.noticeNoMoreData()
+                    }else{
+                        weakSelf.tableView.es.stopLoadingMore()
+                    }
+                }
+                weakSelf.tableView.reloadData()
             }
         }
     }

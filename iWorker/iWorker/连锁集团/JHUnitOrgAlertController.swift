@@ -45,6 +45,7 @@ class JHUnitOrgAlertController: UIViewController {
         modalTransitionStyle = .coverVertical
         alertMessage.text = msg
         afterDelay = after
+        self.perform(#selector(diss), with:nil, afterDelay: afterDelay)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,8 +66,11 @@ class JHUnitOrgAlertController: UIViewController {
             self.alertView.layer.shadowOffset  = CGSize.zero
             self.alertView.layer.shadowOpacity = 1
             self.alertView.layer.shadowRadius  = 8
-            self.perform(#selector(dismiss(animated:completion:)), with:nil, afterDelay: afterDelay)
         }
+    }
+    @objc
+    func diss() {
+        self.dismiss(animated: false)
     }
     func createView() {
         //

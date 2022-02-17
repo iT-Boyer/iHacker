@@ -34,8 +34,8 @@ class JHUnitOrgSearchController: JHUnitOrgBaseViewController {
         tableView.register(JHUnitOrgSearchCell.self, forCellReuseIdentifier: "JHUnitOrgSearchCell")
     }
     
-    override func loadData() {
-        
+    override func loadData(_ isRefresh: Bool = false) {
+        super.loadData(isRefresh)
         let urlStr = JHBaseDomain.fullURL(with: "api_host_patrol", path: "/api/Simple/GetFirmChainList")
         let requestDic = ["appId":JHBaseInfo.appID,
                           "condition":searchTxt ?? "",
@@ -45,12 +45,53 @@ class JHUnitOrgSearchController: JHUnitOrgBaseViewController {
         let hud = MBProgressHUD.showAdded(to: view, animated: true)
         hud.removeFromSuperViewOnHide = true
         let request = JN.post(urlStr, parameters: requestDic, headers: nil)
-        request.response { response in
-            let json = JSON(response.data!)
-            let storeData = try! json["storeList"].rawData()
-            self.dataArray = JHUnitOrgBaseModel.parsed(data: storeData)
+        request.response { [weak self] response in
             hud.hide(animated: false)
-            self.tableView.reloadData()
+            guard let weakSelf = self else { return }
+            guard let data = response.data else {
+//                MBProgressHUD.displayError(kInternetError)
+                return
+            }
+            let json = JSON(data)
+            let storeData = try! json["storeList"].rawData()
+            let totalCount = json["totalCount"].intValue
+            if totalCount > 0 {
+                weakSelf.selectAllBtn.isSelected = false
+                weakSelf.selectAllView.isHidden = false
+                if weakSelf.pageIndex == 1 {
+                    weakSelf.selectNumLab.text = "已选择0个企业"
+                    weakSelf.dataArray.removeAll()
+                }
+                weakSelf.hideEmptyView()
+                weakSelf.dataArray += JHUnitOrgBaseModel.parsed(data: storeData)
+            }else{
+                if weakSelf.pageIndex == 1 {
+                    weakSelf.dataArray.removeAll()
+                    weakSelf.selectAllView.isHidden = true
+                    weakSelf.showNoDataView()
+                }
+            }
+            if weakSelf.dataArray.count >= totalCount {
+                let index = totalCount/20
+                if totalCount%20 > 0 {
+                    weakSelf.pageIndex += 1
+                }else{
+                    weakSelf.pageIndex = index
+                }
+//                MBProgressHUD.showAlertMessage("暂无更多数据", to: weakSelf.tableView, position: .hubPositionBottom)
+            }else{
+                weakSelf.pageIndex += 1
+            }
+            if isRefresh {
+                weakSelf.tableView.es.stopPullToRefresh()
+            }else{
+                if weakSelf.dataArray.count >= totalCount {
+                    weakSelf.tableView.es.noticeNoMoreData()
+                }else{
+                    weakSelf.tableView.es.stopLoadingMore()
+                }
+            }
+            weakSelf.tableView.reloadData()
         }
     }
     
@@ -76,7 +117,7 @@ class JHUnitOrgSearchController: JHUnitOrgBaseViewController {
         ibSearchBar = StoreDSelSearchBar(with: "请输入企业名称或社会信用代码", handler: { text in
             //
             self.searchTxt = text
-            self.loadData()
+            self.loadData(true)
         }, clear: {
             //
             self.searchTxt = ""
@@ -272,22 +313,28 @@ extension JHUnitOrgSearchController
         let hud = MBProgressHUD.showAdded(to: view, animated: true)
         hud.removeFromSuperViewOnHide = true
         let request = JN.post(urlStr, parameters: requestDic, headers: nil)
-        request.response { response in
-            let json = JSON(response.data!)
+        request.response { [weak self] response in
+            guard let weakSelf = self else { return }
+            hud.hide(animated: true)
+            guard let data = response.data else {
+//                MBProgressHUD.displayError(kInternetError)
+                return
+            }
+            let json = JSON(data)
             let result = json["IsSuccess"].boolValue
             if result {
-                if let del = self.delegate {
+                if let del = weakSelf.delegate {
                     del.refeshChainDataWhenAdd()
-                    self.backBtnClicked(UIButton())
+                    weakSelf.backBtnClicked(UIButton())
                 }else{
-                    if self.isAddChild {
+                    if weakSelf.isAddChild {
                         let lower = JHUnitOrgLowerController()
-                        lower.storeId = self.storeId
-                        self.navigationController?.pushViewController(lower, animated: true)
+                        lower.storeId = weakSelf.storeId
+                        weakSelf.navigationController?.pushViewController(lower, animated: true)
                     }else{
                         let manager = JHUnitOrgHigherController()
-                        manager.storeId = self.storeId
-                        self.navigationController?.pushViewController(manager, animated: true)
+                        manager.storeId = weakSelf.storeId
+                        weakSelf.navigationController?.pushViewController(manager, animated: true)
                     }
                 }
             }else{
@@ -308,7 +355,7 @@ extension JHUnitOrgSearchController
                 alertView.setValue(attr, forKey: "attributedMessage")
                 let cancel = UIAlertAction.init(title: "我知道了", style: .default, handler: nil)
                 alertView.addAction(cancel)
-                self.present(alertView, animated: true, completion: nil)
+                weakSelf.present(alertView, animated: true, completion: nil)
             }
         }
     }

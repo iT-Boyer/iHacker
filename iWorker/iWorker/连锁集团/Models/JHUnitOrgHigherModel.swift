@@ -8,6 +8,6 @@
 import UIKit
 
 class JHUnitOrgHigherModel: JHUnitOrgBaseModel {
-    var chainId:String!
-    var bindId:String!
+//    var chainId:String!
+//    var bindId:String!
 }

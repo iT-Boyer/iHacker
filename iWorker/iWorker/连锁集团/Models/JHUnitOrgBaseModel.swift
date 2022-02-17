@@ -15,7 +15,8 @@ class JHUnitOrgBaseModel: NSObject,Codable {
     var address:String?
     var creditCode:String?
     var licenceCode:String?
-    
+    var chainId:String?
+    var bindId:String?
     //标识选中状态
     var selected:Bool?
     
