@@ -8,16 +8,22 @@
 import UIKit
 import JHBase
 import WebKit
+import MBProgressHUD
 //分享预览页面
 //webcore调用
 class JHShareDevicePreController: JHBaseNavVC{
     var webUrl = "https://baidu.com"
     private var wbView:WKWebView!
+    private lazy var hud:MBProgressHUD = {
+        MBProgressHUD.showAdded(to: view, animated: true)
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navTitle = "邀请好友"
         createView()
+
+        hud.show(animated: true)
         //加载h5页面
         wbView.load(URLRequest(urlString: webUrl)!)
     }
@@ -52,6 +58,7 @@ class JHShareDevicePreController: JHBaseNavVC{
         
         let webView = WKWebView()
         wbView = webView
+        webView.navigationDelegate = self
         self.view.addSubview(shareBtn)
         self.view.addSubview(webView)
         shareBtn.snp.makeConstraints { make in
@@ -66,4 +73,24 @@ class JHShareDevicePreController: JHBaseNavVC{
             make.centerX.equalToSuperview()
         }
     }
+}
+
+extension JHShareDevicePreController:WKNavigationDelegate{
+    
+    // 页面开始加载时调用
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        
+    }
+    // 网页加载完成
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        /*
+         主意：这个方法是当网页的内容全部显示（网页内的所有图片必须都正常显示）的时候调用（不是出现的时候就调用），，否则不显示，或则部分显示时这个方法就不调用。
+         */
+        hud.hide(animated: true)
+    }
+    // 页面加载失败时调用
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        
+    }
+    
 }
