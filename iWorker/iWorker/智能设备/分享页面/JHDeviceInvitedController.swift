@@ -17,8 +17,8 @@ class JHDeviceInvitedController: UIViewController {
     private var alertMessage: UILabel!
     private var inviteBtn: UIButton!
     private var alertTitle: UILabel!
-    private var username:String! = " " //邀请人
-    private var msg:String! = "" //信息
+    private var username:String! //邀请人
+    private var msg:String! //信息
     
     private var params:[String: String]! //http url
     
