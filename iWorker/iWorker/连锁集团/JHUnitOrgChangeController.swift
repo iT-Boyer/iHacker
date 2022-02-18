@@ -58,13 +58,19 @@ class JHUnitOrgChangeController: JHUnitOrgSearchController {
         let hud = MBProgressHUD.showAdded(to: view, animated: true)
         hud.removeFromSuperViewOnHide = true
         let request = JN.post(urlStr, parameters: requestDic, headers: nil)
-        request.response { response in
-            let json = JSON(response.data!)
+        request.response { [weak self] response in
+            guard let weakSelf = self else { return }
+            hud.hide(animated: true)
+            guard let data = response.data else {
+//                MBProgressHUD.displayError(kInternetError)
+                return
+            }
+            let json = JSON(data)
             let result = json["IsSuccess"].boolValue
             if result {
-                if let del = self.delegate {
+                if let del = weakSelf.delegate {
                     del.refeshChainDataWhenChange()
-                    self.backBtnClicked(UIButton())
+                    weakSelf.backBtnClicked(UIButton())
                 }
             }else{
                 let msg = json["Message"].stringValue
@@ -84,7 +90,7 @@ class JHUnitOrgChangeController: JHUnitOrgSearchController {
                 alertView.setValue(attr, forKey: "attributedMessage")
                 let cancel = UIAlertAction.init(title: "我知道了", style: .default, handler: nil)
                 alertView.addAction(cancel)
-                self.present(alertView, animated: true, completion: nil)
+                weakSelf.present(alertView, animated: true, completion: nil)
             }
         }
     }

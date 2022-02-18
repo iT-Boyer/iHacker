@@ -12,7 +12,8 @@ import JHBase
 class ViewController: JHBaseNavVC {
 
     var rows:[(String, UIViewController.Type)]{
-        [("晨检机",JHMornInspecterController.self),
+        [("接受邀请",JHDeviceInvitedController.self),
+         ("晨检机",JHMornInspecterController.self),
          ("| 连锁集团",JHUnitJoinOrgViewController.self),
          ("|- 上级",JHUnitOrgHigherController.self),
          ("|- 下级",JHUnitOrgLowerController.self)]
@@ -62,7 +63,11 @@ extension ViewController:UITableViewDataSource,UITableViewDelegate
         let cls:UIViewController.Type  = rows[indexPath.row].1
         let vc = cls.init()
         let nav = UINavigationController(rootViewController: vc)
-        nav.modalPresentationStyle = .fullScreen
+        if vc.modalPresentationStyle == .overCurrentContext {
+            nav.modalPresentationStyle = .overCurrentContext
+        }else{
+            nav.modalPresentationStyle = .fullScreen
+        }
         self.present(nav, animated: true, completion: nil)
     }
 }

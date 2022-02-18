@@ -32,6 +32,7 @@
 		B3306D4527B23303005E7DDC /* DelFirmChain.json in Resources */ = {isa = PBXBuildFile; fileRef = B3306D4427B232FC005E7DDC /* DelFirmChain.json */; };
 		B3306D4727B245DA005E7DDC /* JHShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3306D4627B245DA005E7DDC /* JHShapeView.swift */; };
 		B345589E279A837E00EFAB54 /* WKWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B345589D279A837E00EFAB54 /* WKWebViewController.m */; };
+		B35E116127BF36E400A8BEF3 /* JHDeviceInvitedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35E116027BF36E300A8BEF3 /* JHDeviceInvitedController.swift */; };
 		B3821F62277C8AE8005FFF8E /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = B3821F61277C8AE8005FFF8E /* Nimble */; };
 		B3821F64277C8AE8005FFF8E /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = B3821F63277C8AE8005FFF8E /* Quick */; };
 		B3821F68277C8B79005FFF8E /* Dog.m in Sources */ = {isa = PBXBuildFile; fileRef = B3821F67277C8B79005FFF8E /* Dog.m */; };
@@ -227,6 +228,7 @@
 		B3306D4627B245DA005E7DDC /* JHShapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHShapeView.swift; sourceTree = "<group>"; };
 		B345589C279A837E00EFAB54 /* WKWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKWebViewController.h; sourceTree = "<group>"; };
 		B345589D279A837E00EFAB54 /* WKWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKWebViewController.m; sourceTree = "<group>"; };
+		B35E116027BF36E300A8BEF3 /* JHDeviceInvitedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHDeviceInvitedController.swift; sourceTree = "<group>"; };
 		B3821F5A277C8A03005FFF8E /* RuntimeCmdTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RuntimeCmdTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3821F65277C8B79005FFF8E /* RuntimeCmdTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RuntimeCmdTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		B3821F66277C8B79005FFF8E /* Dog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Dog.h; sourceTree = "<group>"; };
@@ -466,6 +468,22 @@
 			path = "../../../../SupervisionSel/SupervisionSel/Classes/Controller/我的组织/JSON";
 			sourceTree = "<group>";
 		};
+		B35E115E27BF35EC00A8BEF3 /* 智能设备 */ = {
+			isa = PBXGroup;
+			children = (
+				B35E115F27BF35FB00A8BEF3 /* 分享页面 */,
+			);
+			path = "智能设备";
+			sourceTree = "<group>";
+		};
+		B35E115F27BF35FB00A8BEF3 /* 分享页面 */ = {
+			isa = PBXGroup;
+			children = (
+				B35E116027BF36E300A8BEF3 /* JHDeviceInvitedController.swift */,
+			);
+			path = "分享页面";
+			sourceTree = "<group>";
+		};
 		B3821F5B277C8A03005FFF8E /* RuntimeCmdTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -534,6 +552,7 @@
 		B38D889D277B199400888EFB /* iWorker */ = {
 			isa = PBXGroup;
 			children = (
+				B35E115E27BF35EC00A8BEF3 /* 智能设备 */,
 				B32303362787ED7C0056BDCC /* 连锁集团 */,
 				B38D88D8277B19D700888EFB /* 晨检机 */,
 				B38D889E277B199400888EFB /* AppDelegate.swift */,
@@ -1220,6 +1239,7 @@
 				B323033E278827670056BDCC /* JHUnitOrgSearchController.swift in Sources */,
 				B32303382787EDBD0056BDCC /* JHUnitJoinOrgViewController.swift in Sources */,
 				B3306D3F27B1093E005E7DDC /* JHUnitOrgLowerController.swift in Sources */,
+				B35E116127BF36E400A8BEF3 /* JHDeviceInvitedController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
