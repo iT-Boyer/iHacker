@@ -18,7 +18,7 @@ class JHDeviceInvitedController: UIViewController {
     private var inviteBtn: UIButton!
     private var alertTitle: UILabel!
     private var username:String! //邀请人
-    private var msg:String! //信息
+    private var msg:String! = "" //信息
     
     private var data:String! //http url
     
@@ -39,8 +39,6 @@ class JHDeviceInvitedController: UIViewController {
     
     init() {
         super.init(nibName: nil, bundle: nil)
-        self.username = "金和"
-        self.msg = "设备名称"
     }
     // MARK: 交互提示框
     convenience init(_ title: String! = "金和", _ message: String! = "设备名称") {
@@ -67,16 +65,19 @@ class JHDeviceInvitedController: UIViewController {
     override func viewDidLoad() {
         //设置为半透明样式
         createView()
-        self.data = "https://baidu.com/?username=hsg&msg=man"
+        self.data = "https://baidu.com/?username=金和人&msg=可燃设备报警器"
         parseData()
-        
         alertTitle.text = username
         alertMessage.attributedText = msgAttr
     }
     
     func parseData() {
         //TODO: swift 解析http参数
-        if let param = URL(string: data)?.queryParameters {
+        // URL支持汉字：需要编码，否则在转String转URL为nil
+        let urlStr = data.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        // 解码
+        let eee = data.removingPercentEncoding!
+        if let param = URL(string: urlStr)?.queryParameters {
             username = param["username"]
             msg = param["msg"]
         }
