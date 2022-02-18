@@ -17,10 +17,10 @@ class JHDeviceInvitedController: UIViewController {
     private var alertMessage: UILabel!
     private var inviteBtn: UIButton!
     private var alertTitle: UILabel!
-    private var username:String! //邀请人
+    private var username:String! = " " //邀请人
     private var msg:String! = "" //信息
     
-    private var data:String! //http url
+    private var params:[String: String]! //http url
     
     /// 计算属性：富文本
     private var msgAttr:NSAttributedString{
@@ -39,6 +39,9 @@ class JHDeviceInvitedController: UIViewController {
     
     init() {
         super.init(nibName: nil, bundle: nil)
+        //test
+        let test = "https://baidu.com/?username=&msg=可燃设备报警器"
+        parseData(test)
     }
     // MARK: 交互提示框
     convenience init(_ title: String! = "金和", _ message: String! = "设备名称") {
@@ -49,7 +52,7 @@ class JHDeviceInvitedController: UIViewController {
 
     convenience init(_ data:String) {
         self.init()
-        self.data = data
+//        parseData(data)
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -65,21 +68,18 @@ class JHDeviceInvitedController: UIViewController {
     override func viewDidLoad() {
         //设置为半透明样式
         createView()
-        self.data = "https://baidu.com/?username=金和人&msg=可燃设备报警器"
-        parseData()
         alertTitle.text = username
         alertMessage.attributedText = msgAttr
     }
     
-    func parseData() {
+    func parseData(_ data:String) {
         //TODO: swift 解析http参数
-        // URL支持汉字：需要编码，否则在转String转URL为nil
+        // URL支持汉字：需要编码，否则在转String转URL为nil 。 解码 data.removingPercentEncoding!
         let urlStr = data.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-        // 解码
-        let eee = data.removingPercentEncoding!
-        if let param = URL(string: urlStr)?.queryParameters {
-            username = param["username"]
-            msg = param["msg"]
+        if let paramDic = URL(string: urlStr)?.queryParameters {
+            self.params = paramDic
+            username = self.params["username"]
+            msg = self.params["msg"]
         }
     }
     
@@ -104,26 +104,14 @@ class JHDeviceInvitedController: UIViewController {
             let json = JSON(data)
             let result = json["IsSuccess"].boolValue
             if result {
-                weakSelf.closeAction()
+                self?.dismiss(animated: true, completion: {
+                    weakSelf.toDeviceVC()
+                })
             }else{
+                //TODO: 邀请码失效提示
                 let msg = json["Message"].stringValue
-                let alertView = UIAlertController.init(title: nil, message: msg, preferredStyle: .alert)
-                var attr:NSAttributedString!
-                if #available(iOS 15, *) {
-                    var attrNew = AttributedString(msg)
-                    attrNew.font = .systemFont(ofSize: 16)
-                    attrNew.foregroundColor = .init(hexString: "333333")
-                    attr = NSAttributedString(attrNew)
-                } else {
-                    // Fallback on earlier versions
-                    let arr: [NSAttributedString.Key : Any] = [.font: UIFont.systemFont(ofSize: 16),
-                                                                .foregroundColor: UIColor(hexString: "333333")!]
-                    attr = NSAttributedString.init(string: msg, attributes: arr)
-                }
-                alertView.setValue(attr, forKey: "attributedMessage")
-                let cancel = UIAlertAction.init(title: "我知道了", style: .default, handler: nil)
-                alertView.addAction(cancel)
-                weakSelf.present(alertView, animated: true, completion: nil)
+//                MBProgressHUD.displayError(msg)
+                weakSelf.closeAction()
             }
         }
     }
@@ -132,6 +120,16 @@ class JHDeviceInvitedController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+    func toDeviceVC() {
+        //TODO: 进入智能设备列表
+        var baseUrl = JHBaseDomain.fullURL(with: "api_host_tpwx", path: "/HMView/MorningCheckExam/?jhParams=[userId|appId|sessionId|account|orgId|changeOrg|curChangeOrg]&jhWebView=1&hidjhnavigation=1&mcn=")
+        if JHBaseDomain.environment.count > 0 {
+            baseUrl = JHBaseDomain.fullURL(with: "api_host_ntpp", path: "/HMView/MorningCheckExam/?jhParams=[userId|appId|sessionId|account|orgId|changeOrg|curChangeOrg]&jhWebView=1&hidjhnavigation=1&mcn=")
+        }
+//        let htmlUrl = baseUrl + mcn
+//        let web = JHWebviewManager.getWebViewController(withURL: htmlUrl, isShowReturnButtonAndCloseButton: true, title: "", andHasTabbar: false)
+//        self.navigationController?.pushViewController(web!, animated: true)
+    }
 
     func createView() {
         //
@@ -191,6 +189,7 @@ class JHDeviceInvitedController: UIViewController {
         alertTitle.snp.makeConstraints { make in
             make.top.equalTo(20)
             make.left.equalTo(40)
+            make.height.equalTo(22)
             make.centerX.equalToSuperview()
         }
         alertMessage.snp.makeConstraints { make in
