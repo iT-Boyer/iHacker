@@ -21,9 +21,9 @@ func installOHHTTPStubs(){
       // Stub it with our "wsresponse.json" stub file
         let urlStr = request.url?.path
         let fileName = urlStr!.lastPathComponent+".json"
-        
+        let filePath = OHPathForFile(fileName, JHMornInspecterController.self)!
         let stubReponse = HTTPStubsResponse(
-            fileAtPath: OHPathForFile(fileName, JHMornInspecterController.self)!,
+            fileAtPath: filePath,
             statusCode: 200,
             headers: ["Content-Type":"application/json"]
         )

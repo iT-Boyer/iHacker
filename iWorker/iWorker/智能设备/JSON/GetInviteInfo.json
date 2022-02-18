@@ -1,0 +1,12 @@
+{
+    "Content": {
+        "isOK": true,
+        "UserName": "金和人",
+        "DeviceName": "厨房摄像机设备"
+    },
+    "Message": "string",
+    "IsSuccess": true,
+    "Code": "string",
+    "Data": {},
+    "Detail": "string"
+}

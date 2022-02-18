@@ -36,6 +36,7 @@ class ViewController: JHBaseNavVC {
             make.centerX.equalToSuperview()
             make.left.right.bottom.equalToSuperview()
         }
+        installOHHTTPStubs()
     }
 }
 
@@ -64,8 +65,14 @@ extension ViewController:UITableViewDataSource,UITableViewDelegate
         let cls:UIViewController.Type  = rows[indexPath.row].1
         let vc = cls.init()
         let nav = UINavigationController(rootViewController: vc)
+        
         if vc.modalPresentationStyle == .overCurrentContext {
             nav.modalPresentationStyle = .overCurrentContext
+            if cls.isEqual(JHDeviceInvitedController.self) {
+                let code = "https://testripx.iuoooo.com/swagger/index.html?invitecode=7zKJyisuzdvKCeFgeTtDJUfTk8lgHQPQCK47ZV6z5E38lzDmohHUreCHkrzzYpZpvu0mbTv9ZmCx48njD1RmFHXgyZKkfxKYtystJQK9t4PzS/WZ3HmNuuX74CSHAKaXUrTUjThI+LFwwl1etlUgCkC12BMc6fKby/+1bCSBAz9gFL7UA7YLr3p9e7/yUdQmZKxQK+kCyANzZ9xcjd7lq7dHsoDP/zyodSu/ONWh3eX/g9QCk4A0gOZSUEcrk4yb8+9xG/CfkBzOUp9w9SiaJxIUPQkQ448SO2NJSWObghAemzT12Cnykw=="
+                JHDeviceInviteAPI.inviteInfo(code)
+                return
+            }
         }else{
             nav.modalPresentationStyle = .fullScreen
         }

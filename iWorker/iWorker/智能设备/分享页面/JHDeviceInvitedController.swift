@@ -17,14 +17,16 @@ class JHDeviceInvitedController: UIViewController {
     private var alertMessage: UILabel!
     private var inviteBtn: UIButton!
     private var alertTitle: UILabel!
-    private var username:String! //邀请人
-    private var msg:String! //信息
     
-    private var params:[String: String]! //http url
+    private var inviteCode:String! //邀请码
+    private var inviter:String! //邀请人
+    private var deviceName:String! = "" //信息
+    
+    var params:JSON!
     
     /// 计算属性：富文本
     private var msgAttr:NSAttributedString{
-        let attrString = NSMutableAttributedString(string: "给您分享了\(msg!)")
+        let attrString = NSMutableAttributedString(string: "给您分享了\(deviceName!)")
         let attr: [NSAttributedString.Key : Any] = [.font: UIFont.systemFont(ofSize: 12, weight: .bold),
                                                     .foregroundColor: UIColor(hexString: "146FD1")!]
         
@@ -36,27 +38,7 @@ class JHDeviceInvitedController: UIViewController {
         attrString.addAttributes(strSubAttr1, range: NSRange(location: 0, length: 5))
         return attrString
     }
-    
-    init() {
-        super.init(nibName: nil, bundle: nil)
-        //test
-        let test = "https://baidu.com/?username=&msg=可燃设备报警器"
-        parseData(test)
-    }
-    // MARK: 交互提示框
-    convenience init(_ title: String! = "金和", _ message: String! = "设备名称") {
-        self.init()
-        self.username = title
-        self.msg = message
-    }
 
-    convenience init(_ data:String) {
-        self.init()
-        parseData(data)
-    }
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     override var modalPresentationStyle: UIModalPresentationStyle{
         set{
             super.modalPresentationStyle = newValue
@@ -68,27 +50,17 @@ class JHDeviceInvitedController: UIViewController {
     override func viewDidLoad() {
         //设置为半透明样式
         createView()
-        alertTitle.text = username
+        alertTitle.text = params["UserName"].string
+        deviceName = params["DeviceName"].string
         alertMessage.attributedText = msgAttr
-    }
-    
-    func parseData(_ data:String) {
-        //TODO: swift 解析http参数
-        // URL支持汉字：需要编码，否则在转String转URL为nil 。 解码 data.removingPercentEncoding!
-        let urlStr = data.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-        if let paramDic = URL(string: urlStr)?.queryParameters {
-            self.params = paramDic
-            username = self.params["username"]
-            msg = self.params["msg"]
-        }
     }
     
     /// 接受邀请
     @objc func inviteAction() {
         //TODO: 接受邀请APi
-        let urlStr = JHBaseDomain.fullURL(with: "api_host_patrol", path: "/api/Simple/ModifyFirmChain")
-        let requestDic = [
-                          "account": JHBaseInfo.userAccount
+        let urlStr = JHBaseDomain.fullURL(with: "api_host_patrol", path: "/api/IOTDeviceInvite/AddInviteUser")
+        let requestDic = ["UserId":JHBaseInfo.userID,
+                          "InviteCode": inviteCode ?? ""
                         ] as [String : Any]
         
         let hud = MBProgressHUD.showAdded(to: view, animated: true)
@@ -120,6 +92,7 @@ class JHDeviceInvitedController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+ 
     func toDeviceVC() {
         //TODO: 进入智能设备列表
         var baseUrl = JHBaseDomain.fullURL(with: "api_host_tpwx", path: "/HMView/MorningCheckExam/?jhParams=[userId|appId|sessionId|account|orgId|changeOrg|curChangeOrg]&jhWebView=1&hidjhnavigation=1&mcn=")
@@ -144,7 +117,6 @@ class JHDeviceInvitedController: UIViewController {
         alertMessage.textAlignment = .center
         alertMessage.font = .systemFont(ofSize: 12)
         alertMessage.textColor = .initWithHex("2F3856")
-        alertMessage.text = "给您分享了可燃设备报警器"
         let submsgLab = UILabel()
         submsgLab.textAlignment = .center
         submsgLab.font = .systemFont(ofSize: 12)

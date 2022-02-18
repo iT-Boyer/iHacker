@@ -12,7 +12,7 @@ import MBProgressHUD
 //分享预览页面
 //webcore调用
 class JHShareDevicePreController: JHBaseNavVC{
-    var webUrl = "https://baidu.com"
+    var webUrl = "https://testripx.iuoooo.com/ui/moblie/#/InviterShare?appId=3952cf92-9d2a-4d57-b09a-dd090e1033c3&curChangeOrg=798dd0d8-fbaf-4161-b1a2-92a801470412&storeId=37824963-732f-4084-9867-f33cb79ddd31&userId=13414a6d-7f76-4793-8c1b-57ed4f2353fe"
     private var wbView:WKWebView!
     private lazy var hud:MBProgressHUD = {
         MBProgressHUD.showAdded(to: view, animated: true)

@@ -1,0 +1,7 @@
+{
+  "Message": "string",
+  "IsSuccess": true,
+  "Code": "string",
+  "Data": {},
+  "Detail": "string"
+}
