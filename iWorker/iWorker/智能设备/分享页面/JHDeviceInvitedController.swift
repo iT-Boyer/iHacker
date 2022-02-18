@@ -52,7 +52,7 @@ class JHDeviceInvitedController: UIViewController {
 
     convenience init(_ data:String) {
         self.init()
-//        parseData(data)
+        parseData(data)
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

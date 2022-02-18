@@ -12,7 +12,8 @@ import JHBase
 class ViewController: JHBaseNavVC {
 
     var rows:[(String, UIViewController.Type)]{
-        [("接受邀请",JHDeviceInvitedController.self),
+        [("分享预览",JHShareDevicePreController.self),
+        ("接受邀请",JHDeviceInvitedController.self),
          ("晨检机",JHMornInspecterController.self),
          ("| 连锁集团",JHUnitJoinOrgViewController.self),
          ("|- 上级",JHUnitOrgHigherController.self),

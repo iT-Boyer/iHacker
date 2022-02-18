@@ -33,6 +33,7 @@
 		B3306D4727B245DA005E7DDC /* JHShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3306D4627B245DA005E7DDC /* JHShapeView.swift */; };
 		B345589E279A837E00EFAB54 /* WKWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B345589D279A837E00EFAB54 /* WKWebViewController.m */; };
 		B35E116127BF36E400A8BEF3 /* JHDeviceInvitedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35E116027BF36E300A8BEF3 /* JHDeviceInvitedController.swift */; };
+		B37705F927BF693C00018309 /* JHShareDevicePreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37705F827BF693C00018309 /* JHShareDevicePreController.swift */; };
 		B3821F62277C8AE8005FFF8E /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = B3821F61277C8AE8005FFF8E /* Nimble */; };
 		B3821F64277C8AE8005FFF8E /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = B3821F63277C8AE8005FFF8E /* Quick */; };
 		B3821F68277C8B79005FFF8E /* Dog.m in Sources */ = {isa = PBXBuildFile; fileRef = B3821F67277C8B79005FFF8E /* Dog.m */; };
@@ -229,6 +230,7 @@
 		B345589C279A837E00EFAB54 /* WKWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKWebViewController.h; sourceTree = "<group>"; };
 		B345589D279A837E00EFAB54 /* WKWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKWebViewController.m; sourceTree = "<group>"; };
 		B35E116027BF36E300A8BEF3 /* JHDeviceInvitedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHDeviceInvitedController.swift; sourceTree = "<group>"; };
+		B37705F827BF693C00018309 /* JHShareDevicePreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHShareDevicePreController.swift; sourceTree = "<group>"; };
 		B3821F5A277C8A03005FFF8E /* RuntimeCmdTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RuntimeCmdTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3821F65277C8B79005FFF8E /* RuntimeCmdTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RuntimeCmdTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		B3821F66277C8B79005FFF8E /* Dog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Dog.h; sourceTree = "<group>"; };
@@ -480,6 +482,7 @@
 			isa = PBXGroup;
 			children = (
 				B35E116027BF36E300A8BEF3 /* JHDeviceInvitedController.swift */,
+				B37705F827BF693C00018309 /* JHShareDevicePreController.swift */,
 			);
 			path = "分享页面";
 			sourceTree = "<group>";
@@ -1223,6 +1226,7 @@
 				B323035A278C11240056BDCC /* UnitOrgChainModel.swift in Sources */,
 				B38D893B277B1CD800888EFB /* JHMornUploadModel.swift in Sources */,
 				B3306D4127B111C1005E7DDC /* JHUnitOrgHigherCell.swift in Sources */,
+				B37705F927BF693C00018309 /* JHShareDevicePreController.swift in Sources */,
 				B3306D4327B124EC005E7DDC /* JHUnitOrgChangeController.swift in Sources */,
 				B3306D3D27B10922005E7DDC /* JHUnitOrgHigherController.swift in Sources */,
 				B323035E278C2B490056BDCC /* JHUnitOrgSearchCell.swift in Sources */,
