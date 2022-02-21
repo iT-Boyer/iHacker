@@ -53,25 +53,44 @@ class JHShareDevicePreController: JHBaseNavVC{
         //分享按钮
         let shareBtn = UIButton()
         shareBtn.setImage(.init(named: "sharevx"), for: .normal)
+        shareBtn.backgroundColor = .initWithHex("FC9023")
+        let fontPath = Bundle.main.path(forResource: "优设标题黑", ofType: "TTF")
+        shareBtn.titleLabel?.font = customFont(fontPath!, size: 20)
+        shareBtn.setTitle("发送邀请", for: .normal)
         shareBtn.addTarget(self, action: #selector(shareVX), for: .touchDown)
-        self.navBar.addSubview(shareBtn)
         
         let webView = WKWebView()
         wbView = webView
         webView.navigationDelegate = self
-        self.view.addSubview(shareBtn)
         self.view.addSubview(webView)
-        shareBtn.snp.makeConstraints { make in
-            make.right.equalTo(-15)
-            make.size.equalTo(CGSize.init(width: 22, height: 22))
-            make.centerY.equalTo(self.navBar.titleLabel.snp.centerY)
-        }
-        
+        self.view.addSubview(shareBtn)
         webView.snp.makeConstraints { make in
             make.top.equalTo(self.navBar.snp.bottom)
-            make.left.bottom.equalToSuperview()
-            make.centerX.equalToSuperview()
+            make.left.centerX.equalToSuperview()
+            make.bottom.equalTo(shareBtn.snp.top)
         }
+        shareBtn.snp.makeConstraints { make in
+            make.height.equalTo(54)
+            make.left.bottom.centerX.equalToSuperview()
+        }
+    }
+    
+    //MARK: 加载字体
+    
+    /// 加载otf字体文件，显示字体样式
+    ///
+    /// - Parameters:
+    ///   - path: otf文件路径
+    ///   - size: 字体大小
+    /// - Returns: 返回font字体
+    func customFont(_ path:String, size:CGFloat) -> UIFont {
+        let fontUrl = URL.init(fileURLWithPath: path)
+        let fontDataProvider = CGDataProvider.init(url: fontUrl as CFURL)
+        let fontRef = CGFont.init(fontDataProvider!)
+        CTFontManagerRegisterGraphicsFont(fontRef!, nil)
+        let fontName = fontRef?.postScriptName
+        let font = UIFont.init(name: fontName! as String, size: size)
+        return font!
     }
 }
 
