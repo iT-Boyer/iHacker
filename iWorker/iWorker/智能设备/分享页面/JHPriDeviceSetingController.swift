@@ -11,6 +11,9 @@ import JHBase
 @objc(JHPriDeviceSetingController)
 class JHPriDeviceSetingController: JHBaseNavVC,UITableViewDelegate,UITableViewDataSource {
     
+    var storeId:String!
+    var deviceId:String!
+    
     let rows = ["邀请好友", "邀请管理", "编辑设备"]
     let rowsimg = ["setinviteimg", "setmanageimg", "seteditimg"]
     override func viewDidLoad() {
@@ -50,7 +53,34 @@ class JHPriDeviceSetingController: JHBaseNavVC,UITableViewDelegate,UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        var userId = JHBaseInfo.userID
+        var appId = JHBaseInfo.appID
+        var curChangeOrg = JHBaseInfo.orgID
+        userId = "13414a6d-7f76-4793-8c1b-57ed4f2353fe"
+        appId = "3952cf92-9d2a-4d57-b09a-dd090e1033c3"
+        curChangeOrg = "798dd0d8-fbaf-4161-b1a2-92a801470412"
+        let domain = JHBaseDomain.fullURL(with: "api_host_ripx", path: "/ui/moblie/#/")
+        switch indexPath.row {
+        case 0:
+            //邀请好友
+            let shareVC = JHShareDevicePreController()
+            shareVC.webUrl = "\(domain)InviterShare?appId=\(appId)&curChangeOrg=\(curChangeOrg)&storeId=\(storeId)&userId=\(userId)"
+            self.navigationController?.pushViewController(shareVC, animated: true)
+        case 1:
+            //邀请管理
+            let htmlUrl = "\(domain)InviterManage?appId=\(appId)&storeId=\(storeId)&userId=\(userId)&sn=\(deviceId)"
+//            let web = JHWebviewManager.getWebViewController(withURL: htmlUrl, isShowReturnButtonAndCloseButton: true, title: "", andHasTabbar: false)
+//            self.navigationController?.pushViewController(web!, animated: true)
+        case 2: break
+            //编辑设备
+//            let vc = JHBindingEditIntelDescisionVC.init(title: "基础设备")
+//            vc.storeId = storeId
+//            vc.isEditPage = true
+//            vc.deviceId = deviceId
+//            self.navigationController?.pushViewController(vc, completion: nil)
+        default:
+            print("")
+        }
     }
     
 }

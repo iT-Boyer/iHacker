@@ -22,16 +22,18 @@ class JHShareDevicePreController: JHBaseNavVC{
         super.viewDidLoad()
         self.navTitle = "邀请好友"
         createView()
-
-        hud.show(animated: true)
-        //加载h5页面
+        
+        //加载h5页面, h5 url路径中含有# 井号和汉字时的解决方法。
+//        webUrl = webUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        var charSet = CharacterSet.urlQueryAllowed
+        charSet.insert(charactersIn: "#")
+        webUrl = webUrl.addingPercentEncoding(withAllowedCharacters: charSet)!
         wbView.load(URLRequest(urlString: webUrl)!)
     }
     
     //TODO: webcore push 页面
     class func shareData(url:String) {
         let shareVC = JHShareDevicePreController()
-        shareVC.webUrl = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         topVC?.present(shareVC, animated: true, completion: nil)
     }
     
@@ -53,9 +55,10 @@ class JHShareDevicePreController: JHBaseNavVC{
         //分享按钮
         let shareBtn = UIButton()
         shareBtn.setImage(.init(named: "sharevx"), for: .normal)
+        shareBtn.imageEdgeInsets = UIEdgeInsets(top: 0, left: -10, bottom: 0, right: 10)
         shareBtn.backgroundColor = .initWithHex("FC9023")
         let fontPath = Bundle.main.path(forResource: "优设标题黑", ofType: "TTF")
-        shareBtn.titleLabel?.font = customFont(fontPath!, size: 20)
+        shareBtn.titleLabel?.font = customFont(fontPath!, size: 22)
         shareBtn.setTitle("发送邀请", for: .normal)
         shareBtn.addTarget(self, action: #selector(shareVX), for: .touchDown)
         
@@ -98,7 +101,7 @@ extension JHShareDevicePreController:WKNavigationDelegate{
     
     // 页面开始加载时调用
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        
+        hud.show(animated: true)
     }
     // 网页加载完成
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
