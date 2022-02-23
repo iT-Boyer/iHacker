@@ -112,7 +112,7 @@ extension JHShareDevicePreController:WKNavigationDelegate{
     }
     // 页面加载失败时调用
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-        
+        hud.hide(animated: true)
     }
     
 }
