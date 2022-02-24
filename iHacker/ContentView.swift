@@ -7,8 +7,8 @@
 
 import SwiftUI
 //import Landmarks
-//import Wesplit
-//import MyLibrary
+import Wesplit
+import MyLibrary
 
 struct ContentView: View {
     var body: some View {
