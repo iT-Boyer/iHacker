@@ -115,6 +115,7 @@
 		B3BC83ED277D6A440023257B /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BC83EC277D6A440023257B /* Tools.swift */; };
 		B3BC83EE277D6D170023257B /* libSwiftLibB.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B38D8993277C2AD900888EFB /* libSwiftLibB.a */; };
 		B3CDC61D27C3A67E007F1FF2 /* JHPriDeviceSetingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CDC61C27C3A67E007F1FF2 /* JHPriDeviceSetingController.swift */; };
+		B3D0486C27D075F300E9CBF2 /* StringSepcs.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D0486B27D075F300E9CBF2 /* StringSepcs.swift */; };
 		B3DA503E277D8D13009B6A0E /* SecondB.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DA503D277D8D13009B6A0E /* SecondB.swift */; };
 /* End PBXBuildFile section */
 
@@ -316,6 +317,7 @@
 		B3BC83EA277D69B90023257B /* ObjcCallSwiftLibBTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjcCallSwiftLibBTests.m; sourceTree = "<group>"; };
 		B3BC83EC277D6A440023257B /* Tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
 		B3CDC61C27C3A67E007F1FF2 /* JHPriDeviceSetingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHPriDeviceSetingController.swift; sourceTree = "<group>"; };
+		B3D0486B27D075F300E9CBF2 /* StringSepcs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringSepcs.swift; sourceTree = "<group>"; };
 		B3DA503D277D8D13009B6A0E /* SecondB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondB.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -599,6 +601,7 @@
 				B38D8910277B1B3300888EFB /* env */,
 				B38D88B5277B199700888EFB /* iWorkerTests.swift */,
 				B38D8913277B1B3A00888EFB /* JNRequestTests.swift */,
+				B3D0486B27D075F300E9CBF2 /* StringSepcs.swift */,
 			);
 			path = iWorkerTests;
 			sourceTree = "<group>";
@@ -1280,6 +1283,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B38D88B6277B199700888EFB /* iWorkerTests.swift in Sources */,
+				B3D0486C27D075F300E9CBF2 /* StringSepcs.swift in Sources */,
 				B38D8912277B1B3300888EFB /* ENV.swift in Sources */,
 				B38D8914277B1B3A00888EFB /* JNRequestTests.swift in Sources */,
 			);

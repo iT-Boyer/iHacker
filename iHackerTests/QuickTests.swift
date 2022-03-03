@@ -12,5 +12,6 @@ import Nimble
 
 class QuickTests: QuickSpec {
     override func spec() {
+        it("pass twice") { expect(true).to(beTruthy()) }
     }
 }
