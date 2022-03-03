@@ -22,6 +22,26 @@ class JHMornInspecterController: JHBaseNavVC {
     
     var checkArr:[JHMornUploadModel]!
     
+    var orgId: String{
+        let key = JHBaseInfo.userID+"_CKDefaultStore"
+        let storeDic = UserDefaults.standard.dictionary(forKey: key)
+        guard let orgid = storeDic?["orgId"] else { return ""}
+        return orgid as! String
+    }
+    
+    var storeAppId:String{
+        let key = JHBaseInfo.userID+"_CKDefaultStore"
+        let storeDic = UserDefaults.standard.dictionary(forKey: key)
+        guard let appId = storeDic?["appId"] else { return ""}
+        return appId as! String
+    }
+    var storeId:String{
+        let key = JHBaseInfo.userID+"_CKDefaultStore"
+        let storeDic = UserDefaults.standard.dictionary(forKey: key)
+        guard let appId = storeDic?["storeId"] else { return ""}
+        return appId as! String
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navTitle = "晨检机"

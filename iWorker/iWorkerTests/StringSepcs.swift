@@ -19,7 +19,7 @@ class StringSepcs: QuickSpec {
                 expect(code).toEventually(beTruthy())
             }
             it("16位数字") {
-                let valid = JHDeviceInviteAPI.isValid("8786878687d868786")
+                let valid = JHDeviceInviteAPI.isValid("878687868868786")
                 expect(valid).to(equal(true))
             }
         }

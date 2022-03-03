@@ -116,6 +116,7 @@
 		B3BC83EE277D6D170023257B /* libSwiftLibB.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B38D8993277C2AD900888EFB /* libSwiftLibB.a */; };
 		B3CDC61D27C3A67E007F1FF2 /* JHPriDeviceSetingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CDC61C27C3A67E007F1FF2 /* JHPriDeviceSetingController.swift */; };
 		B3D0486C27D075F300E9CBF2 /* StringSepcs.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D0486B27D075F300E9CBF2 /* StringSepcs.swift */; };
+		B3D0486E27D0A3C700E9CBF2 /* GetIOTDeviceSceneList.json in Resources */ = {isa = PBXBuildFile; fileRef = B3D0486D27D0A3C600E9CBF2 /* GetIOTDeviceSceneList.json */; };
 		B3DA503E277D8D13009B6A0E /* SecondB.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DA503D277D8D13009B6A0E /* SecondB.swift */; };
 /* End PBXBuildFile section */
 
@@ -318,6 +319,7 @@
 		B3BC83EC277D6A440023257B /* Tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
 		B3CDC61C27C3A67E007F1FF2 /* JHPriDeviceSetingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHPriDeviceSetingController.swift; sourceTree = "<group>"; };
 		B3D0486B27D075F300E9CBF2 /* StringSepcs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringSepcs.swift; sourceTree = "<group>"; };
+		B3D0486D27D0A3C600E9CBF2 /* GetIOTDeviceSceneList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GetIOTDeviceSceneList.json; sourceTree = "<group>"; };
 		B3DA503D277D8D13009B6A0E /* SecondB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondB.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -487,6 +489,7 @@
 			children = (
 				B33EF39327BFA66800A3B6DE /* GetInviteInfo.json */,
 				B33EF39427BFA68B00A3B6DE /* AddInviteUser.json */,
+				B3D0486D27D0A3C600E9CBF2 /* GetIOTDeviceSceneList.json */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -1103,6 +1106,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B38D8909277B1AC000888EFB /* SaveMorningCheckImg.json in Resources */,
+				B3D0486E27D0A3C700E9CBF2 /* GetIOTDeviceSceneList.json in Resources */,
 				B323033A27880CF80056BDCC /* Main.storyboard in Resources */,
 				B38D88AB277B199700888EFB /* LaunchScreen.storyboard in Resources */,
 				B3306D4527B23303005E7DDC /* DelFirmChain.json in Resources */,

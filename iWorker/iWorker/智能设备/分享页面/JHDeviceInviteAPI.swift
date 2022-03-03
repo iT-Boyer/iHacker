@@ -18,11 +18,11 @@ class JHDeviceInviteAPI: NSObject {
         if code.contains("invitecode=") {
             return true
         }
-        // 设备code: 16位数字，即为合法SN号。
-        if code.count == 16 {
-            let rules = NSPredicate(format: "SELF MATCHES %@", "^[0-9]*$")
-            let isMatch: Bool = rules.evaluate(with: code)
-            return isMatch
+        // 设备code: 15位数字，即为合法SN号。
+        let rules = NSPredicate(format: "SELF MATCHES %@", "^[0-9A-Za-z]{15}$")
+        let isNumber: Bool = rules.evaluate(with: code)
+        if isNumber {
+            return true
         }
         return false
     }

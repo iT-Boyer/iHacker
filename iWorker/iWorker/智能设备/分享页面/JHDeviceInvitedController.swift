@@ -89,19 +89,22 @@ class JHDeviceInvitedController: UIViewController {
     }
     /// 关闭弹框
     @objc func closeAction() {
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true) {
+            let storeStatus = UserDefaults.standard.integer(forKey: "StoreStatus")
+            if storeStatus == 1 { //个人时，跳转到设备列表
+                self.toDeviceVC()
+            }
+        }
     }
     
- 
     func toDeviceVC() {
-        //TODO: 进入智能设备列表
-        var baseUrl = JHBaseDomain.fullURL(with: "api_host_tpwx", path: "/HMView/MorningCheckExam/?jhParams=[userId|appId|sessionId|account|orgId|changeOrg|curChangeOrg]&jhWebView=1&hidjhnavigation=1&mcn=")
+        //进入智能设备列表
+        let params = "/ui/moblie/#/IOTEquipment?&jhParams=[userId|sessionId|orgId|appId|changeOrg|curChangeOrg|account]&jhWebView=1&hideShare=1&hidjhnavigation=1"
+        var baseUrl = JHBaseDomain.fullURL(with: "api_host_ripx-ui", path: params)
         if JHBaseDomain.environment.count > 0 {
-            baseUrl = JHBaseDomain.fullURL(with: "api_host_ntpp", path: "/HMView/MorningCheckExam/?jhParams=[userId|appId|sessionId|account|orgId|changeOrg|curChangeOrg]&jhWebView=1&hidjhnavigation=1&mcn=")
+            baseUrl = JHBaseDomain.fullURL(with: "api_host_ripx", path: params)
         }
-//        let htmlUrl = baseUrl + mcn
-//        let web = JHWebviewManager.getWebViewController(withURL: htmlUrl, isShowReturnButtonAndCloseButton: true, title: "", andHasTabbar: false)
-//        self.navigationController?.pushViewController(web!, animated: true)
+//        JHWebviewManager.pushWebViewController(withURL: baseUrl, isShowReturnButtonAndCloseButton: false, title: "")
     }
 
     func createView() {
