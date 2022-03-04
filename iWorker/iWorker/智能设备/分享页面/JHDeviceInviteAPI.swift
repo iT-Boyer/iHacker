@@ -35,6 +35,9 @@ class JHDeviceInviteAPI: NSObject {
         guard let paramDic = URL(string: dataStr)?.queryParameters else {
             return
         }
+        // static 方法 通知验证
+        NotificationCenter.default.addObserver(self, selector: #selector(toDeviceH5ListVC), name: NSNotification.Name("toDeviceH5ListVCKey"), object: nil)
+        
         let urlStr = JHBaseDomain.fullURL(with: "api_host_ripx", path: "/api/IOTDeviceInvite/GetInviteInfo")
         let code = paramDic["invitecode"]
         let requestDic = ["UserId":JHBaseInfo.userID,
@@ -84,5 +87,16 @@ class JHDeviceInviteAPI: NSObject {
     @objc
     public static func mornInspecter()->AnyClass{
         return JHMornInspecterController.self
+    }
+    
+    @objc
+    static func toDeviceH5ListVC() {
+        //进入智能设备列表
+        let params = "/ui/moblie/#/IOTEquipment?&jhParams=[userId|sessionId|orgId|appId|changeOrg|curChangeOrg|account]&jhWebView=1&hideShare=1&hidjhnavigation=1"
+        var baseUrl = JHBaseDomain.fullURL(with: "api_host_ripx-ui", path: params)
+        if JHBaseDomain.environment.count > 0 {
+            baseUrl = JHBaseDomain.fullURL(with: "api_host_ripx", path: params)
+        }
+//        JHWebviewManager.pushWebViewController(withURL: baseUrl, isShowReturnButtonAndCloseButton: false, title: "")
     }
 }

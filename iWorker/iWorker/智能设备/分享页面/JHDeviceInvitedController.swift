@@ -77,7 +77,7 @@ class JHDeviceInvitedController: UIViewController {
             let result = json["IsSuccess"].boolValue
             if result {
                 self?.dismiss(animated: true, completion: {
-                    weakSelf.toDeviceVC()
+                    NotificationCenter.default.post(name: NSNotification.Name("toDeviceH5ListVCKey"), object: nil)
                 })
             }else{
                 //TODO: 邀请码失效提示
@@ -92,19 +92,9 @@ class JHDeviceInvitedController: UIViewController {
         self.dismiss(animated: true) {
             let storeStatus = UserDefaults.standard.integer(forKey: "StoreStatus")
             if storeStatus == 1 { //个人时，跳转到设备列表
-                self.toDeviceVC()
+                JHDeviceInviteAPI.toDeviceH5ListVC()
             }
         }
-    }
-    
-    func toDeviceVC() {
-        //进入智能设备列表
-        let params = "/ui/moblie/#/IOTEquipment?&jhParams=[userId|sessionId|orgId|appId|changeOrg|curChangeOrg|account]&jhWebView=1&hideShare=1&hidjhnavigation=1"
-        var baseUrl = JHBaseDomain.fullURL(with: "api_host_ripx-ui", path: params)
-        if JHBaseDomain.environment.count > 0 {
-            baseUrl = JHBaseDomain.fullURL(with: "api_host_ripx", path: params)
-        }
-//        JHWebviewManager.pushWebViewController(withURL: baseUrl, isShowReturnButtonAndCloseButton: false, title: "")
     }
 
     func createView() {
