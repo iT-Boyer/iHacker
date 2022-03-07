@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import GRDB
 
 class JHUnitOrgBaseModel: NSObject,Codable {
 
