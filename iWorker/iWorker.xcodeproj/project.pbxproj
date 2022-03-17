@@ -35,6 +35,9 @@
 		B33EF39627BFA69300A3B6DE /* GetInviteInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = B33EF39327BFA66800A3B6DE /* GetInviteInfo.json */; };
 		B33EF39827BFAD9000A3B6DE /* JHDeviceInviteAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33EF39727BFAD9000A3B6DE /* JHDeviceInviteAPI.swift */; };
 		B345589E279A837E00EFAB54 /* WKWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B345589D279A837E00EFAB54 /* WKWebViewController.m */; };
+		B34635BC27E37F8A002CA750 /* JHBindingEditIntelDescisionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34635BB27E37F8A002CA750 /* JHBindingEditIntelDescisionVC.swift */; };
+		B34635BF27E37FA0002CA750 /* GetSingleIntelligentDeviceInfoNew.json in Resources */ = {isa = PBXBuildFile; fileRef = B34635BD27E37FA0002CA750 /* GetSingleIntelligentDeviceInfoNew.json */; };
+		B34635C027E37FA0002CA750 /* SavePersonDeviceInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = B34635BE27E37FA0002CA750 /* SavePersonDeviceInfo.json */; };
 		B35E116127BF36E400A8BEF3 /* JHDeviceInvitedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35E116027BF36E300A8BEF3 /* JHDeviceInvitedController.swift */; };
 		B365D33E27C379CB000DBC74 /* 优设标题黑.TTF in Resources */ = {isa = PBXBuildFile; fileRef = B365D33D27C379CB000DBC74 /* 优设标题黑.TTF */; };
 		B37705F927BF693C00018309 /* JHShareDevicePreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37705F827BF693C00018309 /* JHShareDevicePreController.swift */; };
@@ -239,6 +242,9 @@
 		B33EF39727BFAD9000A3B6DE /* JHDeviceInviteAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHDeviceInviteAPI.swift; sourceTree = "<group>"; };
 		B345589C279A837E00EFAB54 /* WKWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKWebViewController.h; sourceTree = "<group>"; };
 		B345589D279A837E00EFAB54 /* WKWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKWebViewController.m; sourceTree = "<group>"; };
+		B34635BB27E37F8A002CA750 /* JHBindingEditIntelDescisionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JHBindingEditIntelDescisionVC.swift; sourceTree = "<group>"; };
+		B34635BD27E37FA0002CA750 /* GetSingleIntelligentDeviceInfoNew.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetSingleIntelligentDeviceInfoNew.json; sourceTree = "<group>"; };
+		B34635BE27E37FA0002CA750 /* SavePersonDeviceInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SavePersonDeviceInfo.json; sourceTree = "<group>"; };
 		B35E116027BF36E300A8BEF3 /* JHDeviceInvitedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHDeviceInvitedController.swift; sourceTree = "<group>"; };
 		B365D33D27C379CB000DBC74 /* 优设标题黑.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "优设标题黑.TTF"; sourceTree = "<group>"; };
 		B37705F827BF693C00018309 /* JHShareDevicePreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHShareDevicePreController.swift; sourceTree = "<group>"; };
@@ -490,14 +496,25 @@
 				B33EF39327BFA66800A3B6DE /* GetInviteInfo.json */,
 				B33EF39427BFA68B00A3B6DE /* AddInviteUser.json */,
 				B3D0486D27D0A3C600E9CBF2 /* GetIOTDeviceSceneList.json */,
+				B34635BD27E37FA0002CA750 /* GetSingleIntelligentDeviceInfoNew.json */,
+				B34635BE27E37FA0002CA750 /* SavePersonDeviceInfo.json */,
 			);
 			path = JSON;
+			sourceTree = "<group>";
+		};
+		B34635BA27E37F8A002CA750 /* 设备绑定 */ = {
+			isa = PBXGroup;
+			children = (
+				B34635BB27E37F8A002CA750 /* JHBindingEditIntelDescisionVC.swift */,
+			);
+			path = "设备绑定";
 			sourceTree = "<group>";
 		};
 		B35E115E27BF35EC00A8BEF3 /* 智能设备 */ = {
 			isa = PBXGroup;
 			children = (
 				B33EF39227BFA63600A3B6DE /* JSON */,
+				B34635BA27E37F8A002CA750 /* 设备绑定 */,
 				B35E115F27BF35FB00A8BEF3 /* 分享页面 */,
 			);
 			path = "智能设备";
@@ -1115,6 +1132,7 @@
 				B323036E278D3B460056BDCC /* CheckEnterChain.json in Resources */,
 				B3230370278D3B460056BDCC /* GetEnterChainList.json in Resources */,
 				B3230365278C301F0056BDCC /* JHUniversalResource.bundle in Resources */,
+				B34635C027E37FA0002CA750 /* SavePersonDeviceInfo.json in Resources */,
 				B38D890A277B1AC000888EFB /* GetSimilarityScore.json in Resources */,
 				B323036D278D3B460056BDCC /* ModifyFirmChain.json in Resources */,
 				B365D33E27C379CB000DBC74 /* 优设标题黑.TTF in Resources */,
@@ -1124,6 +1142,7 @@
 				B38D88A8277B199700888EFB /* Assets.xcassets in Resources */,
 				B33EF39627BFA69300A3B6DE /* GetInviteInfo.json in Resources */,
 				B38D8908277B1AC000888EFB /* ipFile.plist in Resources */,
+				B34635BF27E37FA0002CA750 /* GetSingleIntelligentDeviceInfoNew.json in Resources */,
 				B38D890D277B1AC000888EFB /* RegisterFaceInfo.json in Resources */,
 				B33EF39527BFA68B00A3B6DE /* AddInviteUser.json in Resources */,
 			);
@@ -1278,6 +1297,7 @@
 				B33EF39827BFAD9000A3B6DE /* JHDeviceInviteAPI.swift in Sources */,
 				B32303382787EDBD0056BDCC /* JHUnitJoinOrgViewController.swift in Sources */,
 				B3306D3F27B1093E005E7DDC /* JHUnitOrgLowerController.swift in Sources */,
+				B34635BC27E37F8A002CA750 /* JHBindingEditIntelDescisionVC.swift in Sources */,
 				B35E116127BF36E400A8BEF3 /* JHDeviceInvitedController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -4,15 +4,15 @@
 //
 //  Created by boyer on 2022/3/17.
 //
+import UIKit
+import JHBase
 
-import Cocoa
-
-class JHBindingEditIntelDescisionVC: JHNavBaseVC,UITableViewDelegate,UITableViewDataSource{
+class JHBindingEditIntelDescisionVC: JHBaseNavVC,UITableViewDelegate,UITableViewDataSource{
     let rows = ["邀请好友", "邀请管理", "编辑设备"]
     let rowsimg = ["setinviteimg", "setmanageimg", "seteditimg"]
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navTitle = "设置"
+        self.navTitle = "绑定设备"
         self.view.backgroundColor = UIColor.white
         let tableview = UITableView()
         tableview.delegate = self

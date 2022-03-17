@@ -28,4 +28,10 @@
    <FileRef
       location = "group:../MBProgressHUD">
    </FileRef>
+   <FileRef
+      location = "group:../CwlCatchException">
+   </FileRef>
+   <FileRef
+      location = "group:../CwlPreconditionTesting">
+   </FileRef>
 </Workspace>
