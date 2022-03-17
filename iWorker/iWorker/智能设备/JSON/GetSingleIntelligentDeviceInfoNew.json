@@ -1,0 +1,34 @@
+{
+    "Content": {
+        "DeviceId": "03a0b6c1-9544-11ec-ab3a-00163e126289",
+        "StoreId": "00000000-0000-0000-0000-000000000000",
+        "SN": "300270531",
+        "Name": "留样冰箱温湿度-实时监测",
+        "Place": "",
+        "PlaceId": "00000000-0000-0000-0000-000000000000",
+        "IsOldScene": false,
+        "SettingId": "00000000-0000-0000-0000-000000000000",
+        "DeviceType": 8,
+        "DeviceTypeName": "留样冰箱温湿度-实时监测",
+        "DeviceTypeId": "3b56c158-5e06-4aef-ac2c-a17e264cbe0b",
+        "MonitorWay": 0,
+        "MonitorWayValue": 0,
+        "Frequency": 0,
+        "FrequencyUnit": "次/每天",
+        "WorkHours": 0,
+        "WorkHoursUnit": "分钟",
+        "ThresholdType": 0,
+        "ThresholdList": null,
+        "WorkTimeList": [
+            {
+                "StartTime": "00:00:00",
+                "EndTime": "23:59:59"
+            }
+        ]
+    },
+    "Message": "获取成功",
+    "IsSuccess": true,
+    "Code": "1",
+    "Data": null,
+    "Detail": null
+}

@@ -13,7 +13,8 @@ class ViewController: JHBaseNavVC {
 
     
     var rows:[(String, UIViewController.Type)]{
-        [("设置",JHPriDeviceSetingController.self),
+        [("绑定",JHBindingEditIntelDescisionVC.self),
+         ("设置",JHPriDeviceSetingController.self),
          ("分享预览",JHShareDevicePreController.self),
         ("接受邀请",JHDeviceInvitedController.self),
          ("晨检机",JHMornInspecterController.self),
