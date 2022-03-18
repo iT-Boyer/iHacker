@@ -7,7 +7,7 @@
 
 import UIKit
 
-
+// 迁移JHBindingDeviceNameInputCell.m
 class JHDeviceNickCell: JHDeviceBaseCell {
     override func createView() {
         super.createView()

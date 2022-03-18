@@ -9,7 +9,6 @@ import UIKit
 import SnapKit
 
 // 迁移JHBindingDeviceNameInputImageCell.m
-
 class JHDeviceSNCell: JHDeviceBaseCell {
     
     override func createView() {

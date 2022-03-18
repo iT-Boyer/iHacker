@@ -44,6 +44,8 @@
 		B3697E7927E42481004D8867 /* JHDeviceSNCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3697E7827E42481004D8867 /* JHDeviceSNCell.swift */; };
 		B3697E7B27E429A3004D8867 /* JHDeviceSceneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3697E7A27E429A3004D8867 /* JHDeviceSceneCell.swift */; };
 		B3697E7D27E42D10004D8867 /* JHDeviceNickCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3697E7C27E42D10004D8867 /* JHDeviceNickCell.swift */; };
+		B3697E8227E45778004D8867 /* JHSceneModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3697E8127E45778004D8867 /* JHSceneModels.swift */; };
+		B3697E8427E46DE1004D8867 /* JHSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3697E8327E46DE1004D8867 /* JHSceneViewModel.swift */; };
 		B37705F927BF693C00018309 /* JHShareDevicePreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37705F827BF693C00018309 /* JHShareDevicePreController.swift */; };
 		B3821F62277C8AE8005FFF8E /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = B3821F61277C8AE8005FFF8E /* Nimble */; };
 		B3821F64277C8AE8005FFF8E /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = B3821F63277C8AE8005FFF8E /* Quick */; };
@@ -255,6 +257,8 @@
 		B3697E7827E42481004D8867 /* JHDeviceSNCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHDeviceSNCell.swift; sourceTree = "<group>"; };
 		B3697E7A27E429A3004D8867 /* JHDeviceSceneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHDeviceSceneCell.swift; sourceTree = "<group>"; };
 		B3697E7C27E42D10004D8867 /* JHDeviceNickCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHDeviceNickCell.swift; sourceTree = "<group>"; };
+		B3697E8127E45778004D8867 /* JHSceneModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHSceneModels.swift; sourceTree = "<group>"; };
+		B3697E8327E46DE1004D8867 /* JHSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHSceneViewModel.swift; sourceTree = "<group>"; };
 		B37705F827BF693C00018309 /* JHShareDevicePreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHShareDevicePreController.swift; sourceTree = "<group>"; };
 		B3821F5A277C8A03005FFF8E /* RuntimeCmdTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RuntimeCmdTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3821F65277C8B79005FFF8E /* RuntimeCmdTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RuntimeCmdTests-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -513,11 +517,9 @@
 		B34635BA27E37F8A002CA750 /* 设备绑定 */ = {
 			isa = PBXGroup;
 			children = (
+				B3697E7F27E44C83004D8867 /* Cell */,
+				B3697E8027E44C90004D8867 /* Models */,
 				B34635BB27E37F8A002CA750 /* JHBindingEditIntelDescisionVC.swift */,
-				B3697E7627E41F8E004D8867 /* JHDeviceBaseCell.swift */,
-				B3697E7827E42481004D8867 /* JHDeviceSNCell.swift */,
-				B3697E7A27E429A3004D8867 /* JHDeviceSceneCell.swift */,
-				B3697E7C27E42D10004D8867 /* JHDeviceNickCell.swift */,
 			);
 			path = "设备绑定";
 			sourceTree = "<group>";
@@ -542,6 +544,26 @@
 				B37705F827BF693C00018309 /* JHShareDevicePreController.swift */,
 			);
 			path = "分享页面";
+			sourceTree = "<group>";
+		};
+		B3697E7F27E44C83004D8867 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				B3697E7627E41F8E004D8867 /* JHDeviceBaseCell.swift */,
+				B3697E7827E42481004D8867 /* JHDeviceSNCell.swift */,
+				B3697E7A27E429A3004D8867 /* JHDeviceSceneCell.swift */,
+				B3697E7C27E42D10004D8867 /* JHDeviceNickCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		B3697E8027E44C90004D8867 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B3697E8127E45778004D8867 /* JHSceneModels.swift */,
+				B3697E8327E46DE1004D8867 /* JHSceneViewModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		B3821F5B277C8A03005FFF8E /* RuntimeCmdTests */ = {
@@ -1297,11 +1319,13 @@
 				B3306D3D27B10922005E7DDC /* JHUnitOrgHigherController.swift in Sources */,
 				B323035E278C2B490056BDCC /* JHUnitOrgSearchCell.swift in Sources */,
 				B32225BA2795753500953EF3 /* JHUnitOrgAlertController.swift in Sources */,
+				B3697E8427E46DE1004D8867 /* JHSceneViewModel.swift in Sources */,
 				B38D8936277B1C6D00888EFB /* Env.swift in Sources */,
 				B38D889F277B199400888EFB /* AppDelegate.swift in Sources */,
 				B3230362278C2BAA0056BDCC /* JHUnitOrgBaseModel.swift in Sources */,
 				B38D88A1277B199400888EFB /* SceneDelegate.swift in Sources */,
 				B3697E7927E42481004D8867 /* JHDeviceSNCell.swift in Sources */,
+				B3697E8227E45778004D8867 /* JHSceneModels.swift in Sources */,
 				B3CDC61D27C3A67E007F1FF2 /* JHPriDeviceSetingController.swift in Sources */,
 				B3230360278C2B7D0056BDCC /* JHUnitOrgBaseCell.swift in Sources */,
 				B323033C278827350056BDCC /* JHUnitOrgBaseViewController.swift in Sources */,

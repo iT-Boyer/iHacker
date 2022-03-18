@@ -6,6 +6,8 @@
 //
 import UIKit
 import JHBase
+import SwiftyJSON
+import MBProgressHUD
 
 enum DeviceCellStyle {
     case SN
@@ -14,6 +16,7 @@ enum DeviceCellStyle {
 }
 
 extension JHBaseNavVC{
+    
     func hideKeyboardWhenTappedAround() {
         let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         tap.cancelsTouchesInView = false
@@ -26,7 +29,13 @@ extension JHBaseNavVC{
 }
 
 class JHBindingEditIntelDescisionVC: JHBaseNavVC{
+    
+    var storeId:String = ""
+    var SN:String = ""
+    
+    // UI样式排序
     let rows:[DeviceCellStyle] = [.SN, .Scence, .Nick]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navTitle = "绑定设备"
@@ -83,4 +92,33 @@ extension JHBindingEditIntelDescisionVC:UITableViewDelegate,UITableViewDataSourc
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("选择事件----")
     }
+}
+
+extension JHBindingEditIntelDescisionVC
+{
+    //获取场景数据
+    func loadSceneData() {
+        let urlStr = JHBaseDomain.fullURL(with: "api_host_ripx", path: "/IOTDeviceScene/GetIOTDeviceSceneList")
+        let requestDic = ["StoreId":storeId, "SN": SN]
+        let hud = MBProgressHUD.showAdded(to: view, animated: true)
+        hud.removeFromSuperViewOnHide = true
+        let request = JN.post(urlStr, parameters: requestDic, headers: nil)
+        request.response {[weak self] response in
+            hud.hide(animated: true)
+            guard let data = response.data else {
+//                MBProgressHUD.displayError(kInternetError)
+                return
+            }
+            let json = JSON(data)
+            let result = json["IsSuccess"].boolValue
+            if result {
+                
+            }else{
+                //TODO: 邀请码失效提示
+                let msg = json["Message"].stringValue
+//                MBProgressHUD.displayError(msg)
+            }
+        }
+    }
+    
 }
