@@ -40,6 +40,10 @@
 		B34635C027E37FA0002CA750 /* SavePersonDeviceInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = B34635BE27E37FA0002CA750 /* SavePersonDeviceInfo.json */; };
 		B35E116127BF36E400A8BEF3 /* JHDeviceInvitedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35E116027BF36E300A8BEF3 /* JHDeviceInvitedController.swift */; };
 		B365D33E27C379CB000DBC74 /* 优设标题黑.TTF in Resources */ = {isa = PBXBuildFile; fileRef = B365D33D27C379CB000DBC74 /* 优设标题黑.TTF */; };
+		B3697E7727E41F8E004D8867 /* JHDeviceBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3697E7627E41F8E004D8867 /* JHDeviceBaseCell.swift */; };
+		B3697E7927E42481004D8867 /* JHDeviceSNCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3697E7827E42481004D8867 /* JHDeviceSNCell.swift */; };
+		B3697E7B27E429A3004D8867 /* JHDeviceSceneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3697E7A27E429A3004D8867 /* JHDeviceSceneCell.swift */; };
+		B3697E7D27E42D10004D8867 /* JHDeviceNickCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3697E7C27E42D10004D8867 /* JHDeviceNickCell.swift */; };
 		B37705F927BF693C00018309 /* JHShareDevicePreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37705F827BF693C00018309 /* JHShareDevicePreController.swift */; };
 		B3821F62277C8AE8005FFF8E /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = B3821F61277C8AE8005FFF8E /* Nimble */; };
 		B3821F64277C8AE8005FFF8E /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = B3821F63277C8AE8005FFF8E /* Quick */; };
@@ -247,6 +251,10 @@
 		B34635BE27E37FA0002CA750 /* SavePersonDeviceInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SavePersonDeviceInfo.json; sourceTree = "<group>"; };
 		B35E116027BF36E300A8BEF3 /* JHDeviceInvitedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHDeviceInvitedController.swift; sourceTree = "<group>"; };
 		B365D33D27C379CB000DBC74 /* 优设标题黑.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "优设标题黑.TTF"; sourceTree = "<group>"; };
+		B3697E7627E41F8E004D8867 /* JHDeviceBaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHDeviceBaseCell.swift; sourceTree = "<group>"; };
+		B3697E7827E42481004D8867 /* JHDeviceSNCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHDeviceSNCell.swift; sourceTree = "<group>"; };
+		B3697E7A27E429A3004D8867 /* JHDeviceSceneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHDeviceSceneCell.swift; sourceTree = "<group>"; };
+		B3697E7C27E42D10004D8867 /* JHDeviceNickCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHDeviceNickCell.swift; sourceTree = "<group>"; };
 		B37705F827BF693C00018309 /* JHShareDevicePreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHShareDevicePreController.swift; sourceTree = "<group>"; };
 		B3821F5A277C8A03005FFF8E /* RuntimeCmdTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RuntimeCmdTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3821F65277C8B79005FFF8E /* RuntimeCmdTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RuntimeCmdTests-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -506,6 +514,10 @@
 			isa = PBXGroup;
 			children = (
 				B34635BB27E37F8A002CA750 /* JHBindingEditIntelDescisionVC.swift */,
+				B3697E7627E41F8E004D8867 /* JHDeviceBaseCell.swift */,
+				B3697E7827E42481004D8867 /* JHDeviceSNCell.swift */,
+				B3697E7A27E429A3004D8867 /* JHDeviceSceneCell.swift */,
+				B3697E7C27E42D10004D8867 /* JHDeviceNickCell.swift */,
 			);
 			path = "设备绑定";
 			sourceTree = "<group>";
@@ -1272,9 +1284,11 @@
 			files = (
 				B38D893A277B1C7300888EFB /* JHDelegate.swift in Sources */,
 				B38D8937277B1C7300888EFB /* JHMornUpPhotoController.swift in Sources */,
+				B3697E7B27E429A3004D8867 /* JHDeviceSceneCell.swift in Sources */,
 				B38D8938277B1C7300888EFB /* JHMornInspecterController.swift in Sources */,
 				B3230364278C2C370056BDCC /* JHUnitOrgHigherModel.swift in Sources */,
 				B38D88A3277B199400888EFB /* ViewController.swift in Sources */,
+				B3697E7D27E42D10004D8867 /* JHDeviceNickCell.swift in Sources */,
 				B323035A278C11240056BDCC /* UnitOrgChainModel.swift in Sources */,
 				B38D893B277B1CD800888EFB /* JHMornUploadModel.swift in Sources */,
 				B3306D4127B111C1005E7DDC /* JHUnitOrgHigherCell.swift in Sources */,
@@ -1287,6 +1301,7 @@
 				B38D889F277B199400888EFB /* AppDelegate.swift in Sources */,
 				B3230362278C2BAA0056BDCC /* JHUnitOrgBaseModel.swift in Sources */,
 				B38D88A1277B199400888EFB /* SceneDelegate.swift in Sources */,
+				B3697E7927E42481004D8867 /* JHDeviceSNCell.swift in Sources */,
 				B3CDC61D27C3A67E007F1FF2 /* JHPriDeviceSetingController.swift in Sources */,
 				B3230360278C2B7D0056BDCC /* JHUnitOrgBaseCell.swift in Sources */,
 				B323033C278827350056BDCC /* JHUnitOrgBaseViewController.swift in Sources */,
@@ -1298,6 +1313,7 @@
 				B32303382787EDBD0056BDCC /* JHUnitJoinOrgViewController.swift in Sources */,
 				B3306D3F27B1093E005E7DDC /* JHUnitOrgLowerController.swift in Sources */,
 				B34635BC27E37F8A002CA750 /* JHBindingEditIntelDescisionVC.swift in Sources */,
+				B3697E7727E41F8E004D8867 /* JHDeviceBaseCell.swift in Sources */,
 				B35E116127BF36E400A8BEF3 /* JHDeviceInvitedController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
