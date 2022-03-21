@@ -23,6 +23,7 @@ extension JHBaseNavVC{
         view.addGestureRecognizer(tap)
     }
     
+    // MARK: 隐藏键盘
     @objc private func dismissKeyboard(){
         view.endEditing(true)
     }
@@ -42,6 +43,7 @@ class JHBindingEditIntelDescisionVC: JHBaseNavVC{
         self.view.backgroundColor = UIColor.white
         self.hideKeyboardWhenTappedAround()
         createView()
+        loadSceneData()
     }
     
     func createView() {
