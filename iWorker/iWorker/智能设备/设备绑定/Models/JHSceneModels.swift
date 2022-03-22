@@ -7,7 +7,7 @@
 import Foundation
 
 // MARK: - JHDeviceSceneModel
-class JHSceneModels:NSObject, Codable {
+struct JHSceneModels: Codable {
     var content: [JHSceneModel]?
     var message: String?
     var isSuccess: Bool?
@@ -15,22 +15,32 @@ class JHSceneModels:NSObject, Codable {
     var data: Bool?
     var detail: String?
     
-    var storeId:String = ""
-    var SN:String = ""
-    
-    init(storeId:String, SN:String) {
-        self.storeId = storeId
-        self.SN = SN
+    enum CodingKeys: String, CodingKey {
+            case content = "Content"
+            case message = "Message"
+            case isSuccess = "IsSuccess"
+            case code = "Code"
+            case data = "Data"
+            case detail = "Detail"
+        }
+    static func parsed<T:Decodable>(data:Data) -> T {
+        do{
+            let decoder = JSONDecoder()
+            return try decoder.decode(T.self, from: data)
+        }catch{
+            fatalError(#function+"解析失败：\(error)")
+        }
     }
 }
 
 // MARK: - Content
-struct JHSceneModel: Codable {
+class JHSceneModel:NSObject, Codable {
     let iotSceneID: String
     let hardWareDeviceKey: Int
     let iotSceneBind: IOTSceneBind
     let iotClassifyNum: Int
-    let iotDeviceTypeID, iotSceneName, iotSceneMonitorName: String
+    let iotDeviceTypeID, iotSceneMonitorName: String
+    @objc dynamic let iotSceneName:String
 
     enum CodingKeys: String, CodingKey {
         case iotSceneID = "IOTSceneId"

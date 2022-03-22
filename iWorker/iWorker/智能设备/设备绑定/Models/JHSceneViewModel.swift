@@ -10,26 +10,24 @@ import Foundation
 // https://www.jianshu.com/p/679820d645ad
 class JHSceneViewModel:NSObject {
     // 场景
-    dynamic var sceneName:String?
-    var sceneModel:JHSceneModels?
-    
-    
-    var kvoToken: NSKeyValueObservation?
-    
-    override init() {
-        super.init()
-        sceneModel = JHSceneModels(storeId: "", SN: "")
-    }
-    
-    func observe(){
-        //KeyPath<JHSceneModel, _>
-        kvoToken = sceneModel!.observe(\.detail, options: [.old, .new]) { (model, change) in
-            
-        }
-    }
-    
-    deinit {
-        kvoToken?.invalidate()
-    }
+    @objc dynamic var sceneName:String?
+    var sceneModel:JHSceneModel?
+//    var kvoToken: NSKeyValueObservation?
+//    
+//    init() {
+//        sceneModel = JHSceneModel()
+//        bind()
+//    }
+
+//    func bind(){
+//        kvoToken = sceneModel!.observe(\.iotSceneName, options: [.new, .old]) { (model, change) in
+//            guard let name = change.newValue else { return }
+//            self.sceneName = name
+//        }
+//    }
+//
+//    deinit {
+//        kvoToken?.invalidate()
+//    }
     
 }

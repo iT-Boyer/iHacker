@@ -32,6 +32,43 @@
         "DeviceModels": null,
         "PersonWarningSets": null,
         "PersonWarningContent": null
+    },{
+        "IOTSceneId": "629110a4-9d84-4bb6-a84b-30dfe4dadd78",
+        "HardWareDeviceKey": 9,
+        "IOTSceneBind": {
+            "IOTSceneThresholds": [
+                {
+                    "HardWareDeviceKey": 9,
+                    "MinValue": 0.0000,
+                    "MaxValue": 0.9000,
+                    "DefaultDelayedValue": 0,
+                    "DefaultOpenValue": 0.00,
+                    "DefaultOpenValueOperate": 1,
+                    "DefaultMinDuration": 0,
+                    "DefaultMinComplete": 0,
+                    "DeviceUnit": "%LEL",
+                    "DeviceUnitDesc": "默认阈值(可燃气体浓度)3",
+                    "DeviceNumberType": 1,
+                    "DeviceNumberPrecision": "0.0",
+                    "DeviceNormalValue": 0
+                }
+            ],
+            "IOTSceneWorkTimes": [
+                {
+                    "StartTime": "00:00:00",
+                    "EndTime": "23:59:59"
+                }
+            ]
+        },
+        "IOTClassifyNum": 0,
+        "IOTDeviceTypeId": "00000000-0000-0000-0000-000000000000",
+        "IOTSceneName": "可燃气体浓度4",
+        "IOTSceneMonitorName": "可燃气体浓度4",
+        "IOTSceneLegalRule": null,
+        "IOTSceneWarningContent": null,
+        "DeviceModels": null,
+        "PersonWarningSets": null,
+        "PersonWarningContent": null
     }],
     "Message": "操作成功",
     "IsSuccess": true,

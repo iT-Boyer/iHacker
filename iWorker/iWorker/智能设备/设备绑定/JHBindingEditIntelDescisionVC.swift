@@ -33,9 +33,13 @@ class JHBindingEditIntelDescisionVC: JHBaseNavVC{
     
     var storeId:String = ""
     var SN:String = ""
-    
     // UI样式排序
     let rows:[DeviceCellStyle] = [.SN, .Scence, .Nick]
+    var scenes:JHSceneModels!
+    lazy var sceneVM: JHSceneViewModel = {
+        let scene = JHSceneViewModel()
+        return scene
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,11 +92,20 @@ extension JHBindingEditIntelDescisionVC:UITableViewDelegate,UITableViewDataSourc
             cellID = "JHDeviceNickCell"
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
+        if cell.isKind(of: JHDeviceSceneCell.self) {
+            let sceneCell:JHDeviceSceneCell = cell as! JHDeviceSceneCell
+            sceneCell.sceneBtn.addTarget(self, action: #selector(showSenceAlert(_:)), for: .touchDown)
+            sceneCell.bind(self.sceneVM)
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("选择事件----")
+        let style = rows[indexPath.row]
+        if style == .Scence {
+            showSenceAlert(scenes.content)
+        }
     }
 }
 
@@ -107,6 +120,7 @@ extension JHBindingEditIntelDescisionVC
         let request = JN.post(urlStr, parameters: requestDic, headers: nil)
         request.response {[weak self] response in
             hud.hide(animated: true)
+            guard let weakSelf = self else { return }
             guard let data = response.data else {
 //                MBProgressHUD.displayError(kInternetError)
                 return
@@ -114,7 +128,8 @@ extension JHBindingEditIntelDescisionVC
             let json = JSON(data)
             let result = json["IsSuccess"].boolValue
             if result {
-                
+                weakSelf.scenes = JHSceneModels.parsed(data: data)
+                weakSelf.showSenceAlert(weakSelf.scenes.content)
             }else{
                 //TODO: 邀请码失效提示
                 let msg = json["Message"].stringValue
@@ -123,4 +138,27 @@ extension JHBindingEditIntelDescisionVC
         }
     }
     
+    @objc func showSenceAlert(_ list:[JHSceneModel]?) {
+        
+        guard let scenes = list else {
+//            MBProgressHUD.display(<#T##self: UIView##UIView#>)
+            return
+        }
+        let alertVC = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        alertVC.view.tintColor = .black
+        _ = scenes.map { scene in
+            let action = UIAlertAction(title: scene.iotSceneName, style: .default) { [weak self] action in
+                guard let weakSelf = self else { return }
+                //TODO: 切换场景
+                weakSelf.sceneVM.sceneName = scene.iotSceneName
+            }
+            alertVC.addAction(action)
+        }
+        
+        let cancel = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+        cancel.setValue(UIColor.systemBlue, forKey: "_titleTextColor")
+        
+        alertVC.addAction(cancel)
+        self.present(alertVC, animated: false)
+    }
 }
