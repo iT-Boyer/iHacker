@@ -49,6 +49,7 @@
 		B374E95A27E976A80033B72C /* DeviceBindSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = B374E95927E976A80033B72C /* DeviceBindSpecs.swift */; };
 		B374E95C27E9B0660033B72C /* UIAPISpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = B374E95B27E9B0660033B72C /* UIAPISpecs.swift */; };
 		B374E95D27E9B08C0033B72C /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BC83EC277D6A440023257B /* Tools.swift */; };
+		B374E95F27EB02610033B72C /* JHDeviceTimesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B374E95E27EB02610033B72C /* JHDeviceTimesCell.swift */; };
 		B37705F927BF693C00018309 /* JHShareDevicePreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37705F827BF693C00018309 /* JHShareDevicePreController.swift */; };
 		B3821F62277C8AE8005FFF8E /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = B3821F61277C8AE8005FFF8E /* Nimble */; };
 		B3821F64277C8AE8005FFF8E /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = B3821F63277C8AE8005FFF8E /* Quick */; };
@@ -264,6 +265,7 @@
 		B3697E8327E46DE1004D8867 /* JHSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHSceneViewModel.swift; sourceTree = "<group>"; };
 		B374E95927E976A80033B72C /* DeviceBindSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceBindSpecs.swift; sourceTree = "<group>"; };
 		B374E95B27E9B0660033B72C /* UIAPISpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAPISpecs.swift; sourceTree = "<group>"; };
+		B374E95E27EB02610033B72C /* JHDeviceTimesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHDeviceTimesCell.swift; sourceTree = "<group>"; };
 		B37705F827BF693C00018309 /* JHShareDevicePreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHShareDevicePreController.swift; sourceTree = "<group>"; };
 		B3821F5A277C8A03005FFF8E /* RuntimeCmdTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RuntimeCmdTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3821F65277C8B79005FFF8E /* RuntimeCmdTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RuntimeCmdTests-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -558,6 +560,7 @@
 				B3697E7827E42481004D8867 /* JHDeviceSNCell.swift */,
 				B3697E7A27E429A3004D8867 /* JHDeviceSceneCell.swift */,
 				B3697E7C27E42D10004D8867 /* JHDeviceNickCell.swift */,
+				B374E95E27EB02610033B72C /* JHDeviceTimesCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1341,6 +1344,7 @@
 				B38D8939277B1C7300888EFB /* JHMornCameraController.swift in Sources */,
 				B313EF3A278EDCD40089625F /* StoreDSelSearchBar.swift in Sources */,
 				B323033E278827670056BDCC /* JHUnitOrgSearchController.swift in Sources */,
+				B374E95F27EB02610033B72C /* JHDeviceTimesCell.swift in Sources */,
 				B33EF39827BFAD9000A3B6DE /* JHDeviceInviteAPI.swift in Sources */,
 				B32303382787EDBD0056BDCC /* JHUnitJoinOrgViewController.swift in Sources */,
 				B3306D3F27B1093E005E7DDC /* JHUnitOrgLowerController.swift in Sources */,
