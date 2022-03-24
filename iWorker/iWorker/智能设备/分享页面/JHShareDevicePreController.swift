@@ -20,7 +20,7 @@ class JHShareDevicePreController: JHBaseNavVC{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navTitle = "邀请好友"
+        self.navTitle = "邀请家人"
         createView()
         
         //加载h5页面, h5 url路径中含有# 井号和汉字时的解决方法。

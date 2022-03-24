@@ -39,6 +39,12 @@ class JHBindingEditIntelDescisionVC: JHBaseNavVC{
     var sections:[[Any]]!
     
     var scenes:JHSceneModels!
+//    override func callFunc(_ aSelector: String, _ param1: AnyObject? = nil, _ param2: AnyObject? = nil) -> AnyObject? {
+//        <#code#>
+//    }
+    lazy var bindModel: JHDeviceBindModel = {
+        return JHDeviceBindModel()
+    }()
     
     lazy var sceneVM: JHSceneViewModel = {
         let scene = JHSceneViewModel()
@@ -124,7 +130,7 @@ class JHBindingEditIntelDescisionVC: JHBaseNavVC{
         addBtn.setImage(.init(named: "addtimelist"), for: .normal)
         addBtn.jh.setHandleClick { button in
             if self.timeRows.count == 10 {
-    //            MBProgressHUD 最多添加10条工作时间记录
+                VCTools.toast("最多添加10条工作时间记录")
             }else{
                 let picker = JHDeviceTimePicker()
                 picker.timeHandler = { start,end in
@@ -260,7 +266,7 @@ extension JHBindingEditIntelDescisionVC
             }else{
                 //TODO: 邀请码失效提示
                 let msg = json["Message"].stringValue
-//                MBProgressHUD.displayError(msg)
+                VCTools.toast(msg)
             }
         }
     }
@@ -268,7 +274,6 @@ extension JHBindingEditIntelDescisionVC
     @objc func showSenceAlert(_ list:[JHSceneModel]?) {
         
         guard let scenes = list else {
-//            MBProgressHUD.display(<#T##self: UIView##UIView#>)
             return
         }
         let alertVC = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)

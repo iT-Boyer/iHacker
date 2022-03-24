@@ -14,7 +14,7 @@ class JHPriDeviceSetingController: JHBaseNavVC,UITableViewDelegate,UITableViewDa
     var storeId:String!
     var deviceId:String!
     
-    let rows = ["邀请好友", "邀请管理", "编辑设备"]
+    let rows = ["邀请家人", "邀请管理", "编辑设备"]
     let rowsimg = ["setinviteimg", "setmanageimg", "seteditimg"]
     override func viewDidLoad() {
         super.viewDidLoad()
