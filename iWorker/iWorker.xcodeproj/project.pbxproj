@@ -50,6 +50,7 @@
 		B374E95C27E9B0660033B72C /* UIAPISpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = B374E95B27E9B0660033B72C /* UIAPISpecs.swift */; };
 		B374E95D27E9B08C0033B72C /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BC83EC277D6A440023257B /* Tools.swift */; };
 		B374E95F27EB02610033B72C /* JHDeviceTimesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B374E95E27EB02610033B72C /* JHDeviceTimesCell.swift */; };
+		B374E96127EC21F60033B72C /* JHDeviceTimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B374E96027EC21F60033B72C /* JHDeviceTimePicker.swift */; };
 		B37705F927BF693C00018309 /* JHShareDevicePreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37705F827BF693C00018309 /* JHShareDevicePreController.swift */; };
 		B3821F62277C8AE8005FFF8E /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = B3821F61277C8AE8005FFF8E /* Nimble */; };
 		B3821F64277C8AE8005FFF8E /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = B3821F63277C8AE8005FFF8E /* Quick */; };
@@ -266,6 +267,7 @@
 		B374E95927E976A80033B72C /* DeviceBindSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceBindSpecs.swift; sourceTree = "<group>"; };
 		B374E95B27E9B0660033B72C /* UIAPISpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAPISpecs.swift; sourceTree = "<group>"; };
 		B374E95E27EB02610033B72C /* JHDeviceTimesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHDeviceTimesCell.swift; sourceTree = "<group>"; };
+		B374E96027EC21F60033B72C /* JHDeviceTimePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHDeviceTimePicker.swift; sourceTree = "<group>"; };
 		B37705F827BF693C00018309 /* JHShareDevicePreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHShareDevicePreController.swift; sourceTree = "<group>"; };
 		B3821F5A277C8A03005FFF8E /* RuntimeCmdTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RuntimeCmdTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3821F65277C8B79005FFF8E /* RuntimeCmdTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RuntimeCmdTests-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -527,6 +529,7 @@
 				B3697E7F27E44C83004D8867 /* Cell */,
 				B3697E8027E44C90004D8867 /* Models */,
 				B34635BB27E37F8A002CA750 /* JHBindingEditIntelDescisionVC.swift */,
+				B374E96027EC21F60033B72C /* JHDeviceTimePicker.swift */,
 			);
 			path = "设备绑定";
 			sourceTree = "<group>";
@@ -1328,6 +1331,7 @@
 				B3306D4327B124EC005E7DDC /* JHUnitOrgChangeController.swift in Sources */,
 				B3306D3D27B10922005E7DDC /* JHUnitOrgHigherController.swift in Sources */,
 				B323035E278C2B490056BDCC /* JHUnitOrgSearchCell.swift in Sources */,
+				B374E96127EC21F60033B72C /* JHDeviceTimePicker.swift in Sources */,
 				B32225BA2795753500953EF3 /* JHUnitOrgAlertController.swift in Sources */,
 				B374E95D27E9B08C0033B72C /* Tools.swift in Sources */,
 				B3697E8427E46DE1004D8867 /* JHSceneViewModel.swift in Sources */,

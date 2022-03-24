@@ -61,16 +61,6 @@ class JHBindingEditIntelDescisionVC: JHBaseNavVC{
     }
     
     // MARK: 按钮事件
-    
-    @objc func addWorkTime() {
-        let time = ("12:09","14:09")
-        if timeRows.count == 10 {
-//            MBProgressHUD 最多添加10条工作时间记录
-        }
-        //TODO: 时间选择器
-        timeRows.append(time)
-        tableView.reloadData()
-    }
     // TODO: 绑定设备
     @objc func commitAction() {
         
@@ -132,7 +122,20 @@ class JHBindingEditIntelDescisionVC: JHBaseNavVC{
         addBtn.titleLabel?.font = .systemFont(ofSize: 14)
         addBtn.setTitleColor(.initWithHex("146FD1"), for: .normal)
         addBtn.setImage(.init(named: "addtimelist"), for: .normal)
-        addBtn.addTarget(self, action: #selector(addWorkTime), for: .touchDown)
+        addBtn.jh.setHandleClick { button in
+            if self.timeRows.count == 10 {
+    //            MBProgressHUD 最多添加10条工作时间记录
+            }else{
+                let picker = JHDeviceTimePicker()
+                picker.timeHandler = { start,end in
+                    let time = (start,end)
+                    //TODO: 时间选择器
+                    self.timeRows.append(time)
+                    self.tableView.reloadData()
+                }
+                self.present(picker, animated: true)
+            }
+        }
         
         headView.addSubview(title)
         headView.addSubview(addBtn)
@@ -162,7 +165,10 @@ extension JHBindingEditIntelDescisionVC:UITableViewDelegate,UITableViewDataSourc
         return timeRows.count
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+        if indexPath.section == 0 {
+            return 50
+        }
+        return 45
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
