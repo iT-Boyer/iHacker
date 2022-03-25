@@ -9,6 +9,9 @@ import UIKit
 
 // 迁移JHBindingDeviceNameInputCell.m
 class JHDeviceNickCell: JHDeviceBaseCell {
+    
+    var kvoToken: NSKeyValueObservation?
+    
     override func createView() {
         super.createView()
         titleLab.text = "设备名称"
@@ -26,6 +29,17 @@ class JHDeviceNickCell: JHDeviceBaseCell {
         nick.attributedPlaceholder = NSAttributedString(string: "主人请给我起个名字吧", attributes: arr)
         return nick
     }()
+    
+    func bind(_ vm:JHNickViewModel) {
+        if kvoToken == nil {
+            kvoToken = vm.observe(\.nick) { (model, change) in
+                self.nickField.text = ""
+            }
+        }
+    }
+    deinit {
+        kvoToken?.invalidate()
+    }
 }
 
 extension JHDeviceNickCell:UITextFieldDelegate

@@ -9,15 +9,18 @@ import UIKit
 import SnapKit
 
 // 迁移JHBindingDeviceNameInputImageCell.m
-class JHDeviceSNCell: JHDeviceBaseCell {
+class JHDeviceSNCell: JHDeviceBaseCell,UITextFieldDelegate {
+    
+    @objc dynamic var SNCode:String?
     
     override func createView() {
         super.createView()
         titleLab.text = "设备SN号"
         layoutView(first: titleLab, second: snField, third: scanBtn)
     }
-    lazy var snField: UITextField = {
+    private lazy var snField: UITextField = {
         let field = UITextField()
+        field.delegate = self
         field.font = .systemFont(ofSize: 14)
         field.textColor = .initWithHex("5E637B")
         field.returnKeyType = .done
@@ -38,4 +41,7 @@ class JHDeviceSNCell: JHDeviceBaseCell {
         return btn
     }()
     
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        SNCode = textField.text
+    }
 }

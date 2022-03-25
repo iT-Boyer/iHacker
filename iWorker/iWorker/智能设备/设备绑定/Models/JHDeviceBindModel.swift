@@ -11,7 +11,7 @@ import JHBase
 // MARK: - DeviceBindModel
 struct JHDeviceBindModel {
     var deviceTypeName = "", deviceTypeID = "", sn = ""
-    var workTimeList: [WorkTimeList]? = []
+    var workTimeList: [WorkTime]? = []
     var deviceType: Int = 0
     var deviceID = "", name = ""
     var appID = JHBaseInfo.appID, userID = JHBaseInfo.userID
@@ -30,8 +30,8 @@ struct JHDeviceBindModel {
 }
 
 // MARK: - WorkTimeList
-struct WorkTimeList: Codable {
-    let endTime, startTime: String
+struct WorkTime: Codable {
+    var endTime, startTime: String
 
     enum CodingKeys: String, CodingKey {
         case endTime = "EndTime"

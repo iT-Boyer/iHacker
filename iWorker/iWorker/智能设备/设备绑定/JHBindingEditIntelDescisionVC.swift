@@ -39,17 +39,14 @@ class JHBindingEditIntelDescisionVC: JHBaseNavVC{
     var sections:[[Any]]!
     
     var scenes:JHSceneModels!
-//    override func callFunc(_ aSelector: String, _ param1: AnyObject? = nil, _ param2: AnyObject? = nil) -> AnyObject? {
-//        <#code#>
-//    }
+
     lazy var bindModel: JHDeviceBindModel = {
         return JHDeviceBindModel()
     }()
     
-    lazy var sceneVM: JHSceneViewModel = {
-        let scene = JHSceneViewModel()
-        return scene
-    }()
+    // ViewModel
+    lazy var sceneVM: JHSceneViewModel = JHSceneViewModel()
+    lazy var nickVM = JHNickViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,7 +66,20 @@ class JHBindingEditIntelDescisionVC: JHBaseNavVC{
     // MARK: 按钮事件
     // TODO: 绑定设备
     @objc func commitAction() {
+        //TODO: 校验
+        guard let scence = sceneVM.sceneModel else {
+//            VCTools.toast("请选择设备场景类型")
+            return
+        }
         
+        bindModel.deviceType = scence.hardWareDeviceKey
+        bindModel.deviceTypeID = scence.iotSceneID
+        bindModel.deviceTypeName = scence.iotSceneMonitorName
+        //时间
+        timeRows.forEach { (start, end) in
+            let time = WorkTime.init(endTime: start, startTime: end)
+            bindModel.workTimeList?.append(time)
+        }
     }
     // MARK: - UI部署
     func createView() {
@@ -208,6 +218,15 @@ extension JHBindingEditIntelDescisionVC:UITableViewDelegate,UITableViewDataSourc
                 let sceneCell:JHDeviceSceneCell = cell as! JHDeviceSceneCell
                 sceneCell.bind(self.sceneVM)
             }
+            if style == .SN {
+                let snCell:JHDeviceSNCell = cell as! JHDeviceSNCell
+                self.sceneVM.bindSN(snCell)
+                self.nickVM.bindSN(snCell)
+            }
+            if style == .Nick {
+                let nickCell:JHDeviceNickCell = cell as! JHDeviceNickCell
+                nickCell.bind(self.nickVM)
+            }
             return cell
         }else{
             // 工作时间单元
@@ -282,7 +301,7 @@ extension JHBindingEditIntelDescisionVC
             let action = UIAlertAction(title: scene.iotSceneName, style: .default) { [weak self] action in
                 guard let weakSelf = self else { return }
                 //TODO: 切换场景
-                weakSelf.sceneVM.sceneName = scene.iotSceneName
+                weakSelf.sceneVM.sceneModel = scene
             }
             alertVC.addAction(action)
         }

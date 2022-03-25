@@ -13,29 +13,28 @@ class JHDeviceSceneCell: JHDeviceBaseCell {
     override func createView() {
         super.createView()
         titleLab.text = "设备场景类型"
-        layoutView(first: titleLab, second: sceneBtn)
+        layoutView(first: titleLab, second: sceneField)
     }
     
     func bind(_ vm:JHSceneViewModel) {
         if kvoToken == nil {
-            kvoToken = vm.observe(\.sceneName, options: [.new, .old]) { (scene, change) in
+            kvoToken = vm.observe(\.sceneName, options: [.new, .old]) { (model, change) in
                 guard let name = change.newValue else { return }
-                self.sceneBtn.setTitle(name, for: .selected)
-                self.sceneBtn.isSelected = true
+                self.sceneField.text = name
                 print("设备场景: \(name ?? "")")
             }
         }
     }
     
-    lazy var sceneBtn: UIButton = {
-        let btn = UIButton()
-        btn.isUserInteractionEnabled = false
-        btn.setTitleColor(.initWithHex("B5B5B5"), for: .normal)
-        btn.setTitleColor(.initWithHex("5E637B"), for: .selected)
-        btn.setTitle("请选择设备场景类型", for: .normal)
-        btn.contentHorizontalAlignment = .left
-        btn.titleLabel?.font = .systemFont(ofSize: 14)
-        return btn
+    lazy var sceneField: UITextField = {
+        let field = UITextField()
+        field.isUserInteractionEnabled = false
+        field.font = .systemFont(ofSize: 14)
+        field.textColor = .initWithHex("5E637B")
+        let arr: [NSAttributedString.Key : Any] = [.font: UIFont.systemFont(ofSize: 14),
+                                                   .foregroundColor: UIColor(hexString: "B5B5B5")!]
+        field.attributedPlaceholder = NSAttributedString(string: "请选择设备场景类型", attributes: arr)
+        return field
     }()
     
     
