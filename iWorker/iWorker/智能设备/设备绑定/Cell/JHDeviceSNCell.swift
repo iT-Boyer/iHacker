@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 // 迁移JHBindingDeviceNameInputImageCell.m
-class JHDeviceSNCell: JHDeviceBaseCell,UITextFieldDelegate {
+class JHDeviceSNCell: JHDeviceBaseCell<JHSNViewModel>,UITextFieldDelegate {
     
     @objc dynamic var SNCode:String?
     
@@ -26,12 +26,17 @@ class JHDeviceSNCell: JHDeviceBaseCell,UITextFieldDelegate {
         field.returnKeyType = .done
         field.keyboardType = .asciiCapable
         field.clearButtonMode = .whileEditing
+        field.addTarget(self, action: #selector(textFieldDidChangeValue(textField:)), for: .editingChanged)
         let arr: [NSAttributedString.Key : Any] = [.font: UIFont.systemFont(ofSize: 14),
                                                    .foregroundColor: UIColor(hexString: "ADADAD")!]
         field.attributedPlaceholder = NSAttributedString(string: "请输入设备SN号", attributes: arr)
         return field
     }()
-    
+   
+    @objc
+    func textFieldDidChangeValue(textField:UITextField) {
+        self.SNCode = textField.text
+    }
     lazy var scanBtn: UIButton = {
         let btn = UIButton()
         btn.setImage(UIImage(named: "scanDevice"), for:.normal)
@@ -41,7 +46,11 @@ class JHDeviceSNCell: JHDeviceBaseCell,UITextFieldDelegate {
         return btn
     }()
     
-    func textFieldDidChangeSelection(_ textField: UITextField) {
-        SNCode = textField.text
+    
+    // MARK: - 扫一扫
+    func scanAction() {
+        //TODO: 集成扫一扫
+        SNCode = ""
     }
+    
 }

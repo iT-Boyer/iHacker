@@ -7,16 +7,15 @@
 
 import UIKit
 // 迁移JHBindingDeviceNameSelectCell.m
-class JHDeviceSceneCell: JHDeviceBaseCell {
+class JHDeviceSceneCell: VBindable<JHSceneViewModel> {
 
-    var kvoToken: NSKeyValueObservation?
     override func createView() {
         super.createView()
         titleLab.text = "设备场景类型"
         layoutView(first: titleLab, second: sceneField)
     }
     
-    func bind(_ vm:JHSceneViewModel) {
+    func bind(viewModel vm:JHSceneViewModel){
         if kvoToken == nil {
             kvoToken = vm.observe(\.sceneName, options: [.new, .old]) { (model, change) in
                 guard let name = change.newValue else { return }
@@ -36,9 +35,4 @@ class JHDeviceSceneCell: JHDeviceBaseCell {
         field.attributedPlaceholder = NSAttributedString(string: "请选择设备场景类型", attributes: arr)
         return field
     }()
-    
-    
-    deinit {
-        kvoToken?.invalidate()
-    }
 }

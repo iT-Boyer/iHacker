@@ -6,12 +6,12 @@
 //
 
 import UIKit
+import JHBase
 
 // 迁移JHBindingDeviceNameInputCell.m
-class JHDeviceNickCell: JHDeviceBaseCell {
+class JHDeviceNickCell: VBindable<JHNickViewModel> {
     
-    var kvoToken: NSKeyValueObservation?
-    
+    @objc dynamic var nick:String?
     override func createView() {
         super.createView()
         titleLab.text = "设备名称"
@@ -24,21 +24,26 @@ class JHDeviceNickCell: JHDeviceBaseCell {
         nick.textColor = .initWithHex("5E637B")
         nick.returnKeyType = .done
         nick.clearButtonMode = .whileEditing
+        nick.addTarget(self, action: #selector(textFieldDidChangeValue(textField:)), for: .editingChanged)
         let arr: [NSAttributedString.Key : Any] = [.font: UIFont.systemFont(ofSize: 14),
                                                    .foregroundColor: UIColor(hexString: "ADADAD")!]
         nick.attributedPlaceholder = NSAttributedString(string: "主人请给我起个名字吧", attributes: arr)
         return nick
     }()
     
-    func bind(_ vm:JHNickViewModel) {
+    @objc
+    func textFieldDidChangeValue(textField:UITextField) {
+        self.nick = textField.text
+    }
+    
+    func bind(viewModel vm:JHNickViewModel){
         if kvoToken == nil {
-            kvoToken = vm.observe(\.nick) { (model, change) in
-                self.nickField.text = ""
+            kvoToken = vm.observe(\.nick, options: [.new, .old]) { (model, nick) in
+                let new = nick.newValue ?? ""
+                print("新昵称：\(new ?? "")")
+                self.nickField.text = new
             }
         }
-    }
-    deinit {
-        kvoToken?.invalidate()
     }
 }
 

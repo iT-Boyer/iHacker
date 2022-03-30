@@ -135,6 +135,8 @@
 		B3D7C6BB27EC65B300E0EDBA /* JHDeviceBindModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D7C6BA27EC65B300E0EDBA /* JHDeviceBindModel.swift */; };
 		B3DA503E277D8D13009B6A0E /* SecondB.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DA503D277D8D13009B6A0E /* SecondB.swift */; };
 		B3F4599927EDDAB300AADC08 /* JHNickViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F4599827EDDAB200AADC08 /* JHNickViewModel.swift */; };
+		B3F4599B27F3F1C500AADC08 /* JHSNViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F4599A27F3F1C500AADC08 /* JHSNViewModel.swift */; };
+		B3F4599D27F438F100AADC08 /* JHDeviceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F4599C27F438F000AADC08 /* JHDeviceViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -354,6 +356,8 @@
 		B3D7C6BA27EC65B300E0EDBA /* JHDeviceBindModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHDeviceBindModel.swift; sourceTree = "<group>"; };
 		B3DA503D277D8D13009B6A0E /* SecondB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondB.swift; sourceTree = "<group>"; };
 		B3F4599827EDDAB200AADC08 /* JHNickViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHNickViewModel.swift; sourceTree = "<group>"; };
+		B3F4599A27F3F1C500AADC08 /* JHSNViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHSNViewModel.swift; sourceTree = "<group>"; };
+		B3F4599C27F438F000AADC08 /* JHDeviceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHDeviceViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -532,6 +536,7 @@
 		B34635BA27E37F8A002CA750 /* 设备绑定 */ = {
 			isa = PBXGroup;
 			children = (
+				B3F4599E27F4391C00AADC08 /* ViewModel */,
 				B3697E7F27E44C83004D8867 /* Cell */,
 				B3697E8027E44C90004D8867 /* Models */,
 				B34635BB27E37F8A002CA750 /* JHBindingEditIntelDescisionVC.swift */,
@@ -568,9 +573,7 @@
 				B3697E7627E41F8E004D8867 /* JHDeviceBaseCell.swift */,
 				B3697E7827E42481004D8867 /* JHDeviceSNCell.swift */,
 				B3697E7A27E429A3004D8867 /* JHDeviceSceneCell.swift */,
-				B3697E8327E46DE1004D8867 /* JHSceneViewModel.swift */,
 				B3697E7C27E42D10004D8867 /* JHDeviceNickCell.swift */,
-				B3F4599827EDDAB200AADC08 /* JHNickViewModel.swift */,
 				B374E95E27EB02610033B72C /* JHDeviceTimesCell.swift */,
 			);
 			path = Cell;
@@ -851,6 +854,17 @@
 				B3BC83DC277C76100023257B /* RuntimeCmd-Bridging-Header.h */,
 			);
 			path = RuntimeCmd;
+			sourceTree = "<group>";
+		};
+		B3F4599E27F4391C00AADC08 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B3F4599C27F438F000AADC08 /* JHDeviceViewModel.swift */,
+				B3F4599A27F3F1C500AADC08 /* JHSNViewModel.swift */,
+				B3697E8327E46DE1004D8867 /* JHSceneViewModel.swift */,
+				B3F4599827EDDAB200AADC08 /* JHNickViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1331,6 +1345,7 @@
 				B38D8937277B1C7300888EFB /* JHMornUpPhotoController.swift in Sources */,
 				B3697E7B27E429A3004D8867 /* JHDeviceSceneCell.swift in Sources */,
 				B38D8938277B1C7300888EFB /* JHMornInspecterController.swift in Sources */,
+				B3F4599D27F438F100AADC08 /* JHDeviceViewModel.swift in Sources */,
 				B3230364278C2C370056BDCC /* JHUnitOrgHigherModel.swift in Sources */,
 				B38D88A3277B199400888EFB /* ViewController.swift in Sources */,
 				B3697E7D27E42D10004D8867 /* JHDeviceNickCell.swift in Sources */,
@@ -1359,6 +1374,7 @@
 				B38D8939277B1C7300888EFB /* JHMornCameraController.swift in Sources */,
 				B313EF3A278EDCD40089625F /* StoreDSelSearchBar.swift in Sources */,
 				B323033E278827670056BDCC /* JHUnitOrgSearchController.swift in Sources */,
+				B3F4599B27F3F1C500AADC08 /* JHSNViewModel.swift in Sources */,
 				B374E95F27EB02610033B72C /* JHDeviceTimesCell.swift in Sources */,
 				B33EF39827BFAD9000A3B6DE /* JHDeviceInviteAPI.swift in Sources */,
 				B32303382787EDBD0056BDCC /* JHUnitJoinOrgViewController.swift in Sources */,

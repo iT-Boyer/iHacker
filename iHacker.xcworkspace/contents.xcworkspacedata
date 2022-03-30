@@ -34,4 +34,7 @@
    <FileRef
       location = "group:../CwlPreconditionTesting">
    </FileRef>
+   <FileRef
+      location = "group:../JKSwiftExtension">
+   </FileRef>
 </Workspace>

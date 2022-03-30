@@ -9,10 +9,10 @@ import JHBase
 import SwiftyJSON
 import MBProgressHUD
 
-enum DeviceCellStyle {
-    case SN
-    case Scence
-    case Nick
+enum DeviceCellStyle:String {
+    case SN = "JHDeviceSNCell"
+    case Scence = "JHDeviceSceneCell"
+    case Nick = "JHDeviceNickCell"
 }
 
 extension JHBaseNavVC{
@@ -32,7 +32,6 @@ extension JHBaseNavVC{
 class JHBindingEditIntelDescisionVC: JHBaseNavVC{
     
     var storeId:String = ""
-    var SN:String = ""
     // UI样式排序
     let infoRows:[DeviceCellStyle] = [.SN, .Scence, .Nick]
     var timeRows:[(String,String)] = []
@@ -45,8 +44,19 @@ class JHBindingEditIntelDescisionVC: JHBaseNavVC{
     }()
     
     // ViewModel
-    lazy var sceneVM: JHSceneViewModel = JHSceneViewModel()
-    lazy var nickVM = JHNickViewModel()
+    lazy var snVM = JHSNViewModel()
+    lazy var sceneVM:JHSceneViewModel = {
+        let vm = JHSceneViewModel()
+        vm.bindSN(snVM)
+        return vm
+    }()
+    
+    lazy var nickVM:JHNickViewModel = {
+        let vm = JHNickViewModel()
+        vm.bindSN(snVM)
+        vm.bindScence(sceneVM)
+        return vm
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,11 +77,21 @@ class JHBindingEditIntelDescisionVC: JHBaseNavVC{
     // TODO: 绑定设备
     @objc func commitAction() {
         //TODO: 校验
+        guard let sncode = snVM.SNCode, sncode.count > 0 else {
+            VCTools.toast("请输入设备SN号")
+            return
+        }
         guard let scence = sceneVM.sceneModel else {
-//            VCTools.toast("请选择设备场景类型")
+            VCTools.toast("请选择设备场景类型")
+            return
+        }
+        guard nickVM.value.count > 0 else {
+            VCTools.toast("请输入设备名称")
             return
         }
         
+        bindModel.sn = sncode
+        bindModel.name = nickVM.value
         bindModel.deviceType = scence.hardWareDeviceKey
         bindModel.deviceTypeID = scence.iotSceneID
         bindModel.deviceTypeName = scence.iotSceneMonitorName
@@ -83,7 +103,6 @@ class JHBindingEditIntelDescisionVC: JHBaseNavVC{
     }
     // MARK: - UI部署
     func createView() {
-        
         //saveBtn
         let saveBtn = UIButton()
         saveBtn.setTitle("保存", for: .normal)
@@ -204,28 +223,20 @@ extension JHBindingEditIntelDescisionVC:UITableViewDelegate,UITableViewDataSourc
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let style = infoRows[indexPath.row]
-            var cellID = ""
+            let cell = tableView.dequeueReusableCell(withIdentifier: style.rawValue, for: indexPath)
+            //MARK: MVVM 双向绑定逻辑
             switch style {
             case .SN:
-                cellID = "JHDeviceSNCell"
+                let snCell = cell as! JHDeviceSNCell
+                self.snVM.bind(view:snCell)
             case .Scence:
-                cellID = "JHDeviceSceneCell"
+                let scene = cell as! JHDeviceSceneCell
+                scene.bind(viewModel: self.sceneVM)
+                self.sceneVM.bind(view: scene)
             case .Nick:
-                cellID = "JHDeviceNickCell"
-            }
-            let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
-            if cell.isKind(of: JHDeviceSceneCell.self) {
-                let sceneCell:JHDeviceSceneCell = cell as! JHDeviceSceneCell
-                sceneCell.bind(self.sceneVM)
-            }
-            if style == .SN {
-                let snCell:JHDeviceSNCell = cell as! JHDeviceSNCell
-                self.sceneVM.bindSN(snCell)
-                self.nickVM.bindSN(snCell)
-            }
-            if style == .Nick {
-                let nickCell:JHDeviceNickCell = cell as! JHDeviceNickCell
-                nickCell.bind(self.nickVM)
+                let nick = cell as! JHDeviceNickCell
+                nick.bind(viewModel: self.nickVM)
+                self.nickVM.bind(view: nick)
             }
             return cell
         }else{
@@ -266,7 +277,7 @@ extension JHBindingEditIntelDescisionVC
     //获取场景数据
     func loadSceneData() {
         let urlStr = JHBaseDomain.fullURL(with: "api_host_ripx", path: "/IOTDeviceScene/GetIOTDeviceSceneList")
-        let requestDic = ["StoreId":storeId, "SN": SN]
+        let requestDic = ["StoreId":storeId, "SN": snVM.SNCode]
         let hud = MBProgressHUD.showAdded(to: view, animated: true)
         hud.removeFromSuperViewOnHide = true
         let request = JN.post(urlStr, parameters: requestDic, headers: nil)

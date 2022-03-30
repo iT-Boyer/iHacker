@@ -9,8 +9,17 @@ import UIKit
 import JHBase
 import SnapKit
 
+protocol JHViewBindableProtocol {
+    associatedtype Model
+    func bind(viewModel vm:Model)
+}
+//Swift的组合运算符&支持将一个类和一个协议结合起来
+typealias VBindable<Model> = JHDeviceBaseCell<Model> & JHViewBindableProtocol
+
 /// 实现通用布局
-class JHDeviceBaseCell: UITableViewCell {
+class JHDeviceBaseCell<Model>: UITableViewCell {
+    
+    var kvoToken: NSKeyValueObservation?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -45,5 +54,9 @@ class JHDeviceBaseCell: UITableViewCell {
             make.centerX.equalToSuperview()
             make.top.bottom.equalToSuperview()
         }
+    }
+    
+    deinit {
+        kvoToken?.invalidate()
     }
 }
