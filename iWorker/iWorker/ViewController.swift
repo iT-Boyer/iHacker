@@ -84,12 +84,12 @@ extension ViewController:UITableViewDataSource,UITableViewDelegate
         
         //模拟自动绑定设备逻辑
         if cls.isEqual(JHBindingEditIntelDescisionVC.self) {
-            let sn = "jkjk908jkhk09"
             Tools.showClsRuntime(cls: JHBindingEditIntelDescisionVC.self)
             // 实例方法
-            let method = Selector("scanBind2:")
+            let sn = "jkjk908jkhk09"
+            let method = Selector("scanBind:")
             if vc.responds(to: method){
-//                vc.perform(codemethod)
+                // vc.perform(codemethod)
                 vc.perform(method, with: sn)
             }
             return

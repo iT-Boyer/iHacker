@@ -81,6 +81,10 @@ class JHBindingEditIntelDescisionVC: JHBaseNavVC{
         createView()
         //空白处隐藏键盘
         self.hideKeyboardWhenTappedAround()
+        NotificationCenter.default.addObserver(forName: .init("JHDeviceScanSNCompleted"), object: nil, queue: .main) { [self] notfi in
+            guard let code = notfi.userInfo?["SNCode"] else { return }
+            scanBind(code as! String)
+        }
     }
     
     // MARK: 按钮事件
@@ -113,51 +117,57 @@ class JHBindingEditIntelDescisionVC: JHBaseNavVC{
         submit()
     }
     
-    @objc static func scanBind(_ sn:String) {
-        let page = JHBindingEditIntelDescisionVC()
-        page.pageType = .scanBind
-        page.SN = sn
-        page.snVM.SNCode = sn
-        page.loadSceneData()
-    }
-    
-    @objc func scanBind2(_ sn:String) {
+    //MARK: 支持：首页扫一扫，绑定页面扫一扫
+    func scanBind(_ sn:String) {
         pageType = .scanBind
         SN = sn
         snVM.SNCode = sn
         loadSceneData()
     }
-    
-    @objc func showSenceAlert(_ list:[JHSceneModel]?) {
-        //
-        guard let scenes = list else {
-            return
-        }
+    //MARK: 自动绑定，自动上屏
+    func scanBindhandler() {
+        guard let list = scenes.content else { return }
         if pageType == .scanBind {
             pageType = .bind //重置状态
-            if scenes.count == 1 {
-                //TODO: 自动绑定
+            if list.count == 1 {
+                //MARK: 自动绑定
                 //初始化数据
-                sceneVM.sceneModel = scenes.first
+                sceneVM.sceneModel = list.first
                 commitAction()
             }else{
-                self.modalPresentationStyle = .fullScreen
-                UIViewController.topVC?.present(self, animated: true, completion: {
-                    //初始化数据，上屏
-                    self.snVM.value = self.SN
-                })
-            }
-            return
-        }else {
-            if scenes.count == 1 {
-                sceneVM.sceneModel = scenes.first
-                return
+                //MARK: 从首页进入绑定页面
+                let topVC = UIViewController.topVC
+                if topVC == self {
+                    //当前页面扫一扫时
+                    snVM.value = SN
+                }else{
+                    modalPresentationStyle = .fullScreen
+                    topVC?.present(self, animated: true, completion: {
+                        //初始化数据，上屏
+                        self.snVM.value = self.SN
+                    })
+                }
             }
         }
+    }
+    
+    //MARK: 点击切换场景
+    @objc func showSenceAlert() {
         
+        guard let sn = snVM.SNCode,sn.count > 0 else {
+            VCTools.toast("请输入设备SN号")
+            return
+        }
+        
+        if scenes == nil || scenes.sn != snVM.SNCode {
+            loadSceneData()
+            return
+        }
+        
+        guard let list = scenes.content else { return }
         let alertVC = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         alertVC.view.tintColor = .darkText
-        _ = scenes.map { scene in
+        _ = list.map { scene in
             let action = UIAlertAction(title: scene.iotSceneName, style: .default) { [weak self] action in
                 guard let weakSelf = self else { return }
                 //TODO: 切换场景
@@ -259,6 +269,7 @@ class JHBindingEditIntelDescisionVC: JHBaseNavVC{
     }()
     
     deinit {
+        NotificationCenter.default.removeObserver(self)
         print("---设备绑定页面：被释放-----")
     }
 }
@@ -328,9 +339,7 @@ extension JHBindingEditIntelDescisionVC:UITableViewDelegate,UITableViewDataSourc
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 { //设备模块
             let style = infoRows[indexPath.row]
-            if style == .Scence {
-                loadSceneData()
-            }
+            if style == .Scence { showSenceAlert() }
         }
     }
     
@@ -352,16 +361,6 @@ extension JHBindingEditIntelDescisionVC
 {
     //获取场景数据
     func loadSceneData() {
-        
-        guard let sn = snVM.SNCode,sn.count > 0 else {
-            VCTools.toast("请输入设备SN号")
-            return
-        }
-        
-        if scenes != nil && scenes.sn == snVM.SNCode {
-            showSenceAlert(scenes.content)
-            return
-        }
         let urlStr = JHBaseDomain.fullURL(with: "api_host_ripx", path: "/IOTDeviceScene/GetIOTDeviceSceneList")
         let requestDic = ["StoreId":storeId, "SN": snVM.SNCode]
         let hud = MBProgressHUD.showAdded(to: (UIViewController.topVC?.view)!, animated: true)
@@ -382,7 +381,7 @@ extension JHBindingEditIntelDescisionVC
             if result {
                 weakSelf.scenes = JHSceneModels.parsed(data: data)
                 OperationQueue.main.addOperation {
-                    weakSelf.showSenceAlert(weakSelf.scenes.content)
+                    weakSelf.scanBindhandler()
                 }
             }else{
                 let msg = json["Message"].stringValue

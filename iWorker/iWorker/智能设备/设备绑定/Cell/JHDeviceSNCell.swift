@@ -43,6 +43,7 @@ class JHDeviceSNCell: VBindable<JHSNViewModel>,UITextFieldDelegate {
         btn.snp.makeConstraints { make in
             make.size.equalTo(CGSize(width: 22, height: 22))
         }
+        btn.addTarget(self, action: #selector(scanAction), for: .touchDown)
         return btn
     }()
     
@@ -58,9 +59,10 @@ class JHDeviceSNCell: VBindable<JHSNViewModel>,UITextFieldDelegate {
     }
     
     // MARK: - 扫一扫
-    func scanAction() {
+    @objc func scanAction() {
         //TODO: 集成扫一扫
         SNCode = ""
+        NotificationCenter.default.post(name: .init("JHDeviceScanSNCompleted"), object: nil, userInfo: ["SNCode":SNCode!])
     }
     
 }
