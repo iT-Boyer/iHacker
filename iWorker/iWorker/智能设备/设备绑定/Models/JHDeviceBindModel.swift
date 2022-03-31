@@ -10,11 +10,11 @@ import JHBase
 
 // MARK: - DeviceBindModel
 struct JHDeviceBindModel:Codable {
-    var deviceTypeName = "", deviceTypeID = "", sn = "", storeId = ""
+    var deviceTypeName:String?, deviceTypeID:String?, sn:String?, storeId:String?
     var workTimeList: [WorkTime]? = []
-    var deviceType: Int = 0
-    var deviceID = "", name = ""
-    var appID = JHBaseInfo.appID, userID = JHBaseInfo.userID
+    var deviceType: Int? = 0
+    var deviceID:String?, name:String? = ""
+    var appID:String? = JHBaseInfo.appID, userID:String? = JHBaseInfo.userID
 
     enum CodingKeys: String, CodingKey {
         case deviceTypeName = "DeviceTypeName"
@@ -27,6 +27,14 @@ struct JHDeviceBindModel:Codable {
         case name = "Name"
         case appID = "AppId"
         case storeId = "StoreId"
+    }
+    static func parsed<T:Decodable>(data:Data) -> T {
+        do{
+            let decoder = JSONDecoder()
+            return try decoder.decode(T.self, from: data)
+        }catch{
+            fatalError(#function+"解析失败：\(error)")
+        }
     }
 }
 

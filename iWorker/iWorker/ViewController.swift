@@ -14,6 +14,8 @@ class ViewController: JHBaseNavVC {
     var page:UIViewController!
     var rows:[(String, UIViewController.Type)]{
         [("绑定",JHBindingEditIntelDescisionVC.self),
+         ("| 自动绑定",JHBindingEditIntelDescisionVC.self),
+         ("| 详情编辑",JHBindingEditIntelDescisionVC.self),
          ("设置",JHPriDeviceSetingController.self),
          ("分享预览",JHShareDevicePreController.self),
         ("接受邀请",JHDeviceInvitedController.self),
@@ -66,6 +68,7 @@ extension ViewController:UITableViewDataSource,UITableViewDelegate
 //        let cls: AnyClass = rows[indexPath.row].1
 //        let vc:UIViewController = class_createInstance(cls,0) as! UIViewController
         let cls:UIViewController.Type  = rows[indexPath.row].1
+        let desc = rows[indexPath.row].0
         let vc = cls.init()
         page = vc
         let nav = UINavigationController(rootViewController: vc)
@@ -83,15 +86,27 @@ extension ViewController:UITableViewDataSource,UITableViewDelegate
         }
         
         //模拟自动绑定设备逻辑
-        if cls.isEqual(JHBindingEditIntelDescisionVC.self) {
-            Tools.showClsRuntime(cls: JHBindingEditIntelDescisionVC.self)
-            // 实例方法
+        if cls.isEqual(JHBindingEditIntelDescisionVC.self) && desc == "| 自动绑定" {
             let sn = "jkjk908jkhk09"
+            Tools.showClsRuntime(cls: JHBindingEditIntelDescisionVC.self)
+            let bind = JHBindingEditIntelDescisionVC()
+            page = bind
+            bind.scanBind(sn, type: .scanIndex)
+            return
+            // 实例方法
             let method = Selector("scanBind:")
             if vc.responds(to: method){
                 // vc.perform(codemethod)
                 vc.perform(method, with: sn)
             }
+            return
+        }
+        
+        if desc.hasSuffix("详情编辑") {
+            let bind = JHBindingEditIntelDescisionVC()
+            bind.isDetail = true
+            bind.modalPresentationStyle = .fullScreen
+            self.present(bind, animated: true)
             return
         }
         

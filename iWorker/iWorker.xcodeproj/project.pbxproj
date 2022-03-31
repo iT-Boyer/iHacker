@@ -37,7 +37,7 @@
 		B345589E279A837E00EFAB54 /* WKWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B345589D279A837E00EFAB54 /* WKWebViewController.m */; };
 		B34635BC27E37F8A002CA750 /* JHBindingEditIntelDescisionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34635BB27E37F8A002CA750 /* JHBindingEditIntelDescisionVC.swift */; };
 		B34635BF27E37FA0002CA750 /* GetSingleIntelligentDeviceInfoNew.json in Resources */ = {isa = PBXBuildFile; fileRef = B34635BD27E37FA0002CA750 /* GetSingleIntelligentDeviceInfoNew.json */; };
-		B34635C027E37FA0002CA750 /* SavePersonDeviceInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = B34635BE27E37FA0002CA750 /* SavePersonDeviceInfo.json */; };
+		B34635C027E37FA0002CA750 /* DeletePersonDevice.json in Resources */ = {isa = PBXBuildFile; fileRef = B34635BE27E37FA0002CA750 /* DeletePersonDevice.json */; };
 		B35E116127BF36E400A8BEF3 /* JHDeviceInvitedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35E116027BF36E300A8BEF3 /* JHDeviceInvitedController.swift */; };
 		B365D33E27C379CB000DBC74 /* 优设标题黑.TTF in Resources */ = {isa = PBXBuildFile; fileRef = B365D33D27C379CB000DBC74 /* 优设标题黑.TTF */; };
 		B3697E7727E41F8E004D8867 /* JHDeviceBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3697E7627E41F8E004D8867 /* JHDeviceBaseCell.swift */; };
@@ -122,6 +122,7 @@
 		B38D89C6277C482A00888EFB /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = B38D89C5277C482A00888EFB /* Nimble */; };
 		B38D89C8277C482A00888EFB /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = B38D89C7277C482A00888EFB /* Quick */; };
 		B38D89CB277C488700888EFB /* RuntimeAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38D89CA277C488700888EFB /* RuntimeAPITests.swift */; };
+		B3B5653327F5C18A00ED3C13 /* SavePersonDeviceInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = B3B5653227F5C0F700ED3C13 /* SavePersonDeviceInfo.json */; };
 		B3BC83D8277C75D70023257B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B3BC83D7277C75D70023257B /* main.m */; };
 		B3BC83DE277C76110023257B /* Teacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BC83DD277C76110023257B /* Teacher.swift */; };
 		B3BC83E7277D4CA00023257B /* RuntimeOCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B3BC83E6277D4CA00023257B /* RuntimeOCTests.m */; };
@@ -260,7 +261,7 @@
 		B345589D279A837E00EFAB54 /* WKWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKWebViewController.m; sourceTree = "<group>"; };
 		B34635BB27E37F8A002CA750 /* JHBindingEditIntelDescisionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JHBindingEditIntelDescisionVC.swift; sourceTree = "<group>"; };
 		B34635BD27E37FA0002CA750 /* GetSingleIntelligentDeviceInfoNew.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetSingleIntelligentDeviceInfoNew.json; sourceTree = "<group>"; };
-		B34635BE27E37FA0002CA750 /* SavePersonDeviceInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SavePersonDeviceInfo.json; sourceTree = "<group>"; };
+		B34635BE27E37FA0002CA750 /* DeletePersonDevice.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DeletePersonDevice.json; sourceTree = "<group>"; };
 		B35E116027BF36E300A8BEF3 /* JHDeviceInvitedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHDeviceInvitedController.swift; sourceTree = "<group>"; };
 		B365D33D27C379CB000DBC74 /* 优设标题黑.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "优设标题黑.TTF"; sourceTree = "<group>"; };
 		B3697E7627E41F8E004D8867 /* JHDeviceBaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHDeviceBaseCell.swift; sourceTree = "<group>"; };
@@ -341,6 +342,7 @@
 		B38D89BB277C480700888EFB /* SwiftLibBTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftLibBTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B38D89BD277C480700888EFB /* SwiftLibBTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftLibBTests.swift; sourceTree = "<group>"; };
 		B38D89CA277C488700888EFB /* RuntimeAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuntimeAPITests.swift; sourceTree = "<group>"; };
+		B3B5653227F5C0F700ED3C13 /* SavePersonDeviceInfo.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SavePersonDeviceInfo.json; sourceTree = "<group>"; };
 		B3BC83D5277C75D60023257B /* RuntimeCmd */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = RuntimeCmd; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3BC83D7277C75D70023257B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B3BC83DC277C76100023257B /* RuntimeCmd-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RuntimeCmd-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -528,7 +530,8 @@
 				B33EF39427BFA68B00A3B6DE /* AddInviteUser.json */,
 				B3D0486D27D0A3C600E9CBF2 /* GetIOTDeviceSceneList.json */,
 				B34635BD27E37FA0002CA750 /* GetSingleIntelligentDeviceInfoNew.json */,
-				B34635BE27E37FA0002CA750 /* SavePersonDeviceInfo.json */,
+				B3B5653227F5C0F700ED3C13 /* SavePersonDeviceInfo.json */,
+				B34635BE27E37FA0002CA750 /* DeletePersonDevice.json */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -1202,7 +1205,8 @@
 				B323036E278D3B460056BDCC /* CheckEnterChain.json in Resources */,
 				B3230370278D3B460056BDCC /* GetEnterChainList.json in Resources */,
 				B3230365278C301F0056BDCC /* JHUniversalResource.bundle in Resources */,
-				B34635C027E37FA0002CA750 /* SavePersonDeviceInfo.json in Resources */,
+				B34635C027E37FA0002CA750 /* DeletePersonDevice.json in Resources */,
+				B3B5653327F5C18A00ED3C13 /* SavePersonDeviceInfo.json in Resources */,
 				B38D890A277B1AC000888EFB /* GetSimilarityScore.json in Resources */,
 				B323036D278D3B460056BDCC /* ModifyFirmChain.json in Resources */,
 				B365D33E27C379CB000DBC74 /* 优设标题黑.TTF in Resources */,

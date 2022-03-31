@@ -11,10 +11,11 @@ import SwiftyJSON
 import MBProgressHUD
 
 // 页面支持的三种场景
-enum PageActionType {
-    case bind   //绑定新设备
-    case edit   //编辑更新设备
-    case scanBind   //支持首页地图扫一扫自动提交功能
+enum PageActionType:Int {
+    case scanbind   //绑定页面扫一扫：设备场景多个时，自动上屏
+    case detail     //详情编辑设备
+    case scanIndex   //首页扫一扫：跳转到绑定页面
+    case autoSubmit   //自动提交：支持首页地图扫一扫自动提交功能
 }
 
 extension JHBaseNavVC{
@@ -32,13 +33,18 @@ extension JHBaseNavVC{
 }
 
 class JHBindingEditIntelDescisionVC: JHBaseNavVC{
-    //默认为绑定功能
-    var pageType = PageActionType.bind
-    var storeId = "00000000-0000-0000-0000-000000000000"
+    //默认为绑定页面
+    var pageType = PageActionType.scanbind
+    
     var SN = ""
+    var storeId = "00000000-0000-0000-0000-000000000000"
+    
+    //详情属性
+    var isDetail = false //详情页面只能修改执行时间
+    var deviceId = ""
+    
     // UI样式排序
     let infoRows:[DeviceCellStyle] = [.SN, .Scence, .Nick]
-    var timeRows:[(String,String)] = []
     var sections:[[Any]]!
     // 场景接口数据
     var scenes:JHSceneModels!{
@@ -73,22 +79,25 @@ class JHBindingEditIntelDescisionVC: JHBaseNavVC{
         super.viewDidLoad()
         self.navTitle = "绑定设备"
         self.view.backgroundColor = UIColor.white
-        
         // 数据
-        sections = [infoRows,timeRows]
+        sections = [infoRows,bindModel.workTimeList!]
         
         // UI
         createView()
-        //空白处隐藏键盘
-        self.hideKeyboardWhenTappedAround()
-        NotificationCenter.default.addObserver(forName: .init("JHDeviceScanSNCompleted"), object: nil, queue: .main) { [self] notfi in
-            guard let code = notfi.userInfo?["SNCode"] else { return }
-            scanBind(code as! String)
+        if isDetail {
+            loadDevice()
+        }else{
+            //空白处隐藏键盘
+            self.hideKeyboardWhenTappedAround()
+            NotificationCenter.default.addObserver(forName: .init("JHDeviceScanSNCompleted"), object: nil, queue: .main) { [self] notfi in
+                guard let code = notfi.userInfo?["SNCode"] else { return }
+                scanBind(code as! String,type: .scanbind)
+            }
         }
     }
     
-    // MARK: 按钮事件
-    // TODO: 绑定设备
+    // MARK:- 按钮事件
+    // MARK: 绑定设备
     @objc func commitAction() {
         //TODO: 校验
         guard let sncode = snVM.SNCode, sncode.count > 0 else {
@@ -109,45 +118,49 @@ class JHBindingEditIntelDescisionVC: JHBaseNavVC{
         bindModel.deviceType = scence.hardWareDeviceKey
         bindModel.deviceTypeID = scence.iotSceneID
         bindModel.deviceTypeName = scence.iotSceneMonitorName
-        //时间
-        timeRows.forEach { (start, end) in
-            let time = WorkTime.init(endTime: start, startTime: end)
-            bindModel.workTimeList?.append(time)
-        }
+        
         submit()
     }
     
     //MARK: 支持：首页扫一扫，绑定页面扫一扫
-    func scanBind(_ sn:String) {
-        pageType = .scanBind
+    //Method cannot be marked @objc because the type of the parameter 2 cannot be represented in Objective-C
+    //@objc func scanBind(_ sn:String, type:PageActionType)
+    func scanBind(_ sn:String, type:PageActionType) {
+        pageType = type
         SN = sn
-        snVM.SNCode = sn
+        snVM.SNCode = sn //扫描结果，更新UI上屏
         loadSceneData()
     }
+    
     //MARK: 自动绑定，自动上屏
     func scanBindhandler() {
         guard let list = scenes.content else { return }
-        if pageType == .scanBind {
-            pageType = .bind //重置状态
+        if pageType == .scanbind {
+            if list.count == 1 {
+                sceneVM.sceneModel = list.first
+            }
+        }
+        else
+        if pageType == .scanIndex { // 从首页进入时
             if list.count == 1 {
                 //MARK: 自动绑定
+                pageType = .autoSubmit
                 //初始化数据
                 sceneVM.sceneModel = list.first
+                //提交
                 commitAction()
             }else{
-                //MARK: 从首页进入绑定页面
-                let topVC = UIViewController.topVC
-                if topVC == self {
-                    //当前页面扫一扫时
-                    snVM.value = SN
-                }else{
-                    modalPresentationStyle = .fullScreen
-                    topVC?.present(self, animated: true, completion: {
-                        //初始化数据，上屏
-                        self.snVM.value = self.SN
-                    })
-                }
+                //MARK: 多个场景时，从首页进入绑定页面
+                modalPresentationStyle = .fullScreen
+                UIViewController.topVC?.present(self, animated: true, completion: {
+                    //初始化数据，上屏
+                    self.snVM.value = self.SN
+                })
             }
+        }
+        else
+        {
+            showSenceAlert()
         }
     }
     
@@ -184,23 +197,60 @@ class JHBindingEditIntelDescisionVC: JHBaseNavVC{
     }
     // MARK: - UI部署
     func createView() {
-        //saveBtn
-        let saveBtn = UIButton()
-        saveBtn.setTitle("保存", for: .normal)
-        saveBtn.backgroundColor = .initWithHex("599199")
-        saveBtn.titleLabel?.font = .systemFont(ofSize: 17, weight: .bold)
-        saveBtn.setTitleColor(.white, for: .normal)
-        saveBtn.layer.cornerRadius = 5
-        saveBtn.addTarget(self, action: #selector(commitAction), for: .touchDown)
+        
+        let bottomBtn = UIButton()
+        if isDetail {
+            bottomBtn.setTitle("删除", for: .normal)
+            bottomBtn.backgroundColor = .initWithHex("fe2c2c", alpha: 0.3)
+            bottomBtn.titleLabel?.font = .systemFont(ofSize: 17)
+            bottomBtn.setTitleColor(.initWithHex("fe2c2c"), for: .normal)
+            bottomBtn.layer.cornerRadius = 5
+            bottomBtn.layer.borderColor = UIColor.initWithHex("fe2c2c").cgColor
+            bottomBtn.layer.borderWidth = 1
+            bottomBtn.jh.setHandleClick { button in
+                let alert = UIAlertController(title: nil, message: "您确定要删除吗?", preferredStyle: .alert)
+                let cancel = UIAlertAction(title: "取消", style: .default)
+                let insure = UIAlertAction(title: "确定", style: .default) { action in
+                    self.deleteAction()
+                }
+                alert.addAction(cancel)
+                alert.addAction(insure)
+                self.present(alert, animated: true)
+            }
+            //导航条完成按钮
+            let complate = UIButton()
+            complate.setTitle("完成", for: .normal)
+            complate.titleLabel?.font = .systemFont(ofSize: 15, weight: .bold)
+            complate.setTitleColor(.initWithHex("333333"), for: .normal)
+            complate.jh.setHandleClick { button in
+                
+                self.submit()
+            }
+            
+            navBar.addSubview(complate)
+            complate.snp.makeConstraints { make in
+                make.centerY.equalTo(navBar.titleLabel.snp.centerY)
+                make.right.equalTo(-14)
+                make.size.equalTo(CGSize.init(width: 50, height: 30))
+            }
+        }else{
+            bottomBtn.setTitle("保存", for: .normal)
+            bottomBtn.backgroundColor = .initWithHex("599199")
+            bottomBtn.titleLabel?.font = .systemFont(ofSize: 17, weight: .bold)
+            bottomBtn.setTitleColor(.white, for: .normal)
+            bottomBtn.layer.cornerRadius = 5
+            bottomBtn.addTarget(self, action: #selector(commitAction), for: .touchDown)
+        }
+        
         
         view.addSubview(self.tableView)
-        view.addSubview(saveBtn)
+        view.addSubview(bottomBtn)
         tableView.snp.makeConstraints { make in
             make.top.equalTo(self.navBar.snp.bottom)
             make.centerX.equalToSuperview()
             make.left.right.equalToSuperview()
         }
-        saveBtn.snp.makeConstraints { make in
+        bottomBtn.snp.makeConstraints { make in
             make.top.equalTo(tableView.snp.bottom)
             make.left.equalTo(15)
             make.centerX.equalToSuperview()
@@ -239,14 +289,14 @@ class JHBindingEditIntelDescisionVC: JHBaseNavVC{
         addBtn.setTitleColor(.initWithHex("146FD1"), for: .normal)
         addBtn.setImage(.init(named: "addtimelist"), for: .normal)
         addBtn.jh.setHandleClick { button in
-            if self.timeRows.count == 10 {
+            if self.bindModel.workTimeList!.count == 10 {
                 VCTools.toast("最多添加10条工作时间记录")
             }else{
                 let picker = JHDeviceTimePicker()
                 picker.timeHandler = { start,end in
-                    let time = (start,end)
+                    let time = WorkTime(endTime: end, startTime: start)
                     //TODO: 时间选择器
-                    self.timeRows.append(time)
+                    self.bindModel.workTimeList!.append(time)
                     self.tableView.reloadData()
                 }
                 self.present(picker, animated: true)
@@ -283,7 +333,7 @@ extension JHBindingEditIntelDescisionVC:UITableViewDelegate,UITableViewDataSourc
         if section == 0 {
             return 3
         }
-        return timeRows.count
+        return bindModel.workTimeList!.count
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
@@ -310,6 +360,7 @@ extension JHBindingEditIntelDescisionVC:UITableViewDelegate,UITableViewDataSourc
         if indexPath.section == 0 {
             let style = infoRows[indexPath.row]
             let cell = tableView.dequeueReusableCell(withIdentifier: style.rawValue, for: indexPath)
+            cell.isUserInteractionEnabled = !isDetail
             //MARK: MVVM 双向绑定逻辑
             switch style {
             case .SN:
@@ -329,9 +380,9 @@ extension JHBindingEditIntelDescisionVC:UITableViewDelegate,UITableViewDataSourc
         }else{
             // 工作时间单元
             let cell:JHDeviceTimesCell = tableView.dequeueReusableCell(withIdentifier: "JHDeviceTimesCell", for: indexPath) as! JHDeviceTimesCell
-            let time = timeRows[indexPath.row]
-            cell.startTime = time.0
-            cell.endTime = time.1
+            let time = bindModel.workTimeList![indexPath.row]
+            cell.startTime = time.startTime
+            cell.endTime = time.endTime
             return cell
         }
     }
@@ -349,7 +400,7 @@ extension JHBindingEditIntelDescisionVC:UITableViewDelegate,UITableViewDataSourc
     }
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: "删除") { action, sourceView, completionHandler in
-            self.timeRows.remove(at: indexPath.row)
+            self.bindModel.workTimeList!.remove(at: indexPath.row)
             self.tableView.reloadData()
         }
         let configuration = UISwipeActionsConfiguration.init(actions: [deleteAction])
@@ -394,7 +445,6 @@ extension JHBindingEditIntelDescisionVC
     func submit() {
         var apithmod = "SaveIntelligentDeviceInfo"
         let jsonEncoder = JSONEncoder()
-//        jsonEncoder.outputFormatting = .prettyPrinted
         let data = try! jsonEncoder.encode(bindModel)
         var param:[String:Any] = JSON(data).dictionaryObject!
         if isPersonal {
@@ -416,10 +466,107 @@ extension JHBindingEditIntelDescisionVC
             let result = json["IsSuccess"].boolValue
             if result {
                 //网页刷新
-                NotificationCenter.default.post(name: .init(rawValue: "refreshShowBindingIntelDescision"), object: nil, userInfo: nil)
+                NotificationCenter.default.post(name: .init("refreshShowBindingIntelDescision"), object: nil)
+                if weakSelf.pageType == .scanbind {
+                    weakSelf.backBtnClicked(UIButton())
+                }
+                else
+                if weakSelf.pageType == .autoSubmit {
+                    NotificationCenter.default.post(name: .init("toDeviceH5ListVCKey"), object: nil)
+                }
+                else
+                if weakSelf.pageType == .scanIndex{
+                    OperationQueue.main.addOperation {
+                        weakSelf.dismiss(animated: true) {
+                            NotificationCenter.default.post(name: .init("toDeviceH5ListVCKey"), object: nil)
+                        }
+                    }
+                }
+                
             }else{
                 let msg = json["Message"].stringValue
                 VCTools.toast(msg)
+            }
+        }
+    }
+}
+
+extension JHBindingEditIntelDescisionVC
+{
+    func loadDevice() {
+        var param:[String:Any] = ["DeviceId":deviceId, "storeId":storeId, "UserId":JHBaseInfo.userID, "AppId":JHBaseInfo.appID]
+        let urlStr = JHBaseDomain.fullURL(with: "api_host_ripx", path: "/IntelligentDeviceSetting/GetSingleIntelligentDeviceInfoNew")
+        let hud = MBProgressHUD.showAdded(to:view, animated: true)
+        hud.removeFromSuperViewOnHide = true
+        let request = JN.post(urlStr, parameters: param, headers: nil)
+        request.response {[weak self] response in
+            hud.hide(animated: true)
+            guard let weakSelf = self else { return }
+            guard let data = response.data else {
+//                MBProgressHUD.displayError(kInternetError)
+                return
+            }
+            let json = JSON(data)
+            let result = json["IsSuccess"].boolValue
+            if result {
+                let content = try! json["Content"].rawData()
+                weakSelf.bindModel = JHDeviceBindModel.parsed(data: content)
+                OperationQueue.main.addOperation {
+                    weakSelf.snVM.value = weakSelf.bindModel.sn
+                    weakSelf.sceneVM.sceneName = weakSelf.bindModel.deviceTypeName
+                    weakSelf.nickVM.value = weakSelf.bindModel.name ?? ""
+                    weakSelf.tableView.reloadData()
+                }
+            }else{
+                let msg = json["Message"].stringValue
+//                MBProgressHUD.displayError(kInternetError)
+            }
+        }
+    }
+    @objc func deleteAction() {
+        
+        
+        
+        var apithmod = "DeleteIntelligentDevice"
+        if isPersonal {
+            apithmod = "DeletePersonDevice"
+        }
+        var param:[String:Any] = ["Id":bindModel.deviceID, "UserId":JHBaseInfo.userID, "AppId":JHBaseInfo.appID]
+        let urlStr = JHBaseDomain.fullURL(with: "api_host_ripx", path: "/IntelligentDeviceSetting/\(apithmod)")
+        let hud = MBProgressHUD.showAdded(to: (UIViewController.topVC?.view)!, animated: true)
+        hud.removeFromSuperViewOnHide = true
+        let request = JN.post(urlStr, parameters: param, headers: nil)
+        request.response {[weak self] response in
+            hud.hide(animated: true)
+            guard let weakSelf = self else { return }
+            guard let data = response.data else {
+//                MBProgressHUD.displayError(kInternetError)
+                return
+            }
+            let json = JSON(data)
+            let result = json["IsSuccess"].boolValue
+            if result {
+                OperationQueue.main.addOperation {
+                    //网页刷新
+                    NotificationCenter.default.post(name: .init(rawValue: "refreshShowBindingIntelDescision"), object: nil, userInfo: nil)
+                    if weakSelf.isPersonal {
+                        weakSelf.dismiss(animated: true)
+                    }else{
+                        weakSelf.backBtnClicked(UIButton())
+                    }
+                }
+            }else{
+                OperationQueue.main.addOperation {
+                    let alert = UIAlertController(title: nil, message: "删除失败，请联系客服处理", preferredStyle: .alert)
+                    let cancel = UIAlertAction(title: "取消", style: .default)
+                    let insure = UIAlertAction(title: "联系客服", style: .default) { action in
+                        // 联系客服
+                        UIApplication.shared.open(.init(string: "telprompt://\(400-9030-401)")!)
+                    }
+                    alert.addAction(cancel)
+                    alert.addAction(insure)
+                    weakSelf.present(alert, animated: true)
+                }
             }
         }
     }
