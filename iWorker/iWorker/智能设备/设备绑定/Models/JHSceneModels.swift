@@ -15,6 +15,9 @@ struct JHSceneModels: Codable {
     var data: Bool?
     var detail: String?
     
+    //自定义，记录SN号
+    var sn:String?
+    
     enum CodingKeys: String, CodingKey {
             case content = "Content"
             case message = "Message"

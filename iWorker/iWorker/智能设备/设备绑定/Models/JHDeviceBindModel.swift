@@ -9,8 +9,8 @@ import Foundation
 import JHBase
 
 // MARK: - DeviceBindModel
-struct JHDeviceBindModel {
-    var deviceTypeName = "", deviceTypeID = "", sn = ""
+struct JHDeviceBindModel:Codable {
+    var deviceTypeName = "", deviceTypeID = "", sn = "", storeId = ""
     var workTimeList: [WorkTime]? = []
     var deviceType: Int = 0
     var deviceID = "", name = ""
@@ -26,6 +26,7 @@ struct JHDeviceBindModel {
         case deviceID = "DeviceId"
         case name = "Name"
         case appID = "AppId"
+        case storeId = "StoreId"
     }
 }
 

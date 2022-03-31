@@ -11,7 +11,7 @@ import JHBase
 
 class ViewController: JHBaseNavVC {
 
-    
+    var page:UIViewController!
     var rows:[(String, UIViewController.Type)]{
         [("绑定",JHBindingEditIntelDescisionVC.self),
          ("设置",JHPriDeviceSetingController.self),
@@ -67,9 +67,11 @@ extension ViewController:UITableViewDataSource,UITableViewDelegate
 //        let vc:UIViewController = class_createInstance(cls,0) as! UIViewController
         let cls:UIViewController.Type  = rows[indexPath.row].1
         let vc = cls.init()
+        page = vc
         let nav = UINavigationController(rootViewController: vc)
         
         if vc.modalPresentationStyle == .overCurrentContext {
+            // 模拟首页扫一扫，邀请好友弹出框样式
             nav.modalPresentationStyle = .overCurrentContext
             if cls.isEqual(JHDeviceInvitedController.self) {
                 let code = "https://testripx.iuoooo.com/swagger/index.html?invitecode=7zKJyisuzdvKCeFgeTtDJUfTk8lgHQPQCK47ZV6z5E38lzDmohHUreCHkrzzYpZpvu0mbTv9ZmCx48njD1RmFHXgyZKkfxKYtystJQK9t4PzS/WZ3HmNuuX74CSHAKaXUrTUjThI+LFwwl1etlUgCkC12BMc6fKby/+1bCSBAz9gFL7UA7YLr3p9e7/yUdQmZKxQK+kCyANzZ9xcjd7lq7dHsoDP/zyodSu/ONWh3eX/g9QCk4A0gOZSUEcrk4yb8+9xG/CfkBzOUp9w9SiaJxIUPQkQ448SO2NJSWObghAemzT12Cnykw=="
@@ -79,6 +81,20 @@ extension ViewController:UITableViewDataSource,UITableViewDelegate
         }else{
             nav.modalPresentationStyle = .fullScreen
         }
+        
+        //模拟自动绑定设备逻辑
+        if cls.isEqual(JHBindingEditIntelDescisionVC.self) {
+            let sn = "jkjk908jkhk09"
+            Tools.showClsRuntime(cls: JHBindingEditIntelDescisionVC.self)
+            // 实例方法
+            let method = Selector("scanBind2:")
+            if vc.responds(to: method){
+//                vc.perform(codemethod)
+                vc.perform(method, with: sn)
+            }
+            return
+        }
+        
         self.present(nav, animated: true, completion: nil)
     }
 }

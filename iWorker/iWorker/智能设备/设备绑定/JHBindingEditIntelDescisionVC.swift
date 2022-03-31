@@ -6,13 +6,15 @@
 //
 import UIKit
 import JHBase
+import Alamofire
 import SwiftyJSON
 import MBProgressHUD
 
-enum DeviceCellStyle:String {
-    case SN = "JHDeviceSNCell"
-    case Scence = "JHDeviceSceneCell"
-    case Nick = "JHDeviceNickCell"
+// 页面支持的三种场景
+enum PageActionType {
+    case bind   //绑定新设备
+    case edit   //编辑更新设备
+    case scanBind   //支持首页地图扫一扫自动提交功能
 }
 
 extension JHBaseNavVC{
@@ -30,33 +32,42 @@ extension JHBaseNavVC{
 }
 
 class JHBindingEditIntelDescisionVC: JHBaseNavVC{
-    
-    var storeId:String = ""
+    //默认为绑定功能
+    var pageType = PageActionType.bind
+    var storeId = "00000000-0000-0000-0000-000000000000"
+    var SN = ""
     // UI样式排序
     let infoRows:[DeviceCellStyle] = [.SN, .Scence, .Nick]
     var timeRows:[(String,String)] = []
     var sections:[[Any]]!
-    
-    var scenes:JHSceneModels!
+    // 场景接口数据
+    var scenes:JHSceneModels!{
+        didSet{
+            scenes.sn = snVM.SNCode
+        }
+    }
+    //角色：
+    lazy var isPersonal: Bool = {
+        let person = storeId.hasPrefix("00000000") || storeId.count == 0
+        return person
+    }()
 
     lazy var bindModel: JHDeviceBindModel = {
-        return JHDeviceBindModel()
+        var model = JHDeviceBindModel()
+        model.storeId = storeId
+        return model
     }()
     
     // ViewModel
-    lazy var snVM = JHSNViewModel()
-    lazy var sceneVM:JHSceneViewModel = {
-        let vm = JHSceneViewModel()
-        vm.bindSN(snVM)
-        return vm
+    lazy var snVM:JHSNViewModel = {
+        let sn = JHSNViewModel()
+        sceneVM.bindSN(sn)
+        nickVM.bindSN(sn)
+        nickVM.bindScence(sceneVM)
+        return sn
     }()
-    
-    lazy var nickVM:JHNickViewModel = {
-        let vm = JHNickViewModel()
-        vm.bindSN(snVM)
-        vm.bindScence(sceneVM)
-        return vm
-    }()
+    lazy var sceneVM = JHSceneViewModel()
+    lazy var nickVM = JHNickViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,7 +79,6 @@ class JHBindingEditIntelDescisionVC: JHBaseNavVC{
         
         // UI
         createView()
-        loadSceneData()
         //空白处隐藏键盘
         self.hideKeyboardWhenTappedAround()
     }
@@ -100,6 +110,67 @@ class JHBindingEditIntelDescisionVC: JHBaseNavVC{
             let time = WorkTime.init(endTime: start, startTime: end)
             bindModel.workTimeList?.append(time)
         }
+        submit()
+    }
+    
+    @objc static func scanBind(_ sn:String) {
+        let page = JHBindingEditIntelDescisionVC()
+        page.pageType = .scanBind
+        page.SN = sn
+        page.snVM.SNCode = sn
+        page.loadSceneData()
+    }
+    
+    @objc func scanBind2(_ sn:String) {
+        pageType = .scanBind
+        SN = sn
+        snVM.SNCode = sn
+        loadSceneData()
+    }
+    
+    @objc func showSenceAlert(_ list:[JHSceneModel]?) {
+        //
+        guard let scenes = list else {
+            return
+        }
+        if pageType == .scanBind {
+            pageType = .bind //重置状态
+            if scenes.count == 1 {
+                //TODO: 自动绑定
+                //初始化数据
+                sceneVM.sceneModel = scenes.first
+                commitAction()
+            }else{
+                self.modalPresentationStyle = .fullScreen
+                UIViewController.topVC?.present(self, animated: true, completion: {
+                    //初始化数据，上屏
+                    self.snVM.value = self.SN
+                })
+            }
+            return
+        }else {
+            if scenes.count == 1 {
+                sceneVM.sceneModel = scenes.first
+                return
+            }
+        }
+        
+        let alertVC = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        alertVC.view.tintColor = .darkText
+        _ = scenes.map { scene in
+            let action = UIAlertAction(title: scene.iotSceneName, style: .default) { [weak self] action in
+                guard let weakSelf = self else { return }
+                //TODO: 切换场景
+                weakSelf.sceneVM.sceneModel = scene
+            }
+            alertVC.addAction(action)
+        }
+        
+        let cancel = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+        cancel.setValue(UIColor.systemBlue, forKey: "_titleTextColor")
+        
+        alertVC.addAction(cancel)
+        self.present(alertVC, animated: false)
     }
     // MARK: - UI部署
     func createView() {
@@ -186,6 +257,10 @@ class JHBindingEditIntelDescisionVC: JHBaseNavVC{
         }
         return headView
     }()
+    
+    deinit {
+        print("---设备绑定页面：被释放-----")
+    }
 }
 
 extension JHBindingEditIntelDescisionVC:UITableViewDelegate,UITableViewDataSource
@@ -228,6 +303,7 @@ extension JHBindingEditIntelDescisionVC:UITableViewDelegate,UITableViewDataSourc
             switch style {
             case .SN:
                 let snCell = cell as! JHDeviceSNCell
+                snCell.bind(viewModel: snVM)
                 self.snVM.bind(view:snCell)
             case .Scence:
                 let scene = cell as! JHDeviceSceneCell
@@ -253,7 +329,7 @@ extension JHBindingEditIntelDescisionVC:UITableViewDelegate,UITableViewDataSourc
         if indexPath.section == 0 { //设备模块
             let style = infoRows[indexPath.row]
             if style == .Scence {
-                showSenceAlert(scenes.content)
+                loadSceneData()
             }
         }
     }
@@ -276,12 +352,25 @@ extension JHBindingEditIntelDescisionVC
 {
     //获取场景数据
     func loadSceneData() {
+        
+        guard let sn = snVM.SNCode,sn.count > 0 else {
+            VCTools.toast("请输入设备SN号")
+            return
+        }
+        
+        if scenes != nil && scenes.sn == snVM.SNCode {
+            showSenceAlert(scenes.content)
+            return
+        }
         let urlStr = JHBaseDomain.fullURL(with: "api_host_ripx", path: "/IOTDeviceScene/GetIOTDeviceSceneList")
         let requestDic = ["StoreId":storeId, "SN": snVM.SNCode]
-        let hud = MBProgressHUD.showAdded(to: view, animated: true)
+        let hud = MBProgressHUD.showAdded(to: (UIViewController.topVC?.view)!, animated: true)
         hud.removeFromSuperViewOnHide = true
-        let request = JN.post(urlStr, parameters: requestDic, headers: nil)
-        request.response {[weak self] response in
+        AF.request(urlStr,
+                   method: .post,
+                   parameters: requestDic as Parameters,
+                   encoding: JSONEncoding.default)
+            .response {[weak self] response in
             hud.hide(animated: true)
             guard let weakSelf = self else { return }
             guard let data = response.data else {
@@ -292,35 +381,47 @@ extension JHBindingEditIntelDescisionVC
             let result = json["IsSuccess"].boolValue
             if result {
                 weakSelf.scenes = JHSceneModels.parsed(data: data)
-                weakSelf.showSenceAlert(weakSelf.scenes.content)
+                OperationQueue.main.addOperation {
+                    weakSelf.showSenceAlert(weakSelf.scenes.content)
+                }
             }else{
-                //TODO: 邀请码失效提示
+                let msg = json["Message"].stringValue
+                OperationQueue.main.addOperation {
+                    VCTools.toast(msg)
+                }
+            }
+        }
+    }
+    func submit() {
+        var apithmod = "SaveIntelligentDeviceInfo"
+        let jsonEncoder = JSONEncoder()
+//        jsonEncoder.outputFormatting = .prettyPrinted
+        let data = try! jsonEncoder.encode(bindModel)
+        var param:[String:Any] = JSON(data).dictionaryObject!
+        if isPersonal {
+            apithmod = "SavePersonDeviceInfo"
+            param.removeValue(forKey: "StoreId")
+        }
+        let urlStr = JHBaseDomain.fullURL(with: "api_host_ripx", path: "/IntelligentDeviceSetting/\(apithmod)")
+        let hud = MBProgressHUD.showAdded(to: (UIViewController.topVC?.view)!, animated: true)
+        hud.removeFromSuperViewOnHide = true
+        let request = JN.post(urlStr, parameters: param, headers: nil)
+        request.response {[weak self] response in
+            hud.hide(animated: true)
+            guard let weakSelf = self else { return }
+            guard let data = response.data else {
+//                MBProgressHUD.displayError(kInternetError)
+                return
+            }
+            let json = JSON(data)
+            let result = json["IsSuccess"].boolValue
+            if result {
+                //网页刷新
+                NotificationCenter.default.post(name: .init(rawValue: "refreshShowBindingIntelDescision"), object: nil, userInfo: nil)
+            }else{
                 let msg = json["Message"].stringValue
                 VCTools.toast(msg)
             }
         }
-    }
-    
-    @objc func showSenceAlert(_ list:[JHSceneModel]?) {
-        
-        guard let scenes = list else {
-            return
-        }
-        let alertVC = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        alertVC.view.tintColor = .darkText
-        _ = scenes.map { scene in
-            let action = UIAlertAction(title: scene.iotSceneName, style: .default) { [weak self] action in
-                guard let weakSelf = self else { return }
-                //TODO: 切换场景
-                weakSelf.sceneVM.sceneModel = scene
-            }
-            alertVC.addAction(action)
-        }
-        
-        let cancel = UIAlertAction(title: "取消", style: .cancel, handler: nil)
-        cancel.setValue(UIColor.systemBlue, forKey: "_titleTextColor")
-        
-        alertVC.addAction(cancel)
-        self.present(alertVC, animated: false)
     }
 }

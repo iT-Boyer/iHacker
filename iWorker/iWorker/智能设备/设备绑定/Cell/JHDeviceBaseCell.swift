@@ -8,6 +8,12 @@
 import UIKit
 import JHBase
 import SnapKit
+//支持的三种样式cellid
+enum DeviceCellStyle:String {
+    case SN = "JHDeviceSNCell"
+    case Scence = "JHDeviceSceneCell"
+    case Nick = "JHDeviceNickCell"
+}
 
 protocol JHViewBindableProtocol {
     associatedtype Model

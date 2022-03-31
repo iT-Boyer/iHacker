@@ -16,7 +16,7 @@ class JHNickViewModel:MBindable<JHDeviceNickCell> {
      value的两个作用
      1. 当手动编辑昵称时，更新ViewModel的nick值
      2. 避免监听冲突：例如：手动修改昵称时，会同步到value上。新增该字段，是因为如果共用nick字段，会造成两个监听冲突，循环监听。
-     3. 为满足需求条件判断。：当手动修改昵称之后，不同步场景名称。
+     3. 为满足需求条件判断：当手动修改昵称之后，不同步场景名称。
      */
     var value = "" // viewModel 监听 view
     func bind(view:JHDeviceNickCell) {
@@ -34,6 +34,7 @@ class JHNickViewModel:MBindable<JHDeviceNickCell> {
         if snToken == nil {
             snToken = sn.observe(\.SNCode) { (cell, code) in
                 self.nick = ""
+                self.value = ""
             }
         }
     }
@@ -54,6 +55,7 @@ class JHNickViewModel:MBindable<JHDeviceNickCell> {
                 print("场景切换时，更新\(currnick)昵称:\(scence)")
                 if currnick == "" || currnick == oldname {
                     self.nick = scence
+                    self.value = scence
                 }
             }
         }

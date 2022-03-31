@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 // 迁移JHBindingDeviceNameInputImageCell.m
-class JHDeviceSNCell: JHDeviceBaseCell<JHSNViewModel>,UITextFieldDelegate {
+class JHDeviceSNCell: VBindable<JHSNViewModel>,UITextFieldDelegate {
     
     @objc dynamic var SNCode:String?
     
@@ -46,6 +46,16 @@ class JHDeviceSNCell: JHDeviceBaseCell<JHSNViewModel>,UITextFieldDelegate {
         return btn
     }()
     
+    func bind(viewModel vm:JHSNViewModel){
+        if kvoToken == nil {
+            kvoToken = vm.observe(\.value, options: [.new, .old]) { (model, sn) in
+                let new = sn.newValue ?? ""
+                print("扫一扫SN：\(new ?? "")")
+                self.snField.text = new
+                self.SNCode = new
+            }
+        }
+    }
     
     // MARK: - 扫一扫
     func scanAction() {
