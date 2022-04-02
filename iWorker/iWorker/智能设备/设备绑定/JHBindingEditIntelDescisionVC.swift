@@ -12,6 +12,7 @@ import MBProgressHUD
 
 // 页面支持的三种场景
 enum PageActionType:Int {
+    case none = 0    // 默认状态
     case scanbind   //绑定页面扫一扫：设备场景多个时，自动上屏
     case detail     //详情编辑设备
     case scanIndex   //首页扫一扫：跳转到绑定页面
@@ -33,12 +34,11 @@ extension JHBaseNavVC{
 }
 
 class JHBindingEditIntelDescisionVC: JHBaseNavVC{
-    //默认为绑定页面
-    var pageType = PageActionType.scanbind
     
     var SN = ""
     var storeId = "00000000-0000-0000-0000-000000000000"
     
+    var pageType:PageActionType = .none
     //详情属性
     var isDetail = false //详情页面只能修改执行时间
     var deviceId = ""
@@ -128,14 +128,16 @@ class JHBindingEditIntelDescisionVC: JHBaseNavVC{
     func scanBind(_ sn:String, type:PageActionType) {
         pageType = type
         SN = sn
-        snVM.SNCode = sn //扫描结果，更新UI上屏
+        snVM.value = sn //扫描结果，更新UI上屏
         loadSceneData()
     }
     
-    //MARK: 自动绑定，自动上屏
+    //MARK: 场景展示的几种情况
     func scanBindhandler() {
         guard let list = scenes.content else { return }
         if pageType == .scanbind {
+            pageType = .none
+            // 绑定页面，直接上屏
             if list.count == 1 {
                 sceneVM.sceneModel = list.first
             }
@@ -154,6 +156,7 @@ class JHBindingEditIntelDescisionVC: JHBaseNavVC{
                 modalPresentationStyle = .fullScreen
                 UIViewController.topVC?.present(self, animated: true, completion: {
                     //初始化数据，上屏
+                    self.pageType = .none
                     self.snVM.value = self.SN
                 })
             }

@@ -61,8 +61,8 @@ class JHDeviceSNCell: VBindable<JHSNViewModel>,UITextFieldDelegate {
     // MARK: - 扫一扫
     @objc func scanAction() {
         //TODO: 集成扫一扫
-        SNCode = ""
-        NotificationCenter.default.post(name: .init("JHDeviceScanSNCompleted"), object: nil, userInfo: ["SNCode":SNCode!])
+        let scan = "scancode"
+        NotificationCenter.default.post(name: .init("JHDeviceScanSNCompleted"), object: nil, userInfo: ["SNCode":scan])
     }
     
 }
