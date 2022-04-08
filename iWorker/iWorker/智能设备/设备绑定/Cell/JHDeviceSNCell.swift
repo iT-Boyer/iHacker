@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 // 迁移JHBindingDeviceNameInputImageCell.m
-class JHDeviceSNCell: VBindable<JHSNViewModel>,UITextFieldDelegate {
+class JHDeviceSNCell: JHDeviceBaseCell,UITextFieldDelegate {//: VBindable<JHSNViewModel>,UITextFieldDelegate {
     
     @objc dynamic var SNCode:String?
     

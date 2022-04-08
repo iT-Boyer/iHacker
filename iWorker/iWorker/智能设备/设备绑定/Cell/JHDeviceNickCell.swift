@@ -9,7 +9,7 @@ import UIKit
 import JHBase
 
 // 迁移JHBindingDeviceNameInputCell.m
-class JHDeviceNickCell: VBindable<JHNickViewModel> {
+class JHDeviceNickCell:JHDeviceBaseCell{//}: VBindable<JHNickViewModel> {
     
     @objc dynamic var nick:String?
     override func createView() {

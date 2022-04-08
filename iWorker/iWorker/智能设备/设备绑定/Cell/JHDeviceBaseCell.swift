@@ -20,10 +20,10 @@ protocol JHViewBindableProtocol {
     func bind(viewModel vm:Model)
 }
 //Swift的组合运算符&支持将一个类和一个协议结合起来
-typealias VBindable<Model> = JHDeviceBaseCell<Model> & JHViewBindableProtocol
+//typealias VBindable<Model> = JHDeviceBaseCell<Model> & JHViewBindableProtocol
 
 /// 实现通用布局
-class JHDeviceBaseCell<Model>: UITableViewCell {
+class JHDeviceBaseCell: UITableViewCell { //<Model>: UITableViewCell {
     
     var kvoToken: NSKeyValueObservation?
     

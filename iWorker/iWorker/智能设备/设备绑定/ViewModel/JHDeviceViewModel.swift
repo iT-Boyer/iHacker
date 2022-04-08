@@ -13,9 +13,9 @@ protocol JHModelBindableProtocol {
 }
 
 //Swift的组合运算符&支持将一个类和一个协议结合起来
-typealias MBindable<CellView> = JHDeviceViewModel<CellView> & JHModelBindableProtocol
+//typealias MBindable<CellView> = JHDeviceViewModel<CellView> & JHModelBindableProtocol
 // 绑定SNView
-class JHDeviceViewModel<CellView>: NSObject {
+class JHDeviceViewModel: NSObject {
     
     var kvoToken: NSKeyValueObservation?
     

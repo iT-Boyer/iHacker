@@ -8,7 +8,7 @@
 import Foundation
 
 // 绑定SNView
-class JHSNViewModel: MBindable<JHDeviceSNCell> {
+class JHSNViewModel:JHDeviceViewModel{//: MBindable<JHDeviceSNCell> {
     // SN号
     @objc dynamic var SNCode:String? // 用于场景+昵称监听
     @objc dynamic var value:String? //仅用于View监听

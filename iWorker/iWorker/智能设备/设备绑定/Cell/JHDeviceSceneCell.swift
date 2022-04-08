@@ -7,7 +7,7 @@
 
 import UIKit
 // 迁移JHBindingDeviceNameSelectCell.m
-class JHDeviceSceneCell: VBindable<JHSceneViewModel> {
+class JHDeviceSceneCell:JHDeviceBaseCell{//: VBindable<JHSceneViewModel> {
 
     override func createView() {
         super.createView()

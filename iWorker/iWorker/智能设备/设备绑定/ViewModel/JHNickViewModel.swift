@@ -7,7 +7,7 @@
 
 import Foundation
 
-class JHNickViewModel:MBindable<JHDeviceNickCell> {
+class JHNickViewModel:JHDeviceViewModel {//:MBindable<JHDeviceNickCell> {
 
     var snToken: NSKeyValueObservation?
     var scenceToken: NSKeyValueObservation?

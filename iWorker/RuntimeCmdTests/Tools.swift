@@ -14,6 +14,24 @@ class Tools: NSObject {
     /// 获取类的方法和属性清单
     /// - Parameter type: class.self
     @objc static func showClsRuntime (cls : AnyClass) {
+        
+        //获取类方法：https://www.jianshu.com/p/b30c2580d977
+        print("start clsfunList")
+        var clsmethodCount:UInt32 = 0
+        let metacls: AnyClass? = object_getClass(cls)
+        let clsfunList = class_copyMethodList(metacls, &clsmethodCount)
+        for  i in 0..<numericCast(clsmethodCount) {
+            if let method = clsfunList?[i]{
+                let methodName = method_getName(method)
+                print("类方法名：\(methodName)")
+            }else{
+                print("not found method");
+            }
+        }
+        free(clsfunList)
+        print("end clsfunList")
+        
+        
         print("start methodList")
         
         var methodCount:UInt32 = 0
@@ -24,7 +42,7 @@ class Tools: NSObject {
                 let methodName = method_getName(method)
                 let methodType = method_getTypeEncoding(method)
                 let returnType = method_copyReturnType(method)
-                print("方法列表：\(String(describing: methodName))")
+                print("方法名：\(String(describing: methodName))")
                 print("方法类型：\(String(describing: methodType))")
                 print("returnType：\(String(describing: returnType))")
             }else{

@@ -104,7 +104,7 @@ extension ViewController:UITableViewDataSource,UITableViewDelegate
         
         if desc.hasSuffix("详情编辑") {
             let bind = JHBindingEditIntelDescisionVC()
-            bind.isDetail = true
+            bind.pageType = .detail
             bind.modalPresentationStyle = .fullScreen
             self.present(bind, animated: true)
             return

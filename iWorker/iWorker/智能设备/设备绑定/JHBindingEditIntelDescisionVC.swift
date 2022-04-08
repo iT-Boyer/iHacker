@@ -39,8 +39,10 @@ class JHBindingEditIntelDescisionVC: JHBaseNavVC{
     var storeId = "00000000-0000-0000-0000-000000000000"
     
     var pageType:PageActionType = .none
-    //详情属性
-    var isDetail = false //详情页面只能修改执行时间
+    //详情属性//详情页面只能修改执行时间
+    var isDetail:Bool{
+        return pageType == .detail
+    }
     var deviceId = ""
     
     // UI样式排序
@@ -61,6 +63,8 @@ class JHBindingEditIntelDescisionVC: JHBaseNavVC{
     lazy var bindModel: JHDeviceBindModel = {
         var model = JHDeviceBindModel()
         model.storeId = storeId
+        model.userID = JHBaseInfo.userID
+        model.appID = JHBaseInfo.appID
         return model
     }()
     
@@ -131,7 +135,17 @@ class JHBindingEditIntelDescisionVC: JHBaseNavVC{
         snVM.value = sn //扫描结果，更新UI上屏
         loadSceneData()
     }
-    
+    //绑定
+    static func bindDevice(storeId:String) {
+//        let vc = JHBindingEditIntelDescisionVC()
+//        vc.navTitle = "绑定设备"
+//        UIViewController.topVC?.present(vc, animated: true, completion: nil)
+    }
+    static func bindDevice2(storeId:String) {
+//        let vc = JHBindingEditIntelDescisionVC()
+//        vc.navTitle = "绑定设备"
+//        UIViewController.topVC?.present(vc, animated: true, completion: nil)
+    }
     //MARK: 场景展示的几种情况
     func scanBindhandler() {
         guard let list = scenes.content else { return }
@@ -291,6 +305,9 @@ class JHBindingEditIntelDescisionVC: JHBaseNavVC{
         addBtn.titleLabel?.font = .systemFont(ofSize: 14)
         addBtn.setTitleColor(.initWithHex("146FD1"), for: .normal)
         addBtn.setImage(.init(named: "addtimelist"), for: .normal)
+        addBtn.imageEdgeInsets = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
+        addBtn.imageView?.contentMode = .scaleAspectFit
+        addBtn.contentHorizontalAlignment = .right
         addBtn.jh.setHandleClick { button in
             if self.bindModel.workTimeList!.count == 10 {
                 VCTools.toast("最多添加10条工作时间记录")
@@ -316,6 +333,7 @@ class JHBindingEditIntelDescisionVC: JHBaseNavVC{
         
         addBtn.snp.makeConstraints { make in
             make.right.equalTo(-15)
+            make.size.equalTo(CGSize(width: 80, height: 34))
             make.centerY.equalToSuperview()
         }
         return headView
@@ -470,10 +488,6 @@ extension JHBindingEditIntelDescisionVC
             if result {
                 //网页刷新
                 NotificationCenter.default.post(name: .init("refreshShowBindingIntelDescision"), object: nil)
-                if weakSelf.pageType == .scanbind {
-                    weakSelf.backBtnClicked(UIButton())
-                }
-                else
                 if weakSelf.pageType == .autoSubmit {
                     NotificationCenter.default.post(name: .init("toDeviceH5ListVCKey"), object: nil)
                 }
@@ -484,6 +498,8 @@ extension JHBindingEditIntelDescisionVC
                             NotificationCenter.default.post(name: .init("toDeviceH5ListVCKey"), object: nil)
                         }
                     }
+                }else{
+                    weakSelf.backBtnClicked(UIButton())
                 }
                 
             }else{

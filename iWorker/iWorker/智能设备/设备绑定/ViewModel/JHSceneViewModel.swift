@@ -17,7 +17,7 @@ import Foundation
 1. 监听方：sn输入框是被监听方，VM绑定sn输入框状态
 2. 被监听方：当SN变更时，重置场景和昵称
 */
-class JHSceneViewModel:MBindable<JHDeviceSceneCell> {
+class JHSceneViewModel:JHDeviceViewModel{//:MBindable<JHDeviceSceneCell> {
     
     @objc dynamic var sceneName:String?
     var sceneModel:JHSceneModel?{
