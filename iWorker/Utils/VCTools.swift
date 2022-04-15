@@ -9,6 +9,12 @@ import Foundation
 import JHBase
 import MBProgressHUD
 
+/** 自定义金和长文本提示框
+ let hub = MBProgressHUD.showAdded(to: (UIViewController.topVC?.view)!, animated: true)
+ hub.mode = MBProgressHUDMode(5)
+ hub.detailsLabel.text = msg
+ hub.hide(true, afterDelay: 5.0)
+ */
 class VCTools: UIViewController {
         
     static func toast(_ msg:String) {

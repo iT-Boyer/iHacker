@@ -11,6 +11,11 @@ import SwiftyJSON
 import MBProgressHUD
 
 class JHDeviceInviteAPI: NSObject {
+
+    // 单例初始化
+    static let shared = JHDeviceInviteAPI()
+    // 持有bindVC页面
+    var bindVC:JHBindingEditIntelDescisionVC!
     
     // 判断是否位合法码
     static func isValid(_ code:String) -> Bool {
@@ -23,6 +28,18 @@ class JHDeviceInviteAPI: NSObject {
         let rules = NSPredicate(format: "SELF MATCHES %@", "^[0-9A-Za-z]{\(code.count)}$")
         let isNumber: Bool = rules.evaluate(with: code)
         if isNumber {
+            shared.bindVC = JHBindingEditIntelDescisionVC()
+            shared.bindVC.navTitle = "绑定设备"
+            //1  是C端 ，2 是B端 ，3 是G端
+            let status = UserDefaults.standard.integer(forKey: "StoreStatus")
+            if status == 2 {
+                let key = JHBaseInfo.userID+"_CKDefaultStore"
+                let storeDic = UserDefaults.standard.dictionary(forKey: key)
+                guard let storeData = storeDic else { return false}
+                let json = JSON(storeData)
+                shared.bindVC.storeId = json["storeId"].stringValue
+            }
+            shared.bindVC.scanBind(code, type: .scanIndex)
             return true
         }
         return false
@@ -75,6 +92,25 @@ class JHDeviceInviteAPI: NSObject {
         }
     }
     
+    //MARK: 邀请设置页面判断
+    @objc
+    public static func invateOrSetting(storeId:String,deviceId:String) {
+        //TODO: 个人时，跳转设置页面
+        //1  是C端 ，2 是B端 ，3 是G端
+        let status = UserDefaults.standard.integer(forKey: "StoreStatus")
+        if (status == 1) {
+            deviceSeting(deviceId)
+        }else{
+            //组织时
+            let vc = JHBindingEditIntelDescisionVC()
+            vc.navTitle = "基础设备"
+            vc.storeId = storeId
+            vc.pageType = .detail
+            vc.deviceId = deviceId
+            UIViewController.topVC?.present(vc, animated: true, completion: nil)
+        }
+    }
+    
     //MARK: 邀请的设置页面
     @objc
     public static func deviceSeting(_ deviceId:String) {
@@ -99,5 +135,13 @@ class JHDeviceInviteAPI: NSObject {
             baseUrl = JHBaseDomain.fullURL(with: "api_host_ripx", path: params)
         }
 //        JHWebviewManager.pushWebViewController(withURL: baseUrl, isShowReturnButtonAndCloseButton: false, title: "")
+    }
+    
+    //绑定
+    @objc
+    public static func bindDevice(storeId:String) {
+        let vc = JHBindingEditIntelDescisionVC()
+        vc.navTitle = "绑定设备"
+        UIViewController.topVC?.present(vc, animated: true, completion: nil)
     }
 }

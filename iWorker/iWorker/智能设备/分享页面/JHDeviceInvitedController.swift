@@ -83,18 +83,17 @@ class JHDeviceInvitedController: UIViewController {
                 //TODO: 邀请码失效提示
                 let msg = json["Message"].stringValue
 //                MBProgressHUD.displayError(msg)
-                weakSelf.closeAction()
+                OperationQueue.main.addOperation {
+                    weakSelf.dismiss(animated: true) {
+                        JHDeviceInviteAPI.toDeviceH5ListVC()
+                    }
+                }
             }
         }
     }
     /// 关闭弹框
     @objc func closeAction() {
-        self.dismiss(animated: true) {
-            let storeStatus = UserDefaults.standard.integer(forKey: "StoreStatus")
-            if storeStatus == 1 { //个人时，跳转到设备列表
-                JHDeviceInviteAPI.toDeviceH5ListVC()
-            }
-        }
+        self.dismiss(animated: true, completion: nil)
     }
 
     func createView() {

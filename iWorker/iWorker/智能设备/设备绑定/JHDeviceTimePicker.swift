@@ -50,7 +50,7 @@ class JHDeviceTimePicker: UIViewController {
             //比较
             let result = startPicker.date.compare(self.endPicker.date)
             if (result == .orderedDescending || startTime == endTime) {
-                VCTools.toast("开始时间不能大于结束时间开始时间不能大于结束时间开始时间不能大于结束时间")
+                VCTools.toast("开始时间不能大于结束时间开始时间不能大于结束时间开始时间不能大于结束时间开始时间不能大于结束时间开始时间不能大于结束时间")
                 return
             }
             self.dismiss(animated: true) {

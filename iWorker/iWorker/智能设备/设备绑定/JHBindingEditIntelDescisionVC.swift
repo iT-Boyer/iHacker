@@ -132,6 +132,7 @@ class JHBindingEditIntelDescisionVC: JHBaseNavVC{
     func scanBind(_ sn:String, type:PageActionType) {
         pageType = type
         SN = sn
+        snVM.SNCode = sn
         snVM.value = sn //扫描结果，更新UI上屏
         loadSceneData()
     }
@@ -240,7 +241,11 @@ class JHBindingEditIntelDescisionVC: JHBaseNavVC{
             complate.titleLabel?.font = .systemFont(ofSize: 15, weight: .bold)
             complate.setTitleColor(.initWithHex("333333"), for: .normal)
             complate.jh.setHandleClick { button in
-                
+                guard self.nickVM.value.count > 0 else {
+                    VCTools.toast("请输入设备名称")
+                    return
+                }
+                self.bindModel.name = self.nickVM.value
                 self.submit()
             }
             
@@ -394,6 +399,7 @@ extension JHBindingEditIntelDescisionVC:UITableViewDelegate,UITableViewDataSourc
                 self.sceneVM.bind(view: scene)
             case .Nick:
                 let nick = cell as! JHDeviceNickCell
+                nick.isUserInteractionEnabled = true
                 nick.bind(viewModel: self.nickVM)
                 self.nickVM.bind(view: nick)
             }
