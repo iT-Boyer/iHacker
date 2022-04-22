@@ -135,6 +135,9 @@
 		B3D0486E27D0A3C700E9CBF2 /* GetIOTDeviceSceneList.json in Resources */ = {isa = PBXBuildFile; fileRef = B3D0486D27D0A3C600E9CBF2 /* GetIOTDeviceSceneList.json */; };
 		B3D7C6BB27EC65B300E0EDBA /* JHDeviceBindModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D7C6BA27EC65B300E0EDBA /* JHDeviceBindModel.swift */; };
 		B3DA503E277D8D13009B6A0E /* SecondB.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DA503D277D8D13009B6A0E /* SecondB.swift */; };
+		B3F33432281295BC003B834D /* JHVideoActivityBaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F33431281295BC003B834D /* JHVideoActivityBaseController.swift */; };
+		B3F3343428129EA9003B834D /* VideoActivitySquareController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F3343328129EA9003B834D /* VideoActivitySquareController.swift */; };
+		B3F3343628129ED8003B834D /* PersonalVideoActivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F3343528129ED8003B834D /* PersonalVideoActivityController.swift */; };
 		B3F4599927EDDAB300AADC08 /* JHNickViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F4599827EDDAB200AADC08 /* JHNickViewModel.swift */; };
 		B3F4599B27F3F1C500AADC08 /* JHSNViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F4599A27F3F1C500AADC08 /* JHSNViewModel.swift */; };
 		B3F4599D27F438F100AADC08 /* JHDeviceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F4599C27F438F000AADC08 /* JHDeviceViewModel.swift */; };
@@ -357,6 +360,9 @@
 		B3D0486D27D0A3C600E9CBF2 /* GetIOTDeviceSceneList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GetIOTDeviceSceneList.json; sourceTree = "<group>"; };
 		B3D7C6BA27EC65B300E0EDBA /* JHDeviceBindModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHDeviceBindModel.swift; sourceTree = "<group>"; };
 		B3DA503D277D8D13009B6A0E /* SecondB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondB.swift; sourceTree = "<group>"; };
+		B3F33431281295BC003B834D /* JHVideoActivityBaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHVideoActivityBaseController.swift; sourceTree = "<group>"; };
+		B3F3343328129EA9003B834D /* VideoActivitySquareController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoActivitySquareController.swift; sourceTree = "<group>"; };
+		B3F3343528129ED8003B834D /* PersonalVideoActivityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalVideoActivityController.swift; sourceTree = "<group>"; };
 		B3F4599827EDDAB200AADC08 /* JHNickViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHNickViewModel.swift; sourceTree = "<group>"; };
 		B3F4599A27F3F1C500AADC08 /* JHSNViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHSNViewModel.swift; sourceTree = "<group>"; };
 		B3F4599C27F438F000AADC08 /* JHDeviceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHDeviceViewModel.swift; sourceTree = "<group>"; };
@@ -659,6 +665,7 @@
 		B38D889D277B199400888EFB /* iWorker */ = {
 			isa = PBXGroup;
 			children = (
+				B3F334302812956F003B834D /* 一张图活动 */,
 				B35E115E27BF35EC00A8BEF3 /* 智能设备 */,
 				B32303362787ED7C0056BDCC /* 连锁集团 */,
 				B38D88D8277B19D700888EFB /* 晨检机 */,
@@ -857,6 +864,16 @@
 				B3BC83DC277C76100023257B /* RuntimeCmd-Bridging-Header.h */,
 			);
 			path = RuntimeCmd;
+			sourceTree = "<group>";
+		};
+		B3F334302812956F003B834D /* 一张图活动 */ = {
+			isa = PBXGroup;
+			children = (
+				B3F33431281295BC003B834D /* JHVideoActivityBaseController.swift */,
+				B3F3343328129EA9003B834D /* VideoActivitySquareController.swift */,
+				B3F3343528129ED8003B834D /* PersonalVideoActivityController.swift */,
+			);
+			path = "一张图活动";
 			sourceTree = "<group>";
 		};
 		B3F4599E27F4391C00AADC08 /* ViewModel */ = {
@@ -1368,6 +1385,7 @@
 				B38D8936277B1C6D00888EFB /* Env.swift in Sources */,
 				B38D889F277B199400888EFB /* AppDelegate.swift in Sources */,
 				B3230362278C2BAA0056BDCC /* JHUnitOrgBaseModel.swift in Sources */,
+				B3F3343628129ED8003B834D /* PersonalVideoActivityController.swift in Sources */,
 				B38D88A1277B199400888EFB /* SceneDelegate.swift in Sources */,
 				B3697E7927E42481004D8867 /* JHDeviceSNCell.swift in Sources */,
 				B3697E8227E45778004D8867 /* JHSceneModels.swift in Sources */,
@@ -1378,6 +1396,7 @@
 				B38D8939277B1C7300888EFB /* JHMornCameraController.swift in Sources */,
 				B313EF3A278EDCD40089625F /* StoreDSelSearchBar.swift in Sources */,
 				B323033E278827670056BDCC /* JHUnitOrgSearchController.swift in Sources */,
+				B3F3343428129EA9003B834D /* VideoActivitySquareController.swift in Sources */,
 				B3F4599B27F3F1C500AADC08 /* JHSNViewModel.swift in Sources */,
 				B374E95F27EB02610033B72C /* JHDeviceTimesCell.swift in Sources */,
 				B33EF39827BFAD9000A3B6DE /* JHDeviceInviteAPI.swift in Sources */,
@@ -1387,6 +1406,7 @@
 				B3697E7727E41F8E004D8867 /* JHDeviceBaseCell.swift in Sources */,
 				B3D7C6BB27EC65B300E0EDBA /* JHDeviceBindModel.swift in Sources */,
 				B35E116127BF36E400A8BEF3 /* JHDeviceInvitedController.swift in Sources */,
+				B3F33432281295BC003B834D /* JHVideoActivityBaseController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
