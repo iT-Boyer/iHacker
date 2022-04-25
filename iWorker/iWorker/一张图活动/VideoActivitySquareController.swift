@@ -15,4 +15,9 @@ class VideoActivitySquareController: JHVideoActivityBaseController {
         // Do any additional setup after loading the view.
     }
     
+    override func createView() {
+        self.tableView.register(JHSquareVideoActCell.self, forCellReuseIdentifier: "JHSquareVideoActCell")
+        
+    }
+    
 }

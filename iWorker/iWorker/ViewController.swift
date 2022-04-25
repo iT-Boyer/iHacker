@@ -13,8 +13,8 @@ class ViewController: JHBaseNavVC {
 
     var page:UIViewController!
     var rows:[(String, UIViewController.Type)]{
-        [("活动广场",JHBindingEditIntelDescisionVC.self),
-         ("我发布的活动",JHBindingEditIntelDescisionVC.self),
+        [("活动广场",VideoActivitySquareController.self),
+         ("我发布的活动",PersonalVideoActivityController.self),
          ("绑定",JHBindingEditIntelDescisionVC.self),
          ("| 自动绑定",JHBindingEditIntelDescisionVC.self),
          ("| 详情编辑",JHBindingEditIntelDescisionVC.self),
