@@ -89,7 +89,7 @@ extension JHVideoActivityBaseController:UITableViewDataSource,UITableViewDelegat
                                   "AppId":JHBaseInfo.appID,
                                   "UserId":JHBaseInfo.userID,
                                   "PageSize":20,
-                                  "PageIndex":pageIndexgst]
+                                  "PageIndex":pageIndex]
         
         let urlStr = JHBaseDomain.fullURL(with: "api_host_imv", path: "/api/Activity/\(api)")
         let hud = MBProgressHUD.showAdded(to:view, animated: true)
