@@ -13,7 +13,8 @@ import MBProgressHUD
 class JHVideoActivityBaseController: JHBaseNavVC {
 
     var dataArray:[JHActivityModel] = []
-    
+    var pageIndex = 1
+    var currentAPI = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -54,6 +55,28 @@ class JHVideoActivityBaseController: JHBaseNavVC {
         tbl.rowHeight = UITableView.automaticDimension
         tbl.tableFooterView = UIView()
         tbl.separatorStyle = .none
+        
+        tbl.es.addPullToRefresh {
+            [unowned self] in
+            /// 在这里做刷新相关事件
+            self.loadData(api:self.currentAPI)
+//            /// 如果你的刷新事件成功，设置completion自动重置footer的状态
+//            self.tableView.es.stopPullToRefresh()
+//            /// 设置ignoreFooter来处理不需要显示footer的情况
+//            self.tableView.es.stopPullToRefresh(ignoreDate: true, ignoreFooter: true)
+        }
+        
+        tbl.es.addInfiniteScrolling {
+            [unowned self] in
+            /// 在这里做加载更多相关事件
+            self.loadData(api:self.currentAPI)
+//            /// 如果你的加载更多事件成功，调用es_stopLoadingMore()重置footer状态
+//            self.tableView.es.stopLoadingMore()
+//            /// 通过es_noticeNoMoreData()设置footer暂无数据状态
+//            self.tableView.es.noticeNoMoreData()
+        }
+        
+        
         return tbl
     }()
 }
@@ -61,11 +84,12 @@ class JHVideoActivityBaseController: JHBaseNavVC {
 extension JHVideoActivityBaseController:UITableViewDataSource,UITableViewDelegate{
     
     func loadData(api:String) {
+        currentAPI = api
         let param:[String:Any] = ["OrgId":JHBaseInfo.orgID,
                                   "AppId":JHBaseInfo.appID,
                                   "UserId":JHBaseInfo.userID,
                                   "PageSize":20,
-                                  "PageIndex":1]
+                                  "PageIndex":pageIndexgst]
         
         let urlStr = JHBaseDomain.fullURL(with: "api_host_imv", path: "/api/Activity/\(api)")
         let hud = MBProgressHUD.showAdded(to:view, animated: true)
@@ -83,14 +107,30 @@ extension JHVideoActivityBaseController:UITableViewDataSource,UITableViewDelegat
             if result {
                 let rawData = try! json["Data"].rawData()
                 let dataArray:[JHActivityModel] = JHActivityModel.parsed(data: rawData)
-                print("解析结果：\(dataArray.count)")
-                weakSelf.dataArray = dataArray
+                if weakSelf.pageIndex == 1 {
+                    weakSelf.dataArray.removeAll()
+                }
+                if dataArray.count > 0 {
+                    weakSelf.dataArray += dataArray
+                }
+                
                 OperationQueue.main.addOperation {
-                    weakSelf.tableView.reloadData()
+                    if weakSelf.dataArray.count > 0 {
+                        weakSelf.tableView.reloadData()
+                        weakSelf.pageIndex += 1
+                        weakSelf.hideEmptyView()
+                    }else{
+                        weakSelf.pageIndex = 0
+                        weakSelf.showNoDataView()
+                    }
                 }
             }else{
                 let msg = json["Message"].stringValue
 //                MBProgressHUD.displayError(kInternetError)
+                OperationQueue.main.addOperation {
+                    weakSelf.pageIndex = 0
+                    weakSelf.showNoDataView()
+                }
             }
         }
     }
