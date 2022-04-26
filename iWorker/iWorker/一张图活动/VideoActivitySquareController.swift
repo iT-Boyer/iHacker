@@ -16,8 +16,13 @@ class VideoActivitySquareController: JHVideoActivityBaseController {
     }
     
     override func createView() {
+        super.createView()
         self.tableView.register(JHSquareVideoActCell.self, forCellReuseIdentifier: "JHSquareVideoActCell")
-        
     }
     
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell:JHSquareVideoActCell = tableView.dequeueReusableCell(withIdentifier: "JHSquareVideoActCell") as! JHSquareVideoActCell
+        cell.model = self.dataArray[indexPath.row]
+        return cell
+    }
 }

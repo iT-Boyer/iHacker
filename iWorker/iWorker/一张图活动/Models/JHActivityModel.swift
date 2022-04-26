@@ -7,27 +7,25 @@
 
 import UIKit
 
-// MARK: - JHVideoActBaseM
-struct JHVideoActBaseM: Codable {
-    let data: [Datum]
-    let isSuccess: Bool
-    let message: String
-
-    enum CodingKeys: String, CodingKey {
-        case data = "Data"
-        case isSuccess = "IsSuccess"
-        case message = "Message"
-    }
-}
-
-// MARK: - Datum
-struct Datum: Codable {
+// MARK: - JHActivityModel
+struct JHActivityModel: Codable {
+    
     let id, userName, activityName, activityPath: String
     let activityImagePath: String
     let activityStartDate, activityEndDate: String
     let activityStatus, activityProgress, joinCount: Int
     let activitySubDate: String
 
+    // 解析
+    static func parsed<T:Decodable>(data:Data) -> T {
+        do{
+            let decoder = JSONDecoder()
+            return try decoder.decode(T.self, from: data)
+        }catch{
+            fatalError(#function+"解析失败：\(error)")
+        }
+    }
+    
     enum CodingKeys: String, CodingKey {
         case id = "Id"
         case userName = "UserName"

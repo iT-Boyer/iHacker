@@ -7,13 +7,18 @@
 
 import UIKit
 import JHBase
+import SwiftyJSON
+import MBProgressHUD
 
 class JHVideoActivityBaseController: JHBaseNavVC {
 
+    var dataArray:[JHActivityModel] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         createView()
+        loadData()
     }
     
     func createView(){
@@ -31,25 +36,10 @@ class JHVideoActivityBaseController: JHBaseNavVC {
             make.size.equalTo(CGSize.init(width: 50, height: 30))
         }
         //列表
-        self.view.addSubview(tableView)
-        self.tableView.es.addPullToRefresh {
-            [unowned self] in
-            /// 在这里做刷新相关事件
-//            loadData(true)
-//            /// 如果你的刷新事件成功，设置completion自动重置footer的状态
-//            self.tableView.es.stopPullToRefresh()
-//            /// 设置ignoreFooter来处理不需要显示footer的情况
-//            self.tableView.es.stopPullToRefresh(ignoreDate: true, ignoreFooter: true)
-        }
-        
-        self.tableView.es.addInfiniteScrolling {
-            [unowned self] in
-            /// 在这里做加载更多相关事件
-//            loadData()
-//            /// 如果你的加载更多事件成功，调用es_stopLoadingMore()重置footer状态
-//            self.tableView.es.stopLoadingMore()
-//            /// 通过es_noticeNoMoreData()设置footer暂无数据状态
-//            self.tableView.es.noticeNoMoreData()
+        view.addSubview(tableView)
+        tableView.snp.makeConstraints { make in
+            make.top.equalTo(self.navBar.snp.bottom)
+            make.bottom.left.right.equalToSuperview()
         }
     }
     
@@ -70,33 +60,51 @@ class JHVideoActivityBaseController: JHBaseNavVC {
 }
 
 extension JHVideoActivityBaseController:UITableViewDataSource,UITableViewDelegate{
+    
+    func loadData() {
+        let param:[String:Any] = ["OrgId":JHBaseInfo.orgID,
+                                  "AppId":JHBaseInfo.appID,
+                                  "UserId":JHBaseInfo.userID,
+                                  "PageSize":20,
+                                  "PageIndex":1]
+        
+        let urlStr = JHBaseDomain.fullURL(with: "api_host_imv", path: "/api/Activity/ActivitySquare")
+        let hud = MBProgressHUD.showAdded(to:view, animated: true)
+        hud.removeFromSuperViewOnHide = true
+        let request = JN.post(urlStr, parameters: param, headers: nil)
+        request.response {[weak self] response in
+            hud.hide(animated: true)
+            guard let weakSelf = self else { return }
+            guard let data = response.data else {
+//                MBProgressHUD.displayError(kInternetError)
+                return
+            }
+            let json = JSON(data)
+            let result = json["IsSuccess"].boolValue
+            if result {
+                let rawData = try! json["Data"].rawData()
+                let dataArray:[JHActivityModel] = JHActivityModel.parsed(data: rawData)
+                print("解析结果：\(dataArray.count)")
+                weakSelf.dataArray = dataArray
+                OperationQueue.main.addOperation {
+                    weakSelf.tableView.reloadData()
+                }
+            }else{
+                let msg = json["Message"].stringValue
+//                MBProgressHUD.displayError(kInternetError)
+            }
+        }
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         UITableViewCell()
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        4
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //
-        1
+        return dataArray.count
     }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        12
-    }
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = UIView()
-        header.backgroundColor = .clear
-        return header
-    }
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        0.0001
-    }
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        nil
-    }
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //
         print("点击事件")

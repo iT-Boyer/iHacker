@@ -8,6 +8,9 @@
 import UIKit
 import SnapKit
 import JHBase
+import Kingfisher
+import SwifterSwift
+
 class JHPersonVideoActCell: JHVideoActBaseCell {
     
 }
@@ -24,16 +27,36 @@ class JHSquareVideoActCell: JHVideoActBaseCell {
 }
 
 class JHVideoActBaseCell: UITableViewCell {
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.selectionStyle = .none
+        createView()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func customLab()->UILabel {
+        return UILabel()
+    }
+    
+    var model:JHActivityModel!{
+        didSet{
+            titleLab.text = model.activityName
+            numLab.text = "\(model.joinCount)"
+            dateLab.text = "活动时间：" + model.activityStartDate + "-" + model.activityEndDate
+            if let url = URL(string: model.activityImagePath) {
+                imgView.kf.indicatorType = .activity
+                imgView.kf.setImage(with: url)
+            }
+        }
+    }
 
     lazy var rootView: UIView = {
         let root = UIView()
         root.backgroundColor = .white
-        root.snp.makeConstraints { make in
-            make.top.equalTo(15)
-            make.left.equalTo(12)
-            make.centerX.equalToSuperview()
-            make.bottom.equalTo(-5)
-        }
         return root
     }()
     
@@ -73,24 +96,16 @@ class JHVideoActBaseCell: UITableViewCell {
         return customLab()
     }()
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        self.selectionStyle = .none
-        createView()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    func customLab()->UILabel {
-        return UILabel()
-    }
-    
     func createView() {
         //
         self.contentView.addSubview(rootView)
-        rootView.addSubviews([imgView, titleLab, numLab, ingLab, dateLab])
+        rootView.snp.makeConstraints { make in
+            make.top.equalTo(15)
+            make.left.equalTo(12)
+            make.centerX.equalToSuperview()
+            make.bottom.equalTo(-5)
+        }
+        rootView.addSubviews([imgView, titleLab, numLab, ingLab, dateLab, statusLab])
         imgView.snp.makeConstraints { make in
             make.top.left.right.equalTo(0)
             make.height.equalTo(138)
@@ -102,12 +117,12 @@ class JHVideoActBaseCell: UITableViewCell {
         numLab.snp.makeConstraints { make in
             make.right.equalTo(-8)
             make.top.equalTo(imgView.snp.bottom).offset(8)
+            make.left.greaterThanOrEqualTo(titleLab.snp.right).offset(8)
         }
         ingLab.snp.makeConstraints { make in
             make.left.equalTo(8)
             make.height.equalTo(15)
             make.top.equalTo(titleLab.snp.bottom).offset(8)
-            make.bottom.equalTo(-10)
         }
         dateLab.snp.makeConstraints { make in
             make.left.equalTo(8)
