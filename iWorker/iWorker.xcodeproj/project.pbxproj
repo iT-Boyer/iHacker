@@ -12,6 +12,7 @@
 		B31202162816A1AA002D4FA3 /* MyActivity.json in Resources */ = {isa = PBXBuildFile; fileRef = B31202132816A1AA002D4FA3 /* MyActivity.json */; };
 		B31202172816A1AA002D4FA3 /* ActivitySquare.json in Resources */ = {isa = PBXBuildFile; fileRef = B31202142816A1AA002D4FA3 /* ActivitySquare.json */; };
 		B31202192816A6AF002D4FA3 /* JHActivityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31202182816A6AF002D4FA3 /* JHActivityModel.swift */; };
+		B312021B2817FEE0002D4FA3 /* Delete.json in Resources */ = {isa = PBXBuildFile; fileRef = B312021A2817FEE0002D4FA3 /* Delete.json */; };
 		B313EF3A278EDCD40089625F /* StoreDSelSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B313EF39278EDCD40089625F /* StoreDSelSearchBar.swift */; };
 		B32225BA2795753500953EF3 /* JHUnitOrgAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32225B92795753500953EF3 /* JHUnitOrgAlertController.swift */; };
 		B32303382787EDBD0056BDCC /* JHUnitJoinOrgViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32303372787EDBD0056BDCC /* JHUnitJoinOrgViewController.swift */; };
@@ -244,6 +245,7 @@
 		B31202132816A1AA002D4FA3 /* MyActivity.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MyActivity.json; sourceTree = "<group>"; };
 		B31202142816A1AA002D4FA3 /* ActivitySquare.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ActivitySquare.json; sourceTree = "<group>"; };
 		B31202182816A6AF002D4FA3 /* JHActivityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHActivityModel.swift; sourceTree = "<group>"; };
+		B312021A2817FEE0002D4FA3 /* Delete.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Delete.json; sourceTree = "<group>"; };
 		B313EF39278EDCD40089625F /* StoreDSelSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDSelSearchBar.swift; sourceTree = "<group>"; };
 		B32225B92795753500953EF3 /* JHUnitOrgAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHUnitOrgAlertController.swift; sourceTree = "<group>"; };
 		B32303372787EDBD0056BDCC /* JHUnitJoinOrgViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHUnitJoinOrgViewController.swift; sourceTree = "<group>"; };
@@ -514,6 +516,7 @@
 				B31202122816A1AA002D4FA3 /* GetActivityInfo.json */,
 				B31202132816A1AA002D4FA3 /* MyActivity.json */,
 				B31202142816A1AA002D4FA3 /* ActivitySquare.json */,
+				B312021A2817FEE0002D4FA3 /* Delete.json */,
 			);
 			name = JSON;
 			path = "../../../../SupervisionSel/SupervisionSel/Classes/Controller/一张图活动/Models/Response/JSON";
@@ -1270,6 +1273,7 @@
 				B323036E278D3B460056BDCC /* CheckEnterChain.json in Resources */,
 				B31202152816A1AA002D4FA3 /* GetActivityInfo.json in Resources */,
 				B31202172816A1AA002D4FA3 /* ActivitySquare.json in Resources */,
+				B312021B2817FEE0002D4FA3 /* Delete.json in Resources */,
 				B3230370278D3B460056BDCC /* GetEnterChainList.json in Resources */,
 				B3230365278C301F0056BDCC /* JHUniversalResource.bundle in Resources */,
 				B34635C027E37FA0002CA750 /* DeletePersonDevice.json in Resources */,

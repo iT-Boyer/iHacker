@@ -7,6 +7,15 @@
 
 import UIKit
 
+enum ActivityStatus {
+    case None
+    case Apply  //审核中
+    case Fail   //审核失败
+    case Wait   //未开始
+    case Ing    //进行中/审核通过
+    case Over   //已结束
+}
+
 // MARK: - JHActivityModel
 struct JHActivityModel: Codable {
     
@@ -16,6 +25,32 @@ struct JHActivityModel: Codable {
     let activityStatus, activityProgress, joinCount: Int
     let activitySubDate: String
 
+    var status:ActivityStatus?{
+        var state:ActivityStatus = .None
+        if (activityStatus == 0) {
+            state = .Apply
+        }else if(activityStatus == 1){
+            // 审核通过
+            switch (activityProgress) {
+                case 0:
+                    state = .Wait
+                    break;
+                case 1:
+                    state = .Ing
+                    break;
+                case 2:
+                    state = .Over
+                    break;
+                default:
+                    break;
+            }
+        }else{
+                state = .Fail
+        }
+        return state
+    }
+    
+    
     // 解析
     static func parsed<T:Decodable>(data:Data) -> T {
         do{

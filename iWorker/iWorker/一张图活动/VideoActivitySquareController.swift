@@ -11,8 +11,9 @@ class VideoActivitySquareController: JHVideoActivityBaseController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        navTitle = "活动广场"
         // Do any additional setup after loading the view.
+        loadData(api: "ActivitySquare")
     }
     
     override func createView() {

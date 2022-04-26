@@ -18,7 +18,6 @@ class JHVideoActivityBaseController: JHBaseNavVC {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         createView()
-        loadData()
     }
     
     func createView(){
@@ -45,7 +44,7 @@ class JHVideoActivityBaseController: JHBaseNavVC {
     
     //MARK: getter
     lazy var tableView = { () -> UITableView in
-        let tbl = UITableView(frame: .zero, style: .grouped)
+        let tbl = UITableView()
         tbl.delegate = self
         tbl.dataSource = self
         tbl.showsVerticalScrollIndicator = false
@@ -61,14 +60,14 @@ class JHVideoActivityBaseController: JHBaseNavVC {
 
 extension JHVideoActivityBaseController:UITableViewDataSource,UITableViewDelegate{
     
-    func loadData() {
+    func loadData(api:String) {
         let param:[String:Any] = ["OrgId":JHBaseInfo.orgID,
                                   "AppId":JHBaseInfo.appID,
                                   "UserId":JHBaseInfo.userID,
                                   "PageSize":20,
                                   "PageIndex":1]
         
-        let urlStr = JHBaseDomain.fullURL(with: "api_host_imv", path: "/api/Activity/ActivitySquare")
+        let urlStr = JHBaseDomain.fullURL(with: "api_host_imv", path: "/api/Activity/\(api)")
         let hud = MBProgressHUD.showAdded(to:view, animated: true)
         hud.removeFromSuperViewOnHide = true
         let request = JN.post(urlStr, parameters: param, headers: nil)

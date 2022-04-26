@@ -45,15 +45,62 @@ class JHVideoActBaseCell: UITableViewCell {
     var model:JHActivityModel!{
         didSet{
             titleLab.text = model.activityName
-            numLab.text = "\(model.joinCount)"
+            numLab.text = "\(model.joinCount) 人参赛"
             dateLab.text = "活动时间：" + model.activityStartDate + "-" + model.activityEndDate
             if let url = URL(string: model.activityImagePath) {
                 imgView.kf.indicatorType = .activity
                 imgView.kf.setImage(with: url)
             }
+            
+            ingLab.isHidden = true
+            switch model.status {
+            case .Wait:
+                //未开始
+                ingLab.isHidden = false
+                ingLab.text = " 未开始 "
+                lab(lab: ingLab, col: .initWithHex("FF3359"))
+                break
+            case .Ing:
+                //火热进行中
+                ingLab.isHidden = false
+                ingLab.text = " 火热进行中 "
+                lab(lab: ingLab, col: .initWithHex("FF3359"))
+                break
+            case .Over:
+                //已结束
+                ingLab.isHidden = false
+                ingLab.text = " 已结束 "
+                lab(lab: ingLab, col: .initWithHex("5E637B"))
+                break
+            default:
+                //
+                break
+            }
+            
         }
     }
-
+    
+    func lab(lab:UILabel, col:UIColor) {
+        lab.textColor = col
+        lab.layer.cornerRadius = 2
+        lab.layer.borderColor = col.cgColor
+        lab.layer.borderWidth = 1
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        // 阴影颜色
+        rootView.layer.shadowColor = UIColor.initWithHex("1B1C25").cgColor
+        // 阴影偏移，默认(0, -3)
+        rootView.layer.shadowOffset = CGSize.zero
+        // 阴影透明度，默认0
+        rootView.layer.shadowOpacity = 1
+        // 阴影半径，默认3
+        rootView.layer.shadowRadius = 4
+        rootView.layer.cornerRadius = 6
+        
+        imgView.roundCorners( [.topLeft, .topRight], radius: 6)
+    }
     lazy var rootView: UIView = {
         let root = UIView()
         root.backgroundColor = .white
