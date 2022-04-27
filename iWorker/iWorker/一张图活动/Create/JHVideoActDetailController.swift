@@ -48,16 +48,15 @@ class JHVideoActDetailController: JHAddActivityBaseController {
             let json = JSON(data)
             let result = json["IsSuccess"].boolValue
             if result {
-                let rawData = try! json["Data"].rawData()
-                let model:JHActivityModel = JHActivityModel.parsed(data: rawData)
+                let modelJ = try! json["Data"]
                 OperationQueue.main.addOperation {
-                    if let url = URL(string: model.activityImagePath) {
+                    if let url = URL(string: modelJ["ActivityImagePath"].stringValue) {
                         weakSelf.photo.kf.setImage(with: url, for:.normal, placeholder: .init(named: "uploadImg"))
                     }
-                    weakSelf.field.text = model.activityName
-                    weakSelf.startDate.dateBtn.setTitle(model.activityStartDate, for: .selected)
-                    weakSelf.endDate.dateBtn.setTitle(model.activityEndDate, for: .selected)
-                    weakSelf.textView.text = model.activityPath
+                    weakSelf.field.text = modelJ["ActivityName"].stringValue
+                    weakSelf.startDate.dateBtn.setTitle(modelJ["ActivityStartDate"].stringValue, for: .selected)
+                    weakSelf.endDate.dateBtn.setTitle(modelJ["ActivityEndDate"].stringValue, for: .selected)
+                    weakSelf.textView.text = modelJ["ActivityPath"].stringValue
                 }
             }else{
                 let msg = json["Message"].stringValue
