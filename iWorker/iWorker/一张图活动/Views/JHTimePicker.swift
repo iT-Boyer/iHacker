@@ -23,11 +23,9 @@ class JHTimePicker: UIViewController {
     lazy var timePicker:UIDatePicker  = {
         let picker = UIDatePicker()
         picker.backgroundColor = .white
-//        picker.datePickerMode = .time
+        picker.datePickerMode = .date
         picker.preferredDatePickerStyle = .wheels
         picker.date = Date.now
-        //设置为24小时制
-//        picker.locale = Locale(identifier: "en_GB")
         return picker
     }()
     func createView() {
@@ -52,16 +50,6 @@ class JHTimePicker: UIViewController {
         sure.titleLabel?.font = .systemFont(ofSize: 17)
         sure.setTitleColor(.initWithHex("007AFF"), for: .normal)
         sure.jh.setHandleClick { [unowned self] button in
-            //TODO: 添加时间戳
-//            let format = DateFormatter()
-//            format.dateFormat = "HH:mm" //24小时制， @"hh:mm" 12小时制
-//            let time = format.string(from: timePicker.date)
-            //比较
-//            let result = startPicker.date.compare(self.endPicker.date)
-//            if (result == .orderedDescending || startTime == endTime) {
-//                VCTools.toast("开始时间不能大于结束时间")
-//                return
-//            }
             self.dismiss(animated: true) {
                 self.timeHandler(timePicker.date)
             }

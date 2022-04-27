@@ -23,7 +23,7 @@ class JHTimeSetingView: UIView {
         let time = JHTimePicker()
         time.timeHandler = {[unowned self] result in
             let format = DateFormatter()
-            format.dateFormat = "YYYY年MM月dd日 hh时mm分"
+            format.dateFormat = "YYYY年MM月dd日"
             let time = format.string(from: result)
             print("选择的时间：\(time)")
             dateBtn.isSelected = true

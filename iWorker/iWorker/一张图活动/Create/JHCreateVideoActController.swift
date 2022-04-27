@@ -6,15 +6,75 @@
 //
 
 import UIKit
+import JHBase
+import SwiftyJSON
+import MBProgressHUD
 
 class JHCreateVideoActController: JHAddActivityBaseController {
 
+    var activityName = ""
+    var photoUrl = ""
+    var startTime = ""
+    var endTime = ""
+    var note = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        navTitle = "添加活动"
     }
 
+    func saveAction() {
+        
+        guard activityName.count > 0, note.count > 0, photoUrl.hasPrefix("https"), startTime.count > 0, endTime.count > 0 else {
+//            MBProgressHUD.displayError("请先完善活动信息")
+            return
+        }
+        
+        let formater = DateFormatter()
+        formater.dateFormat = "YYYY年MM月dd日"
+        let start = formater.date(from: startTime)
+        let end = formater.date(from: endTime)
+        let result = start?.compare(end!)
+        if (result == .orderedDescending) {
+            VCTools.toast("开始时间不能晚于结束时间")
+            return
+        }
+        
+        let param:[String:Any] = ["OrgId":JHBaseInfo.orgID,
+                                  "AppId":JHBaseInfo.appID,
+                                  "UserId":JHBaseInfo.userID,
+                                  "UserName":JHBaseInfo.userAccount,
+                                  "ActivityName":activityName,
+                                  "ActivityImagePath":photoUrl,
+                                  "ActivityStartDate":startTime,
+                                  "ActivityEndDate":endTime,
+                                  "ActivityPath":note]
+        
+        let urlStr = JHBaseDomain.fullURL(with: "api_host_imv", path: "/api/Activity/Add")
+        let hud = MBProgressHUD.showAdded(to:view, animated: true)
+        hud.removeFromSuperViewOnHide = true
+        let request = JN.post(urlStr, parameters: param, headers: nil)
+        request.response {[weak self] response in
+            hud.hide(animated: true)
+            guard let weakSelf = self else { return }
+            guard let data = response.data else {
+//                MBProgressHUD.displayError(kInternetError)
+                return
+            }
+            
+            let json = JSON(data)
+            let result = json["IsSuccess"].boolValue
+            if result {
+                weakSelf.backBtnClicked(UIButton())
+            }else{
+                let msg = json["Message"].stringValue
+//                MBProgressHUD.displayError(kInternetError)
+            }
+        }
+    }
+    
     override func createView() {
         super.createView()
         
@@ -28,8 +88,7 @@ class JHCreateVideoActController: JHAddActivityBaseController {
         cancel.titleLabel?.font = .systemFont(ofSize: 14)
         cancel.setTitleColor(.initWithHex("333333"), for: .normal)
         cancel.jh.setHandleClick {[unowned self] button in
-            
-            backBtnClicked(UIButton())
+            cancelAction()
         }
         let save = UIButton()
         save.setTitle("发布", for: .normal)
@@ -57,12 +116,12 @@ class JHCreateVideoActController: JHAddActivityBaseController {
     func cancelAction() {
         view.endEditing(true)
         let alert = UIAlertController(title: nil, message: "您确定放弃发布活动吗?", preferredStyle: .alert)
-        let ok = UIAlertAction.init(title: "确定", style: .default) { action in
-            
+        let ok = UIAlertAction.init(title: "确定", style: .default) {[unowned self] action in
+            backBtnClicked(UIButton())
         }
         let cancel = UIAlertAction(title: "取消", style: .default, handler: nil)
-        alert.addAction(ok)
         alert.addAction(cancel)
+        alert.addAction(ok)
         self.present(alert, animated: true, completion: nil)
     }
 }
