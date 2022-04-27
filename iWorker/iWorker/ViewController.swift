@@ -15,6 +15,8 @@ class ViewController: JHBaseNavVC {
     var rows:[(String, UIViewController.Type)]{
         [("活动广场",VideoActivitySquareController.self),
          ("我发布的活动",PersonalVideoActivityController.self),
+         ("发布活动",JHCreateVideoActController.self),
+         ("活动详情",JHVideoActDetailController.self),
          ("绑定",JHBindingEditIntelDescisionVC.self),
          ("| 自动绑定",JHBindingEditIntelDescisionVC.self),
          ("| 详情编辑",JHBindingEditIntelDescisionVC.self),

@@ -59,6 +59,7 @@ class JHVideoActivityBaseController: JHBaseNavVC {
         tbl.es.addPullToRefresh {
             [unowned self] in
             /// 在这里做刷新相关事件
+            self.pageIndex = 1
             self.loadData(api:self.currentAPI)
 //            /// 如果你的刷新事件成功，设置completion自动重置footer的状态
 //            self.tableView.es.stopPullToRefresh()
@@ -102,6 +103,8 @@ extension JHVideoActivityBaseController:UITableViewDataSource,UITableViewDelegat
 //                MBProgressHUD.displayError(kInternetError)
                 return
             }
+            weakSelf.tableView.es.stopLoadingMore()
+            weakSelf.tableView.es.stopPullToRefresh()
             let json = JSON(data)
             let result = json["IsSuccess"].boolValue
             if result {
@@ -120,7 +123,7 @@ extension JHVideoActivityBaseController:UITableViewDataSource,UITableViewDelegat
                         weakSelf.pageIndex += 1
                         weakSelf.hideEmptyView()
                     }else{
-                        weakSelf.pageIndex = 0
+                        weakSelf.pageIndex = 1
                         weakSelf.showNoDataView()
                     }
                 }
@@ -128,7 +131,7 @@ extension JHVideoActivityBaseController:UITableViewDataSource,UITableViewDelegat
                 let msg = json["Message"].stringValue
 //                MBProgressHUD.displayError(kInternetError)
                 OperationQueue.main.addOperation {
-                    weakSelf.pageIndex = 0
+                    weakSelf.pageIndex = 1
                     weakSelf.showNoDataView()
                 }
             }
