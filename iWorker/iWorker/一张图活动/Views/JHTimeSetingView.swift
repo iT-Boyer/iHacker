@@ -55,8 +55,7 @@ class JHTimeSetingView: UIView {
     
     
     func createView() {
-        
-        let arrow = UIImageView(image: .init(named: "setarrowimg"))
+        let arrow = UIImageView(image: .init(named: "JHShortVideoResource.bundle/setarrowimg"))
         addSubviews([titleLab,dateBtn,arrow])
         titleLab.snp.makeConstraints { make in
             make.top.equalTo(15)

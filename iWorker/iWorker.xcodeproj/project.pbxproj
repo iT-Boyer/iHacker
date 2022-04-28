@@ -544,6 +544,16 @@
 			path = Create;
 			sourceTree = "<group>";
 		};
+		B3120228281A7616002D4FA3 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				B3F33431281295BC003B834D /* JHVideoActivityBaseController.swift */,
+				B3F3343328129EA9003B834D /* VideoActivitySquareController.swift */,
+				B3F3343528129ED8003B834D /* PersonalVideoActivityController.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
 		B32303362787ED7C0056BDCC /* 连锁集团 */ = {
 			isa = PBXGroup;
 			children = (
@@ -942,9 +952,7 @@
 				B312020E28168DB3002D4FA3 /* Models */,
 				B312020D28168D89002D4FA3 /* ViewModels */,
 				B312020C28168D7E002D4FA3 /* Views */,
-				B3F33431281295BC003B834D /* JHVideoActivityBaseController.swift */,
-				B3F3343328129EA9003B834D /* VideoActivitySquareController.swift */,
-				B3F3343528129ED8003B834D /* PersonalVideoActivityController.swift */,
+				B3120228281A7616002D4FA3 /* List */,
 				B312021C2818DCE0002D4FA3 /* Create */,
 			);
 			path = "一张图活动";

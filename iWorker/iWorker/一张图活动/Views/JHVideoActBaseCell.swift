@@ -49,7 +49,7 @@ class JHVideoActBaseCell: UITableViewCell {
             dateLab.text = "活动时间：" + model.activityStartDate + "-" + model.activityEndDate
             if let url = URL(string: model.activityImagePath) {
                 imgView.kf.indicatorType = .activity
-                imgView.kf.setImage(with: url)
+                imgView.kf.setImage(with: url, placeholder: UIImage(named: "Kingfisher"))
             }
             
             ingLab.isHidden = true
