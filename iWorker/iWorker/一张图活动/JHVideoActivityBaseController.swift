@@ -23,14 +23,15 @@ class JHVideoActivityBaseController: JHBaseNavVC {
     
     func createView(){
         //导航条右边按钮
-        let complate = UIButton()
-        complate.setImage(.init(named: "add"), for: .normal)
-        complate.jh.setHandleClick { button in
-            
+        let create = UIButton()
+        create.setImage(.init(named: "add"), for: .normal)
+        create.jh.setHandleClick { button in
+            let createvc = JHCreateVideoActController()
+            self.navigationController?.pushViewController(createvc, completion: nil)
         }
         
-        navBar.addSubview(complate)
-        complate.snp.makeConstraints { make in
+        navBar.addSubview(create)
+        create.snp.makeConstraints { make in
             make.centerY.equalTo(navBar.titleLabel.snp.centerY)
             make.right.equalTo(-14)
             make.size.equalTo(CGSize.init(width: 50, height: 30))

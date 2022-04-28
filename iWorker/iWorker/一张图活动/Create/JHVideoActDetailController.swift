@@ -17,8 +17,10 @@ class JHVideoActDetailController: JHAddActivityBaseController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        field.text = "活动介绍"
         field.isUserInteractionEnabled = false
         textView.isUserInteractionEnabled = false
+        textView.textColor = .initWithHex("676C87")
         photo.isUserInteractionEnabled = false
         startDate.isUserInteractionEnabled = false
         endDate.isUserInteractionEnabled = false
@@ -53,10 +55,15 @@ class JHVideoActDetailController: JHAddActivityBaseController {
                     if let url = URL(string: modelJ["ActivityImagePath"].stringValue) {
                         weakSelf.photo.kf.setImage(with: url, for:.normal, placeholder: .init(named: "uploadImg"))
                     }
-                    weakSelf.field.text = modelJ["ActivityName"].stringValue
+                    weakSelf.navTitle = modelJ["ActivityName"].stringValue
                     weakSelf.startDate.dateBtn.setTitle(modelJ["ActivityStartDate"].stringValue, for: .selected)
                     weakSelf.endDate.dateBtn.setTitle(modelJ["ActivityEndDate"].stringValue, for: .selected)
                     weakSelf.textView.text = modelJ["ActivityPath"].stringValue
+                    let note = modelJ["ActivityPath"].stringValue
+                    let noteData = note.data(using: .unicode)
+                    if let attributedString = try? NSAttributedString(data: noteData!, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil) {
+                        weakSelf.textView.attributedText = attributedString
+                    }
                 }
             }else{
                 let msg = json["Message"].stringValue
@@ -64,6 +71,4 @@ class JHVideoActDetailController: JHAddActivityBaseController {
             }
         }
     }
-    
-    
 }

@@ -71,7 +71,8 @@ class JHAddActivityBaseController: JHBaseNavVC {
             make.top.equalTo(field.snp.bottom).offset(10)
             make.left.equalTo(12)
             make.centerX.equalToSuperview()
-            make.height.equalTo(height)
+            make.height.greaterThanOrEqualTo(height)
+            make.bottom.equalToSuperview().offset(-20)
         }
     }
     
@@ -94,6 +95,7 @@ class JHAddActivityBaseController: JHBaseNavVC {
     }()
     lazy var textView: UITextView = {
         let view = UITextView()
+        view.isScrollEnabled = false
         view.textColor = .initWithHex("99A0B6")
         view.returnKeyType = .done
         view.text = "活动内容介绍"
