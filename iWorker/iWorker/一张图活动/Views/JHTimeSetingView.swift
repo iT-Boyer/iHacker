@@ -9,9 +9,11 @@ import UIKit
 
 class JHTimeSetingView: UIView {
     
-    init(title:String,handler:(String)->Void) {
+    var handler:((String)->Void) = {_ in}
+    init(title:String,handler:@escaping (String)->Void) {
         super.init(frame: CGRect.zero)
         createView()
+        self.handler = handler
         titleLab.text = title
     }
     

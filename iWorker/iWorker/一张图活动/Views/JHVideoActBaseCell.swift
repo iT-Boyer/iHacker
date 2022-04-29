@@ -45,7 +45,7 @@ class JHVideoActBaseCell: UITableViewCell {
     var model:JHActivityModel!{
         didSet{
             titleLab.text = model.activityName
-            numLab.text = "\(model.joinCount) 人参赛"
+            numLab.text = "\(model.joinUserCount) 人参赛"
             dateLab.text = "活动时间：" + model.activityStartDate + "-" + model.activityEndDate
             if let url = URL(string: model.activityImagePath) {
                 imgView.kf.indicatorType = .activity

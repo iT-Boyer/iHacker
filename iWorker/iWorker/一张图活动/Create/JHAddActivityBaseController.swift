@@ -13,6 +13,9 @@ import MBProgressHUD
 
 class JHAddActivityBaseController: JHBaseNavVC {
 
+    var startTime = ""
+    var endTime = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -115,14 +118,14 @@ class JHAddActivityBaseController: JHBaseNavVC {
     
     lazy var startDate: JHTimeSetingView = {
         let time = JHTimeSetingView(title: "活动开始时间") { tim in
-            
+            self.startTime = tim
         }
         return time
     }()
     
     lazy var endDate: JHTimeSetingView = {
         let time = JHTimeSetingView(title: "活动结束时间") { tim in
-            
+            self.endTime = tim
         }
         return time
     }()

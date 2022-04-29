@@ -115,6 +115,9 @@ extension JHVideoActivityBaseController:UITableViewDataSource,UITableViewDelegat
                     weakSelf.dataArray.removeAll()
                 }
                 if dataArray.count > 0 {
+                    if dataArray.count < 20 {
+                        weakSelf.tableView.es.noticeNoMoreData()
+                    }
                     weakSelf.dataArray += dataArray
                 }
                 

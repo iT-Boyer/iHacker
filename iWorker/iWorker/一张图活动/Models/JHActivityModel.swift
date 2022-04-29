@@ -19,10 +19,11 @@ enum ActivityStatus {
 // MARK: - JHActivityModel
 struct JHActivityModel: Codable {
     
-    let id, userName, activityName, activityPath: String
+    let userName:String?
+    let id, activityName, activityPath: String
     let activityImagePath: String
     let activityStartDate, activityEndDate: String
-    let activityStatus, activityProgress, joinCount: Int
+    let activityStatus, activityProgress, joinCount, joinUserCount: Int
     let activitySubDate: String
 
     var status:ActivityStatus?{
@@ -69,9 +70,10 @@ struct JHActivityModel: Codable {
         case activityImagePath = "ActivityImagePath"
         case activityStartDate = "ActivityStartDate"
         case activityEndDate = "ActivityEndDate"
-        case activityStatus = "ActivityStatus"
-        case activityProgress = "ActivityProgress"
-        case joinCount = "JoinCount"
+        case activityStatus = "ActivityStatus"       //审核状态 0审核中，1审核通过，2审核未通过
+        case activityProgress = "ActivityProgress"   //活动进度 0未开始，1进行中，2已结束
+        case joinCount = "JoinCount"                 //参加次数
+        case joinUserCount = "JoinUserCount"         //参加人数变更为作品数
         case activitySubDate = "ActivitySubDate"
     }
 }

@@ -14,8 +14,6 @@ class JHCreateVideoActController: JHAddActivityBaseController {
 
     var activityName = ""
     var photoUrl = ""
-    var startTime = ""
-    var endTime = ""
     var note = ""
     
     override func viewDidLoad() {
@@ -94,8 +92,8 @@ class JHCreateVideoActController: JHAddActivityBaseController {
         save.setTitle("发布", for: .normal)
         save.titleLabel?.font = .systemFont(ofSize: 14)
         save.setTitleColor(.initWithHex("428BFE"), for: .normal)
-        save.jh.setHandleClick { button in
-            
+        save.jh.setHandleClick {[unowned self] button in
+            self.saveAction()
         }
         
         navBar.addSubviews([cancel, save])
@@ -178,6 +176,7 @@ extension JHCreateVideoActController:UITextViewDelegate{
             textView.text = String(textView.text.prefix(limit))
             textView.undoManager?.removeAllActions()
             textView.becomeFirstResponder()
+            VCTools.toast("活动介绍最多1千字")
             return
         }
     }
