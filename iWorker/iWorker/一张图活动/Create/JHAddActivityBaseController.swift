@@ -22,6 +22,8 @@ class JHAddActivityBaseController: JHBaseNavVC {
         createView()
     }
 
+    func upload() {}
+    
     func createView() {
         view.addSubview(scrollView)
         scrollView.snp.makeConstraints { make in
@@ -91,8 +93,11 @@ class JHAddActivityBaseController: JHBaseNavVC {
     
     lazy var photo: UIButton = {
         let btn = UIButton()
-        if let url = URL(string: "https://static.pgyer.com/static-20190917/assets/img/language_chinese") {
-            btn.kf.setImage(with: url, for:.normal, placeholder: .init(named: "uploadImg"))
+        btn.setImage(.init(named: "JHShortVideoResource.bundle/uploadImg"), for: .normal)
+        btn.imageView?.contentMode = .scaleAspectFill
+        btn.imageView?.clipsToBounds = true
+        btn.jh.setHandleClick { [self] button in
+            self.upload()
         }
         return btn
     }()

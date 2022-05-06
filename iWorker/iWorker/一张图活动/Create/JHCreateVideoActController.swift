@@ -73,6 +73,37 @@ class JHCreateVideoActController: JHAddActivityBaseController {
         }
     }
     
+    override func upload() {
+        super.upload()
+        let paraDic = ["tkCamareType":0,
+                       "canSelectImageCount":1,
+                       "sourceType":0,
+                       "UIViewController":self] as [String : Any]
+        /**
+         JHRoutingComponent.openURL(GETIMAGE, withParameter: paraDic) { [weak self] resultDic in
+             guard let self = self else { return }
+             guard let resultDic = resultDic as? [String: Any] else { return }
+             guard let array = resultDic["data"] as? [[String: Any]] else { return }
+             guard let imageDic = array.first else { return }
+             var image = imageDic["originalImage"] as? UIImage
+             if image == nil, let thImage = imageDic["thumbnails"] as? UIImage {
+                 image = thImage
+             }
+             
+             OperationQueue.main.addOperation {
+                 JHLiveBaseRequest.uploadImage(image, showLoading: true) { fileUrl in
+                     OperationQueue.main.addOperation {
+                         if let url = URL(string: fileUrl) {
+                             self.photo.kf.setImage(with: url, for: .normal, placeholder: .init(named: "JHShortVideoResource.bundle/img_placehodler"))
+                             self.photoUrl = fileUrl!
+                         }
+                     }
+                 }
+             }
+         }
+         */
+    }
+    
     override func createView() {
         super.createView()
         
