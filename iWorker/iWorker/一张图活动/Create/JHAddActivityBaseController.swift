@@ -41,6 +41,7 @@ class JHAddActivityBaseController: JHBaseNavVC {
         photo.snp.makeConstraints { make in
             make.top.equalTo(15)
             make.left.equalTo(12)
+            make.height.equalTo(148)
             make.centerX.equalToSuperview()
         }
         

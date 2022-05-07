@@ -13,6 +13,7 @@ import MBProgressHUD
 
 class JHVideoActDetailController: JHAddActivityBaseController {
 
+    var Id:String!
     override func viewDidLoad() {
         super.viewDidLoad()
 

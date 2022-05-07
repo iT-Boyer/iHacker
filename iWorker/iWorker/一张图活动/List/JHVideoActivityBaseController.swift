@@ -154,5 +154,9 @@ extension JHVideoActivityBaseController:UITableViewDataSource,UITableViewDelegat
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //
         print("点击事件")
+        let model = dataArray[indexPath.row]
+        let detail = JHVideoActDetailController()
+        detail.Id = model.id
+        self.navigationController?.pushViewController(detail, animated: true)
     }
 }
