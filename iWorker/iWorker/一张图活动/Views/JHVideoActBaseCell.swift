@@ -22,6 +22,9 @@ class JHSquareVideoActCell: JHVideoActBaseCell {
         lab.textColor = .white
         lab.backgroundColor = .initWithHex("FF3359")
         lab.layer.cornerRadius = 2
+        lab.layer.masksToBounds = true
+        lab.font = .systemFont(ofSize: 12)
+        lab.textAlignment = .right
         return lab
     }
 }
@@ -54,17 +57,25 @@ class JHVideoActBaseCell: UITableViewCell {
             
             ingLab.isHidden = true
             switch model.status {
+            case .Apply:
+                statusLab.text = " 审核中 "
+                statusLab.textColor = .initWithHex("FF4934")
+                break
             case .Wait:
                 //未开始
                 ingLab.isHidden = false
                 ingLab.text = " 未开始 "
                 lab(lab: ingLab, col: .initWithHex("FF3359"))
+                statusLab.text = "审核通过"
+                statusLab.textColor = .initWithHex("18D96F")
                 break
             case .Ing:
                 //火热进行中
                 ingLab.isHidden = false
                 ingLab.text = " 火热进行中 "
                 lab(lab: ingLab, col: .initWithHex("FF3359"))
+                statusLab.text = "审核通过"
+                statusLab.textColor = .initWithHex("18D96F")
                 break
             case .Over:
                 //已结束
@@ -72,8 +83,14 @@ class JHVideoActBaseCell: UITableViewCell {
                 ingLab.text = " 已结束 "
                 lab(lab: ingLab, col: .initWithHex("5E637B"))
                 break
+            case .Fail:
+                statusLab.text = "审核未通过"
+                statusLab.textColor = .initWithHex("FF4934")
+                break
             default:
                 //
+                statusLab.text = " 未知 "
+                statusLab.textColor = .white
                 break
             }
             
