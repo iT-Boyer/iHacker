@@ -133,6 +133,10 @@
 		B38D89C6277C482A00888EFB /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = B38D89C5277C482A00888EFB /* Nimble */; };
 		B38D89C8277C482A00888EFB /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = B38D89C7277C482A00888EFB /* Quick */; };
 		B38D89CB277C488700888EFB /* RuntimeAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38D89CA277C488700888EFB /* RuntimeAPITests.swift */; };
+		B3B4A6E1282BA0C5006B5F57 /* PhoneAccountBindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B4A6E0282BA0C5006B5F57 /* PhoneAccountBindViewController.swift */; };
+		B3B4A6E3282BA146006B5F57 /* AccountSecurityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B4A6E2282BA146006B5F57 /* AccountSecurityViewController.swift */; };
+		B3B4A6E5282BA3A5006B5F57 /* LoginGetBackPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B4A6E4282BA3A5006B5F57 /* LoginGetBackPassword.swift */; };
+		B3B4A6E7282BA469006B5F57 /* JHNewLoginSetPswViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B4A6E6282BA469006B5F57 /* JHNewLoginSetPswViewController.swift */; };
 		B3B5653327F5C18A00ED3C13 /* SavePersonDeviceInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = B3B5653227F5C0F700ED3C13 /* SavePersonDeviceInfo.json */; };
 		B3BC83D8277C75D70023257B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B3BC83D7277C75D70023257B /* main.m */; };
 		B3BC83DE277C76110023257B /* Teacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BC83DD277C76110023257B /* Teacher.swift */; };
@@ -367,6 +371,10 @@
 		B38D89BB277C480700888EFB /* SwiftLibBTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftLibBTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B38D89BD277C480700888EFB /* SwiftLibBTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftLibBTests.swift; sourceTree = "<group>"; };
 		B38D89CA277C488700888EFB /* RuntimeAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuntimeAPITests.swift; sourceTree = "<group>"; };
+		B3B4A6E0282BA0C5006B5F57 /* PhoneAccountBindViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneAccountBindViewController.swift; sourceTree = "<group>"; };
+		B3B4A6E2282BA146006B5F57 /* AccountSecurityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSecurityViewController.swift; sourceTree = "<group>"; };
+		B3B4A6E4282BA3A5006B5F57 /* LoginGetBackPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginGetBackPassword.swift; sourceTree = "<group>"; };
+		B3B4A6E6282BA469006B5F57 /* JHNewLoginSetPswViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHNewLoginSetPswViewController.swift; sourceTree = "<group>"; };
 		B3B5653227F5C0F700ED3C13 /* SavePersonDeviceInfo.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SavePersonDeviceInfo.json; sourceTree = "<group>"; };
 		B3BC83D5277C75D60023257B /* RuntimeCmd */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = RuntimeCmd; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3BC83D7277C75D70023257B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -744,6 +752,7 @@
 		B38D889D277B199400888EFB /* iWorker */ = {
 			isa = PBXGroup;
 			children = (
+				B3B4A6DF282B9B26006B5F57 /* 帐号安全 */,
 				B3F334302812956F003B834D /* 一张图活动 */,
 				B35E115E27BF35EC00A8BEF3 /* 智能设备 */,
 				B32303362787ED7C0056BDCC /* 连锁集团 */,
@@ -933,6 +942,17 @@
 				B38D89CA277C488700888EFB /* RuntimeAPITests.swift */,
 			);
 			path = SwiftLibBTests;
+			sourceTree = "<group>";
+		};
+		B3B4A6DF282B9B26006B5F57 /* 帐号安全 */ = {
+			isa = PBXGroup;
+			children = (
+				B3B4A6E2282BA146006B5F57 /* AccountSecurityViewController.swift */,
+				B3B4A6E0282BA0C5006B5F57 /* PhoneAccountBindViewController.swift */,
+				B3B4A6E6282BA469006B5F57 /* JHNewLoginSetPswViewController.swift */,
+				B3B4A6E4282BA3A5006B5F57 /* LoginGetBackPassword.swift */,
+			);
+			path = "帐号安全";
 			sourceTree = "<group>";
 		};
 		B3BC83D6277C75D60023257B /* RuntimeCmd */ = {
@@ -1451,6 +1471,7 @@
 				B38D893A277B1C7300888EFB /* JHDelegate.swift in Sources */,
 				B374EA2D27EC47DF0033B72C /* VCTools.swift in Sources */,
 				B38D8937277B1C7300888EFB /* JHMornUpPhotoController.swift in Sources */,
+				B3B4A6E1282BA0C5006B5F57 /* PhoneAccountBindViewController.swift in Sources */,
 				B3697E7B27E429A3004D8867 /* JHDeviceSceneCell.swift in Sources */,
 				B312021E2818DD20002D4FA3 /* JHAddActivityBaseController.swift in Sources */,
 				B38D8938277B1C7300888EFB /* JHMornInspecterController.swift in Sources */,
@@ -1459,6 +1480,7 @@
 				B312022228190DA9002D4FA3 /* JHTimePicker.swift in Sources */,
 				B38D88A3277B199400888EFB /* ViewController.swift in Sources */,
 				B3697E7D27E42D10004D8867 /* JHDeviceNickCell.swift in Sources */,
+				B3B4A6E7282BA469006B5F57 /* JHNewLoginSetPswViewController.swift in Sources */,
 				B323035A278C11240056BDCC /* UnitOrgChainModel.swift in Sources */,
 				B38D893B277B1CD800888EFB /* JHMornUploadModel.swift in Sources */,
 				B3306D4127B111C1005E7DDC /* JHUnitOrgHigherCell.swift in Sources */,
@@ -1470,6 +1492,7 @@
 				B323035E278C2B490056BDCC /* JHUnitOrgSearchCell.swift in Sources */,
 				B312022428191D88002D4FA3 /* JHCreateVideoActController.swift in Sources */,
 				B374E96127EC21F60033B72C /* JHDeviceTimePicker.swift in Sources */,
+				B3B4A6E3282BA146006B5F57 /* AccountSecurityViewController.swift in Sources */,
 				B32225BA2795753500953EF3 /* JHUnitOrgAlertController.swift in Sources */,
 				B374E95D27E9B08C0033B72C /* Tools.swift in Sources */,
 				B3697E8427E46DE1004D8867 /* JHSceneViewModel.swift in Sources */,
@@ -1487,6 +1510,7 @@
 				B323033C278827350056BDCC /* JHUnitOrgBaseViewController.swift in Sources */,
 				B3306D4727B245DA005E7DDC /* JHShapeView.swift in Sources */,
 				B38D8939277B1C7300888EFB /* JHMornCameraController.swift in Sources */,
+				B3B4A6E5282BA3A5006B5F57 /* LoginGetBackPassword.swift in Sources */,
 				B313EF3A278EDCD40089625F /* StoreDSelSearchBar.swift in Sources */,
 				B323033E278827670056BDCC /* JHUnitOrgSearchController.swift in Sources */,
 				B3F3343428129EA9003B834D /* VideoActivitySquareController.swift in Sources */,
