@@ -78,6 +78,7 @@ class JHNewLoginSetPswViewController: JHBaseNavVC {
         }
         seeTryPwdBtn.snp.makeConstraints { make in
             make.centerY.equalTo(tryPwdField)
+            make.width.equalTo(seeNewPwdBtn)
             make.left.equalTo(tryPwdField.snp.right)
             make.right.equalTo(-12)
         }
