@@ -7,6 +7,7 @@
 
 import UIKit
 import JHBase
+import SwifterSwift
 
 class PhoneAccountBindViewController: JHBaseNavVC {
 
@@ -40,7 +41,10 @@ class PhoneAccountBindViewController: JHBaseNavVC {
         code.textColor = .initWithHex("2F3856")
         code.font = .systemFont(ofSize: 14)
         
-        view.addSubviews([phone,phoneField,code,codeField])
+        let line = UIView.init(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 0.5))
+        line.backgroundColor = .initWithHex("EEEEEE")
+        
+        view.addSubviews([phone,phoneField,line,code,codeField,codeBtn,submmitBtn])
         
         tipLab.snp.makeConstraints { make in
             make.top.equalTo(navBar.snp.bottom).offset(15)
@@ -61,21 +65,39 @@ class PhoneAccountBindViewController: JHBaseNavVC {
             make.centerX.equalToSuperview()
             make.top.equalTo(phone.snp.bottom).offset(15)
         }
+        line.snp.makeConstraints { make in
+            make.top.equalTo(phoneField.snp.bottom).offset(12)
+            make.left.equalTo(12)
+            make.height.equalTo(0.5)
+            make.right.equalToSuperview()
+        }
         code.snp.makeConstraints { make in
-            make.top.equalTo(phoneField.snp.bottom).offset(15)
+            make.top.equalTo(line.snp.bottom).offset(15)
             make.left.equalTo(12)
             make.centerX.equalToSuperview()
         }
         codeField.snp.makeConstraints { make in
             make.left.equalTo(12)
-            make.centerX.equalToSuperview()
             make.top.equalTo(code.snp.bottom).offset(15)
+        }
+        codeBtn.snp.makeConstraints { make in
+            make.centerY.equalTo(codeField)
+            make.left.equalTo(codeField.snp.right)
+            make.size.equalTo(CGSize(width: 110, height: 30))
+            make.right.equalTo(-12)
+        }
+        submmitBtn.snp.makeConstraints { make in
+            make.top.equalTo(codeField.snp.bottom).offset(50)
+            make.left.equalTo(12)
+            make.height.equalTo(50)
+            make.centerX.equalToSuperview()
         }
     }
     
     lazy var phoneField: UITextField = {
         let tf = UITextField()
         tf.textColor = .initWithHex("2F3856")
+        tf.keyboardType = .phonePad
         let attributes = [NSAttributedString.Key.font:UIFont.systemFont(ofSize: 14),
                           NSAttributedString.Key.foregroundColor:UIColor.initWithHex("B5B5B5")]
         tf.attributedPlaceholder = NSAttributedString(string: "请输入手机号", attributes: attributes)
@@ -84,9 +106,50 @@ class PhoneAccountBindViewController: JHBaseNavVC {
     lazy var codeField: UITextField = {
         let tf = UITextField()
         tf.textColor = .initWithHex("2F3856")
+        tf.keyboardType = .phonePad
         let attributes = [NSAttributedString.Key.font:UIFont.systemFont(ofSize: 14),
                           NSAttributedString.Key.foregroundColor:UIColor.initWithHex("B5B5B5")]
         tf.attributedPlaceholder = NSAttributedString(string: "请输入验证码", attributes: attributes)
         return tf
     }()
+    lazy var codeBtn: UIButton = {
+        let btn = UIButton()
+        btn.layer.cornerRadius = 15
+        btn.layer.masksToBounds = true
+        btn.setTitle("获取验证码", for: .normal)
+        btn.setTitle("重新获取(120)", for: .selected)
+        btn.setTitleColor(.white, for: .disabled)
+        btn.setTitleColor(.initWithHex("599199"), for: .normal)
+        //无效
+        //let image = UIImage().filled(withColor: .initWithHex("599199", alpha: 0.1))
+        let image = UIImage(color: .initWithHex("599199", alpha: 0.1), size: CGSize(width: 1, height: 1))
+        let image2 = UIImage(color: .initWithHex("D8D8D8"), size: CGSize(width: 1, height: 1))
+        btn.setBackgroundImage(image, for: .normal)
+        btn.setBackgroundImage(image2, for: .disabled)
+        btn.titleLabel?.font = .systemFont(ofSize: 13)
+        btn.jh.setHandleClick {[unowned self] button in
+            codeAction()
+        }
+        return btn
+    }()
+    
+    lazy var submmitBtn: UIButton = {
+        let btn = UIButton()
+        btn.layer.cornerRadius = 4
+        btn.layer.masksToBounds = true
+        btn.setTitle("确定", for: .normal)
+        btn.setTitleColor(.white, for: .normal)
+        let image = UIImage(color: .initWithHex("599199"), size: CGSize(width: 1, height: 1))
+        let image2 = UIImage(color: .initWithHex("D8D8D8"), size: CGSize(width: 1, height: 1))
+        btn.setBackgroundImage(image, for: .normal)
+        btn.setBackgroundImage(image2, for: .disabled)
+        return btn
+    }()
+}
+
+extension PhoneAccountBindViewController
+{
+    func codeAction() {
+        
+    }
 }
