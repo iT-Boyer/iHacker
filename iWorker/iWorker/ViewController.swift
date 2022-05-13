@@ -13,7 +13,7 @@ class ViewController: JHBaseNavVC {
 
     var page:UIViewController!
     var rows:[(String, UIViewController.Type)]{
-        [("帐号安全",AccountSecurityViewController.self),
+        [("账号安全",AccountSecurityViewController.self),
          ("活动广场",VideoActivitySquareController.self),
          ("|- 我发布的活动",PersonalVideoActivityController.self),
          ("|- 发布活动",JHCreateVideoActController.self),
@@ -23,7 +23,7 @@ class ViewController: JHBaseNavVC {
          ("| 详情编辑",JHBindingEditIntelDescisionVC.self),
          ("设置",JHPriDeviceSetingController.self),
          ("分享预览",JHShareDevicePreController.self),
-        ("接受邀请",JHDeviceInvitedController.self),
+         ("接受邀请",JHDeviceInvitedController.self),
          ("晨检机",JHMornInspecterController.self),
          ("| 连锁集团",JHUnitJoinOrgViewController.self),
          ("|- 上级",JHUnitOrgHigherController.self),

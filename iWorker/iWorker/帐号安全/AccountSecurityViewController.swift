@@ -17,6 +17,7 @@ class AccountSecurityViewController: JHBaseNavVC {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        navTitle = "账号安全"
         createView()
     }
     

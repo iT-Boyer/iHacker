@@ -19,6 +19,7 @@ class JHNewLoginSetPswViewController: JHBaseNavVC {
     }
     
     func createView() {
+        view.backgroundColor = .white
         let tipLab = UILabel()
         
         tipLab.font = .systemFont(ofSize: 13)

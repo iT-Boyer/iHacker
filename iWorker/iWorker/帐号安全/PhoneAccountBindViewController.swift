@@ -7,18 +7,74 @@
 
 import UIKit
 import JHBase
+import Combine
 import SwifterSwift
 
 class PhoneAccountBindViewController: JHBaseNavVC {
 
+    @Published var tel:String = ""
+    @Published var code:String = ""
+    
+    var telSubscriber: AnyCancellable?
+    
+    var timerSubscriber: AnyCancellable?
+    var timerPublisher = Timer.publish(every: 1.0, on: .main, in: .common).autoconnect()
+    
+    var codeSubscriber: AnyCancellable?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         navTitle = "手机绑定"
         createView()
+        telSubscriber = $tel
+            .throttle(for: 0.5, scheduler: myBackgroundQueue, latest: true)
+            .removeDuplicates()
+            .print("手机绑定管道") // debugging output for pipeline
+            .map { tel -> Bool in
+                guard tel.count != 11 else{
+                    return true
+                }
+                return false
+            }
+            .receive(on: RunLoop.main)
+            .assign(to: \.isEnabled, on: codeBtn)
+        
+        codeSubscriber = $code
+            .throttle(for: 0.5, scheduler: myBackgroundQueue, latest: true)
+            .removeDuplicates()
+            .print("验证码管道")
+            .map { code -> Bool in
+                if self.tel.count == 11 && code.count == 6
+                {
+                    return true
+                }
+                return false
+            }
+            .receive(on: RunLoop.main)
+            .assign(to: \.isEnabled, on: submmitBtn)
     }
+    var myBackgroundQueue: DispatchQueue = .init(label: "myBackgroundQueue")
+    //MARK: 验证
+    var validatedTel:AnyPublisher<String?,Never>{
+        return $tel.map { tel in
+            guard tel.count > 11 else{
+                DispatchQueue.main.async {
+                    self.codeBtn.isEnabled = false
+                }
+                return nil
+            }
+            DispatchQueue.main.async {
+                self.codeBtn.isEnabled = true
+            }
+            return tel
+        }.eraseToAnyPublisher()
+    }
+    
+    
     func createView() {
+        view.backgroundColor = .white
         let tipLab = UILabel()
         let descLab = UILabel()
         
@@ -101,6 +157,7 @@ class PhoneAccountBindViewController: JHBaseNavVC {
         let attributes = [NSAttributedString.Key.font:UIFont.systemFont(ofSize: 14),
                           NSAttributedString.Key.foregroundColor:UIColor.initWithHex("B5B5B5")]
         tf.attributedPlaceholder = NSAttributedString(string: "请输入手机号", attributes: attributes)
+        tf.addTarget(self, action: #selector(changeTel(tf:)), for: .editingChanged)
         return tf
     }()
     lazy var codeField: UITextField = {
@@ -110,10 +167,12 @@ class PhoneAccountBindViewController: JHBaseNavVC {
         let attributes = [NSAttributedString.Key.font:UIFont.systemFont(ofSize: 14),
                           NSAttributedString.Key.foregroundColor:UIColor.initWithHex("B5B5B5")]
         tf.attributedPlaceholder = NSAttributedString(string: "请输入验证码", attributes: attributes)
+        tf.addTarget(self, action: #selector(changeCode(tf:)), for: .editingChanged)
         return tf
     }()
     lazy var codeBtn: UIButton = {
         let btn = UIButton()
+        btn.isEnabled = false
         btn.layer.cornerRadius = 15
         btn.layer.masksToBounds = true
         btn.setTitle("获取验证码", for: .normal)
@@ -150,6 +209,26 @@ class PhoneAccountBindViewController: JHBaseNavVC {
 extension PhoneAccountBindViewController
 {
     func codeAction() {
-        
+        var count = 120
+        codeBtn.isSelected = true
+        //必须属性引用，否则正常倒计时
+        timerSubscriber = timerPublisher.print("倒计时").sink { receivedTimeStamp in
+            if count == 0{
+                self.codeBtn.isSelected = false
+                self.codeBtn.setTitle("重新获取(120)", for: .selected)
+                //取消定时器
+                self.timerPublisher.upstream.connect().cancel()
+            }
+            self.codeBtn.setTitle("重新获取(\(count))", for: .selected)
+            count -= 1
+        }
+    }
+    
+    @objc func changeTel(tf:UITextField) {
+        tel = tf.text ?? ""
+    }
+    
+    @objc func changeCode(tf:UITextField) {
+        code = tf.text ?? ""
     }
 }

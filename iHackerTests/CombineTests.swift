@@ -9,6 +9,7 @@
 import Quick
 import Nimble
 import Combine
+import Foundation
 
 class CombineTests: QuickSpec {
     override func spec() {
@@ -25,6 +26,22 @@ class CombineTests: QuickSpec {
                     }
                 }.sink { reciveValue in
                     print("得到的结果：\(reciveValue)")
+                }
+            }
+        }
+        
+        describe("倒计时") {
+            it("自动启动") {
+                var countOfReceivedEvents = 0
+                waitUntil(timeout: .seconds(10)) { done in
+                    let cancellable = Timer.publish(every: 1.0, on: .main, in: .common)
+                        .autoconnect()
+                        .sink { receivedTimeStamp in
+                            // type is Date
+                            print("passed through: ", receivedTimeStamp)
+                            countOfReceivedEvents += 1
+                            done()
+                        }
                 }
             }
         }

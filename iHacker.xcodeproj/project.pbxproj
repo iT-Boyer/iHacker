@@ -24,6 +24,7 @@
 		B38108F3276CE97D0033F57D /* iHackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38108F2276CE97D0033F57D /* iHackerTests.swift */; };
 		B38108FD276CE97D0033F57D /* iHackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38108FC276CE97D0033F57D /* iHackerUITests.swift */; };
 		B38108FF276CE97D0033F57D /* iHackerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38108FE276CE97D0033F57D /* iHackerUITestsLaunchTests.swift */; };
+		B3F0994E282E636C00F1D85E /* TimerPublisherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F0994D282E636C00F1D85E /* TimerPublisherTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		B38108FC276CE97D0033F57D /* iHackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iHackerUITests.swift; sourceTree = "<group>"; };
 		B38108FE276CE97D0033F57D /* iHackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iHackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B3EF8D8A27716F54003140A9 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		B3F0994D282E636C00F1D85E /* TimerPublisherTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerPublisherTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 				B38108F2276CE97D0033F57D /* iHackerTests.swift */,
 				B3498A752772F1A000557C2F /* QuickTests.swift */,
 				B38079272775A2D10082ECCD /* CombineTests.swift */,
+				B3F0994D282E636C00F1D85E /* TimerPublisherTests.swift */,
 				B380792E2775BD120082ECCD /* NotificationCenterPublisherTests.swift */,
 			);
 			path = iHackerTests;
@@ -319,6 +322,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3F0994E282E636C00F1D85E /* TimerPublisherTests.swift in Sources */,
 				B38079282775A2D10082ECCD /* CombineTests.swift in Sources */,
 				B380792F2775BD120082ECCD /* NotificationCenterPublisherTests.swift in Sources */,
 				B38108F3276CE97D0033F57D /* iHackerTests.swift in Sources */,
