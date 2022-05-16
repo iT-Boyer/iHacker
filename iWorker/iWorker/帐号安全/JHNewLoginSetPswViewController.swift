@@ -105,8 +105,11 @@ class JHNewLoginSetPswViewController: JHBaseNavVC {
         btn.setImage(.init(named: "noseepwd"), for: .normal)
         btn.setImage(.init(named: "seepwd"), for: .selected)
         btn.imageEdgeInsets = UIEdgeInsets.init(top: 4, left: 88, bottom: 4, right: 0)
+        
         btn.jh.setHandleClick {[unowned self] button in
-            
+            guard let but = button else{return}
+            but.isSelected = !but.isSelected
+            newPwdField.isSecureTextEntry = !but.isSelected
         }
         return btn
     }()
@@ -124,7 +127,9 @@ class JHNewLoginSetPswViewController: JHBaseNavVC {
         btn.setImage(.init(named: "noseepwd"), for: .normal)
         btn.setImage(.init(named: "seepwd"), for: .selected)
         btn.jh.setHandleClick {[unowned self] button in
-//            codeAction()
+            guard let but = button else{return}
+            but.isSelected = !but.isSelected
+            tryPwdField.isSecureTextEntry = !but.isSelected
         }
         btn.imageEdgeInsets = UIEdgeInsets.init(top: 4, left: 88, bottom: 4, right: 0)
         return btn
@@ -139,6 +144,24 @@ class JHNewLoginSetPswViewController: JHBaseNavVC {
         let image2 = UIImage(color: .initWithHex("D8D8D8"), size: CGSize(width: 1, height: 1))
         btn.setBackgroundImage(image, for: .normal)
         btn.setBackgroundImage(image2, for: .disabled)
+        btn.addTarget(self, action: #selector(submmit), for: .touchDown)
         return btn
     }()
+}
+
+extension JHNewLoginSetPswViewController
+{
+    @objc func submmit() {
+        
+    }
+    @objc func newpwd(tf:UITextField) {
+        let rules = NSPredicate(format: "SELF MATCHES %@", "^[0-9A-Za-z]{6,16}$")
+        let isNumber: Bool = rules.evaluate(with: tf.text)
+        
+    }
+    
+    @objc func trypwd(tf:UITextField) {
+        let rules = NSPredicate(format: "SELF MATCHES %@", "^[0-9A-Za-z]{6,16}$")
+        let isNumber: Bool = rules.evaluate(with: tf.text)
+    }
 }

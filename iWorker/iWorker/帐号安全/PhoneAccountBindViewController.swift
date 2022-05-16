@@ -10,24 +10,34 @@ import JHBase
 import Combine
 import SwifterSwift
 
-class PhoneAccountBindViewController: JHBaseNavVC {
-
+class PhoneBindCombine: PhoneAccountBindViewController {
+    
     @Published var tel:String = ""
     @Published var code:String = ""
     
     var telSubscriber: AnyCancellable?
-    
-    var timerSubscriber: AnyCancellable?
-    var timerPublisher = Timer.publish(every: 1.0, on: .main, in: .common).autoconnect()
-    
     var codeSubscriber: AnyCancellable?
+    
+    var myBackgroundQueue: DispatchQueue = .init(label: "myBackgroundQueue")
+    //MARK: 验证
+    var validatedTel:AnyPublisher<String?,Never>{
+        return $tel.map { tel in
+            guard tel.count > 11 else{
+                DispatchQueue.main.async {
+                    self.codeBtn.isEnabled = false
+                }
+                return nil
+            }
+            DispatchQueue.main.async {
+                self.codeBtn.isEnabled = true
+            }
+            return tel
+        }.eraseToAnyPublisher()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        navTitle = "手机绑定"
-        createView()
+        
         telSubscriber = $tel
             .throttle(for: 0.5, scheduler: myBackgroundQueue, latest: true)
             .removeDuplicates()
@@ -55,23 +65,19 @@ class PhoneAccountBindViewController: JHBaseNavVC {
             .receive(on: RunLoop.main)
             .assign(to: \.isEnabled, on: submmitBtn)
     }
-    var myBackgroundQueue: DispatchQueue = .init(label: "myBackgroundQueue")
-    //MARK: 验证
-    var validatedTel:AnyPublisher<String?,Never>{
-        return $tel.map { tel in
-            guard tel.count > 11 else{
-                DispatchQueue.main.async {
-                    self.codeBtn.isEnabled = false
-                }
-                return nil
-            }
-            DispatchQueue.main.async {
-                self.codeBtn.isEnabled = true
-            }
-            return tel
-        }.eraseToAnyPublisher()
-    }
+}
+
+class PhoneAccountBindViewController: JHBaseNavVC {
     
+    var timerSubscriber: AnyCancellable?
+    var timerPublisher = Timer.publish(every: 1.0, on: .main, in: .common).autoconnect()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+        navTitle = "手机绑定"
+        createView()
+    }
     
     func createView() {
         view.backgroundColor = .white
@@ -202,12 +208,22 @@ class PhoneAccountBindViewController: JHBaseNavVC {
         let image2 = UIImage(color: .initWithHex("D8D8D8"), size: CGSize(width: 1, height: 1))
         btn.setBackgroundImage(image, for: .normal)
         btn.setBackgroundImage(image2, for: .disabled)
+        btn.addTarget(self, action: #selector(submmit), for: .touchDown)
         return btn
     }()
 }
 
 extension PhoneAccountBindViewController
 {
+    @objc func submmit() {
+        //手机号
+        let rules = NSPredicate(format: "SELF MATCHES %@", "1\\d{10}$")
+        let isNumber: Bool = rules.evaluate(with: phoneField.text)
+        if !isNumber{
+            //手机格式不正确，请重新输入
+        }
+    }
+    
     func codeAction() {
         var count = 120
         codeBtn.isSelected = true
@@ -225,10 +241,12 @@ extension PhoneAccountBindViewController
     }
     
     @objc func changeTel(tf:UITextField) {
-        tel = tf.text ?? ""
+//        tel = tf.text ?? ""
+        codeBtn.isEnabled = tf.text?.count == 11
     }
     
     @objc func changeCode(tf:UITextField) {
-        code = tf.text ?? ""
+//        code = tf.text ?? ""
+        submmitBtn.isEnabled = tf.text?.count == 6
     }
 }

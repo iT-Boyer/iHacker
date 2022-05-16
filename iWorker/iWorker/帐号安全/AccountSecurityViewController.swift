@@ -11,7 +11,7 @@ import JHBase
 class AccountSecurityViewController: JHBaseNavVC {
 
     var dataArray: [String] {
-        ["手机账号","设置密码","找回交易密码"]
+        ["手机账号","设置密码","找回交易密码","手机账号Combine","设置密码Combine"]
     }
     override func viewDidLoad() {
         super.viewDidLoad()
