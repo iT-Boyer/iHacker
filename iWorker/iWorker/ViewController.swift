@@ -13,7 +13,8 @@ class ViewController: JHBaseNavVC {
 
     var page:UIViewController!
     var rows:[(String, UIViewController.Type)]{
-        [("账号安全",AccountSecurityViewController.self),
+        [("消息设置",JHNotificationCenterManagerViewController.self),
+         ("账号安全",AccountSecurityViewController.self),
          ("活动广场",VideoActivitySquareController.self),
          ("|- 我发布的活动",PersonalVideoActivityController.self),
          ("|- 发布活动",JHCreateVideoActController.self),
