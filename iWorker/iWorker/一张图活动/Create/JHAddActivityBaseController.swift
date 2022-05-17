@@ -94,7 +94,7 @@ class JHAddActivityBaseController: JHBaseNavVC {
     
     lazy var photo: UIButton = {
         let btn = UIButton()
-        btn.setImage(.init(named: "JHShortVideoResource.bundle/uploadImg"), for: .normal)
+        btn.setImage(.init(named: "uploadImg"), for: .normal)
         btn.imageView?.contentMode = .scaleAspectFill
         btn.imageView?.clipsToBounds = true
         btn.jh.setHandleClick { [self] button in

@@ -131,7 +131,10 @@ extension JHNotificationCenterManagerViewController:UITableViewDelegate,UITableV
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        if indexPath.section == 1 {
+            let notif = JHNotificationCenterNoDisturbingVCViewController()
+            self.navigationController?.pushViewController(notif, completion: nil)
+        }
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
