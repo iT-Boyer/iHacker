@@ -43,7 +43,12 @@ class JHNotificationCenterManagerViewController: JHBaseNavVC {
     }()
     
     var isReceivePushString: String {
-        "开启"
+        let setting = UIApplication.shared.currentUserNotificationSettings
+        if setting?.types != Optional.none {
+            return "开启"
+        }else{
+            return "关闭"
+        }
     }
     //TODO: IU平台消息组
     var iuarr:[JHNotificationCenterModel]{

@@ -30,6 +30,7 @@ class JHTimeSetingView: UIView {
             print("选择的时间：\(time)")
             dateBtn.isSelected = true
             dateBtn.setTitle(time, for: .selected)
+            handler(time)
         }
         return time
     }()
