@@ -102,6 +102,7 @@ class JHNewLoginSetPswViewController: JHBaseNavVC {
     }()
     lazy var seeNewPwdBtn: UIButton = {
         let btn = UIButton()
+        btn.imageView?.contentMode = .scaleAspectFit
         btn.setImage(.init(named: "noseepwd"), for: .normal)
         btn.setImage(.init(named: "seepwd"), for: .selected)
         btn.imageEdgeInsets = UIEdgeInsets.init(top: 4, left: 88, bottom: 4, right: 0)
@@ -124,6 +125,7 @@ class JHNewLoginSetPswViewController: JHBaseNavVC {
     }()
     lazy var seeTryPwdBtn: UIButton = {
         let btn = UIButton()
+        btn.imageView?.contentMode = .scaleAspectFit
         btn.setImage(.init(named: "noseepwd"), for: .normal)
         btn.setImage(.init(named: "seepwd"), for: .selected)
         btn.jh.setHandleClick {[unowned self] button in
