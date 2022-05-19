@@ -182,7 +182,7 @@ class PhoneAccountBindViewController: JHBaseNavVC {
         btn.layer.cornerRadius = 15
         btn.layer.masksToBounds = true
         btn.setTitle("获取验证码", for: .normal)
-        btn.setTitle("重新获取(120)", for: .selected)
+        btn.setTitle("获取验证码", for: .disabled)
         btn.setTitleColor(.white, for: .disabled)
         btn.setTitleColor(.initWithHex("599199"), for: .normal)
         //无效
@@ -218,35 +218,56 @@ extension PhoneAccountBindViewController
     @objc func submmit() {
         //手机号
         let rules = NSPredicate(format: "SELF MATCHES %@", "1\\d{10}$")
-        let isNumber: Bool = rules.evaluate(with: phoneField.text)
-        if !isNumber{
+        let phone = phoneField.text ?? ""
+        let isphone: Bool = rules.evaluate(with: phone)
+        if !isphone{
             //手机格式不正确，请重新输入
+//            MBProgressHUD.displayError("手机格式不正确，请重新输入")
+            return
+        }
+        
+        let coderex = NSPredicate(format: "SELF MATCHES %@", "^[0-9]{6}$")
+        let code = codeField.text ?? ""
+        let iscode: Bool = coderex.evaluate(with: code)
+        if !iscode{
+//            MBProgressHUD.displayError("验证码格式不正确，请重新输入")
+            return
         }
     }
     
     func codeAction() {
         var count = 120
-        codeBtn.isSelected = true
+        codeBtn.isEnabled = false
         //必须属性引用，否则正常倒计时
-        timerSubscriber = timerPublisher.print("倒计时").sink { receivedTimeStamp in
+        timerSubscriber = timerPublisher.print("倒计时").sink {[weak self] receivedTimeStamp in
+            guard let weakSelf = self else { return }
             if count == 0{
-                self.codeBtn.isSelected = false
-                self.codeBtn.setTitle("重新获取(120)", for: .selected)
+                weakSelf.codeBtn.isEnabled = true
                 //取消定时器
-                self.timerPublisher.upstream.connect().cancel()
+                weakSelf.timerPublisher.upstream.connect().cancel()
             }
-            self.codeBtn.setTitle("重新获取(\(count))", for: .selected)
             count -= 1
+            weakSelf.codeBtn.setTitle("重新获取(\(count))", for: .disabled)
         }
     }
     
     @objc func changeTel(tf:UITextField) {
 //        tel = tf.text ?? ""
         codeBtn.isEnabled = tf.text?.count == 11
+        if tf.text?.count == 11 && codeField.text?.count == 6 {
+            submmitBtn.isEnabled = true
+        }else{
+            submmitBtn.isEnabled = false
+            timerPublisher.upstream.connect().cancel()
+        }
     }
     
     @objc func changeCode(tf:UITextField) {
 //        code = tf.text ?? ""
-        submmitBtn.isEnabled = tf.text?.count == 6
+        if tf.text?.count == 6 && phoneField.text?.count == 11 {
+            submmitBtn.isEnabled = true
+        }else{
+            submmitBtn.isEnabled = false
+        }
     }
 }
