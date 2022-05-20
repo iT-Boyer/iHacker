@@ -51,7 +51,7 @@ class JHVideoActDetailController: JHAddActivityBaseController {
             let json = JSON(data)
             let result = json["IsSuccess"].boolValue
             if result {
-                let modelJ = try! json["Data"]
+                let modelJ = json["Data"]
                 OperationQueue.main.addOperation {
                     if let url = URL(string: modelJ["ActivityImagePath"].stringValue) {
                         weakSelf.photo.kf.setImage(with: url, for:.normal, placeholder: .init(named: "uploadImg"))
