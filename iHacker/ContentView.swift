@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-//import Landmarks
+import Landmarks
 import Wesplit
 import MyLibrary
 
@@ -15,6 +15,11 @@ struct ContentView: View {
         // TODO: 列表
         NavigationView{
             List{
+                NavigationLink{
+                    Landmarks()
+                }label: {
+                    Text("Landmarks")
+                }
                 NavigationLink {
                     MyLibrary(image: Image.init("turtlerock", bundle: nil))
                        .offset(x: 0, y: -130)
