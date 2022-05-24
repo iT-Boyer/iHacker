@@ -67,6 +67,13 @@
 		B374E95F27EB02610033B72C /* JHDeviceTimesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B374E95E27EB02610033B72C /* JHDeviceTimesCell.swift */; };
 		B374E96127EC21F60033B72C /* JHDeviceTimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B374E96027EC21F60033B72C /* JHDeviceTimePicker.swift */; };
 		B374EA2D27EC47DF0033B72C /* VCTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = B374EA2C27EC47DF0033B72C /* VCTools.swift */; };
+		B376CD4A283CA7DC00D01B26 /* ReportUserAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B376CD49283CA7DC00D01B26 /* ReportUserAnnotationView.swift */; };
+		B376CD53283CAD4800D01B26 /* GetDayFootPrint.json in Resources */ = {isa = PBXBuildFile; fileRef = B376CD4E283CAD4800D01B26 /* GetDayFootPrint.json */; };
+		B376CD54283CAD4800D01B26 /* GetLastFootPrint.json in Resources */ = {isa = PBXBuildFile; fileRef = B376CD4F283CAD4800D01B26 /* GetLastFootPrint.json */; };
+		B376CD55283CAD4800D01B26 /* GetEmployeeTaskStat.json in Resources */ = {isa = PBXBuildFile; fileRef = B376CD50283CAD4800D01B26 /* GetEmployeeTaskStat.json */; };
+		B376CD56283CAD4800D01B26 /* GetFootPrintUserCount.json in Resources */ = {isa = PBXBuildFile; fileRef = B376CD51283CAD4800D01B26 /* GetFootPrintUserCount.json */; };
+		B376CD57283CAD4800D01B26 /* GetEmployeeInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = B376CD52283CAD4800D01B26 /* GetEmployeeInfo.json */; };
+		B376CD59283CAF8D00D01B26 /* ReportLastFootM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B376CD58283CAF8D00D01B26 /* ReportLastFootM.swift */; };
 		B37705F927BF693C00018309 /* JHShareDevicePreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37705F827BF693C00018309 /* JHShareDevicePreController.swift */; };
 		B37EC65D283B6CB300D92FC1 /* ReportUserMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37EC65C283B6CB300D92FC1 /* ReportUserMapController.swift */; };
 		B37EC65F283B6CE900D92FC1 /* ReportUserDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37EC65E283B6CE800D92FC1 /* ReportUserDetailController.swift */; };
@@ -315,6 +322,13 @@
 		B374E95E27EB02610033B72C /* JHDeviceTimesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHDeviceTimesCell.swift; sourceTree = "<group>"; };
 		B374E96027EC21F60033B72C /* JHDeviceTimePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHDeviceTimePicker.swift; sourceTree = "<group>"; };
 		B374EA2C27EC47DF0033B72C /* VCTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCTools.swift; sourceTree = "<group>"; };
+		B376CD49283CA7DC00D01B26 /* ReportUserAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportUserAnnotationView.swift; sourceTree = "<group>"; };
+		B376CD4E283CAD4800D01B26 /* GetDayFootPrint.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetDayFootPrint.json; sourceTree = "<group>"; };
+		B376CD4F283CAD4800D01B26 /* GetLastFootPrint.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetLastFootPrint.json; sourceTree = "<group>"; };
+		B376CD50283CAD4800D01B26 /* GetEmployeeTaskStat.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetEmployeeTaskStat.json; sourceTree = "<group>"; };
+		B376CD51283CAD4800D01B26 /* GetFootPrintUserCount.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetFootPrintUserCount.json; sourceTree = "<group>"; };
+		B376CD52283CAD4800D01B26 /* GetEmployeeInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetEmployeeInfo.json; sourceTree = "<group>"; };
+		B376CD58283CAF8D00D01B26 /* ReportLastFootM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportLastFootM.swift; sourceTree = "<group>"; };
 		B37705F827BF693C00018309 /* JHShareDevicePreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHShareDevicePreController.swift; sourceTree = "<group>"; };
 		B37EC65C283B6CB300D92FC1 /* ReportUserMapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportUserMapController.swift; sourceTree = "<group>"; };
 		B37EC65E283B6CE800D92FC1 /* ReportUserDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportUserDetailController.swift; sourceTree = "<group>"; };
@@ -725,9 +739,32 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		B376CD48283CA75F00D01B26 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B376CD58283CAF8D00D01B26 /* ReportLastFootM.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B376CD4D283CAD4800D01B26 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				B376CD4E283CAD4800D01B26 /* GetDayFootPrint.json */,
+				B376CD4F283CAD4800D01B26 /* GetLastFootPrint.json */,
+				B376CD50283CAD4800D01B26 /* GetEmployeeTaskStat.json */,
+				B376CD51283CAD4800D01B26 /* GetFootPrintUserCount.json */,
+				B376CD52283CAD4800D01B26 /* GetEmployeeInfo.json */,
+			);
+			name = JSON;
+			path = "../../../../SupervisionSel/SupervisionSel/Classes/Controller/拍抢干/1.2/Models/JSON";
+			sourceTree = "<group>";
+		};
 		B37EC65A283B6C6C00D92FC1 /* 人员管理 */ = {
 			isa = PBXGroup;
 			children = (
+				B376CD4D283CAD4800D01B26 /* JSON */,
+				B376CD48283CA75F00D01B26 /* Models */,
 				B37EC662283B6D0E00D92FC1 /* Views */,
 				B37EC65C283B6CB300D92FC1 /* ReportUserMapController.swift */,
 				B37EC65E283B6CE800D92FC1 /* ReportUserDetailController.swift */,
@@ -739,6 +776,7 @@
 		B37EC662283B6D0E00D92FC1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B376CD49283CA7DC00D01B26 /* ReportUserAnnotationView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1377,10 +1415,13 @@
 			files = (
 				B38D8909277B1AC000888EFB /* SaveMorningCheckImg.json in Resources */,
 				B3D0486E27D0A3C700E9CBF2 /* GetIOTDeviceSceneList.json in Resources */,
+				B376CD55283CAD4800D01B26 /* GetEmployeeTaskStat.json in Resources */,
 				B323033A27880CF80056BDCC /* Main.storyboard in Resources */,
 				B38D88AB277B199700888EFB /* LaunchScreen.storyboard in Resources */,
 				B3306D4527B23303005E7DDC /* DelFirmChain.json in Resources */,
 				B323036F278D3B460056BDCC /* GetFirmChainList.json in Resources */,
+				B376CD54283CAD4800D01B26 /* GetLastFootPrint.json in Resources */,
+				B376CD57283CAD4800D01B26 /* GetEmployeeInfo.json in Resources */,
 				B3306D3B27B107A9005E7DDC /* AddEnterChain.json in Resources */,
 				B323036E278D3B460056BDCC /* CheckEnterChain.json in Resources */,
 				B31202152816A1AA002D4FA3 /* GetActivityInfo.json in Resources */,
@@ -1388,6 +1429,8 @@
 				B312021B2817FEE0002D4FA3 /* Delete.json in Resources */,
 				B3230370278D3B460056BDCC /* GetEnterChainList.json in Resources */,
 				B3230365278C301F0056BDCC /* JHUniversalResource.bundle in Resources */,
+				B376CD56283CAD4800D01B26 /* GetFootPrintUserCount.json in Resources */,
+				B376CD53283CAD4800D01B26 /* GetDayFootPrint.json in Resources */,
 				B34635C027E37FA0002CA750 /* DeletePersonDevice.json in Resources */,
 				B3B5653327F5C18A00ED3C13 /* SavePersonDeviceInfo.json in Resources */,
 				B38D890A277B1AC000888EFB /* GetSimilarityScore.json in Resources */,
@@ -1561,6 +1604,7 @@
 				B32225BA2795753500953EF3 /* JHUnitOrgAlertController.swift in Sources */,
 				B374E95D27E9B08C0033B72C /* Tools.swift in Sources */,
 				B3697E8427E46DE1004D8867 /* JHSceneViewModel.swift in Sources */,
+				B376CD59283CAF8D00D01B26 /* ReportLastFootM.swift in Sources */,
 				B38D8936277B1C6D00888EFB /* Env.swift in Sources */,
 				B38D889F277B199400888EFB /* AppDelegate.swift in Sources */,
 				B3230362278C2BAA0056BDCC /* JHUnitOrgBaseModel.swift in Sources */,
@@ -1591,6 +1635,7 @@
 				B3D7C6BB27EC65B300E0EDBA /* JHDeviceBindModel.swift in Sources */,
 				B368E06828333F780039D4D7 /* JHNotificationCenterModel.swift in Sources */,
 				B35E116127BF36E400A8BEF3 /* JHDeviceInvitedController.swift in Sources */,
+				B376CD4A283CA7DC00D01B26 /* ReportUserAnnotationView.swift in Sources */,
 				B3F33432281295BC003B834D /* JHVideoActivityBaseController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
