@@ -36,6 +36,9 @@ class MapFilterBarView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name("UIKeyboardWillShowNotification"), object: nil)
+    }
     func createView() {
         //子视图布局
         addSubviews([backView,searchView,tableView])
@@ -209,6 +212,7 @@ extension MapFilterBarView:UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         handlerBlock(dataArray[indexPath.row])
+        searchStatus(false)
     }
 }
 

@@ -52,7 +52,8 @@ class ReportUserMapController: JHBaseNavVC {
             guard let wf = self else{return}
             wf.userModel = model
             let annotation = ReportUserAnnotation()
-//            annotation.title =
+            annotation.title = model.userName
+            annotation.coordinate = CLLocationCoordinate2D(latitude: model.latitude, longitude: model.longitude)
             wf.selectUserAnnotation(annotation)
         } completed: {[weak self] in
             guard let wf = self else{return}
@@ -61,9 +62,52 @@ class ReportUserMapController: JHBaseNavVC {
 
         return view
     }()
+    
+    func showInfoView(data:ReportMapUserTaskStatM) {
+        let infoView = ReportUserInfoMapView()
+        infoView.dataM = data
+        view.addSubview(infoView)
+        infoView.snp.makeConstraints { make in
+            make.height.equalTo(88 + 75 * data.taskList.count)
+            make.bottom.left.centerX.equalToSuperview()
+        }
+    }
 }
 
 extension ReportUserMapController {
+    
+    // 获取没人人员的信息
+    func requesUserId(_ userId:String) {
+        let param:[String:Any] = ["OrgId":JHBaseInfo.orgID,
+                                  "AppId":JHBaseInfo.appID,
+                                  "LoginUserId":JHBaseInfo.userID,
+                                  "ChooseUserId":userId]
+        
+        let urlStr = JHBaseDomain.fullURL(with: "api_host_scg", path: "/api/Employee/v3/GetEmployeeTaskStat")
+        let hud = MBProgressHUD.showAdded(to:view, animated: true)
+        hud.removeFromSuperViewOnHide = true
+        let request = JN.post(urlStr, parameters: param, headers: nil)
+        request.response {[weak self] response in
+            hud.hide(animated: true)
+            guard let weakSelf = self else { return }
+            guard let data = response.data else {
+//                MBProgressHUD.displayError(kInternetError)
+                return
+            }
+            let json = JSON(data)
+            let result = json["IsCompleted"].boolValue
+            if result {
+                let rawData = try! json["Data"].rawData()
+                let info:ReportMapUserTaskStatM = ReportMapUserTaskStatM.parsed(data: rawData)
+                weakSelf.showInfoView(data: info)
+            }else{
+                let msg = json["exceptionMsg"].stringValue
+//                MBProgressHUD.displayError(kInternetError)
+            }
+        }
+    }
+    
+    //MARK: 获取区域部门人员
     func loadLastFootData() {
         let param:[String:Any] = ["OrgId":JHBaseInfo.orgID,
                                   "AppId":JHBaseInfo.appID,
@@ -144,6 +188,9 @@ extension ReportUserMapController:MKMapViewDelegate
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         if let DesView = view as? ReportUserAnnotationView {
             DesView.image = UIImage(named: "mapuseredicon")
+            if let model = DesView.annotation as? ReportUserAnnotation {
+                requesUserId(model.userId)
+            }
         }
     }
     //非选中

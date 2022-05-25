@@ -149,6 +149,10 @@
 		B38D89CB277C488700888EFB /* RuntimeAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38D89CA277C488700888EFB /* RuntimeAPITests.swift */; };
 		B39C8583283DFA1F007ABDCC /* MapFilterBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39C8582283DFA1F007ABDCC /* MapFilterBarView.swift */; };
 		B39C8587283E0A52007ABDCC /* ReportMapFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39C8586283E0A52007ABDCC /* ReportMapFilterCell.swift */; };
+		B39C8589283E22F7007ABDCC /* ReportMapUserTaskStatM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39C8588283E22F7007ABDCC /* ReportMapUserTaskStatM.swift */; };
+		B39C858B283E24AA007ABDCC /* ReportUserInfoScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39C858A283E24AA007ABDCC /* ReportUserInfoScrollView.swift */; };
+		B39C858D283E2C40007ABDCC /* ReportUserInfoMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39C858C283E2C40007ABDCC /* ReportUserInfoMapView.swift */; };
+		B39C858F283E3189007ABDCC /* ReportUserTaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39C858E283E3188007ABDCC /* ReportUserTaskCell.swift */; };
 		B3B4A6E1282BA0C5006B5F57 /* PhoneAccountBindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B4A6E0282BA0C5006B5F57 /* PhoneAccountBindViewController.swift */; };
 		B3B4A6E3282BA146006B5F57 /* AccountSecurityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B4A6E2282BA146006B5F57 /* AccountSecurityViewController.swift */; };
 		B3B4A6E5282BA3A5006B5F57 /* LoginGetBackPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B4A6E4282BA3A5006B5F57 /* LoginGetBackPassword.swift */; };
@@ -403,6 +407,10 @@
 		B38D89CA277C488700888EFB /* RuntimeAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuntimeAPITests.swift; sourceTree = "<group>"; };
 		B39C8582283DFA1F007ABDCC /* MapFilterBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapFilterBarView.swift; sourceTree = "<group>"; };
 		B39C8586283E0A52007ABDCC /* ReportMapFilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportMapFilterCell.swift; sourceTree = "<group>"; };
+		B39C8588283E22F7007ABDCC /* ReportMapUserTaskStatM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportMapUserTaskStatM.swift; sourceTree = "<group>"; };
+		B39C858A283E24AA007ABDCC /* ReportUserInfoScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportUserInfoScrollView.swift; sourceTree = "<group>"; };
+		B39C858C283E2C40007ABDCC /* ReportUserInfoMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportUserInfoMapView.swift; sourceTree = "<group>"; };
+		B39C858E283E3188007ABDCC /* ReportUserTaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportUserTaskCell.swift; sourceTree = "<group>"; };
 		B3B4A6E0282BA0C5006B5F57 /* PhoneAccountBindViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneAccountBindViewController.swift; sourceTree = "<group>"; };
 		B3B4A6E2282BA146006B5F57 /* AccountSecurityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSecurityViewController.swift; sourceTree = "<group>"; };
 		B3B4A6E4282BA3A5006B5F57 /* LoginGetBackPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginGetBackPassword.swift; sourceTree = "<group>"; };
@@ -747,6 +755,7 @@
 			isa = PBXGroup;
 			children = (
 				B376CD58283CAF8D00D01B26 /* ReportLastFootM.swift */,
+				B39C8588283E22F7007ABDCC /* ReportMapUserTaskStatM.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -783,6 +792,9 @@
 				B39C8582283DFA1F007ABDCC /* MapFilterBarView.swift */,
 				B376CD49283CA7DC00D01B26 /* ReportUserAnnotationView.swift */,
 				B39C8586283E0A52007ABDCC /* ReportMapFilterCell.swift */,
+				B39C858A283E24AA007ABDCC /* ReportUserInfoScrollView.swift */,
+				B39C858C283E2C40007ABDCC /* ReportUserInfoMapView.swift */,
+				B39C858E283E3188007ABDCC /* ReportUserTaskCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1594,6 +1606,7 @@
 				B38D88A3277B199400888EFB /* ViewController.swift in Sources */,
 				B3697E7D27E42D10004D8867 /* JHDeviceNickCell.swift in Sources */,
 				B3B4A6E7282BA469006B5F57 /* JHNewLoginSetPswViewController.swift in Sources */,
+				B39C8589283E22F7007ABDCC /* ReportMapUserTaskStatM.swift in Sources */,
 				B323035A278C11240056BDCC /* UnitOrgChainModel.swift in Sources */,
 				B38D893B277B1CD800888EFB /* JHMornUploadModel.swift in Sources */,
 				B3306D4127B111C1005E7DDC /* JHUnitOrgHigherCell.swift in Sources */,
@@ -1607,6 +1620,7 @@
 				B312022428191D88002D4FA3 /* JHCreateVideoActController.swift in Sources */,
 				B37EC65F283B6CE900D92FC1 /* ReportUserDetailController.swift in Sources */,
 				B374E96127EC21F60033B72C /* JHDeviceTimePicker.swift in Sources */,
+				B39C858D283E2C40007ABDCC /* ReportUserInfoMapView.swift in Sources */,
 				B3B4A6E3282BA146006B5F57 /* AccountSecurityViewController.swift in Sources */,
 				B32225BA2795753500953EF3 /* JHUnitOrgAlertController.swift in Sources */,
 				B374E95D27E9B08C0033B72C /* Tools.swift in Sources */,
@@ -1624,10 +1638,12 @@
 				B3230360278C2B7D0056BDCC /* JHUnitOrgBaseCell.swift in Sources */,
 				B312022028190C4F002D4FA3 /* JHTimeSetingView.swift in Sources */,
 				B323033C278827350056BDCC /* JHUnitOrgBaseViewController.swift in Sources */,
+				B39C858F283E3189007ABDCC /* ReportUserTaskCell.swift in Sources */,
 				B368E065283336AB0039D4D7 /* JHNotificationCenterManagerViewController.swift in Sources */,
 				B3306D4727B245DA005E7DDC /* JHShapeView.swift in Sources */,
 				B38D8939277B1C7300888EFB /* JHMornCameraController.swift in Sources */,
 				B3B4A6E5282BA3A5006B5F57 /* LoginGetBackPassword.swift in Sources */,
+				B39C858B283E24AA007ABDCC /* ReportUserInfoScrollView.swift in Sources */,
 				B313EF3A278EDCD40089625F /* StoreDSelSearchBar.swift in Sources */,
 				B368E064283336AB0039D4D7 /* JHNotificationCenterNoDisturbingVCViewController.swift in Sources */,
 				B323033E278827670056BDCC /* JHUnitOrgSearchController.swift in Sources */,

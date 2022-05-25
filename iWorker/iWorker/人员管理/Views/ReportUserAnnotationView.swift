@@ -8,7 +8,7 @@
 import MapKit
 
 class ReportUserAnnotation:NSObject,MKAnnotation {
-    var userId:String!
+    var userId:String = ""
     
     var title: String? = ""
     var subtitle: String? = ""
