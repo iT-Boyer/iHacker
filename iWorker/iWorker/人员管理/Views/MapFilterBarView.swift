@@ -21,7 +21,7 @@ class MapFilterBarView: UIView {
     // 查询结果列表
     var dataArray:[ReportLastFootM] = []
     
-    init(with placeholder:String = "请输入人员名称",handler:@escaping (ReportLastFootM)->(),completed:@escaping ()->()) {
+    init(with placeholder:String,handler:@escaping (ReportLastFootM)->(),completed:@escaping ()->()) {
         handlerBlock = handler
         completedBlock = completed
         super.init(frame: CGRect.zero)
@@ -29,6 +29,7 @@ class MapFilterBarView: UIView {
         
         createView()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(showKeyboard(_:)), name: NSNotification.Name("UIKeyboardWillShowNotification"), object: nil)
     }
     
     required init?(coder: NSCoder) {
@@ -75,10 +76,6 @@ class MapFilterBarView: UIView {
         let backBtn = UIButton()
         backBtn.setImage(.init(named: "backicon"), for: .normal)
         backBtn.addTarget(self, action: #selector(backAction), for: .touchDown)
-        let titleLab = UILabel()
-        titleLab.text = "完美社区"
-        titleLab.textColor = .initWithHex("979797")
-        titleLab.font = .systemFont(ofSize: 14)
     
         searchView.addSubviews([backBtn,titleLab,searchBar,startBtn])
         
@@ -102,13 +99,19 @@ class MapFilterBarView: UIView {
         startBtn.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.right.equalTo(-10)
-            make.width.equalTo(40)
-            make.left.equalTo(searchBar.snp.right).offset(10)
+            make.left.equalTo(searchBar.snp.right).offset(8)
         }
         
         return searchView
     }()
     
+    lazy var titleLab: UILabel = {
+        let titleLab = UILabel()
+        titleLab.text = "完美社区"
+        titleLab.textColor = .initWithHex("979797")
+        titleLab.font = .systemFont(ofSize: 14)
+        return titleLab
+    }()
     
     lazy var searchBar: StoreDSelSearchBar = {
         let searchBar = StoreDSelSearchBar(with: placeholder) {[weak self] text in
@@ -124,6 +127,7 @@ class MapFilterBarView: UIView {
     }()
     lazy var startBtn: UIButton = {
         let startBtn = UIButton()
+        startBtn.isHidden = true
         startBtn.setTitle("搜索", for: .normal)
         startBtn.titleLabel?.font = .systemFont(ofSize: 16)
         startBtn.setTitleColor(.initWithHex("428BFE"), for: .normal)
@@ -143,28 +147,32 @@ class MapFilterBarView: UIView {
         return tb
     }()
     
+    @objc
+    func showKeyboard(_ notf:Notification) {
+        searchStatus(true)
+    }
     func searchStatus(_ isearch:Bool) {
         // 展开，显示tableview
         if isearch {
             snp.updateConstraints { make in
                 make.height.equalTo(UIScreen.main.bounds.size.height)
             }
-            tableView.isHidden = false
-            backView.isHidden = false
-            startBtn.isHidden = true
-            startBtn.snp.updateConstraints { make in
-                make.right.equalTo(0)
+            titleLab.snp.updateConstraints { make in
                 make.width.equalTo(0)
             }
+            titleLab.isHidden = true
+            tableView.isHidden = false
+            backView.isHidden = false
+            startBtn.isHidden = false
         }else{ // 收起
             snp.updateConstraints { make in
                 make.height.equalTo(120)
             }
-            startBtn.snp.updateConstraints { make in
-                make.right.equalTo(-10)
-                make.width.equalTo(40)
+            titleLab.snp.updateConstraints { make in
+                make.width.equalTo(60)
             }
-            startBtn.isHidden = false
+            titleLab.isHidden = false
+            startBtn.isHidden = true
             tableView.isHidden = true
             backView.isHidden = true
             dataArray.removeAll()
@@ -179,7 +187,7 @@ class MapFilterBarView: UIView {
         searchBar.startSearch()
     }
     @objc func backAction(){
-        if startBtn.isHidden {
+        if titleLab.isHidden {
             searchStatus(false)
         }else{
             completedBlock()
