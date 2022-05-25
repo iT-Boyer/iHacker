@@ -11,19 +11,15 @@ import SwiftyJSON
 import MBProgressHUD
 
 class ReportUserMapController: JHBaseNavVC {
-    
     var annotationArray:[ReportUserAnnotation] = []
     override func viewDidLoad() {
         super.viewDidLoad()
+        requestLocationMap()
+        setRegion()
         createView()
-        //海淀中心点经纬度
-        //float latitude = 39.95;
-        //float longitude = 116.3;
-        let region = MKCoordinateRegion.init(center: CLLocationCoordinate2D(latitude: 39.95, longitude: 116.3), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
-        mapView.setRegion(region, animated: true)
-        
         loadLastFootData()
     }
+    
     func createView() {
         view.addSubview(mapView)
         navBar.isHidden = true
@@ -32,20 +28,20 @@ class ReportUserMapController: JHBaseNavVC {
         }
     }
     
-    
     lazy var mapView: MKMapView = {
         let map = MKMapView()
         map.delegate = self
         map.mapType = .standard
         map.userTrackingMode = .follow
+        map.showsUserLocation = true
         map.register(ReportUserAnnotationView.self, forAnnotationViewWithReuseIdentifier: "ReportUserAnnotationView")
         map.register(MKAnnotationView.self, forAnnotationViewWithReuseIdentifier: "UserLocation")
         return map
     }()
+    
 }
 
-extension ReportUserMapController
-{
+extension ReportUserMapController {
     func loadLastFootData() {
         let param:[String:Any] = ["OrgId":JHBaseInfo.orgID,
                                   "AppId":JHBaseInfo.appID,
@@ -74,14 +70,11 @@ extension ReportUserMapController
                     annotation.userId = model.userID
                     annotation.title = model.location
                     annotation.subtitle = ""
-                    annotation.icon = "mapusericon"
-                    annotation.coordinate = CLLocationCoordinate2D(latitude: model.longitude, longitude: model.latitude)
+                    annotation.coordinate = CLLocationCoordinate2D(latitude: model.latitude, longitude: model.longitude)
                     weakSelf.annotationArray.append(annotation)
                 }
-                OperationQueue.main.addOperation {
-                    weakSelf.mapView.addAnnotations(weakSelf.annotationArray)
-//                    weakSelf.mapView.selectAnnotation(weakSelf.annotationArray.first!, animated: true)
-                }
+                weakSelf.mapView.addAnnotations(weakSelf.annotationArray)
+//                weakSelf.mapView.selectAnnotation(weakSelf.annotationArray.first!, animated: true)
 //                weakSelf.mapView.showAnnotations(weakSelf.annotationArray, animated: true)
             }else{
                 let msg = json["exceptionMsg"].stringValue
@@ -94,64 +87,34 @@ extension ReportUserMapController
 
 extension ReportUserMapController:MKMapViewDelegate
 {
-    // 更新到用户的位置
-    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
-        //只要用户位置改变就调用此方法（包括第一次定位到用户位置），
-        //userLocation：是对用来显示用户位置的蓝色大头针的封装
-        // 反地理编码
-        CLGeocoder().reverseGeocodeLocation(userLocation.location!) { placemarks, error in
-            guard let marks = placemarks else{
-                return
-            }
-            // 设置用户位置蓝色大头针的标题
-            if let placemark = marks.first{
-                userLocation.title = "当前位置：\(placemark.thoroughfare), \(placemark.locality), \(placemark.country)"
-            }
-            // 设置用户位置蓝色大头针的副标题
-            userLocation.subtitle = "经纬度：(\(userLocation.location?.coordinate.longitude), \(userLocation.location?.coordinate.latitude))"
-        }
-        
-        
+    // 设置“缩放级别”
+    func setRegion() {
+        //海淀中心点经纬度, 设置范围，显示地图的哪一部分以及显示的范围大小
+        let center =  CLLocationCoordinate2D(latitude: 39.95, longitude: 116.36)
+        let region = MKCoordinateRegion(center: center, latitudinalMeters: 2000, longitudinalMeters: 2000)
+        // 调整范围
+        let adjustedRegion = mapView.regionThatFits(region)
+        // 地图显示范围
+        mapView.setRegion(adjustedRegion, animated: true)
     }
     
-    // 地图显示的区域将要改变
-    func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
-        print("""
-                区域将要改变：
-                经度：\(mapView.region.center.longitude)
-                纬度：\(mapView.region.center.latitude)
-                经度跨度：\(mapView.region.span.longitudeDelta)
-                纬度跨度：\(mapView.region.span.latitudeDelta)
-                """)
-    }
-    // 地图显示的区域改变了
-    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-        print("""
-                区域已经改变：
-                经度：\(mapView.region.center.longitude)
-                纬度：\(mapView.region.center.latitude)
-                经度跨度：\(mapView.region.span.longitudeDelta)
-                纬度跨度：\(mapView.region.span.latitudeDelta)
-                """)
-    }
     // 定制图钉样式
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        if annotation.isKind(of: ReportUserAnnotation.self) {
-            // 显示自定义样式的大头针
-            let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "ReportUserAnnotationView")
-            annotationView?.annotation = annotation
+        if annotation is ReportUserAnnotation {
+            let cellid = "ReportUserAnnotationView"
+            let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: cellid)
             return annotationView
         }
-        if annotation.isKind(of: MKUserLocation.self){
+        if annotation is MKUserLocation{
             let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "UserLocation")
             annotationView?.image = UIImage(named: "mapicon_blue")
             return annotationView
         }
+        // nil表示使用默认样式
         return nil
     }
     // 选中
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        
         if let DesView = view as? ReportUserAnnotationView {
             DesView.image = UIImage(named: "mapuseredicon")
         }

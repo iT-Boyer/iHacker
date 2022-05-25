@@ -9,6 +9,7 @@ import Foundation
 import OHHTTPStubs
 import OHHTTPStubsSwift
 import JHBase
+import CoreLocation
 // 模拟数据
 func installOHHTTPStubs(){
     let host = JHBaseDomain.domain(for: "api_host_ebc")
@@ -34,5 +35,23 @@ func installOHHTTPStubs(){
         // 模拟弱网
         stubReponse.requestTime(1, responseTime: 2)
         return stubReponse
+    }
+}
+
+func requestLocationMap() {
+    let locationManager = CLLocationManager()
+    if CLLocationManager.locationServicesEnabled() {
+        if locationManager.responds(to: #selector(CLLocationManager.requestAlwaysAuthorization))
+            || locationManager.responds(to: #selector(CLLocationManager.requestWhenInUseAuthorization)){
+            if Bundle.main.object(forInfoDictionaryKey: "NSLocationAlwaysUsageDescription") != nil {
+                locationManager.requestAlwaysAuthorization()
+            }else if Bundle.main.object(forInfoDictionaryKey: "NSLocationWhenInUseUsageDescription") != nil{
+                locationManager.requestWhenInUseAuthorization()
+            }else{
+                print("Info.plist does not contain NSLocationAlwaysUsageDescription or NSLocationWhenInUseUsageDescription")
+            }
+        }
+    }else{
+        print("定位服务未开启！")
     }
 }
