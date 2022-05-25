@@ -68,7 +68,7 @@ class ReportUserMapController: JHBaseNavVC {
         infoView.dataM = data
         view.addSubview(infoView)
         infoView.snp.makeConstraints { make in
-            make.height.equalTo(88 + 75 * data.taskList.count)
+            make.height.equalTo(78 + 75 * data.taskList.count)
             make.bottom.left.centerX.equalToSuperview()
         }
     }
