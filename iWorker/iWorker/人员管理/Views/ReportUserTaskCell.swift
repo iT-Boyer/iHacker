@@ -28,7 +28,7 @@ class ReportUserTaskCell: UITableViewCell {
         didSet{
             nameLab.text = model.taskName
             timeLab.text = "任务时间：\(model.subTime)"
-            lastDateLab.text = "任务期限：\(model.startTime)=\(model.endTime)"
+            lastDateLab.text = "任务期限：\(model.startTime)-\(model.endTime)"
             var text = "  待检查  "
             var color = "2CD773"
             if model.taskStatus == 3 {

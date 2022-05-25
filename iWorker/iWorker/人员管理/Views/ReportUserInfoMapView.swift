@@ -37,7 +37,8 @@ class ReportUserInfoMapView: UIView {
         }
         tableView.snp.makeConstraints { make in
             make.top.equalTo(line.snp.bottom)
-            make.left.right.bottom.equalToSuperview()
+            make.left.right.equalToSuperview()
+            make.bottom.equalTo(-15)
         }
     }
     
@@ -130,16 +131,15 @@ class ReportUserInfoMapView: UIView {
     }()
     
     lazy var tableView: UITableView = {
-        let tb = UITableView()
+        let tb = UITableView(frame: .zero, style: .plain)
         tb.dataSource = self
         tb.isScrollEnabled = false
         tb.backgroundColor = .white
         tb.register(ReportUserTaskCell.self, forCellReuseIdentifier: "ReportUserTaskCell")
         tb.separatorColor = .kEEEEEE
-        tb.separatorInset = UIEdgeInsets(top: 0, left: 12, bottom: 9, right: 12)
-        tb.tableFooterView = UIView()
-        tb.estimatedSectionFooterHeight = 100
-        tb.rowHeight = UITableView.automaticDimension
+        tb.separatorInset = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 12)
+        let footer = UIView()
+        tb.removeTableFooterView()
         return tb
     }()
 }
