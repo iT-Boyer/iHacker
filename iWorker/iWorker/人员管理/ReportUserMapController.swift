@@ -11,6 +11,9 @@ import SwiftyJSON
 import MBProgressHUD
 
 class ReportUserMapController: JHBaseNavVC {
+    
+    var userModel:ReportLastFootM!
+    
     var annotationArray:[ReportUserAnnotation] = []
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,10 +24,14 @@ class ReportUserMapController: JHBaseNavVC {
     }
     
     func createView() {
-        view.addSubview(mapView)
+        view.addSubviews([mapView,filterView])
         navBar.isHidden = true
         mapView.snp.makeConstraints { make in
             make.top.bottom.left.centerX.equalToSuperview()
+        }
+        
+        filterView.snp.makeConstraints { make in
+            make.left.top.equalToSuperview()
         }
     }
     
@@ -39,6 +46,21 @@ class ReportUserMapController: JHBaseNavVC {
         return map
     }()
     
+    lazy var filterView: MapFilterBarView = {
+        let view = MapFilterBarView(with: "请输入人员名称") {[weak self] model in
+            //TODO: 选择人员业务
+            guard let wf = self else{return}
+            wf.userModel = model
+            let annotation = ReportUserAnnotation()
+//            annotation.title =
+            wf.selectUserAnnotation(annotation)
+        } completed: {[weak self] in
+            guard let wf = self else{return}
+            wf.backBtnClicked(UIButton())
+        }
+
+        return view
+    }()
 }
 
 extension ReportUserMapController {
@@ -87,6 +109,11 @@ extension ReportUserMapController {
 
 extension ReportUserMapController:MKMapViewDelegate
 {
+    func selectUserAnnotation(_ annotation:ReportUserAnnotation) {
+        annotationArray.append(annotation)
+        mapView.addAnnotations(annotationArray)
+        mapView.selectAnnotation(annotation, animated: true)
+    }
     // 设置“缩放级别”
     func setRegion() {
         //海淀中心点经纬度, 设置范围，显示地图的哪一部分以及显示的范围大小

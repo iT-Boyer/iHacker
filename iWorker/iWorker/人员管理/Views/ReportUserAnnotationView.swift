@@ -16,7 +16,6 @@ class ReportUserAnnotation:NSObject,MKAnnotation {
     
 }
 
-
 class ReportUserAnnotationView: MKAnnotationView {
     /// 重写初始化大头针控件方法
     override init(annotation: MKAnnotation?, reuseIdentifier: String?) {
