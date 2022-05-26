@@ -13,7 +13,7 @@ import MBProgressHUD
 
 class MapFilterBarView: UIView {
     
-    var handlerBlock:((ReportLastFootM)->())
+    var handlerBlock:((ReportLastFootM?)->())
     var completedBlock:(()->())
     var placeholder:String!
     var result:ReportLastFootM!
@@ -21,7 +21,7 @@ class MapFilterBarView: UIView {
     // 查询结果列表
     var dataArray:[ReportLastFootM] = []
     
-    init(with placeholder:String,handler:@escaping (ReportLastFootM)->(),completed:@escaping ()->()) {
+    init(with placeholder:String,handler:@escaping (ReportLastFootM?)->(),completed:@escaping ()->()) {
         handlerBlock = handler
         completedBlock = completed
         super.init(frame: CGRect.zero)
@@ -191,6 +191,7 @@ class MapFilterBarView: UIView {
     }
     @objc func backAction(){
         if titleLab.isHidden {
+            handlerBlock(nil)
             searchStatus(false)
         }else{
             completedBlock()

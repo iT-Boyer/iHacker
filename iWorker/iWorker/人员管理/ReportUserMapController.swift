@@ -13,7 +13,8 @@ import MBProgressHUD
 class ReportUserMapController: JHBaseNavVC {
     
     var userModel:ReportLastFootM!
-    
+    var keyword:String = ""
+    var departmentId:String = ""
     var annotationArray:[ReportUserAnnotation] = []
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,9 +55,15 @@ class ReportUserMapController: JHBaseNavVC {
     }()
     
     lazy var filterView: MapFilterBarView = {
-        let view = MapFilterBarView(with: "请输入人员名称") {[weak self] model in
+        let view = MapFilterBarView(with: "请输入人员名称") {[weak self] data in
             //TODO: 选择人员业务
             guard let wf = self else{return}
+            guard let model = data else{
+                wf.keyword = ""
+                wf.loadLastFootData()
+                return
+            }
+            wf.keyword = wf.filterView.searchBar.searchBar.text ?? ""
             wf.userModel = model
             let annotation = ReportUserAnnotation()
             annotation.title = model.userName
@@ -93,6 +100,14 @@ class ReportUserMapController: JHBaseNavVC {
     
     lazy var filterVC: JHFilterViewController = {
         let filter = JHFilterViewController()
+        filter.handlerBlock = {[weak self] depId in
+            guard let wf = self else{return}
+            guard let Id = depId else {
+                return
+            }
+            wf.departmentId = Id
+            wf.loadLastFootData()
+        }
         filter.transitioningDelegate = transitionDelegate
         filter.modalPresentationStyle = .custom
         return filter
@@ -145,9 +160,9 @@ extension ReportUserMapController {
     func loadLastFootData() {
         let param:[String:Any] = ["OrgId":JHBaseInfo.orgID,
                                   "AppId":JHBaseInfo.appID,
-                                  "DepartmentId":JHBaseInfo.userID,
+                                  "DepartmentId":departmentId,
                                   "AreaCode":"",
-                                  "SearchUserName":"keyword"]
+                                  "SearchUserName":keyword]
         
         let urlStr = JHBaseDomain.fullURL(with: "api_host_scg", path: "/api/QuestionFootPrint/v3/GetLastFootPrint")
         let hud = MBProgressHUD.showAdded(to:view, animated: true)

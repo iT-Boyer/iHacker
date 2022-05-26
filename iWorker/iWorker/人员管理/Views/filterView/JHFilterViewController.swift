@@ -14,7 +14,7 @@ import MBProgressHUD
 class JHFilterViewController: JHBaseNavVC {
     
     var dataArray:[JHMapFilterM] = []
-    
+    var handlerBlock:((String?)->())!
     override func viewDidLoad() {
         super.viewDidLoad()
         createView()
@@ -44,7 +44,9 @@ class JHFilterViewController: JHBaseNavVC {
         
         bottomView.snp.makeConstraints { make in
             make.top.equalTo(tableView.snp.bottom)
-            make.left.centerX.bottom.equalToSuperview()
+            make.height.equalTo(50)
+            make.left.centerX.equalToSuperview()
+            make.bottom.equalTo(-kEmptyBottomHeight)
         }
         
     }
@@ -85,8 +87,12 @@ class JHFilterViewController: JHBaseNavVC {
         sureBtn.setTitleColor(.white, for: .normal)
         sureBtn.backgroundColor = .k3FDA7F
         sureBtn.titleLabel?.font = .systemFont(ofSize: 16)
-        sureBtn.jh.setHandleClick { button in
+        sureBtn.jh.setHandleClick {[weak self] button in
             //TODO: 提交筛选
+            guard let wf = self else{return}
+            let models:[JHMapFilterM] = wf.dataArray.filter{ $0.selected }
+            wf.handlerBlock(models.first?.id)
+            wf.dismiss(animated: true)
         }
         
         bottom.addSubviews([resetBtn,sureBtn])
