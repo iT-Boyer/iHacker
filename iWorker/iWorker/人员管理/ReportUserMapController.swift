@@ -17,21 +17,28 @@ class ReportUserMapController: JHBaseNavVC {
     var annotationArray:[ReportUserAnnotation] = []
     override func viewDidLoad() {
         super.viewDidLoad()
+        navBar.isHidden = true
+        //请求权限
         requestLocationMap()
         setRegion()
+        
         createView()
         loadLastFootData()
     }
     
     func createView() {
-        view.addSubviews([mapView,filterView])
-        navBar.isHidden = true
+        view.addSubviews([mapView,filterView,filterBtn])
         mapView.snp.makeConstraints { make in
             make.top.bottom.left.centerX.equalToSuperview()
         }
         
         filterView.snp.makeConstraints { make in
             make.left.top.equalToSuperview()
+        }
+        filterBtn.snp.makeConstraints { make in
+            make.right.equalTo(-20)
+            make.top.equalTo(navBar.snp.bottom).offset(40)
+            make.size.equalTo(CGSize(width: 30, height: 30))
         }
     }
     
@@ -63,6 +70,33 @@ class ReportUserMapController: JHBaseNavVC {
         return view
     }()
     
+    lazy var transitionDelegate: JHFilterTransitionDelegate = {
+        let delegate = JHFilterTransitionDelegate()
+        transitioningDelegate = delegate
+        return delegate
+    }()
+    lazy var filterBtn: UIButton = {
+        let btn = UIButton()
+        btn.layer.cornerRadius = 5
+        btn.backgroundColor = .white
+        btn.setImage(.init(named: "shaixuanXunCha"), for: .normal)
+        btn.setTitle("过滤", for: .normal)
+        btn.setTitleColor(.k666666, for: .normal)
+        btn.titleLabel?.font = .systemFont(ofSize: 8)
+        btn.centerTextAndImage(imageAboveText: true, spacing: 0)
+        btn.jh.setHandleClick {[weak self] button in
+            guard let wf = self else{return}
+            wf.present(wf.filterVC, animated: true)
+        }
+        return btn
+    }()
+    
+    lazy var filterVC: JHFilterViewController = {
+        let filter = JHFilterViewController()
+        filter.transitioningDelegate = transitionDelegate
+        filter.modalPresentationStyle = .custom
+        return filter
+    }()
     func showInfoView(data:ReportMapUserTaskStatM) {
         let infoView = ReportUserInfoMapView()
         infoView.dataM = data
