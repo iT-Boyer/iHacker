@@ -37,7 +37,7 @@ class JHFilterCell: UITableViewCell {
     func createView() {
         label.numberOfLines = 0
         label.font = .systemFont(ofSize: 14)
-        label.textColor = .initWithHex("")
+        label.textColor = .k5E637B 
         
         contentView.addSubviews([icon,label])
         

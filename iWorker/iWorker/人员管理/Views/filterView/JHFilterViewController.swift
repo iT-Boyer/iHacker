@@ -23,6 +23,8 @@ class JHFilterViewController: JHBaseNavVC {
     
     func createView() {
         navBar.backBtn.isHidden = true
+        view.backgroundColor = .white
+        
         let titleLab = UILabel()
         titleLab.text = "地图筛选"
         titleLab.textColor = .k2F3856

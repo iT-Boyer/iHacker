@@ -52,20 +52,16 @@ class JHFilterAnimatedTransitioning:NSObject, UIViewControllerAnimatedTransition
         //获取动画前后的视图大小
         let finalFrame = transitionContext.finalFrame(for: animatingVC!)
         var initFrame = finalFrame
-        initFrame.origin.y += initFrame.size.height
+        initFrame.origin.x = UIScreen.main.bounds.size.width
         //
-        let animatingFinalFrame = isPresentation ? initFrame:finalFrame
-        let animatingInitFrame = isPresentation ? finalFrame:initFrame
+        let animatingInitFrame = isPresentation ? initFrame:finalFrame
+        let animatingFinalFrame = isPresentation ? finalFrame:initFrame
         animatingView?.frame = animatingInitFrame
         // 开始View动画
         let duration = transitionDuration(using: transitionContext)
         UIView.animate(withDuration: duration) {
             animatingView?.frame = animatingFinalFrame
-        } completion: {[weak self] finished in
-            guard let wf = self else{return}
-            if wf.isPresentation {
-                from?.view.removeFromSuperview()
-            }
+        } completion: {finished in
             transitionContext.completeTransition(true)
         }
 
@@ -94,21 +90,21 @@ class JHFilterPresentationViewController:UIPresentationController, UIAdaptivePre
         .fullScreen
     }
     
-    override var presentedView: UIView?{
-        presentedViewController.view //默认返回。当返回其他视图，一定要是 presentedViewController.view 的上层视图。
-    }
+//    override var presentedView: UIView?{
+//        presentedViewController.view //默认返回。当返回其他视图，一定要是 presentedViewController.view 的上层视图。
+//    }
     
     override var frameOfPresentedViewInContainerView: CGRect{
         var presentViewFrame = CGRect.zero
         let containerBounds = containerView?.bounds ?? .zero
         //进场控制器内容视图的大小
         presentViewFrame.size = size(forChildContentContainer: presentedViewController, withParentContainerSize: containerBounds.size)
-        presentViewFrame.origin.y = containerBounds.size.height - presentViewFrame.size.height
+        presentViewFrame.origin.x = 80
         return presentViewFrame
     }
     
     override func size(forChildContentContainer container: UIContentContainer, withParentContainerSize parentSize: CGSize) -> CGSize {
-        CGSize(width: parentSize.width, height: parentSize.height - 80)
+        CGSize(width: parentSize.width - 80, height: parentSize.height)
     }
     
     //MARK: 自定义转场动画
@@ -149,11 +145,13 @@ class JHFilterPresentationViewController:UIPresentationController, UIAdaptivePre
     //MARK: 自定义背景视图
     lazy var chromeView: UIView = {
         let chrome = UIView()
+        chrome.isUserInteractionEnabled = true
         //入场视图背景样式
         chrome.backgroundColor = .init(white: 0, alpha: 0.4)
         chrome.alpha = 0.0
         //退场手势
         let tap = UITapGestureRecognizer(target: self, action: #selector(chromeViewTaped(tap:)))
+        chrome.addGestureRecognizer(tap)
         return chrome
     }()
     @objc
