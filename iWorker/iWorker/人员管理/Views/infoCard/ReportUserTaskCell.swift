@@ -30,32 +30,33 @@ class ReportUserTaskCell: UITableViewCell {
             timeLab.text = "任务时间：\(model.subTime)"
             lastDateLab.text = "任务期限：\(model.startTime)-\(model.endTime)"
             var text = "  待检查  "
-            var color = "2CD773"
+            var color:UIColor = .k2CD773
             if model.taskStatus == 3 {
                 text = "  超期未查  "
-                color = "FF6A34"
+                color = .kFF6A34
             }
             statusLab.text = text
-            statusLab.layer.borderColor = UIColor.initWithHex(color).cgColor
+            statusLab.textColor = color
+            statusLab.layer.borderColor = color.cgColor
         }
     }
     
     func createView() {
         
         nameLab.font = .systemFont(ofSize: 14)
-        nameLab.textColor = .initWithHex("2F3856")
+        nameLab.textColor = .k2F3856
         
         statusLab.font = .systemFont(ofSize: 12)
-        statusLab.textColor = .initWithHex("FF6A34")
+        statusLab.textColor = .kFF6A34
         statusLab.layer.cornerRadius = 4
         statusLab.layer.borderWidth = 1
         
         timeLab.isHidden = true
         timeLab.font = .systemFont(ofSize: 12)
-        timeLab.textColor = .initWithHex("99A0B6")
+        timeLab.textColor = .k99A0B6
         
         lastDateLab.font = .systemFont(ofSize: 12)
-        lastDateLab.textColor = .initWithHex("99A0B6")
+        lastDateLab.textColor = .k99A0B6
         
         contentView.addSubviews([nameLab,statusLab,timeLab,lastDateLab])
         
