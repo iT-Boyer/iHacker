@@ -157,6 +157,7 @@
 		B39C8599283F17B7007ABDCC /* JHFilterTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39C8598283F17B7007ABDCC /* JHFilterTransition.swift */; };
 		B39C859B283F2E9F007ABDCC /* JHMapFilterM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39C859A283F2E9F007ABDCC /* JHMapFilterM.swift */; };
 		B39C859D283F3C96007ABDCC /* GetDepartmentList.json in Resources */ = {isa = PBXBuildFile; fileRef = B39C859C283F3C96007ABDCC /* GetDepartmentList.json */; };
+		B39C859F284110D5007ABDCC /* ReportGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39C859E284110D5007ABDCC /* ReportGroupView.swift */; };
 		B3B4A6E1282BA0C5006B5F57 /* PhoneAccountBindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B4A6E0282BA0C5006B5F57 /* PhoneAccountBindViewController.swift */; };
 		B3B4A6E3282BA146006B5F57 /* AccountSecurityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B4A6E2282BA146006B5F57 /* AccountSecurityViewController.swift */; };
 		B3B4A6E5282BA3A5006B5F57 /* LoginGetBackPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B4A6E4282BA3A5006B5F57 /* LoginGetBackPassword.swift */; };
@@ -419,6 +420,7 @@
 		B39C8598283F17B7007ABDCC /* JHFilterTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHFilterTransition.swift; sourceTree = "<group>"; };
 		B39C859A283F2E9F007ABDCC /* JHMapFilterM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHMapFilterM.swift; sourceTree = "<group>"; };
 		B39C859C283F3C96007ABDCC /* GetDepartmentList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = GetDepartmentList.json; path = "../../二期/Models/JSON/GetDepartmentList.json"; sourceTree = "<group>"; };
+		B39C859E284110D5007ABDCC /* ReportGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportGroupView.swift; sourceTree = "<group>"; };
 		B3B4A6E0282BA0C5006B5F57 /* PhoneAccountBindViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneAccountBindViewController.swift; sourceTree = "<group>"; };
 		B3B4A6E2282BA146006B5F57 /* AccountSecurityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSecurityViewController.swift; sourceTree = "<group>"; };
 		B3B4A6E4282BA3A5006B5F57 /* LoginGetBackPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginGetBackPassword.swift; sourceTree = "<group>"; };
@@ -803,6 +805,7 @@
 				B39C8592283F1490007ABDCC /* searchBar */,
 				B39C8593283F14D3007ABDCC /* infoCard */,
 				B376CD49283CA7DC00D01B26 /* ReportUserAnnotationView.swift */,
+				B39C859E284110D5007ABDCC /* ReportGroupView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1650,6 +1653,7 @@
 				B3230364278C2C370056BDCC /* JHUnitOrgHigherModel.swift in Sources */,
 				B312022228190DA9002D4FA3 /* JHTimePicker.swift in Sources */,
 				B38D88A3277B199400888EFB /* ViewController.swift in Sources */,
+				B39C859F284110D5007ABDCC /* ReportGroupView.swift in Sources */,
 				B3697E7D27E42D10004D8867 /* JHDeviceNickCell.swift in Sources */,
 				B3B4A6E7282BA469006B5F57 /* JHNewLoginSetPswViewController.swift in Sources */,
 				B39C8589283E22F7007ABDCC /* ReportMapUserTaskStatM.swift in Sources */,
