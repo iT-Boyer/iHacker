@@ -9,7 +9,7 @@ import UIKit
 
 struct ReportGroupModel {
     let Id,name:String
-    let selected:Bool
+    var selected:Bool
 }
 
 
@@ -31,11 +31,11 @@ class ReportGroupLCell: UITableViewCell {
         didSet{
             if model != nil {
                 titlab.text = model?.name
-                var iconName = "selectedicon"
-                var textColor:UIColor = .k2CD773
+                var iconName = ""
+                var textColor:UIColor = .k2F3856
                 if model!.selected {
-                    iconName = "selecticon"
-                    textColor = .k2F3856
+                    iconName = "selectedicon"
+                    textColor = .k2CD773
                 }
                 icon.image = .init(named: iconName)
                 titlab.textColor = textColor
@@ -66,6 +66,7 @@ class ReportGroupView: UIView {
     var handlerBlock:(ReportGroupModel)->() = {_ in}
     init() {
         super.init(frame: .zero)
+        backgroundColor = .init(white: 0, alpha: 0.4)
         createView()
     }
     
@@ -85,6 +86,7 @@ class ReportGroupView: UIView {
         let tb = UITableView()
         tb.delegate = self
         tb.dataSource = self
+        tb.backgroundColor = .clear
         tb.separatorColor = .kEEEEEE
         tb.removeTableFooterView()
         tb.estimatedRowHeight = 30
@@ -108,6 +110,13 @@ extension ReportGroupView:UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        handlerBlock(dataArray[indexPath.row])
+        let model = dataArray[indexPath.row]
+        dataArray = dataArray.map{ item in
+            var mm = item
+            mm.selected = model.Id == item.Id
+            return mm
+        }
+        tableView.reloadData()
+        handlerBlock(model)
     }
 }

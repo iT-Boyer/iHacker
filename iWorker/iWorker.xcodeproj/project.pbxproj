@@ -20,6 +20,7 @@
 		B312022628191DAD002D4FA3 /* JHVideoActDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B312022528191DAD002D4FA3 /* JHVideoActDetailController.swift */; };
 		B313EF3A278EDCD40089625F /* StoreDSelSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B313EF39278EDCD40089625F /* StoreDSelSearchBar.swift */; };
 		B3163694284470E600A09F62 /* JHSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3163693284470E600A09F62 /* JHSegmentedControl.swift */; };
+		B316369628447FD300A09F62 /* ReportUserInfoM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B316369528447FD300A09F62 /* ReportUserInfoM.swift */; };
 		B32225BA2795753500953EF3 /* JHUnitOrgAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32225B92795753500953EF3 /* JHUnitOrgAlertController.swift */; };
 		B32303382787EDBD0056BDCC /* JHUnitJoinOrgViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32303372787EDBD0056BDCC /* JHUnitJoinOrgViewController.swift */; };
 		B323033A27880CF80056BDCC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B38D88A4277B199400888EFB /* Main.storyboard */; };
@@ -288,6 +289,7 @@
 		B312022528191DAD002D4FA3 /* JHVideoActDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHVideoActDetailController.swift; sourceTree = "<group>"; };
 		B313EF39278EDCD40089625F /* StoreDSelSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDSelSearchBar.swift; sourceTree = "<group>"; };
 		B3163693284470E600A09F62 /* JHSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHSegmentedControl.swift; sourceTree = "<group>"; };
+		B316369528447FD300A09F62 /* ReportUserInfoM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportUserInfoM.swift; sourceTree = "<group>"; };
 		B32225B92795753500953EF3 /* JHUnitOrgAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHUnitOrgAlertController.swift; sourceTree = "<group>"; };
 		B32303372787EDBD0056BDCC /* JHUnitJoinOrgViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHUnitJoinOrgViewController.swift; sourceTree = "<group>"; };
 		B323033B278827350056BDCC /* JHUnitOrgBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHUnitOrgBaseViewController.swift; sourceTree = "<group>"; };
@@ -769,6 +771,7 @@
 				B39C859A283F2E9F007ABDCC /* JHMapFilterM.swift */,
 				B376CD58283CAF8D00D01B26 /* ReportLastFootM.swift */,
 				B39C8588283E22F7007ABDCC /* ReportMapUserTaskStatM.swift */,
+				B316369528447FD300A09F62 /* ReportUserInfoM.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1686,6 +1689,7 @@
 				B3230362278C2BAA0056BDCC /* JHUnitOrgBaseModel.swift in Sources */,
 				B31202192816A6AF002D4FA3 /* JHActivityModel.swift in Sources */,
 				B3F3343628129ED8003B834D /* PersonalVideoActivityController.swift in Sources */,
+				B316369628447FD300A09F62 /* ReportUserInfoM.swift in Sources */,
 				B38D88A1277B199400888EFB /* SceneDelegate.swift in Sources */,
 				B3697E7927E42481004D8867 /* JHDeviceSNCell.swift in Sources */,
 				B3697E8227E45778004D8867 /* JHSceneModels.swift in Sources */,

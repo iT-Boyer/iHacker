@@ -7,14 +7,19 @@
 
 import JHBase
 import UIKit
+import MBProgressHUD
+import SwiftyJSON
 
 class ReportUserDetailController: JHBaseNavVC {
     
+    var userId = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         navTitle = "人员信息"
         
         createView()
+        
+        loadUserData()
     }
     
     func createView() {
@@ -70,20 +75,32 @@ class ReportUserDetailController: JHBaseNavVC {
         icon.image = .init(named: "vatoricon")
         
         name.textColor = .k2F3856
+        name.text = " "
         name.font = .systemFont(ofSize: 15)
         
         idLab.textColor = .k99A0B6
+        idLab.text = " "
         idLab.font = .systemFont(ofSize: 12)
+        
+        addr.text = "所属区域："
+        addr.textColor = .k99A0B6
+        addr.font = .systemFont(ofSize: 13)
+        
+        tel.text = "联系电话："
+        tel.textColor = .k99A0B6
+        tel.font = .systemFont(ofSize: 13)
         
         let btn = UIButton()
         btn.setTitle("足迹", for: .normal)
         btn.layer.borderWidth = 2
         btn.layer.borderColor = UIColor.k428BFE.cgColor
-        
-        name.text = "test"
-        idLab.text = "test"
-        addr.text = "test"
-        tel.text = "test"
+        btn.titleLabel?.font = .systemFont(ofSize: 14)
+        btn.setTitleColor(.k428BFE, for: .normal)
+        btn.jh.setHandleClick {[weak self] button in
+            guard let wf = self else{return}
+            let trackVC = ReportTrackPachController()
+            wf.navigationController?.pushViewController(trackVC)
+        }
         
         let line = UIView()
         line.backgroundColor = .kF6F6F6
@@ -129,11 +146,13 @@ class ReportUserDetailController: JHBaseNavVC {
     
     lazy var groupView: ReportGroupView = {
         let groupView = ReportGroupView()
+        groupView.isHidden = true
         let group1 = ReportGroupModel(Id: "0", name: "上报任务", selected: true)
         let group2 = ReportGroupModel(Id: "1", name: "巡查任务", selected: false)
         groupView.dataArray = [group1,group2]
         groupView.handlerBlock = {[weak self] model in
             guard let wf = self else{return}
+            wf.groupView.isHidden = true
             wf.switchGroup(model)
         }
         return groupView
@@ -141,11 +160,6 @@ class ReportUserDetailController: JHBaseNavVC {
     
     lazy var switchView: UIView = {
         let switchView = UIView()
-        
-        let switchBtn = UIButton()
-        switchBtn.setTitle("上报任务", for: .normal)
-        switchBtn.setTitleColor(.k2F3856, for: .normal)
-        switchBtn.setImage(.init(named: "arrowdown"), for: .normal)
         
         let line = UIView()
         line.backgroundColor = .kF6F6F6
@@ -162,10 +176,27 @@ class ReportUserDetailController: JHBaseNavVC {
         }
         return switchView
     }()
-    
+    lazy var switchBtn: UIButton = {
+        let switchBtn = UIButton()
+        switchBtn.setTitle("上报任务", for: .normal)
+        switchBtn.setTitleColor(.k2F3856, for: .normal)
+        switchBtn.titleLabel?.font = .systemFont(ofSize: 13)
+        switchBtn.setImage(.init(named: "arrowdown"), for: .normal)
+        //图片在右，文字在左
+        switchBtn.semanticContentAttribute = .forceRightToLeft
+        switchBtn.jh.setHandleClick {[weak self] button in
+            guard let wf = self else{return}
+            wf.view.addSubview(wf.groupView)
+            wf.groupView.isHidden = !wf.groupView.isHidden
+            wf.groupView.snp.makeConstraints { make in
+                make.top.equalTo(wf.headerView.snp.bottom).offset(-48)
+                make.left.bottom.centerX.equalToSuperview()
+            }
+        }
+        return switchBtn
+    }()
     lazy var statusView: UIView = {
         let status = UIView()
-        // 创建segmentedControl
         let items = ["待检查", "超期未查", "已完成"]
         let segmentedControl = JHSegmentedControl(items: items)
         segmentedControl.addTarget(self, action: #selector(segmentedControlChange(_ :)), for: .valueChanged)
@@ -205,6 +236,7 @@ class ReportUserDetailController: JHBaseNavVC {
 extension ReportUserDetailController:UITableViewDelegate,UITableViewDataSource
 {
     func switchGroup(_ group:ReportGroupModel) {
+        switchBtn.setTitle(group.name, for: .normal)
         
     }
     
@@ -222,3 +254,50 @@ extension ReportUserDetailController:UITableViewDelegate,UITableViewDataSource
     }
 }
 
+extension ReportUserDetailController
+{
+    func loadUserData() {
+        let param:[String:Any] = ["OrgId":JHBaseInfo.orgID,
+                                  "AppId":JHBaseInfo.appID,
+                                  "LoginUserId":JHBaseInfo.userID,
+                                  "ChooseUserId":userId]
+        
+        let urlStr = JHBaseDomain.fullURL(with: "api_host_scg", path: "/api/Employee/v3/GetEmployeeInfo")
+        let hud = MBProgressHUD.showAdded(to:view, animated: true)
+        hud.removeFromSuperViewOnHide = true
+        let request = JN.post(urlStr, parameters: param, headers: nil)
+        request.response {[weak self] response in
+            hud.hide(animated: true)
+            guard let weakSelf = self else { return }
+            guard let data = response.data else {
+                //                MBProgressHUD.displayError(kInternetError)
+                return
+            }
+            let json = JSON(data)
+            let result = json["IsCompleted"].boolValue
+            if result {
+                let rawData = try! json["Data"].rawData()
+                let info:ReportUserInfoM = ReportUserInfoM.parsed(data: rawData)
+                weakSelf.name.text = info.employeeName
+                weakSelf.idLab.text = "ID："+info.employeeID
+                let textattr:[NSAttributedString.Key:Any] = [
+                    .foregroundColor:UIColor.k99A0B6,
+                    .font:UIFont.systemFont(ofSize: 13)
+                ]
+                let textendattr:[NSAttributedString.Key:Any] = [
+                    .foregroundColor:UIColor.k2F3856,
+                    .font:UIFont.systemFont(ofSize: 13)
+                ]
+                let addr = info.areaNames.first ?? ""
+                let addrtext = NSAttributedString(string: "所属区域：\(addr)",attributes: textattr)
+                weakSelf.addr.attributedText = addrtext.applying(attributes: textendattr, toRangesMatching: addr)
+                let teltext = NSAttributedString(string: "联系电话：\(info.employeeMobile)",attributes: textattr)
+                weakSelf.tel.attributedText = teltext.applying(attributes: textendattr, toRangesMatching: info.employeeMobile)
+                weakSelf.icon.kf.setImage(with: URL(string: info.employeeHeadIcon), placeholder: UIImage(named: "vatoricon"))
+            }else{
+                let msg = json["exceptionMsg"].stringValue
+                //                MBProgressHUD.displayError(kInternetError)
+            }
+        }
+    }
+}
