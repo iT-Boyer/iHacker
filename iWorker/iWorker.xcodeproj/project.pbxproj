@@ -19,6 +19,7 @@
 		B312022428191D88002D4FA3 /* JHCreateVideoActController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B312022328191D88002D4FA3 /* JHCreateVideoActController.swift */; };
 		B312022628191DAD002D4FA3 /* JHVideoActDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B312022528191DAD002D4FA3 /* JHVideoActDetailController.swift */; };
 		B313EF3A278EDCD40089625F /* StoreDSelSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B313EF39278EDCD40089625F /* StoreDSelSearchBar.swift */; };
+		B3163694284470E600A09F62 /* JHSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3163693284470E600A09F62 /* JHSegmentedControl.swift */; };
 		B32225BA2795753500953EF3 /* JHUnitOrgAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32225B92795753500953EF3 /* JHUnitOrgAlertController.swift */; };
 		B32303382787EDBD0056BDCC /* JHUnitJoinOrgViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32303372787EDBD0056BDCC /* JHUnitJoinOrgViewController.swift */; };
 		B323033A27880CF80056BDCC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B38D88A4277B199400888EFB /* Main.storyboard */; };
@@ -286,6 +287,7 @@
 		B312022328191D88002D4FA3 /* JHCreateVideoActController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHCreateVideoActController.swift; sourceTree = "<group>"; };
 		B312022528191DAD002D4FA3 /* JHVideoActDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHVideoActDetailController.swift; sourceTree = "<group>"; };
 		B313EF39278EDCD40089625F /* StoreDSelSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDSelSearchBar.swift; sourceTree = "<group>"; };
+		B3163693284470E600A09F62 /* JHSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHSegmentedControl.swift; sourceTree = "<group>"; };
 		B32225B92795753500953EF3 /* JHUnitOrgAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHUnitOrgAlertController.swift; sourceTree = "<group>"; };
 		B32303372787EDBD0056BDCC /* JHUnitJoinOrgViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHUnitJoinOrgViewController.swift; sourceTree = "<group>"; };
 		B323033B278827350056BDCC /* JHUnitOrgBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHUnitOrgBaseViewController.swift; sourceTree = "<group>"; };
@@ -806,6 +808,7 @@
 				B39C8593283F14D3007ABDCC /* infoCard */,
 				B376CD49283CA7DC00D01B26 /* ReportUserAnnotationView.swift */,
 				B39C859E284110D5007ABDCC /* ReportGroupView.swift */,
+				B3163693284470E600A09F62 /* JHSegmentedControl.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1691,6 +1694,7 @@
 				B312022028190C4F002D4FA3 /* JHTimeSetingView.swift in Sources */,
 				B323033C278827350056BDCC /* JHUnitOrgBaseViewController.swift in Sources */,
 				B39C858F283E3189007ABDCC /* ReportUserTaskCell.swift in Sources */,
+				B3163694284470E600A09F62 /* JHSegmentedControl.swift in Sources */,
 				B368E065283336AB0039D4D7 /* JHNotificationCenterManagerViewController.swift in Sources */,
 				B3306D4727B245DA005E7DDC /* JHShapeView.swift in Sources */,
 				B38D8939277B1C7300888EFB /* JHMornCameraController.swift in Sources */,
