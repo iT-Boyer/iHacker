@@ -99,32 +99,8 @@ class ReportUserDetailController: JHBaseNavVC {
         return header
     }()
     
-    let icon = UIImageView()
-    let name = UILabel()
-    let idLab = UILabel()
-    let addr = UILabel()
-    let tel = UILabel()
-    
     lazy var userInfoView: UIView = {
         let info = UIView()
-        
-        icon.image = .init(named: "vatoricon")
-        
-        name.textColor = .k2F3856
-        name.text = " "
-        name.font = .systemFont(ofSize: 15)
-        
-        idLab.textColor = .k99A0B6
-        idLab.text = " "
-        idLab.font = .systemFont(ofSize: 12)
-        
-        addr.text = "所属区域："
-        addr.textColor = .k99A0B6
-        addr.font = .systemFont(ofSize: 13)
-        
-        tel.text = "联系电话："
-        tel.textColor = .k99A0B6
-        tel.font = .systemFont(ofSize: 13)
         
         let btn = UIButton()
         btn.setTitle("足迹", for: .normal)
@@ -178,6 +154,44 @@ class ReportUserDetailController: JHBaseNavVC {
             make.bottom.left.right.equalToSuperview()
         }
         return info
+    }()
+    
+    lazy var icon: UIImageView = {
+        let icon = UIImageView()
+        icon.image = .init(named: "vatoricon")
+        icon.layer.cornerRadius = 18
+        icon.masksToBounds = true
+        return icon
+    }()
+    
+    lazy var name: UILabel = {
+        let lab = UILabel()
+        lab.textColor = .k2F3856
+        lab.text = " "
+        lab.font = .systemFont(ofSize: 15)
+        return lab
+    }()
+
+    lazy var idLab: UILabel = {
+        let lab = UILabel()
+        lab.textColor = .k99A0B6
+        lab.text = " "
+        lab.font = .systemFont(ofSize: 12)
+        return lab
+    }()
+    lazy var addr: UILabel = {
+        let lab = UILabel()
+        lab.text = "所属区域："
+        lab.textColor = .k99A0B6
+        lab.font = .systemFont(ofSize: 13)
+        return lab
+    }()
+    lazy var tel: UILabel = {
+        let lab = UILabel()
+        lab.text = "联系电话："
+        lab.textColor = .k99A0B6
+        lab.font = .systemFont(ofSize: 13)
+        return lab
     }()
     
     lazy var groupView: ReportGroupView = {

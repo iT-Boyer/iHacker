@@ -33,8 +33,19 @@ class ReportPatrolInfoCell: UITableViewCell {
             addrLab.text = mm.StoreAddress
             telLab.text = mm.StoreTel
             taskLab.text = mm.TaskName
-            renLab.text = mm.Personnel
-            dateLab.text = mm.StartTimeRemark + "-" + mm.EndTimeRemark
+            let textattr:[NSAttributedString.Key:Any] = [
+                .foregroundColor:UIColor.k99A0B6,
+                .font:UIFont.systemFont(ofSize: 13)
+            ]
+            let textendattr:[NSAttributedString.Key:Any] = [
+                .foregroundColor:UIColor.k2F3856,
+                .font:UIFont.systemFont(ofSize: 13)
+            ]
+            let rentext = NSAttributedString(string: "负责人员：\(mm.Personnel)",attributes: textattr)
+            renLab.attributedText = rentext.applying(attributes: textendattr, toRangesMatching: mm.Personnel)
+            let time = mm.StartTimeRemark + "-" + mm.EndTimeRemark
+            let timetext = NSAttributedString(string: "有效时间：\(time)",attributes: textattr)
+            dateLab.attributedText = timetext.applying(attributes: textendattr, toRangesMatching: time)
         }
     }
     func createView()

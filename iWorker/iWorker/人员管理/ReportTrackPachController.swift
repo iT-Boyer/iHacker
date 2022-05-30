@@ -8,5 +8,14 @@
 import JHBase
 
 class ReportTrackPachController: JHBaseNavVC {
-
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        navTitle = "足迹点"
+        createView()
+    }
+    
+    func createView() {
+        
+    }
 }
