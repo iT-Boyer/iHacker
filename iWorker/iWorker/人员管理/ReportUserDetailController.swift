@@ -13,13 +13,17 @@ import SwiftyJSON
 class ReportUserDetailController: JHBaseNavVC {
     
     var userId = ""
+    var groupId = "0"
+    var pageIndex = 1
     override func viewDidLoad() {
         super.viewDidLoad()
         navTitle = "人员信息"
         
         createView()
-        
         loadUserData()
+        
+        loadFlagData()
+//        loadTaskData(status: 2)
     }
     
     func createView() {
@@ -41,6 +45,38 @@ class ReportUserDetailController: JHBaseNavVC {
         let height = headerView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
         v.frame.size.height = height
         tb.tableHeaderView = v
+        tb.register(ReportPatrolInfoCell.self, forCellReuseIdentifier: "ReportPatrolInfoCell")
+        tb.register(ReportTaskInfoCell.self, forCellReuseIdentifier: "ReportTaskInfoCell")
+        tb.es.addPullToRefresh { [weak self] in
+            guard let wf = self else{return}
+            /// 在这里做刷新相关事件
+            wf.pageIndex = 1
+            if wf.groupId == "0" {
+                wf.loadTaskData(status: 2)
+            }
+            if wf.groupId == "1" {
+                wf.loadPatrolData(taskStatus: 0)
+            }
+//            /// 如果你的刷新事件成功，设置completion自动重置footer的状态
+//            self.tableView.es.stopPullToRefresh()
+//            /// 设置ignoreFooter来处理不需要显示footer的情况
+//            self.tableView.es.stopPullToRefresh(ignoreDate: true, ignoreFooter: true)
+        }
+        
+        /// 在这里做加载更多相关事件
+        tb.es.addInfiniteScrolling { [weak self] in
+            guard let wf = self else{return}
+            if wf.groupId == "0" {
+                wf.loadTaskData(status: 2)
+            }
+            if wf.groupId == "1" {
+                wf.loadPatrolData(taskStatus: 0)
+            }
+//            /// 如果你的加载更多事件成功，调用es_stopLoadingMore()重置footer状态
+//            self.tableView.es.stopLoadingMore()
+//            /// 通过es_noticeNoMoreData()设置footer暂无数据状态
+//            self.tableView.es.noticeNoMoreData()
+        }
         return tb
     }()
     
@@ -186,6 +222,7 @@ class ReportUserDetailController: JHBaseNavVC {
         switchBtn.semanticContentAttribute = .forceRightToLeft
         switchBtn.jh.setHandleClick {[weak self] button in
             guard let wf = self else{return}
+            wf.tableView.isScrollEnabled = false
             wf.view.addSubview(wf.groupView)
             wf.groupView.isHidden = !wf.groupView.isHidden
             wf.groupView.snp.makeConstraints { make in
@@ -197,9 +234,6 @@ class ReportUserDetailController: JHBaseNavVC {
     }()
     lazy var statusView: UIView = {
         let status = UIView()
-        let items = ["待检查", "超期未查", "已完成"]
-        let segmentedControl = JHSegmentedControl(items: items)
-        segmentedControl.addTarget(self, action: #selector(segmentedControlChange(_ :)), for: .valueChanged)
         
         let line = UIView()
         line.backgroundColor = .kF6F6F6
@@ -218,17 +252,44 @@ class ReportUserDetailController: JHBaseNavVC {
         }
         return status
     }()
+    
+    lazy var segmentedControl: JHSegmentedControl = {
+        let items = ["待检查", "超期未查", "已完成"]
+        let segmentedControl = JHSegmentedControl(items: items)
+        segmentedControl.addTarget(self, action: #selector(segmentedControlChange(_ :)), for: .valueChanged)
+        return segmentedControl
+    }()
+    
     func segmentedControlChange(_ segmented: JHSegmentedControl) {
         segmented.animateLine()
+        var status = 2
         if segmented.selectedSegmentIndex == 0 {
+            status = 2
         }
         else if segmented.selectedSegmentIndex == 1 {
-            print("第1个啊哈哈")
+            status = 3
         }
         else {
-            print("其他啊哈哈")
+            status = 4
         }
+        pageIndex = 1
+        if groupId == "0" {
+            loadTaskData(status: status)
+        }
+        if groupId == "1" {
+            loadPatrolData(taskStatus: segmented.selectedSegmentIndex)
+        }
+        
     }
+    
+    lazy var dataArray: [ReportTaskModel] = {
+        
+        return []
+    }()
+    lazy var patrolArray: [PatrolTaskModel] = {
+        
+        return []
+    }()
 }
 
 
@@ -237,16 +298,40 @@ extension ReportUserDetailController:UITableViewDelegate,UITableViewDataSource
 {
     func switchGroup(_ group:ReportGroupModel) {
         switchBtn.setTitle(group.name, for: .normal)
-        
+        tableView.isScrollEnabled  = true
+        groupId = group.Id
+        pageIndex = 1
+        if groupId == "0" {
+            loadFlagData()
+            loadTaskData(status: 2)
+        }
+        if groupId == "1" {
+            loadTypeData()
+            loadPatrolData(taskStatus: 0)
+        }
     }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        0
+        if groupId == "0" {
+            return dataArray.count
+        }
+        if groupId == "1" {
+            return patrolArray.count
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        UITableViewCell()
+        if groupId == "0" {
+            let cell:ReportTaskInfoCell = tableView.dequeueReusableCell(withIdentifier: "ReportTaskInfoCell") as! ReportTaskInfoCell
+            cell.model = dataArray[indexPath.row]
+            return cell
+        }else{
+            let cell:ReportPatrolInfoCell = tableView.dequeueReusableCell(withIdentifier: "ReportPatrolInfoCell") as! ReportPatrolInfoCell
+            cell.model = patrolArray[indexPath.row]
+            return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -254,6 +339,189 @@ extension ReportUserDetailController:UITableViewDelegate,UITableViewDataSource
     }
 }
 
+extension ReportUserDetailController
+{
+    func loadFlagData() {
+        let param:[String:Any] = ["OrgId":JHBaseInfo.orgID,
+                                  "AppId":JHBaseInfo.appID,
+                                  "LoginUserId":JHBaseInfo.userID,
+                                  ]
+        
+        let urlStr = JHBaseDomain.fullURL(with: "api_host_scg", path: "/api/QuestionRevise/v3/GetStatisticalData")
+        let hud = MBProgressHUD.showAdded(to:view, animated: true)
+        hud.removeFromSuperViewOnHide = true
+        let request = JN.post(urlStr, parameters: param, headers: nil)
+        request.response {[weak self] response in
+            hud.hide(animated: true)
+            guard let weakSelf = self else { return }
+            guard let data = response.data else {
+                //                MBProgressHUD.displayError(kInternetError)
+                return
+            }
+            let json = JSON(data)
+            let result = json["IsCompleted"].boolValue
+            if result {
+                let rawData = try! json["Data"]["StatisticaData"].rawData()
+                let tasks:[FlagStatusModel] = FlagStatusModel.parsed(data: rawData)
+                for item in tasks {
+                    let title = "\(item.statisticaDesc)(\(item.statisticaCount))"
+                    if item.statisticaStatus == 2 {
+                        //待检查
+                        weakSelf.segmentedControl.setTitle(title, forSegmentAt: 0)
+                    }
+                    if item.statisticaStatus == 3 {
+                        //超期未查
+                        weakSelf.segmentedControl.setTitle(title, forSegmentAt: 1)
+                    }
+                    if item.statisticaStatus == 4 {
+                        //已完成
+                        weakSelf.segmentedControl.setTitle(title, forSegmentAt: 2)
+                    }
+                }
+                weakSelf.loadTaskData(status: 2)
+            }else{
+                let msg = json["exceptionMsg"].stringValue
+                //                MBProgressHUD.displayError(kInternetError)
+            }
+        }
+    }
+    func loadTypeData() {
+        let param:[String:Any] = ["OrgId":JHBaseInfo.orgID,
+                                  "AppId":JHBaseInfo.appID,
+                                  "LoginUserId":JHBaseInfo.userID,
+                                  "UserId":userId,
+                                  "CompleteUserIds":[userId],
+                                  "PageIndex":userId,
+                                  "PageSize":userId,
+                                  "TaskState":"",
+                                  "TaskId":""]
+        
+        let urlStr = JHBaseDomain.fullURL(with: "api_host_scg", path: "/api/PatrolManageRevise/v2/GetPatrolTaskListForCount")
+        let hud = MBProgressHUD.showAdded(to:view, animated: true)
+        hud.removeFromSuperViewOnHide = true
+        let request = JN.post(urlStr, parameters: param, headers: nil)
+        request.response {[weak self] response in
+            hud.hide(animated: true)
+            guard let weakSelf = self else { return }
+            guard let data = response.data else {
+                //                MBProgressHUD.displayError(kInternetError)
+                return
+            }
+            let json = JSON(data)
+            let result = json["IsSuccess"].boolValue
+            if result {
+                let content = json["Content"]
+                let waitCheck = "待巡查(\(content["WaitCheck"]))"
+                let noCheck = "超期未巡查(\(content["NoCheck"]))"
+                let checked = "已巡查(\(content["Checked"]))"
+                weakSelf.segmentedControl.setTitle(waitCheck, forSegmentAt: 0)
+                weakSelf.segmentedControl.setTitle(noCheck, forSegmentAt: 1)
+                weakSelf.segmentedControl.setTitle(checked, forSegmentAt: 2)
+            }else{
+                let msg = json["exceptionMsg"].stringValue
+                //                MBProgressHUD.displayError(kInternetError)
+            }
+        }
+    }
+    //taskStatus0待检查 1超期未查 2已检查
+    func loadPatrolData(taskStatus:Int) {
+        let param:[String:Any] = ["OrgId":JHBaseInfo.orgID,
+                                  "AppId":JHBaseInfo.appID,
+                                  "LoginUserId":JHBaseInfo.userID,
+                                  "UserId":userId,
+                                  "CompleteUserIds":[userId],
+                                  "PageIndex":userId,
+                                  "PageSize":userId,
+                                  "TaskState":taskStatus,
+                                  "TaskId":""]
+        
+        let urlStr = JHBaseDomain.fullURL(with: "api_host_scg", path: "/api/PatrolManageRevise/v2/GetPatrolTaskList")
+        let hud = MBProgressHUD.showAdded(to:view, animated: true)
+        hud.removeFromSuperViewOnHide = true
+        let request = JN.post(urlStr, parameters: param, headers: nil)
+        request.response {[weak self] response in
+            hud.hide(animated: true)
+            guard let weakSelf = self else { return }
+            guard let data = response.data else {
+                //                MBProgressHUD.displayError(kInternetError)
+                return
+            }
+            let json = JSON(data)
+            let result = json["IsCompleted"].boolValue
+            if result {
+                let rawData = try! json["Datas"].rawData()
+                let tasks:[PatrolTaskModel] = PatrolTaskModel.parsed(data: rawData)
+                weakSelf.patrolArray = weakSelf.patrolArray + tasks
+                weakSelf.tableView.reloadData()
+            }else{
+                let msg = json["exceptionMsg"].stringValue
+                //                MBProgressHUD.displayError(kInternetError)
+            }
+        }
+    }
+    
+    ///2:待检查 3:超期未查 4:已完成
+    func loadTaskData(status:Int) {
+        let param:[String:Any] = ["OrgId":JHBaseInfo.orgID,
+                                  "AppId":JHBaseInfo.appID,
+                                  "LoginUserId":JHBaseInfo.userID,
+                                  "ChooseUserId":userId,
+                                  "PageIndex":1,
+                                  "PageSize":20,
+                                  "QuestionStatus":status,
+                                  "QuestionSource":1]
+        
+        let urlStr = JHBaseDomain.fullURL(with: "api_host_scg", path: "/api/QuestionRevise/v3/GetByQuestionStatus")
+        let hud = MBProgressHUD.showAdded(to:view, animated: true)
+        hud.removeFromSuperViewOnHide = true
+        let request = JN.post(urlStr, parameters: param, headers: nil)
+        request.response {[weak self] response in
+            hud.hide(animated: true)
+            guard let weakSelf = self else { return }
+            weakSelf.tableView.es.stopLoadingMore()
+            weakSelf.tableView.es.stopPullToRefresh()
+            guard let data = response.data else {
+                //                MBProgressHUD.displayError(kInternetError)
+                return
+            }
+            let json = JSON(data)
+            let result = json["IsCompleted"].boolValue
+            if result {
+                let rawData = try! json["Data"]["Datas"].rawData()
+                let tasks:[ReportTaskModel] = ReportTaskModel.parsed(data: rawData)
+                weakSelf.dataArray = weakSelf.dataArray + tasks
+                weakSelf.tableView.reloadData()
+                
+                if weakSelf.pageIndex == 1 {
+                    weakSelf.dataArray.removeAll()
+                }
+                if tasks.count > 0 {
+                    if tasks.count < 20 {
+                        weakSelf.tableView.es.noticeNoMoreData()
+                    }
+                    weakSelf.dataArray += tasks
+                }
+                
+                if weakSelf.dataArray.count > 0 {
+                    weakSelf.tableView.reloadData()
+                    weakSelf.pageIndex += 1
+                    weakSelf.hideEmptyView()
+                }else{
+                    weakSelf.pageIndex = 1
+                    weakSelf.showNoDataView()
+                }
+            }else{
+                let msg = json["exceptionMsg"].stringValue
+                //                MBProgressHUD.displayError(kInternetError)
+                weakSelf.pageIndex = 1
+                weakSelf.showNoDataView()
+            }
+        }
+    }
+}
+
+
+// 用户数据
 extension ReportUserDetailController
 {
     func loadUserData() {

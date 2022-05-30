@@ -84,6 +84,7 @@ class ReportGroupView: UIView {
     
     lazy var tableView: UITableView = {
         let tb = UITableView()
+        tb.isScrollEnabled = false
         tb.delegate = self
         tb.dataSource = self
         tb.backgroundColor = .clear

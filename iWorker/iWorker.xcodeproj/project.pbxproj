@@ -177,6 +177,14 @@
 		B3D0486E27D0A3C700E9CBF2 /* GetIOTDeviceSceneList.json in Resources */ = {isa = PBXBuildFile; fileRef = B3D0486D27D0A3C600E9CBF2 /* GetIOTDeviceSceneList.json */; };
 		B3D7C6BB27EC65B300E0EDBA /* JHDeviceBindModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D7C6BA27EC65B300E0EDBA /* JHDeviceBindModel.swift */; };
 		B3DA503E277D8D13009B6A0E /* SecondB.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DA503D277D8D13009B6A0E /* SecondB.swift */; };
+		B3EC88BF284493230040F664 /* ReportPatrolInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC88BE284493230040F664 /* ReportPatrolInfoCell.swift */; };
+		B3EC88C1284493340040F664 /* ReportTaskInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC88C0284493340040F664 /* ReportTaskInfoCell.swift */; };
+		B3EC88C32844AA5D0040F664 /* ReportTaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC88C22844AA5D0040F664 /* ReportTaskModel.swift */; };
+		B3EC88C52844B06C0040F664 /* GetByQuestionStatus.json in Resources */ = {isa = PBXBuildFile; fileRef = B3EC88C42844B06C0040F664 /* GetByQuestionStatus.json */; };
+		B3EC88C72844B2EB0040F664 /* PatrolTaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC88C62844B2EA0040F664 /* PatrolTaskModel.swift */; };
+		B3EC88C92844B6450040F664 /* GetPatrolTaskListForCount.json in Resources */ = {isa = PBXBuildFile; fileRef = B3EC88C82844B6450040F664 /* GetPatrolTaskListForCount.json */; };
+		B3EC88CB2844B8340040F664 /* GetStatisticalData.json in Resources */ = {isa = PBXBuildFile; fileRef = B3EC88CA2844B8340040F664 /* GetStatisticalData.json */; };
+		B3EC88CD2844B88C0040F664 /* FlagStatusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC88CC2844B88C0040F664 /* FlagStatusModel.swift */; };
 		B3F33432281295BC003B834D /* JHVideoActivityBaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F33431281295BC003B834D /* JHVideoActivityBaseController.swift */; };
 		B3F3343428129EA9003B834D /* VideoActivitySquareController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F3343328129EA9003B834D /* VideoActivitySquareController.swift */; };
 		B3F3343628129ED8003B834D /* PersonalVideoActivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F3343528129ED8003B834D /* PersonalVideoActivityController.swift */; };
@@ -444,6 +452,14 @@
 		B3D0486D27D0A3C600E9CBF2 /* GetIOTDeviceSceneList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GetIOTDeviceSceneList.json; sourceTree = "<group>"; };
 		B3D7C6BA27EC65B300E0EDBA /* JHDeviceBindModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHDeviceBindModel.swift; sourceTree = "<group>"; };
 		B3DA503D277D8D13009B6A0E /* SecondB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondB.swift; sourceTree = "<group>"; };
+		B3EC88BE284493230040F664 /* ReportPatrolInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportPatrolInfoCell.swift; sourceTree = "<group>"; };
+		B3EC88C0284493340040F664 /* ReportTaskInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTaskInfoCell.swift; sourceTree = "<group>"; };
+		B3EC88C22844AA5D0040F664 /* ReportTaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTaskModel.swift; sourceTree = "<group>"; };
+		B3EC88C42844B06C0040F664 /* GetByQuestionStatus.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = GetByQuestionStatus.json; path = "../../二期/Models/JSON/GetByQuestionStatus.json"; sourceTree = "<group>"; };
+		B3EC88C62844B2EA0040F664 /* PatrolTaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatrolTaskModel.swift; sourceTree = "<group>"; };
+		B3EC88C82844B6450040F664 /* GetPatrolTaskListForCount.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GetPatrolTaskListForCount.json; sourceTree = "<group>"; };
+		B3EC88CA2844B8340040F664 /* GetStatisticalData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = GetStatisticalData.json; path = ../../../Models/GetStatisticalData.json; sourceTree = "<group>"; };
+		B3EC88CC2844B88C0040F664 /* FlagStatusModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagStatusModel.swift; sourceTree = "<group>"; };
 		B3F33431281295BC003B834D /* JHVideoActivityBaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHVideoActivityBaseController.swift; sourceTree = "<group>"; };
 		B3F3343328129EA9003B834D /* VideoActivitySquareController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoActivitySquareController.swift; sourceTree = "<group>"; };
 		B3F3343528129ED8003B834D /* PersonalVideoActivityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalVideoActivityController.swift; sourceTree = "<group>"; };
@@ -772,6 +788,9 @@
 				B376CD58283CAF8D00D01B26 /* ReportLastFootM.swift */,
 				B39C8588283E22F7007ABDCC /* ReportMapUserTaskStatM.swift */,
 				B316369528447FD300A09F62 /* ReportUserInfoM.swift */,
+				B3EC88C22844AA5D0040F664 /* ReportTaskModel.swift */,
+				B3EC88C62844B2EA0040F664 /* PatrolTaskModel.swift */,
+				B3EC88CC2844B88C0040F664 /* FlagStatusModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -779,12 +798,15 @@
 		B376CD4D283CAD4800D01B26 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
+				B3EC88CA2844B8340040F664 /* GetStatisticalData.json */,
+				B3EC88C42844B06C0040F664 /* GetByQuestionStatus.json */,
 				B39C859C283F3C96007ABDCC /* GetDepartmentList.json */,
 				B376CD4E283CAD4800D01B26 /* GetDayFootPrint.json */,
 				B376CD4F283CAD4800D01B26 /* GetLastFootPrint.json */,
 				B376CD50283CAD4800D01B26 /* GetEmployeeTaskStat.json */,
 				B376CD51283CAD4800D01B26 /* GetFootPrintUserCount.json */,
 				B376CD52283CAD4800D01B26 /* GetEmployeeInfo.json */,
+				B3EC88C82844B6450040F664 /* GetPatrolTaskListForCount.json */,
 			);
 			name = JSON;
 			path = "../../../../SupervisionSel/SupervisionSel/Classes/Controller/拍抢干/1.2/Models/JSON";
@@ -812,6 +834,8 @@
 				B376CD49283CA7DC00D01B26 /* ReportUserAnnotationView.swift */,
 				B39C859E284110D5007ABDCC /* ReportGroupView.swift */,
 				B3163693284470E600A09F62 /* JHSegmentedControl.swift */,
+				B3EC88BE284493230040F664 /* ReportPatrolInfoCell.swift */,
+				B3EC88C0284493340040F664 /* ReportTaskInfoCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1499,6 +1523,7 @@
 				B31202172816A1AA002D4FA3 /* ActivitySquare.json in Resources */,
 				B312021B2817FEE0002D4FA3 /* Delete.json in Resources */,
 				B3230370278D3B460056BDCC /* GetEnterChainList.json in Resources */,
+				B3EC88C92844B6450040F664 /* GetPatrolTaskListForCount.json in Resources */,
 				B3230365278C301F0056BDCC /* JHUniversalResource.bundle in Resources */,
 				B376CD56283CAD4800D01B26 /* GetFootPrintUserCount.json in Resources */,
 				B376CD53283CAD4800D01B26 /* GetDayFootPrint.json in Resources */,
@@ -1507,6 +1532,7 @@
 				B38D890A277B1AC000888EFB /* GetSimilarityScore.json in Resources */,
 				B323036D278D3B460056BDCC /* ModifyFirmChain.json in Resources */,
 				B39C859D283F3C96007ABDCC /* GetDepartmentList.json in Resources */,
+				B3EC88C52844B06C0040F664 /* GetByQuestionStatus.json in Resources */,
 				B365D33E27C379CB000DBC74 /* 优设标题黑.TTF in Resources */,
 				B38D890B277B1AC000888EFB /* GetMorningCheckSettingByStoreId.json in Resources */,
 				B3230371278D3B460056BDCC /* getCooperateStepList.json in Resources */,
@@ -1514,6 +1540,7 @@
 				B38D890C277B1AC000888EFB /* GetEmployeeFaceInfoByOrgIdUserId.json in Resources */,
 				B38D88A8277B199700888EFB /* Assets.xcassets in Resources */,
 				B33EF39627BFA69300A3B6DE /* GetInviteInfo.json in Resources */,
+				B3EC88CB2844B8340040F664 /* GetStatisticalData.json in Resources */,
 				B38D8908277B1AC000888EFB /* ipFile.plist in Resources */,
 				B34635BF27E37FA0002CA750 /* GetSingleIntelligentDeviceInfoNew.json in Resources */,
 				B38D890D277B1AC000888EFB /* RegisterFaceInfo.json in Resources */,
@@ -1644,11 +1671,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B312022628191DAD002D4FA3 /* JHVideoActDetailController.swift in Sources */,
+				B3EC88C32844AA5D0040F664 /* ReportTaskModel.swift in Sources */,
 				B368E06A283350570039D4D7 /* JHNotificationCenterCell.swift in Sources */,
 				B38D893A277B1C7300888EFB /* JHDelegate.swift in Sources */,
 				B37EC65D283B6CB300D92FC1 /* ReportUserMapController.swift in Sources */,
 				B374EA2D27EC47DF0033B72C /* VCTools.swift in Sources */,
 				B38D8937277B1C7300888EFB /* JHMornUpPhotoController.swift in Sources */,
+				B3EC88CD2844B88C0040F664 /* FlagStatusModel.swift in Sources */,
 				B3B4A6E1282BA0C5006B5F57 /* PhoneAccountBindViewController.swift in Sources */,
 				B3697E7B27E429A3004D8867 /* JHDeviceSceneCell.swift in Sources */,
 				B39C8599283F17B7007ABDCC /* JHFilterTransition.swift in Sources */,
@@ -1670,9 +1699,11 @@
 				B37705F927BF693C00018309 /* JHShareDevicePreController.swift in Sources */,
 				B39C859B283F2E9F007ABDCC /* JHMapFilterM.swift in Sources */,
 				B3306D4327B124EC005E7DDC /* JHUnitOrgChangeController.swift in Sources */,
+				B3EC88C72844B2EB0040F664 /* PatrolTaskModel.swift in Sources */,
 				B312021028168E34002D4FA3 /* JHVideoActBaseCell.swift in Sources */,
 				B39C8587283E0A52007ABDCC /* ReportMapFilterCell.swift in Sources */,
 				B39C8596283F153C007ABDCC /* JHFilterCell.swift in Sources */,
+				B3EC88C1284493340040F664 /* ReportTaskInfoCell.swift in Sources */,
 				B3306D3D27B10922005E7DDC /* JHUnitOrgHigherController.swift in Sources */,
 				B323035E278C2B490056BDCC /* JHUnitOrgSearchCell.swift in Sources */,
 				B312022428191D88002D4FA3 /* JHCreateVideoActController.swift in Sources */,
@@ -1705,6 +1736,7 @@
 				B3B4A6E5282BA3A5006B5F57 /* LoginGetBackPassword.swift in Sources */,
 				B313EF3A278EDCD40089625F /* StoreDSelSearchBar.swift in Sources */,
 				B368E064283336AB0039D4D7 /* JHNotificationCenterNoDisturbingVCViewController.swift in Sources */,
+				B3EC88BF284493230040F664 /* ReportPatrolInfoCell.swift in Sources */,
 				B323033E278827670056BDCC /* JHUnitOrgSearchController.swift in Sources */,
 				B3F3343428129EA9003B834D /* VideoActivitySquareController.swift in Sources */,
 				B3F4599B27F3F1C500AADC08 /* JHSNViewModel.swift in Sources */,
