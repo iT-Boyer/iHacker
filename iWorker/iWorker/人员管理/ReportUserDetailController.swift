@@ -297,13 +297,29 @@ class ReportUserDetailController: JHBaseNavVC {
     }
     
     lazy var dataArray: [ReportTaskModel] = {
-        
         return []
     }()
     lazy var patrolArray: [PatrolTaskModel] = {
-        
         return []
     }()
+    
+    var taskStatus: Int {
+        var status = 2
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            status = 2
+            break
+        case 1:
+            status = 3
+            break
+        case 2:
+            status = 4
+            break
+        default:
+            status = 2
+        }
+        return status
+    }
 }
 
 
@@ -444,8 +460,8 @@ extension ReportUserDetailController
                                   "LoginUserId":JHBaseInfo.userID,
                                   "UserId":userId,
                                   "CompleteUserIds":[userId],
-                                  "PageIndex":userId,
-                                  "PageSize":userId,
+                                  "PageIndex":pageIndex,
+                                  "PageSize":20,
                                   "TaskState":taskStatus,
                                   "TaskId":""]
         
@@ -468,7 +484,7 @@ extension ReportUserDetailController
                 let rawData = try! json["Datas"].rawData()
                 let tasks:[PatrolTaskModel] = PatrolTaskModel.parsed(data: rawData)
                 if weakSelf.pageIndex == 1 {
-                    weakSelf.dataArray.removeAll()
+                    weakSelf.patrolArray.removeAll()
                 }
                 if tasks.count > 0 {
                     if tasks.count < 20 {
@@ -500,7 +516,7 @@ extension ReportUserDetailController
                                   "AppId":JHBaseInfo.appID,
                                   "LoginUserId":JHBaseInfo.userID,
                                   "ChooseUserId":userId,
-                                  "PageIndex":1,
+                                  "PageIndex":pageIndex,
                                   "PageSize":20,
                                   "QuestionStatus":status,
                                   "QuestionSource":1]
