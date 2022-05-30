@@ -456,6 +456,8 @@ extension ReportUserDetailController
         request.response {[weak self] response in
             hud.hide(animated: true)
             guard let weakSelf = self else { return }
+            weakSelf.tableView.es.stopLoadingMore()
+            weakSelf.tableView.es.stopPullToRefresh()
             guard let data = response.data else {
                 //                MBProgressHUD.displayError(kInternetError)
                 return
@@ -465,11 +467,29 @@ extension ReportUserDetailController
             if result {
                 let rawData = try! json["Datas"].rawData()
                 let tasks:[PatrolTaskModel] = PatrolTaskModel.parsed(data: rawData)
-                weakSelf.patrolArray = weakSelf.patrolArray + tasks
-                weakSelf.tableView.reloadData()
+                if weakSelf.pageIndex == 1 {
+                    weakSelf.dataArray.removeAll()
+                }
+                if tasks.count > 0 {
+                    if tasks.count < 20 {
+                        weakSelf.tableView.es.noticeNoMoreData()
+                    }
+                    weakSelf.patrolArray += tasks
+                }
+                
+                if weakSelf.dataArray.count > 0 {
+                    weakSelf.tableView.reloadData()
+                    weakSelf.pageIndex += 1
+                    weakSelf.hideEmptyView()
+                }else{
+                    weakSelf.pageIndex = 1
+                    weakSelf.showNoDataView()
+                }
             }else{
                 let msg = json["exceptionMsg"].stringValue
                 //                MBProgressHUD.displayError(kInternetError)
+                weakSelf.pageIndex = 1
+                weakSelf.showNoDataView()
             }
         }
     }
@@ -503,9 +523,6 @@ extension ReportUserDetailController
             if result {
                 let rawData = try! json["Data"]["Datas"].rawData()
                 let tasks:[ReportTaskModel] = ReportTaskModel.parsed(data: rawData)
-                weakSelf.dataArray = weakSelf.dataArray + tasks
-                weakSelf.tableView.reloadData()
-                
                 if weakSelf.pageIndex == 1 {
                     weakSelf.dataArray.removeAll()
                 }
