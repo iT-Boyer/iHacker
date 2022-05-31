@@ -21,6 +21,20 @@ class ReportTrackPachController: JHBaseNavVC {
     }
     
     func createView() {
+        //导航条右边按钮
+        let create = UIButton()
+        create.setImage(.init(named: "add"), for: .normal)
+        create.jh.setHandleClick {[weak self] button in
+            guard let wf = self else{return}
+            wf.navigationController?.present(wf.picker, animated: true)
+        }
+        
+        navBar.addSubview(create)
+        create.snp.makeConstraints { make in
+            make.centerY.equalTo(navBar.titleLabel.snp.centerY)
+            make.right.equalTo(-14)
+            make.size.equalTo(CGSize.init(width: 50, height: 30))
+        }
         
         view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
@@ -81,10 +95,21 @@ class ReportTrackPachController: JHBaseNavVC {
         return lab
     }()
     
+    lazy var picker: JHTimePicker = {
+        let time = JHTimePicker()
+        time.timeHandler = {[weak self] result in
+            guard let wf = self else {return}
+            let format = DateFormatter()
+            format.dateFormat = "YYYY-MM-dd"
+            let date = format.string(from: result)
+            wf.loadData(by: date)
+        }
+        return time
+    }()
     var dataArray: [ReportLocationM] = []
     var dateStr: String {
         let format = DateFormatter()
-        format.dateFormat = "MM-dd"
+        format.dateFormat = "yyyy-MM-dd"
         let now = NSDate() as Date
         let time = format.string(from: now)
         return time
@@ -106,10 +131,10 @@ class ReportTrackPachController: JHBaseNavVC {
         return tb
     }()
     
-    func loadData(by:String) {
+    func loadData(by date:String) {
         let param:[String:Any] = ["UserId":JHBaseInfo.userID,
                                   "AppId":JHBaseInfo.appID,
-                                  "ReportDate":"date",
+                                  "ReportDate":date,
                                   ]
         
         let urlStr = JHBaseDomain.fullURL(with: "api_host_scg", path: "/api/QuestionFootPrint/v3/GetDayFootPrint")

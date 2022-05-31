@@ -23,7 +23,7 @@ class ReportTrackPathCell: UITableViewCell {
     var model:ReportLocationM?{
         didSet{
             guard let mm = model else{return}
-            timeLab.text = mm.reportDate
+            timeLab.text = mm.reportTime
             addrLab.text = mm.location
         }
     }
