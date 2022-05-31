@@ -20,13 +20,12 @@ struct FlagStatusModel: Codable {
     }
     
     // 解析
-    static func parsed<T:Decodable>(data:Data) -> T {
+    static func parsed<T:Decodable>(data:Data) -> T? {
         do{
             let decoder = JSONDecoder()
             return try decoder.decode(T.self, from: data)
         }catch{
-            fatalError(#function+"解析失败：\(error)")
+            return nil
         }
     }
-    
 }

@@ -133,6 +133,7 @@ class ReportUserInfoMapView: UIView {
     lazy var tableView: UITableView = {
         let tb = UITableView(frame: .zero, style: .plain)
         tb.dataSource = self
+        tb.delegate = self
         tb.isScrollEnabled = false
         tb.backgroundColor = .white
         tb.register(ReportUserTaskCell.self, forCellReuseIdentifier: "ReportUserTaskCell")
@@ -144,7 +145,7 @@ class ReportUserInfoMapView: UIView {
     }()
 }
 
-extension ReportUserInfoMapView:UITableViewDataSource{
+extension ReportUserInfoMapView:UITableViewDataSource,UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let data = dataM else{return 0}
         return data.taskList.count
@@ -154,5 +155,15 @@ extension ReportUserInfoMapView:UITableViewDataSource{
         guard let data = dataM else{return UITableViewCell()}
         cell.model = data.taskList[indexPath.row]
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detail = ReportUserDetailController()
+        guard let userId = dataM?.employeeInfo.employeeID else {
+            return
+        }
+        detail.userId = userId
+        let nav = UINavigationController(rootViewController: detail)
+        nav.modalPresentationStyle = .fullScreen
+        UIViewController.topMostVC?.present(nav, animated: true)
     }
 }

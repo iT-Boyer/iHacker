@@ -383,8 +383,11 @@ extension ReportUserDetailController
             let json = JSON(data)
             let result = json["IsCompleted"].boolValue
             if result {
+                if json["Data"].isEmpty {
+                    return
+                }
                 let rawData = try! json["Data"]["StatisticaData"].rawData()
-                let tasks:[FlagStatusModel] = FlagStatusModel.parsed(data: rawData)
+                guard let tasks:[FlagStatusModel] = FlagStatusModel.parsed(data: rawData) else{return}
                 for item in tasks {
                     let title = "\(item.statisticaDesc)(\(item.statisticaCount))"
                     if item.statisticaStatus == 2 {
@@ -473,8 +476,11 @@ extension ReportUserDetailController
             let json = JSON(data)
             let result = json["IsCompleted"].boolValue
             if result {
+                if json["Datas"].isEmpty {
+                    return
+                }
                 let rawData = try! json["Datas"].rawData()
-                let tasks:[PatrolTaskModel] = PatrolTaskModel.parsed(data: rawData)
+                guard let tasks:[PatrolTaskModel] = PatrolTaskModel.parsed(data: rawData) else { return }
                 if weakSelf.pageIndex == 1 {
                     weakSelf.patrolArray.removeAll()
                 }
@@ -529,8 +535,11 @@ extension ReportUserDetailController
             let json = JSON(data)
             let result = json["IsCompleted"].boolValue
             if result {
+                if json["Data"]["Datas"].isEmpty {
+                    return
+                }
                 let rawData = try! json["Data"]["Datas"].rawData()
-                let tasks:[ReportTaskModel] = ReportTaskModel.parsed(data: rawData)
+                guard let tasks:[ReportTaskModel] = ReportTaskModel.parsed(data: rawData) else{return}
                 if weakSelf.pageIndex == 1 {
                     weakSelf.dataArray.removeAll()
                 }
@@ -583,8 +592,9 @@ extension ReportUserDetailController
             let json = JSON(data)
             let result = json["IsCompleted"].boolValue
             if result {
+                if json["Data"].isEmpty { return }
                 let rawData = try! json["Data"].rawData()
-                let info:ReportUserInfoM = ReportUserInfoM.parsed(data: rawData)
+                guard let info:ReportUserInfoM = ReportUserInfoM.parsed(data: rawData) else{return}
                 weakSelf.name.text = info.employeeName
                 weakSelf.idLab.text = "ID："+info.employeeID
                 let textattr:[NSAttributedString.Key:Any] = [

@@ -15,6 +15,7 @@ class ReportUserMapController: JHBaseNavVC {
     var userModel:ReportLastFootM!
     var keyword:String = ""
     var departmentId:String = ""
+    var currentUserId = ""
     var annotationArray:[ReportUserAnnotation] = []
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +52,8 @@ class ReportUserMapController: JHBaseNavVC {
         map.showsUserLocation = true
         map.register(ReportUserAnnotationView.self, forAnnotationViewWithReuseIdentifier: "ReportUserAnnotationView")
         map.register(MKAnnotationView.self, forAnnotationViewWithReuseIdentifier: "UserLocation")
+        let tap = UITapGestureRecognizer(target: self, action: #selector(hideInfoView(tap:)))
+        map.addGestureRecognizer(tap)
         return map
     }()
     
@@ -112,15 +115,25 @@ class ReportUserMapController: JHBaseNavVC {
         filter.modalPresentationStyle = .custom
         return filter
     }()
+    
+    lazy var infoView: ReportUserInfoMapView = {
+        let info = ReportUserInfoMapView()
+        view.addSubview(info)
+        return info
+    }()
     func showInfoView(data:ReportMapUserTaskStatM) {
-        let infoView = ReportUserInfoMapView()
+        infoView.isHidden = false
         infoView.dataM = data
-        view.addSubview(infoView)
-        infoView.snp.makeConstraints { make in
+        infoView.snp.remakeConstraints { make in
             make.height.equalTo(78 + 75 * data.taskList.count)
             make.bottom.left.centerX.equalToSuperview()
         }
     }
+    @objc
+    func hideInfoView(tap:UITapGestureRecognizer) {
+        infoView.isHidden = true
+    }
+    
 }
 
 extension ReportUserMapController {
@@ -146,8 +159,11 @@ extension ReportUserMapController {
             let json = JSON(data)
             let result = json["IsCompleted"].boolValue
             if result {
+                if json["Data"].isEmpty {
+                    return
+                }
                 let rawData = try! json["Data"].rawData()
-                let info:ReportMapUserTaskStatM = ReportMapUserTaskStatM.parsed(data: rawData)
+                guard let info:ReportMapUserTaskStatM = ReportMapUserTaskStatM.parsed(data: rawData) else { return }
                 weakSelf.showInfoView(data: info)
             }else{
                 let msg = json["exceptionMsg"].stringValue
@@ -178,8 +194,9 @@ extension ReportUserMapController {
             let json = JSON(data)
             let result = json["IsCompleted"].boolValue
             if result {
+                if json["Data"].isEmpty {return}
                 let rawData = try! json["Data"].rawData()
-                let dataArray:[ReportLastFootM] = ReportLastFootM.parsed(data: rawData)
+                guard let dataArray:[ReportLastFootM] = ReportLastFootM.parsed(data: rawData)else{return}
                 for model in dataArray {
                     let annotation = ReportUserAnnotation()
                     annotation.userId = model.userID
@@ -238,6 +255,7 @@ extension ReportUserMapController:MKMapViewDelegate
         if let DesView = view as? ReportUserAnnotationView {
             DesView.image = UIImage(named: "mapuseredicon")
             if let model = DesView.annotation as? ReportUserAnnotation {
+                currentUserId = model.userId
                 requesUserId(model.userId)
             }
         }

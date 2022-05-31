@@ -118,7 +118,6 @@ class ReportTrackPachController: JHBaseNavVC {
         let tb = UITableView()
         tb.backgroundColor = .white
         tb.dataSource = self
-        tb.delegate = self
         tb.removeTableFooterView()
         tb.estimatedRowHeight = 40
         tb.separatorStyle = .none
@@ -151,8 +150,11 @@ class ReportTrackPachController: JHBaseNavVC {
             let json = JSON(data)
             let result = json["IsCompleted"].boolValue
             if result {
+                if json["Data"].isEmpty {
+                    return
+                }
                 let rawData = try! json["Data"].rawData()
-                let trackPach:ReportTrackPachM = ReportTrackPachM.parsed(data: rawData)
+                guard let trackPach:ReportTrackPachM =  ReportTrackPachM.parsed(data: rawData) else { return }
                 // info
                 weakSelf.nameLab.text = trackPach.userName
                 weakSelf.idLab.text = "ID：\(trackPach.userTel)"
@@ -170,7 +172,7 @@ class ReportTrackPachController: JHBaseNavVC {
     }
 }
 
-extension ReportTrackPachController:UITableViewDelegate,UITableViewDataSource{
+extension ReportTrackPachController:UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         dataArray.count
@@ -182,9 +184,5 @@ extension ReportTrackPachController:UITableViewDelegate,UITableViewDataSource{
         cell.line.topView.isHidden = indexPath.row == 0
         cell.line.bottomView.isHidden = indexPath.row == dataArray.count - 1
         return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
     }
 }

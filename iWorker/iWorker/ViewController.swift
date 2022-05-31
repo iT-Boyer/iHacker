@@ -13,7 +13,7 @@ class ViewController: JHBaseNavVC {
 
     var page:UIViewController!
     var rows:[(String, UIViewController.Type)]{
-        [("人员管理地图",ReportUserDetailController.self),
+        [("人员管理地图",ReportUserMapController.self),
          ("消息设置",JHNotificationCenterManagerViewController.self),
          ("账号安全",AccountSecurityViewController.self),
          ("活动广场",VideoActivitySquareController.self),

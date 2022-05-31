@@ -150,8 +150,15 @@ extension JHFilterViewController:UITableViewDelegate,UITableViewDataSource{
             let json = JSON(data)
             let result = json["IsCompleted"].boolValue
             if result {
+                if json["Data"].isEmpty {
+                    return
+                }
                 let rawData = try! json["Data"].rawData()
-                weakSelf.dataArray = JHMapFilterM.parsed(data: rawData)
+                guard let arr:[JHMapFilterM] = JHMapFilterM.parsed(data: rawData) else {
+//                    MBProgressHUD.displayError("数据解析失败")
+                    return
+                }
+                weakSelf.dataArray = arr
                 weakSelf.tableView.reloadData()
             }else{
                 let msg = json["exceptionMsg"].stringValue

@@ -240,8 +240,10 @@ extension MapFilterBarView
             let json = JSON(data)
             let result = json["IsCompleted"].boolValue
             if result {
+                if json["Data"].isEmpty {return}
                 let rawData = try! json["Data"].rawData()
-                weakSelf.dataArray = ReportLastFootM.parsed(data: rawData)
+                guard let arr:[ReportLastFootM] = ReportLastFootM.parsed(data: rawData) else { return }
+                weakSelf.dataArray = arr
                 weakSelf.tableView.reloadData()
             }else{
                 let msg = json["exceptionMsg"].stringValue
