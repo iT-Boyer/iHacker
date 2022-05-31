@@ -57,10 +57,6 @@ class ReportUserDetailController: JHBaseNavVC {
             if wf.groupId == "1" {
                 wf.loadPatrolData(taskStatus: 0)
             }
-//            /// 如果你的刷新事件成功，设置completion自动重置footer的状态
-//            self.tableView.es.stopPullToRefresh()
-//            /// 设置ignoreFooter来处理不需要显示footer的情况
-//            self.tableView.es.stopPullToRefresh(ignoreDate: true, ignoreFooter: true)
         }
         
         /// 在这里做加载更多相关事件
@@ -72,10 +68,6 @@ class ReportUserDetailController: JHBaseNavVC {
             if wf.groupId == "1" {
                 wf.loadPatrolData(taskStatus: 0)
             }
-//            /// 如果你的加载更多事件成功，调用es_stopLoadingMore()重置footer状态
-//            self.tableView.es.stopLoadingMore()
-//            /// 通过es_noticeNoMoreData()设置footer暂无数据状态
-//            self.tableView.es.noticeNoMoreData()
         }
         return tb
     }()
