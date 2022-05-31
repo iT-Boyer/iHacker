@@ -23,7 +23,7 @@ class ReportTrackPachController: JHBaseNavVC {
     func createView() {
         //导航条右边按钮
         let create = UIButton()
-        create.setImage(.init(named: "add"), for: .normal)
+        create.setImage(.init(named: "chooseTime"), for: .normal)
         create.jh.setHandleClick {[weak self] button in
             guard let wf = self else{return}
             wf.navigationController?.present(wf.picker, animated: true)
@@ -68,7 +68,7 @@ class ReportTrackPachController: JHBaseNavVC {
     }()
     
     lazy var icon: UIImageView = {
-        let icon = UIImageView(image: .init(named: ""))
+        let icon = UIImageView()
         icon.layer.cornerRadius = 18
         icon.layer.masksToBounds = true
         return icon

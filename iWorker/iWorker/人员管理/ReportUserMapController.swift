@@ -9,6 +9,7 @@ import JHBase
 import MapKit
 import SwiftyJSON
 import MBProgressHUD
+import CloudKit
 
 class ReportUserMapController: JHBaseNavVC {
     
@@ -57,6 +58,26 @@ class ReportUserMapController: JHBaseNavVC {
         return map
     }()
     
+    lazy var numLab: UILabel = {
+        let lab = UILabel()
+        lab.backgroundColor = .init(white: 0, alpha: 0.5)
+        lab.layer.cornerRadius = 9
+        lab.layer.masksToBounds = true
+        lab.font = .systemFont(ofSize: 12)
+        lab.textAlignment = .center
+        lab.textColor = .white
+        view.addSubview(lab)
+        lab.snp.makeConstraints { make in
+            make.top.equalTo(filterView.snp.bottom)
+            make.height.equalTo(18)
+            make.centerX.equalToSuperview()
+        }
+        return lab
+    }()
+    @objc
+    func hideNumView() {
+        self.numLab.isHidden = true
+    }
     lazy var filterView: MapFilterBarView = {
         let view = MapFilterBarView(with: "请输入人员名称") {[weak self] data in
             //TODO: 选择人员业务
@@ -138,7 +159,43 @@ class ReportUserMapController: JHBaseNavVC {
 
 extension ReportUserMapController {
     
-    // 获取没人人员的信息
+    //MARK: 获取人员数
+    func loadUserPointCount(depId:String,keyword:String) {
+        let param:[String:Any] = ["OrgId":JHBaseInfo.orgID,
+                                  "AppId":JHBaseInfo.appID,
+                                  "AreaCode":"",
+                                  "DepartmentId":depId,
+                                  "SearchUserName":keyword]
+        
+        let urlStr = JHBaseDomain.fullURL(with: "api_host_scg", path: "/api/QuestionFootPrint/v3/GetFootPrintUserCount")
+        let hud = MBProgressHUD.showAdded(to:view, animated: true)
+        hud.removeFromSuperViewOnHide = true
+        let request = JN.post(urlStr, parameters: param, headers: nil)
+        request.response {[weak self] response in
+            hud.hide(animated: true)
+            guard let weakSelf = self else { return }
+            guard let data = response.data else {
+//                MBProgressHUD.displayError(kInternetError)
+                return
+            }
+            let json = JSON(data)
+            let result = json["IsCompleted"].boolValue
+            if result {
+                if json["Data"].isEmpty {
+                    return
+                }
+                let num = json["Data"]["UserCount"].stringValue
+                weakSelf.numLab.text = "人数  \(num)      "
+                weakSelf.numLab.isHidden = false
+                weakSelf.perform(#selector(weakSelf.hideNumView), with: nil, afterDelay: 1.5)
+            }else{
+                let msg = json["exceptionMsg"].stringValue
+//                MBProgressHUD.displayError(kInternetError)
+            }
+        }
+    }
+    
+    //MARK: 获取当前人员的信息
     func requesUserId(_ userId:String) {
         let param:[String:Any] = ["OrgId":JHBaseInfo.orgID,
                                   "AppId":JHBaseInfo.appID,
@@ -172,8 +229,9 @@ extension ReportUserMapController {
         }
     }
     
-    //MARK: 获取区域部门人员
+    //MARK: 获取区域部门人员列表
     func loadLastFootData() {
+        loadUserPointCount(depId: departmentId, keyword: keyword)
         let param:[String:Any] = ["OrgId":JHBaseInfo.orgID,
                                   "AppId":JHBaseInfo.appID,
                                   "DepartmentId":departmentId,
