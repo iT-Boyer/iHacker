@@ -23,7 +23,6 @@ class ReportUserDetailController: JHBaseNavVC {
         loadUserData()
         
         loadFlagData()
-//        loadTaskData(status: 2)
     }
     
     func createView() {
@@ -325,11 +324,9 @@ extension ReportUserDetailController:UITableViewDelegate,UITableViewDataSource
         pageIndex = 1
         if groupId == "0" {
             loadFlagData()
-            loadTaskData(status: 2)
         }
         if groupId == "1" {
             loadTypeData()
-            loadPatrolData(taskStatus: 0)
         }
     }
     
@@ -403,6 +400,7 @@ extension ReportUserDetailController
                         weakSelf.segmentedControl.setTitle(title, forSegmentAt: 2)
                     }
                 }
+                weakSelf.segmentedControl.selectedSegmentIndex = 0
                 weakSelf.loadTaskData(status: 2)
             }else{
                 let msg = json["exceptionMsg"].stringValue
@@ -439,9 +437,11 @@ extension ReportUserDetailController
                 let waitCheck = "待巡查(\(content["WaitCheck"]))"
                 let noCheck = "超期未巡查(\(content["NoCheck"]))"
                 let checked = "已巡查(\(content["Checked"]))"
+                weakSelf.segmentedControl.selectedSegmentIndex = 0
                 weakSelf.segmentedControl.setTitle(waitCheck, forSegmentAt: 0)
                 weakSelf.segmentedControl.setTitle(noCheck, forSegmentAt: 1)
                 weakSelf.segmentedControl.setTitle(checked, forSegmentAt: 2)
+                weakSelf.loadPatrolData(taskStatus: 0)
             }else{
                 let msg = json["exceptionMsg"].stringValue
                 //                MBProgressHUD.displayError(kInternetError)

@@ -17,7 +17,7 @@ class JHSegmentedControl: UISegmentedControl {
 //        apportionsSegmentWidthsByContent = true
         // 选项颜色
         tintColor = .k2F3856
-        // 默认选中第二项
+        // 默认选中第一项
         selectedSegmentIndex = 0
         
         customStyle()
