@@ -6,7 +6,7 @@
     "EmployeeInfo": {
       "EmployeeId": "string",
       "EmployeeName": "string",
-      "EmployeeHeadIcon": "string",
+      "EmployeeHeadIcon": "https://upload.jianshu.io/users/upload_avatars/2456771/d9dc05b91093.jpg",
       "EmployeeMobile": "string",
       "DepartmentId": "string",
       "DepartmentName": "string"

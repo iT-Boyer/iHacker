@@ -477,6 +477,9 @@ extension ReportUserDetailController
             let result = json["IsSuccess"].boolValue
             if result {
                 if json["Content"].isEmpty {
+                    if weakSelf.patrolArray.count == 0 {
+                        weakSelf.showCustomNoDataView()
+                    }
                     return
                 }
                 let rawData = try! json["Content"].rawData()
@@ -485,9 +488,6 @@ extension ReportUserDetailController
                     weakSelf.patrolArray.removeAll()
                 }
                 if tasks.count > 0 {
-                    if tasks.count < 20 {
-                        weakSelf.tableView.es.noticeNoMoreData()
-                    }
                     weakSelf.patrolArray += tasks
                 }
                 
@@ -497,13 +497,13 @@ extension ReportUserDetailController
                     weakSelf.hideEmptyView()
                 }else{
                     weakSelf.pageIndex = 1
-                    weakSelf.showNoDataView()
+                    weakSelf.showCustomNoDataView()
                 }
             }else{
                 let msg = json["exceptionMsg"].stringValue
                 //                MBProgressHUD.displayError(kInternetError)
                 weakSelf.pageIndex = 1
-                weakSelf.showNoDataView()
+                weakSelf.showCustomNoDataView()
             }
         }
     }
@@ -536,6 +536,9 @@ extension ReportUserDetailController
             let result = json["IsCompleted"].boolValue
             if result {
                 if json["Data"]["Datas"].isEmpty {
+                    if weakSelf.dataArray.count == 0 {
+                        weakSelf.showCustomNoDataView()
+                    }
                     return
                 }
                 let rawData = try! json["Data"]["Datas"].rawData()
@@ -556,15 +559,17 @@ extension ReportUserDetailController
                     weakSelf.hideEmptyView()
                 }else{
                     weakSelf.pageIndex = 1
-                    weakSelf.showNoDataView()
+                    weakSelf.showCustomNoDataView()
                 }
             }else{
-                let msg = json["exceptionMsg"].stringValue
-                //                MBProgressHUD.displayError(kInternetError)
                 weakSelf.pageIndex = 1
-                weakSelf.showNoDataView()
+                weakSelf.showCustomNoDataView()
             }
         }
+    }
+    func showCustomNoDataView() {
+        showNoDataView(tableView)
+        emptyView.frame = CGRect(x: 0, y: headerView.frame.maxY, width: UIScreen.main.bounds.width, height: 300)
     }
 }
 

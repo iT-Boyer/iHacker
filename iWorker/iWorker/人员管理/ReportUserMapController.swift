@@ -25,7 +25,7 @@ class ReportUserMapController: JHBaseNavVC {
         navBar.isHidden = true
         //请求权限
         requestLocationMap()
-        setRegion()
+        setRegion(latitude: 39.95, longitude: 116.36)
         if let smid = UserDefaults.standard.object(forKey: "ScoreManageId") as? String {
             if layoutId == "" {
                 layoutId = smid
@@ -33,6 +33,8 @@ class ReportUserMapController: JHBaseNavVC {
         }
         createView()
         loadLastFootData()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(showKeyboard(_:)), name: NSNotification.Name("UIKeyboardWillShowNotification"), object: nil)
     }
     
     func createView() {
@@ -101,6 +103,7 @@ class ReportUserMapController: JHBaseNavVC {
             annotation.userId = model.userID
             annotation.coordinate = CLLocationCoordinate2D(latitude: model.latitude, longitude: model.longitude)
             wf.selectUserAnnotation(annotation)
+            wf.setRegion(latitude: model.latitude, longitude: model.longitude)
         } completed: {[weak self] in
             guard let wf = self else{return}
             wf.backBtnClicked(UIButton())
@@ -161,8 +164,17 @@ class ReportUserMapController: JHBaseNavVC {
         infoView.lasttime.text = "上传位置时间：\(currentAnnotation.reportDate)"
     }
     @objc
-    func hideInfoView(tap:UITapGestureRecognizer) {
+    func hideInfoView(tap:UITapGestureRecognizer?) {
         infoView.isHidden = true
+    }
+    
+    @objc
+    func showKeyboard(_ notf:Notification) {
+        hideInfoView(tap: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name("UIKeyboardWillShowNotification"), object: nil)
     }
     
     //MARK: 布局器
@@ -313,14 +325,26 @@ extension ReportUserMapController:MKMapViewDelegate
         mapView.selectAnnotation(annotation, animated: true)
     }
     // 设置“缩放级别”
-    func setRegion() {
-        //海淀中心点经纬度, 设置范围，显示地图的哪一部分以及显示的范围大小
-        let center =  CLLocationCoordinate2D(latitude: 39.95, longitude: 116.36)
+    func setRegion(latitude:Double,longitude:Double) {
+        // 39.95 116.36海淀中心点经纬度, 设置范围，显示地图的哪一部分以及显示的范围大小
+        let center =  CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         let region = MKCoordinateRegion(center: center, latitudinalMeters: 2000, longitudinalMeters: 2000)
         // 调整范围
         let adjustedRegion = mapView.regionThatFits(region)
         // 地图显示范围
         mapView.setRegion(adjustedRegion, animated: true)
+    }
+    
+    // 用户坐标位置
+    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
+        // 设置地图显示的中心点
+        let center:CLLocationCoordinate2D = userLocation.location!.coordinate
+        mapView.setCenter(center, animated: true)
+        // 设置地图显示的经纬度跨度
+        let span = MKCoordinateSpan(latitudeDelta: 0.023, longitudeDelta: 0.017)
+        let region = MKCoordinateRegion(center: center, span: span)
+        // 设置地图显示的范围
+        mapView.setRegion(region, animated: true)
     }
     
     // 定制图钉样式
