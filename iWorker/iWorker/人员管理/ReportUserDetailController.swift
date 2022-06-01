@@ -369,7 +369,7 @@ extension ReportUserDetailController
                                   "LoginUserId":JHBaseInfo.userID,
                                   ]
         
-        let urlStr = JHBaseDomain.fullURL(with: "api_host_scg", path: "/api/QuestionRevise/v3/GetStatisticalData")
+        let urlStr = JHBaseDomain.fullURL(with: "api_host_ripx", path: "/api/QuestionRevise/v3/GetStatisticalData")
         let hud = MBProgressHUD.showAdded(to:view, animated: true)
         hud.removeFromSuperViewOnHide = true
         let request = JN.post(urlStr, parameters: param, headers: nil)
@@ -421,7 +421,7 @@ extension ReportUserDetailController
                                   "TaskState":"",
                                   "TaskId":""]
         
-        let urlStr = JHBaseDomain.fullURL(with: "api_host_scg", path: "/api/PatrolManageRevise/v2/GetPatrolTaskListForCount")
+        let urlStr = JHBaseDomain.fullURL(with: "api_host_ripx", path: "/api/PatrolManageRevise/v2/GetPatrolTaskListForCount")
         let hud = MBProgressHUD.showAdded(to:view, animated: true)
         hud.removeFromSuperViewOnHide = true
         let request = JN.post(urlStr, parameters: param, headers: nil)
@@ -459,8 +459,8 @@ extension ReportUserDetailController
                                   "PageSize":20,
                                   "TaskState":taskStatus,
                                   "TaskId":""]
-        
-        let urlStr = JHBaseDomain.fullURL(with: "api_host_scg", path: "/api/PatrolManageRevise/v2/GetPatrolTaskList")
+        //https://scg.iuoooo.com/api/PatrolManageRevise/v2/GetPatrolTaskList
+        let urlStr = JHBaseDomain.fullURL(with: "api_host_ripx", path: "/api/PatrolManageRevise/v2/GetPatrolTaskList")
         let hud = MBProgressHUD.showAdded(to:view, animated: true)
         hud.removeFromSuperViewOnHide = true
         let request = JN.post(urlStr, parameters: param, headers: nil)

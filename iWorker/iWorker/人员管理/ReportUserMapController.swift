@@ -17,6 +17,8 @@ class ReportUserMapController: JHBaseNavVC {
     var keyword:String = ""
     var departmentId:String = ""
     var currentUserId = ""
+    var layoutId = ""
+    
     var annotationArray:[ReportUserAnnotation] = []
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +26,11 @@ class ReportUserMapController: JHBaseNavVC {
         //请求权限
         requestLocationMap()
         setRegion()
-        
+        if let smid = UserDefaults.standard.object(forKey: "ScoreManageId") as? String {
+            if layoutId == "" {
+                layoutId = smid
+            }
+        }
         createView()
         loadLastFootData()
     }
@@ -155,6 +161,25 @@ class ReportUserMapController: JHBaseNavVC {
         infoView.isHidden = true
     }
     
+    //MARK: 布局器
+    lazy var busTypeBtn: UIButton = {
+        let btn = UIButton()
+        btn.setImage(.init(named: "rightbusIcon"), for: .normal)
+        btn.addShadow(ofColor: .init(white: 0, alpha: 0.2), radius: 3, offset: .init(width: 0, height: 1), opacity: 0.5)
+        btn.addTarget(self, action: #selector(showBusinessMenu), for: .touchDown)
+        return btn
+    }()
+    
+    func showBusinessMenu() {
+        
+    }
+    
+    lazy var containsSecLayoutView: UIView = {
+        let layoutView = UIView()
+        layoutView.layer.backgroundColor = UIColor.white.cgColor
+        layoutView.addShadow(ofColor: .init(white: 0, alpha: 0.2), radius: 3, offset: .init(width: 0, height: 1), opacity: 1)
+        return layoutView
+    }()
 }
 
 extension ReportUserMapController {
