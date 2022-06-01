@@ -1,6 +1,6 @@
 {
   "Content":{
-      "WaitCheck": "100",
+      "WaitCheck": "10",
       "NoCheck": "98",
       "Checked": "77"
     },

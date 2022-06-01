@@ -86,9 +86,10 @@ extension StoreDSelSearchBar:UISearchBarDelegate
     }
     
     func startSearch() {
-        guard let txt = self.searchBar.text else {
-            let msg = "先输入\(placeholder)"
-//            MBProgressHUD.show(msg)
+        let txt = self.searchBar.text ?? ""
+        if txt.count == 0 {
+            let msg = "先输入\(placeholder ?? "搜索内容")"
+//            MBProgressHUD.displayError(msg)
             return
         }
         handlerBlock(txt)

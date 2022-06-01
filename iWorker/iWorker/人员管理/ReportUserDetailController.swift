@@ -248,6 +248,7 @@ class ReportUserDetailController: JHBaseNavVC {
         segmentedControl.snp.makeConstraints { make in
             make.top.equalTo(10)
             make.height.equalTo(30)
+            make.width.equalTo(280)
             make.left.equalToSuperview()
         }
         line.snp.makeConstraints { make in
@@ -322,11 +323,15 @@ extension ReportUserDetailController:UITableViewDelegate,UITableViewDataSource
         tableView.isScrollEnabled  = true
         groupId = group.Id
         pageIndex = 1
+        segmentedControl.selectedSegmentIndex = 0
+        segmentedControl.animateLine()
         if groupId == "0" {
             loadFlagData()
+            segmentedControl.segmentTitles = ["待检查","超期未查","已完成"]
         }
         if groupId == "1" {
             loadTypeData()
+            segmentedControl.segmentTitles = ["待巡查","超期未巡查","已巡查"]
         }
     }
     
@@ -385,22 +390,16 @@ extension ReportUserDetailController
                 }
                 let rawData = try! json["Data"]["StatisticaData"].rawData()
                 guard let tasks:[FlagStatusModel] = FlagStatusModel.parsed(data: rawData) else{return}
-                for item in tasks {
+                let soredArr = tasks.sorted{$0.statisticaStatus < $1.statisticaStatus}
+                var arr:[String] = []
+                for item in soredArr {
                     let title = "\(item.statisticaDesc)(\(item.statisticaCount))"
-                    if item.statisticaStatus == 2 {
-                        //待检查
-                        weakSelf.segmentedControl.setTitle(title, forSegmentAt: 0)
-                    }
-                    if item.statisticaStatus == 3 {
-                        //超期未查
-                        weakSelf.segmentedControl.setTitle(title, forSegmentAt: 1)
-                    }
-                    if item.statisticaStatus == 4 {
-                        //已完成
-                        weakSelf.segmentedControl.setTitle(title, forSegmentAt: 2)
+                    
+                    if item.statisticaStatus == 2 || item.statisticaStatus == 3 || item.statisticaStatus == 4{
+                        arr.append(title)
                     }
                 }
-                weakSelf.segmentedControl.selectedSegmentIndex = 0
+                weakSelf.segmentedControl.segmentTitles = arr
                 weakSelf.loadTaskData(status: 2)
             }else{
                 let msg = json["exceptionMsg"].stringValue
@@ -437,10 +436,7 @@ extension ReportUserDetailController
                 let waitCheck = "待巡查(\(content["WaitCheck"]))"
                 let noCheck = "超期未巡查(\(content["NoCheck"]))"
                 let checked = "已巡查(\(content["Checked"]))"
-                weakSelf.segmentedControl.selectedSegmentIndex = 0
-                weakSelf.segmentedControl.setTitle(waitCheck, forSegmentAt: 0)
-                weakSelf.segmentedControl.setTitle(noCheck, forSegmentAt: 1)
-                weakSelf.segmentedControl.setTitle(checked, forSegmentAt: 2)
+                weakSelf.segmentedControl.segmentTitles = [waitCheck,noCheck,checked]
                 weakSelf.loadPatrolData(taskStatus: 0)
             }else{
                 let msg = json["exceptionMsg"].stringValue

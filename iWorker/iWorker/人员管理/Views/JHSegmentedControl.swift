@@ -14,7 +14,7 @@ class JHSegmentedControl: UISegmentedControl {
     override init(items: [Any]?) {
         super.init(items: items)
         //是否根据segment的内容改变segment的宽度
-//        apportionsSegmentWidthsByContent = true
+        apportionsSegmentWidthsByContent = true
         // 选项颜色
         tintColor = .k2F3856
         // 默认选中第一项
@@ -41,7 +41,7 @@ class JHSegmentedControl: UISegmentedControl {
         ]
         let textattr2:[NSAttributedString.Key:Any] = [
             .foregroundColor:UIColor.k2CD773,
-            .font:UIFont.systemFont(ofSize: 16)
+            .font:UIFont.systemFont(ofSize: 14)
         ]
         setTitleTextAttributes(textattr, for: .normal)
         setTitleTextAttributes(textattr2, for: .selected)

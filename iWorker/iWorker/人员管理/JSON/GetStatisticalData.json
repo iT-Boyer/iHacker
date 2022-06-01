@@ -16,7 +16,7 @@
         "StatisticaStatus": 2,
         "StatisticaName": "待检查",
         "StatisticaDesc": "待检查",
-        "StatisticaCount": 123
+        "StatisticaCount": 1
       },{
         "StatisticaStatus": 3,
         "StatisticaName": "超期未查",
