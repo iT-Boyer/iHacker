@@ -149,6 +149,7 @@
 		B38D89C6277C482A00888EFB /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = B38D89C5277C482A00888EFB /* Nimble */; };
 		B38D89C8277C482A00888EFB /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = B38D89C7277C482A00888EFB /* Quick */; };
 		B38D89CB277C488700888EFB /* RuntimeAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38D89CA277C488700888EFB /* RuntimeAPITests.swift */; };
+		B38E8A552847078400884A6A /* GetPatrolTaskList.json in Resources */ = {isa = PBXBuildFile; fileRef = B38E8A542847078400884A6A /* GetPatrolTaskList.json */; };
 		B39C8583283DFA1F007ABDCC /* MapFilterBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39C8582283DFA1F007ABDCC /* MapFilterBarView.swift */; };
 		B39C8587283E0A52007ABDCC /* ReportMapFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39C8586283E0A52007ABDCC /* ReportMapFilterCell.swift */; };
 		B39C8589283E22F7007ABDCC /* ReportMapUserTaskStatM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39C8588283E22F7007ABDCC /* ReportMapUserTaskStatM.swift */; };
@@ -426,6 +427,7 @@
 		B38D89BB277C480700888EFB /* SwiftLibBTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftLibBTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B38D89BD277C480700888EFB /* SwiftLibBTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftLibBTests.swift; sourceTree = "<group>"; };
 		B38D89CA277C488700888EFB /* RuntimeAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuntimeAPITests.swift; sourceTree = "<group>"; };
+		B38E8A542847078400884A6A /* GetPatrolTaskList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GetPatrolTaskList.json; sourceTree = "<group>"; };
 		B39C8582283DFA1F007ABDCC /* MapFilterBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapFilterBarView.swift; sourceTree = "<group>"; };
 		B39C8586283E0A52007ABDCC /* ReportMapFilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportMapFilterCell.swift; sourceTree = "<group>"; };
 		B39C8588283E22F7007ABDCC /* ReportMapUserTaskStatM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportMapUserTaskStatM.swift; sourceTree = "<group>"; };
@@ -817,6 +819,7 @@
 				B376CD51283CAD4800D01B26 /* GetFootPrintUserCount.json */,
 				B376CD52283CAD4800D01B26 /* GetEmployeeInfo.json */,
 				B3EC88C82844B6450040F664 /* GetPatrolTaskListForCount.json */,
+				B38E8A542847078400884A6A /* GetPatrolTaskList.json */,
 			);
 			name = JSON;
 			path = "../../../../SupervisionSel/SupervisionSel/Classes/Controller/拍抢干/1.2/Models/JSON";
@@ -1556,6 +1559,7 @@
 				B3EC88CB2844B8340040F664 /* GetStatisticalData.json in Resources */,
 				B38D8908277B1AC000888EFB /* ipFile.plist in Resources */,
 				B34635BF27E37FA0002CA750 /* GetSingleIntelligentDeviceInfoNew.json in Resources */,
+				B38E8A552847078400884A6A /* GetPatrolTaskList.json in Resources */,
 				B38D890D277B1AC000888EFB /* RegisterFaceInfo.json in Resources */,
 				B33EF39527BFA68B00A3B6DE /* AddInviteUser.json in Resources */,
 			);

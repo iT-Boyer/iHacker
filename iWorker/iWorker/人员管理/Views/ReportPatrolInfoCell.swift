@@ -29,10 +29,10 @@ class ReportPatrolInfoCell: UITableViewCell {
     var model:PatrolTaskModel?{
         didSet{
             guard let mm = model else { return }
-            titleLab.text = mm.StoreName
-            addrLab.text = mm.StoreAddress
-            telLab.text = mm.StoreTel
-            taskLab.text = mm.TaskName
+            titleLab.text = mm.storeName
+            addrLab.text = mm.storeAddress
+            telLab.text = mm.storeTel
+            taskLab.text = mm.taskName
             let textattr:[NSAttributedString.Key:Any] = [
                 .foregroundColor:UIColor.k99A0B6,
                 .font:UIFont.systemFont(ofSize: 13)
@@ -41,9 +41,9 @@ class ReportPatrolInfoCell: UITableViewCell {
                 .foregroundColor:UIColor.k2F3856,
                 .font:UIFont.systemFont(ofSize: 13)
             ]
-            let rentext = NSAttributedString(string: "负责人员：\(mm.Personnel)",attributes: textattr)
-            renLab.attributedText = rentext.applying(attributes: textendattr, toRangesMatching: mm.Personnel)
-            let time = mm.StartTimeRemark + "-" + mm.EndTimeRemark
+            let rentext = NSAttributedString(string: "负责人员：\(mm.personnel)",attributes: textattr)
+            renLab.attributedText = rentext.applying(attributes: textendattr, toRangesMatching: mm.personnel)
+            let time = mm.startTimeRemark + "-" + mm.endTimeRemark
             let timetext = NSAttributedString(string: "有效时间：\(time)",attributes: textattr)
             dateLab.attributedText = timetext.applying(attributes: textendattr, toRangesMatching: time)
         }

@@ -474,12 +474,12 @@ extension ReportUserDetailController
                 return
             }
             let json = JSON(data)
-            let result = json["IsCompleted"].boolValue
+            let result = json["IsSuccess"].boolValue
             if result {
-                if json["Datas"].isEmpty {
+                if json["Content"].isEmpty {
                     return
                 }
-                let rawData = try! json["Datas"].rawData()
+                let rawData = try! json["Content"].rawData()
                 guard let tasks:[PatrolTaskModel] = PatrolTaskModel.parsed(data: rawData) else { return }
                 if weakSelf.pageIndex == 1 {
                     weakSelf.patrolArray.removeAll()

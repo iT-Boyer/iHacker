@@ -9,37 +9,46 @@ import Foundation
 
 struct PatrolTaskModel:Codable {
     
-    let StoreId:String
-    let PersonnelId:String
-    let PatrolSubTasksId:String
-    let StoreName:String
-    let StoreAddress:String
+    let appID, storeID, taskID, patrolSubTasksID: String
+    let storeName, storeAddress, storeTel, personnelID: String
+    let personnel, startTime, endTime, taskName: String
+    let processResult: String
+    let picture: [String]
+    let distance: Int
+    let completeTime: String
+    let requestStatus: Int
+    let storeSECTypeID, storeSECTypeRemark, entityTypeCode, distanceRemark: String
+    let dayRemark, storeAddressRemark, storeTelRemark, startTimeRemark: String
+    let endTimeRemark: String
 
-    let StoreTel:String
-    let Personnel:String
-    let StartTime:String
-    let EndTime:String
-    let TaskName:String
-
-    let ProcessResult:String//通过或者合格
-    
-    let AppId:String
-    let TaskId:String
-    let Distance:String
-    let RequestStatus:String
-    let StoreSecTypeId:String
-    let StoreSecTypeRemark:String
-
-    let DistanceRemark:String
-    let DayRemark:String
-    let StoreAddressRemark:String
-    let StoreTelRemark:String
-    let StartTimeRemark:String
-    let EndTimeRemark:String
-    
-    let Picture:[String]
-    let isBtnSelect:Bool
-    let EntityTypeCode:String
+    enum CodingKeys: String, CodingKey {
+        case appID = "AppId"
+        case storeID = "StoreId"
+        case taskID = "TaskId"
+        case patrolSubTasksID = "PatrolSubTasksId"
+        case storeName = "StoreName"
+        case storeAddress = "StoreAddress"
+        case storeTel = "StoreTel"
+        case personnelID = "PersonnelId"
+        case personnel = "Personnel"
+        case startTime = "StartTime"
+        case endTime = "EndTime"
+        case taskName = "TaskName"
+        case processResult = "ProcessResult"
+        case picture = "Picture"
+        case distance = "Distance"
+        case completeTime = "CompleteTime"
+        case requestStatus = "RequestStatus"
+        case storeSECTypeID = "StoreSecTypeId"
+        case storeSECTypeRemark = "StoreSecTypeRemark"
+        case entityTypeCode = "EntityTypeCode"
+        case distanceRemark = "DistanceRemark"
+        case dayRemark = "DayRemark"
+        case storeAddressRemark = "StoreAddressRemark"
+        case storeTelRemark = "StoreTelRemark"
+        case startTimeRemark = "StartTimeRemark"
+        case endTimeRemark = "EndTimeRemark"
+    }
     
     // 解析
     static func parsed<T:Decodable>(data:Data) -> T? {
