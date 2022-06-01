@@ -16,7 +16,7 @@ class ReportUserMapController: JHBaseNavVC {
     var userModel:ReportLastFootM!
     var keyword:String = ""
     var departmentId:String = ""
-    var currentUserId = ""
+    var currentAnnotation = ReportUserAnnotation()
     var layoutId = ""
     
     var annotationArray:[ReportUserAnnotation] = []
@@ -88,7 +88,7 @@ class ReportUserMapController: JHBaseNavVC {
         let view = MapFilterBarView(with: "请输入人员名称") {[weak self] data in
             //TODO: 选择人员业务
             guard let wf = self else{return}
-            guard let model = data else{
+            guard let model:ReportLastFootM = data else{
                 wf.keyword = ""
                 wf.loadLastFootData()
                 return
@@ -96,7 +96,9 @@ class ReportUserMapController: JHBaseNavVC {
             wf.keyword = wf.filterView.searchBar.searchBar.text ?? ""
             wf.userModel = model
             let annotation = ReportUserAnnotation()
-            annotation.title = model.userName
+            annotation.title = model.location
+            annotation.reportDate = model.reportDate
+            annotation.userId = model.userID
             annotation.coordinate = CLLocationCoordinate2D(latitude: model.latitude, longitude: model.longitude)
             wf.selectUserAnnotation(annotation)
         } completed: {[weak self] in
@@ -150,11 +152,13 @@ class ReportUserMapController: JHBaseNavVC {
     }()
     func showInfoView(data:ReportMapUserTaskStatM) {
         infoView.isHidden = false
-        infoView.dataM = data
         infoView.snp.remakeConstraints { make in
-            make.height.equalTo(78 + 75 * data.taskList.count)
-            make.bottom.left.centerX.equalToSuperview()
+            make.height.equalTo(92 + 74 * data.taskList.count)
+            make.left.centerX.equalToSuperview()
+            make.bottom.equalTo(-kEmptyBottomHeight)
         }
+        infoView.dataM = data
+        infoView.lasttime.text = "上传位置时间：\(currentAnnotation.reportDate)"
     }
     @objc
     func hideInfoView(tap:UITapGestureRecognizer) {
@@ -221,11 +225,11 @@ extension ReportUserMapController {
     }
     
     //MARK: 获取当前人员的信息
-    func requesUserId(_ userId:String) {
+    func requesUserInfoCard() {
         let param:[String:Any] = ["OrgId":JHBaseInfo.orgID,
                                   "AppId":JHBaseInfo.appID,
                                   "LoginUserId":JHBaseInfo.userID,
-                                  "ChooseUserId":userId]
+                                  "ChooseUserId":currentAnnotation.userId]
         
         let urlStr = JHBaseDomain.fullURL(with: "api_host_scg", path: "/api/Employee/v3/GetEmployeeTaskStat")
         let hud = MBProgressHUD.showAdded(to:view, animated: true)
@@ -285,6 +289,7 @@ extension ReportUserMapController {
                     annotation.userId = model.userID
                     annotation.title = model.location
                     annotation.subtitle = ""
+                    annotation.reportDate = model.reportDate
                     annotation.coordinate = CLLocationCoordinate2D(latitude: model.latitude, longitude: model.longitude)
                     weakSelf.annotationArray.append(annotation)
                 }
@@ -338,8 +343,8 @@ extension ReportUserMapController:MKMapViewDelegate
         if let DesView = view as? ReportUserAnnotationView {
             DesView.image = UIImage(named: "mapuseredicon")
             if let model = DesView.annotation as? ReportUserAnnotation {
-                currentUserId = model.userId
-                requesUserId(model.userId)
+                currentAnnotation = model
+                requesUserInfoCard()
             }
         }
     }

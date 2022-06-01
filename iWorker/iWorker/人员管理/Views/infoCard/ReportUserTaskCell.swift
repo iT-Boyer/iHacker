@@ -19,19 +19,20 @@ class ReportUserTaskCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    let nameLab = UILabel()
-    let statusLab = UILabel()
-    let timeLab = UILabel()
-    let lastDateLab = UILabel()
     
-    var model:ReportMapUserTaskM!{
+    var model:ReportMapUserTaskM?{
         didSet{
-            nameLab.text = model.taskName
-            timeLab.text = "任务时间：\(model.subTime)"
-            lastDateLab.text = "任务期限：\(model.startTime)-\(model.endTime)"
+            guard let mm = model else { return }
+            nameLab.text = mm.taskName
+            timeLab.text = "任务时间：\(mm.subTime)"
+            let format = DateFormatter()
+            format.dateFormat = "yyyy-MM-dd"
+            let startDate:Date = format.date(from: mm.startTime) ?? Date()
+            let endDate:Date = format.date(from: mm.endTime) ?? Date()
+            lastDateLab.text = "任务期限：\(startDate.month)月\(startDate.day)日-\(endDate.month)月\(endDate.day)日"
             var text = "  待检查  "
             var color:UIColor = .k2CD773
-            if model.taskStatus == 3 {
+            if mm.taskStatus == 3 {
                 text = "  超期未查  "
                 color = .kFF6A34
             }
@@ -42,22 +43,7 @@ class ReportUserTaskCell: UITableViewCell {
     }
     
     func createView() {
-        
-        nameLab.font = .systemFont(ofSize: 14)
-        nameLab.textColor = .k2F3856
-        
-        statusLab.font = .systemFont(ofSize: 12)
-        statusLab.textColor = .kFF6A34
-        statusLab.layer.cornerRadius = 4
-        statusLab.layer.borderWidth = 1
-        
-        timeLab.isHidden = true
-        timeLab.font = .systemFont(ofSize: 12)
-        timeLab.textColor = .k99A0B6
-        
-        lastDateLab.font = .systemFont(ofSize: 12)
-        lastDateLab.textColor = .k99A0B6
-        
+            
         contentView.addSubviews([nameLab,statusLab,timeLab,lastDateLab])
         
         nameLab.snp.makeConstraints { make in
@@ -80,4 +66,35 @@ class ReportUserTaskCell: UITableViewCell {
             make.bottom.equalTo(-15)
         }
     }
+    
+    lazy var nameLab: UILabel = {
+        let lab = UILabel()
+        lab.font = .systemFont(ofSize: 14)
+        lab.textColor = .k2F3856
+        return lab
+    }()
+    lazy var statusLab: UILabel = {
+        let lab = UILabel()
+        lab.font = .systemFont(ofSize: 12)
+        lab.textColor = .kFF6A34
+        lab.layer.cornerRadius = 4
+        lab.layer.borderWidth = 1
+        return lab
+    }()
+    lazy var timeLab: UILabel = {
+        let lab = UILabel()
+        lab.text = "任务时间："
+        lab.isHidden = true
+        lab.font = .systemFont(ofSize: 12)
+        lab.textColor = .k99A0B6
+        return lab
+    }()
+    lazy var lastDateLab: UILabel = {
+        let lab = UILabel()
+        lab.text = "任务期限："
+        lab.font = .systemFont(ofSize: 12)
+        lab.textColor = .k99A0B6
+        return lab
+    }()
+    
 }
