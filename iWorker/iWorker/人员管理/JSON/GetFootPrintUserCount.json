@@ -1,0 +1,9 @@
+{
+  "Data": {
+    "DepartmentName": "string",
+    "UserCount": 120
+  },
+  "InvokeId": "string",
+  "IsCompleted": true,
+  "ExceptionMsg": "string"
+}

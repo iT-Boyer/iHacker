@@ -1,0 +1,38 @@
+{
+  "Data": {
+    "Id": "string",
+    "UserId": "string",
+    "UserName": "喜马拉雅",
+    "UserTel": "129387478",
+    "UserHeadIcon": "https://upload.jianshu.io/users/upload_avatars/2456771/d9dc05b91093.jpg",
+    "DepartmentId": "string",
+    "MinDate": "2019-10-22T05:47:02.824Z",
+    "LocationList": [
+      {
+        "ReportDate": "2019-10-22T05:47:02.824Z",
+        "ReportDateRemark": "string",
+        "ReportTime": "10:34",
+        "Longitude": 0,
+        "Latitude": 0,
+        "Location": "西二旗盈创动力A座"
+      },{
+        "ReportDate": "2019-10-22T05:47:02.824Z",
+        "ReportDateRemark": "string",
+        "ReportTime": "10:34",
+        "Longitude": 0,
+        "Latitude": 0,
+        "Location": "西二旗盈创动力A座"
+      },{
+        "ReportDate": "2019-10-22T05:47:02.824Z",
+        "ReportDateRemark": "string",
+        "ReportTime": "10:34",
+        "Longitude": 0,
+        "Latitude": 0,
+        "Location": "西二旗盈创动力A座"
+      }
+    ]
+  },
+  "InvokeId": "string",
+  "IsCompleted": true,
+  "ExceptionMsg": "string"
+}

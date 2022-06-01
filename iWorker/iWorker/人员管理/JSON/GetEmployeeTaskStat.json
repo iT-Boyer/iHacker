@@ -1,0 +1,49 @@
+{
+  "Data": {
+    "All": 102,
+    "WaitCheck": 10,
+    "Checked": 10,
+    "EmployeeInfo": {
+      "EmployeeId": "string",
+      "EmployeeName": "string",
+      "EmployeeHeadIcon": "string",
+      "EmployeeMobile": "string",
+      "DepartmentId": "string",
+      "DepartmentName": "string"
+    },
+    "TaskList": [
+      {
+        "TaskId": "string",
+        "TaskName": "string",
+        "SubTime": "2019-10-22",
+        "StartTime": "2019-10-22",
+        "EndTime": "2019-10-22",
+        "TaskStatus": 3
+      },{
+        "TaskId": "string",
+        "TaskName": "string",
+        "SubTime": "2019-10-22",
+        "StartTime": "2019-10-22",
+        "EndTime": "2019-10-22",
+        "TaskStatus": 2
+      },{
+          "TaskId": "string",
+          "TaskName": "string",
+          "SubTime": "2019-10-22",
+          "StartTime": "2019-10-22",
+          "EndTime": "2019-10-22",
+          "TaskStatus": 2
+        },{
+            "TaskId": "string",
+            "TaskName": "string",
+            "SubTime": "2019-10-22",
+            "StartTime": "2019-10-22",
+            "EndTime": "2019-10-22",
+            "TaskStatus": 2
+          }
+    ]
+  },
+  "InvokeId": "string",
+  "IsCompleted": true,
+  "ExceptionMsg": "string"
+}

@@ -1,0 +1,16 @@
+{
+  "Data": {
+    "AreaNames": [
+      "西二旗盈创动力A座"
+    ],
+    "EmployeeId": "12339923",
+    "EmployeeName": "小刚",
+    "EmployeeHeadIcon": "https://upload.jianshu.io/users/upload_avatars/2456771/d9dc05b91093.jpg",
+    "EmployeeMobile": "135999000",
+    "DepartmentId": "0004004",
+    "DepartmentName": "开发部"
+  },
+  "InvokeId": "string",
+  "IsCompleted": true,
+  "ExceptionMsg": "string"
+}

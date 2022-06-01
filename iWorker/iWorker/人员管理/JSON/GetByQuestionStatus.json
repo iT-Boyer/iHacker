@@ -1,0 +1,46 @@
+{
+  "Data": {
+    "Count": 0,
+    "PageCount": 0,
+    "Datas": [
+      {
+        "Id": "string",
+        "ClassifyId": "string",
+        "ClassifyName": "string",
+        "EventName": "上报分类-事件名称",
+        "QuestionStatus": 0,
+        "QuestionStatusDesc": "string",
+        "QuestionSubDate": "2019-11-06T07:38:43.876Z",
+        "QuestionOffDate": "2019-11-06T07:38:43.876Z",
+        "ChargeName": "沈潺理",
+        "OperationName": "string",
+        "OperationDate": "2019-11-06T07:38:43.876Z",
+        "CompleteName": "string",
+        "CompleteDate": "2019-11-06T07:38:43.876Z",
+        "QuestionOffDateFormat": "string",
+        "QuestionSubDateFormat": "string",
+        "AppId": "string",
+        "EventId": "string",
+        "QuestionDesc": "string",
+        "QuestionThumbnailIcon": "string",
+        "QuestionIcon": "string",
+        "QuestionLocationIcon": "string",
+        "QuestionReporterCode": "string",
+        "QuestionReporterName": "string",
+        "QuestionAreaName": "string",
+        "QuestionFixedLocation": "上地信息产业基地上地东路35号颐原汇地铁10号线",
+        "QuestionFixedLongitude": 0,
+        "QuestionFixedLatitude": 0,
+        "ForPage": 0,
+        "QuestionIdentify": "string",
+        "QuestionSource": 0,
+        "QuestionSourceId": "string",
+        "QuestionParentId": "string",
+        "QuestionIsRawData": true
+      }
+    ]
+  },
+  "InvokeId": "string",
+  "IsCompleted": true,
+  "ExceptionMsg": "string"
+}

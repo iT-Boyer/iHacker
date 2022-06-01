@@ -1,0 +1,36 @@
+{
+  "Data": {
+    "IsAdmin": true,
+    "StatisticaData": [
+      {
+        "StatisticaStatus": 0,
+        "StatisticaName": "待检查",
+        "StatisticaDesc": "待检查",
+        "StatisticaCount": 3
+      },{
+        "StatisticaStatus": 1,
+        "StatisticaName": "已结案",
+        "StatisticaDesc": "已结案",
+        "StatisticaCount": 3
+      },{
+        "StatisticaStatus": 2,
+        "StatisticaName": "待检查",
+        "StatisticaDesc": "待检查",
+        "StatisticaCount": 123
+      },{
+        "StatisticaStatus": 3,
+        "StatisticaName": "超期未查",
+        "StatisticaDesc": "超期未查",
+        "StatisticaCount": 22
+      },{
+        "StatisticaStatus": 4,
+        "StatisticaName": "已完成",
+        "StatisticaDesc": "已完成",
+        "StatisticaCount": 10
+      }
+    ]
+  },
+  "InvokeId": "string",
+  "IsCompleted": true,
+  "ExceptionMsg": "string"
+}

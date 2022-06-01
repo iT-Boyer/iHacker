@@ -1,0 +1,28 @@
+{
+  "Data": [
+    {
+      "Id": "string1",
+      "Name": "string",
+      "ParentId": "string",
+      "Level": 0
+    },{
+      "Id": "string2",
+      "Name": "string",
+      "ParentId": "string",
+      "Level": 0
+    },{
+      "Id": "string3",
+      "Name": "string",
+      "ParentId": "string",
+      "Level": 0
+    },{
+      "Id": "string4",
+      "Name": "string",
+      "ParentId": "string",
+      "Level": 0
+    }
+  ],
+  "InvokeId": "string",
+  "IsCompleted": true,
+  "ExceptionMsg": "string"
+}

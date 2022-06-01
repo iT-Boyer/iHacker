@@ -1,0 +1,10 @@
+{
+  "Content":{
+      "WaitCheck": "100",
+      "NoCheck": "98",
+      "Checked": "77"
+    },
+  "InvokeId": "string",
+  "IsSuccess": true,
+  "ExceptionMsg": "string"
+}

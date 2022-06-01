@@ -1,0 +1,39 @@
+{
+  "Content": [
+    {
+      "AppId": "string",
+      "StoreId": "string",
+      "TaskId": "string",
+      "PatrolSubTasksId": "string",
+      "StoreName": "string",
+      "StoreAddress": "string",
+      "StoreTel": "string",
+      "PersonnelId": "string",
+      "Personnel": "string",
+      "StartTime": "2022-06-01T02:33:54.472Z",
+      "EndTime": "2022-06-01T02:33:54.472Z",
+      "TaskName": "string",
+      "ProcessResult": "string",
+      "Picture": [
+        "string"
+      ],
+      "Distance": 0,
+      "CompleteTime": "2022-06-01T02:33:54.472Z",
+      "RequestStatus": 0,
+      "StoreSecTypeId": "string",
+      "StoreSecTypeRemark": "string",
+      "EntityTypeCode": "string",
+      "DistanceRemark": "string",
+      "DayRemark": "string",
+      "StoreAddressRemark": "string",
+      "StoreTelRemark": "string",
+      "StartTimeRemark": "string",
+      "EndTimeRemark": "string"
+    }
+  ],
+  "Message": "string",
+  "IsSuccess": true,
+  "Code": "string",
+  "Data": {},
+  "Detail": "string"
+}

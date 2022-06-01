@@ -1,0 +1,61 @@
+{
+  "Data": [
+    {
+      "Id": "string",
+      "UserId": "c3738bc5-fbf7-4975-8e66-45dea755a0bb",
+      "UserName": "清河",
+      "UserTel": "18100000000",
+      "UserHeadIcon": "https://upload.jianshu.io/users/upload_avatars/2456771/d9dc05b91093.jpg",
+      "DepartmentId": "string",
+      "Longitude": 116.313596,
+      "Latitude": 40.040661,
+      "ReportDate": "2019年10月08日",
+      "ReportDateRemark": "string",
+      "ReportTime": "10:30",
+      "Location": "位置位置"
+    },
+    {
+      "Id": "string",
+      "UserId": "c3738bc5-fbf7-4975-8e66-45dea755a0bb",
+      "UserName": "航天城",
+      "UserTel": "18100000000",
+      "UserHeadIcon": "https://upload.jianshu.io/users/upload_avatars/2456771/d9dc05b91093.jpg",
+      "DepartmentId": "string",
+      "Longitude": 116.291624,
+      "Latitude": 40.075083,
+      "ReportDate": "2019年10月08日",
+      "ReportDateRemark": "string",
+      "ReportTime": "10:30",
+      "Location": "位置位置"
+    },{
+      "Id": "string",
+      "UserId": "c3738bc5-fbf7-4975-8e66-45dea755a0bb",
+      "UserName": "回龙观医院",
+      "UserTel": "18100000000",
+      "UserHeadIcon": "https://upload.jianshu.io/users/upload_avatars/2456771/d9dc05b91093.jpg",
+      "DepartmentId": "string",
+      "Longitude": 116.329559,
+      "Latitude": 40.066807,
+      "ReportDate": "2019年10月08日",
+      "ReportDateRemark": "string",
+      "ReportTime": "10:30",
+      "Location": "位置位置"
+    },{
+      "Id": "string",
+      "UserId": "c3738bc5-fbf7-4975-8e66-45dea755a0bb",
+      "UserName": "强佑府学上院",
+      "UserTel": "18100000000",
+      "UserHeadIcon": "https://upload.jianshu.io/users/upload_avatars/2456771/d9dc05b91093.jpg",
+      "DepartmentId": "string",
+      "Longitude": 116.34638,
+      "Latitude": 40.028503,
+      "ReportDate": "2019年10月08日",
+      "ReportDateRemark": "string",
+      "ReportTime": "10:30",
+      "Location": "位置位置"
+    }
+  ],
+  "InvokeId": "string",
+  "IsCompleted": true,
+  "ExceptionMsg": "string"
+}

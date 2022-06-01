@@ -70,11 +70,6 @@
 		B374E96127EC21F60033B72C /* JHDeviceTimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B374E96027EC21F60033B72C /* JHDeviceTimePicker.swift */; };
 		B374EA2D27EC47DF0033B72C /* VCTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = B374EA2C27EC47DF0033B72C /* VCTools.swift */; };
 		B376CD4A283CA7DC00D01B26 /* ReportUserAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B376CD49283CA7DC00D01B26 /* ReportUserAnnotationView.swift */; };
-		B376CD53283CAD4800D01B26 /* GetDayFootPrint.json in Resources */ = {isa = PBXBuildFile; fileRef = B376CD4E283CAD4800D01B26 /* GetDayFootPrint.json */; };
-		B376CD54283CAD4800D01B26 /* GetLastFootPrint.json in Resources */ = {isa = PBXBuildFile; fileRef = B376CD4F283CAD4800D01B26 /* GetLastFootPrint.json */; };
-		B376CD55283CAD4800D01B26 /* GetEmployeeTaskStat.json in Resources */ = {isa = PBXBuildFile; fileRef = B376CD50283CAD4800D01B26 /* GetEmployeeTaskStat.json */; };
-		B376CD56283CAD4800D01B26 /* GetFootPrintUserCount.json in Resources */ = {isa = PBXBuildFile; fileRef = B376CD51283CAD4800D01B26 /* GetFootPrintUserCount.json */; };
-		B376CD57283CAD4800D01B26 /* GetEmployeeInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = B376CD52283CAD4800D01B26 /* GetEmployeeInfo.json */; };
 		B376CD59283CAF8D00D01B26 /* ReportLastFootM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B376CD58283CAF8D00D01B26 /* ReportLastFootM.swift */; };
 		B37705F927BF693C00018309 /* JHShareDevicePreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37705F827BF693C00018309 /* JHShareDevicePreController.swift */; };
 		B37EC65D283B6CB300D92FC1 /* ReportUserMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37EC65C283B6CB300D92FC1 /* ReportUserMapController.swift */; };
@@ -149,7 +144,16 @@
 		B38D89C6277C482A00888EFB /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = B38D89C5277C482A00888EFB /* Nimble */; };
 		B38D89C8277C482A00888EFB /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = B38D89C7277C482A00888EFB /* Quick */; };
 		B38D89CB277C488700888EFB /* RuntimeAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38D89CA277C488700888EFB /* RuntimeAPITests.swift */; };
-		B38E8A552847078400884A6A /* GetPatrolTaskList.json in Resources */ = {isa = PBXBuildFile; fileRef = B38E8A542847078400884A6A /* GetPatrolTaskList.json */; };
+		B38E8A61284712A000884A6A /* GetStatisticalData.json in Resources */ = {isa = PBXBuildFile; fileRef = B38E8A57284712A000884A6A /* GetStatisticalData.json */; };
+		B38E8A62284712A000884A6A /* GetDayFootPrint.json in Resources */ = {isa = PBXBuildFile; fileRef = B38E8A58284712A000884A6A /* GetDayFootPrint.json */; };
+		B38E8A63284712A000884A6A /* GetLastFootPrint.json in Resources */ = {isa = PBXBuildFile; fileRef = B38E8A59284712A000884A6A /* GetLastFootPrint.json */; };
+		B38E8A64284712A000884A6A /* GetPatrolTaskListForCount.json in Resources */ = {isa = PBXBuildFile; fileRef = B38E8A5A284712A000884A6A /* GetPatrolTaskListForCount.json */; };
+		B38E8A65284712A000884A6A /* GetEmployeeTaskStat.json in Resources */ = {isa = PBXBuildFile; fileRef = B38E8A5B284712A000884A6A /* GetEmployeeTaskStat.json */; };
+		B38E8A66284712A000884A6A /* GetPatrolTaskList.json in Resources */ = {isa = PBXBuildFile; fileRef = B38E8A5C284712A000884A6A /* GetPatrolTaskList.json */; };
+		B38E8A67284712A000884A6A /* GetFootPrintUserCount.json in Resources */ = {isa = PBXBuildFile; fileRef = B38E8A5D284712A000884A6A /* GetFootPrintUserCount.json */; };
+		B38E8A68284712A000884A6A /* GetByQuestionStatus.json in Resources */ = {isa = PBXBuildFile; fileRef = B38E8A5E284712A000884A6A /* GetByQuestionStatus.json */; };
+		B38E8A69284712A000884A6A /* GetEmployeeInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = B38E8A5F284712A000884A6A /* GetEmployeeInfo.json */; };
+		B38E8A6A284712A000884A6A /* GetDepartmentList.json in Resources */ = {isa = PBXBuildFile; fileRef = B38E8A60284712A000884A6A /* GetDepartmentList.json */; };
 		B39C8583283DFA1F007ABDCC /* MapFilterBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39C8582283DFA1F007ABDCC /* MapFilterBarView.swift */; };
 		B39C8587283E0A52007ABDCC /* ReportMapFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39C8586283E0A52007ABDCC /* ReportMapFilterCell.swift */; };
 		B39C8589283E22F7007ABDCC /* ReportMapUserTaskStatM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39C8588283E22F7007ABDCC /* ReportMapUserTaskStatM.swift */; };
@@ -159,7 +163,6 @@
 		B39C8596283F153C007ABDCC /* JHFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39C8595283F153C007ABDCC /* JHFilterCell.swift */; };
 		B39C8599283F17B7007ABDCC /* JHFilterTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39C8598283F17B7007ABDCC /* JHFilterTransition.swift */; };
 		B39C859B283F2E9F007ABDCC /* JHMapFilterM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39C859A283F2E9F007ABDCC /* JHMapFilterM.swift */; };
-		B39C859D283F3C96007ABDCC /* GetDepartmentList.json in Resources */ = {isa = PBXBuildFile; fileRef = B39C859C283F3C96007ABDCC /* GetDepartmentList.json */; };
 		B39C859F284110D5007ABDCC /* ReportGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39C859E284110D5007ABDCC /* ReportGroupView.swift */; };
 		B3B4A6E1282BA0C5006B5F57 /* PhoneAccountBindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B4A6E0282BA0C5006B5F57 /* PhoneAccountBindViewController.swift */; };
 		B3B4A6E3282BA146006B5F57 /* AccountSecurityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B4A6E2282BA146006B5F57 /* AccountSecurityViewController.swift */; };
@@ -181,14 +184,10 @@
 		B3EC88BF284493230040F664 /* ReportPatrolInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC88BE284493230040F664 /* ReportPatrolInfoCell.swift */; };
 		B3EC88C1284493340040F664 /* ReportTaskInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC88C0284493340040F664 /* ReportTaskInfoCell.swift */; };
 		B3EC88C32844AA5D0040F664 /* ReportTaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC88C22844AA5D0040F664 /* ReportTaskModel.swift */; };
-		B3EC88C52844B06C0040F664 /* GetByQuestionStatus.json in Resources */ = {isa = PBXBuildFile; fileRef = B3EC88C42844B06C0040F664 /* GetByQuestionStatus.json */; };
 		B3EC88C72844B2EB0040F664 /* PatrolTaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC88C62844B2EA0040F664 /* PatrolTaskModel.swift */; };
-		B3EC88C92844B6450040F664 /* GetPatrolTaskListForCount.json in Resources */ = {isa = PBXBuildFile; fileRef = B3EC88C82844B6450040F664 /* GetPatrolTaskListForCount.json */; };
-		B3EC88CB2844B8340040F664 /* GetStatisticalData.json in Resources */ = {isa = PBXBuildFile; fileRef = B3EC88CA2844B8340040F664 /* GetStatisticalData.json */; };
 		B3EC88CD2844B88C0040F664 /* FlagStatusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC88CC2844B88C0040F664 /* FlagStatusModel.swift */; };
 		B3EC88CF2845B89A0040F664 /* ReportTrackPathCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC88CE2845B89A0040F664 /* ReportTrackPathCell.swift */; };
 		B3EC88D12845BB9E0040F664 /* ReportTrackPachM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC88D02845BB9E0040F664 /* ReportTrackPachM.swift */; };
-		B3EC88D32845BBD80040F664 /* GetDayFootPrint.json in Resources */ = {isa = PBXBuildFile; fileRef = B3EC88D22845BBD80040F664 /* GetDayFootPrint.json */; };
 		B3EC88D52845C4D80040F664 /* SplitDotlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC88D42845C4D80040F664 /* SplitDotlineView.swift */; };
 		B3F33432281295BC003B834D /* JHVideoActivityBaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F33431281295BC003B834D /* JHVideoActivityBaseController.swift */; };
 		B3F3343428129EA9003B834D /* VideoActivitySquareController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F3343328129EA9003B834D /* VideoActivitySquareController.swift */; };
@@ -351,11 +350,6 @@
 		B374E96027EC21F60033B72C /* JHDeviceTimePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHDeviceTimePicker.swift; sourceTree = "<group>"; };
 		B374EA2C27EC47DF0033B72C /* VCTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCTools.swift; sourceTree = "<group>"; };
 		B376CD49283CA7DC00D01B26 /* ReportUserAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportUserAnnotationView.swift; sourceTree = "<group>"; };
-		B376CD4E283CAD4800D01B26 /* GetDayFootPrint.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetDayFootPrint.json; sourceTree = "<group>"; };
-		B376CD4F283CAD4800D01B26 /* GetLastFootPrint.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetLastFootPrint.json; sourceTree = "<group>"; };
-		B376CD50283CAD4800D01B26 /* GetEmployeeTaskStat.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetEmployeeTaskStat.json; sourceTree = "<group>"; };
-		B376CD51283CAD4800D01B26 /* GetFootPrintUserCount.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetFootPrintUserCount.json; sourceTree = "<group>"; };
-		B376CD52283CAD4800D01B26 /* GetEmployeeInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetEmployeeInfo.json; sourceTree = "<group>"; };
 		B376CD58283CAF8D00D01B26 /* ReportLastFootM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportLastFootM.swift; sourceTree = "<group>"; };
 		B37705F827BF693C00018309 /* JHShareDevicePreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHShareDevicePreController.swift; sourceTree = "<group>"; };
 		B37EC65C283B6CB300D92FC1 /* ReportUserMapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportUserMapController.swift; sourceTree = "<group>"; };
@@ -427,7 +421,16 @@
 		B38D89BB277C480700888EFB /* SwiftLibBTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftLibBTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B38D89BD277C480700888EFB /* SwiftLibBTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftLibBTests.swift; sourceTree = "<group>"; };
 		B38D89CA277C488700888EFB /* RuntimeAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuntimeAPITests.swift; sourceTree = "<group>"; };
-		B38E8A542847078400884A6A /* GetPatrolTaskList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GetPatrolTaskList.json; sourceTree = "<group>"; };
+		B38E8A57284712A000884A6A /* GetStatisticalData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetStatisticalData.json; sourceTree = "<group>"; };
+		B38E8A58284712A000884A6A /* GetDayFootPrint.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetDayFootPrint.json; sourceTree = "<group>"; };
+		B38E8A59284712A000884A6A /* GetLastFootPrint.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetLastFootPrint.json; sourceTree = "<group>"; };
+		B38E8A5A284712A000884A6A /* GetPatrolTaskListForCount.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetPatrolTaskListForCount.json; sourceTree = "<group>"; };
+		B38E8A5B284712A000884A6A /* GetEmployeeTaskStat.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetEmployeeTaskStat.json; sourceTree = "<group>"; };
+		B38E8A5C284712A000884A6A /* GetPatrolTaskList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetPatrolTaskList.json; sourceTree = "<group>"; };
+		B38E8A5D284712A000884A6A /* GetFootPrintUserCount.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetFootPrintUserCount.json; sourceTree = "<group>"; };
+		B38E8A5E284712A000884A6A /* GetByQuestionStatus.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetByQuestionStatus.json; sourceTree = "<group>"; };
+		B38E8A5F284712A000884A6A /* GetEmployeeInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetEmployeeInfo.json; sourceTree = "<group>"; };
+		B38E8A60284712A000884A6A /* GetDepartmentList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetDepartmentList.json; sourceTree = "<group>"; };
 		B39C8582283DFA1F007ABDCC /* MapFilterBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapFilterBarView.swift; sourceTree = "<group>"; };
 		B39C8586283E0A52007ABDCC /* ReportMapFilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportMapFilterCell.swift; sourceTree = "<group>"; };
 		B39C8588283E22F7007ABDCC /* ReportMapUserTaskStatM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportMapUserTaskStatM.swift; sourceTree = "<group>"; };
@@ -437,7 +440,6 @@
 		B39C8595283F153C007ABDCC /* JHFilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHFilterCell.swift; sourceTree = "<group>"; };
 		B39C8598283F17B7007ABDCC /* JHFilterTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHFilterTransition.swift; sourceTree = "<group>"; };
 		B39C859A283F2E9F007ABDCC /* JHMapFilterM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHMapFilterM.swift; sourceTree = "<group>"; };
-		B39C859C283F3C96007ABDCC /* GetDepartmentList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = GetDepartmentList.json; path = "../../二期/Models/JSON/GetDepartmentList.json"; sourceTree = "<group>"; };
 		B39C859E284110D5007ABDCC /* ReportGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportGroupView.swift; sourceTree = "<group>"; };
 		B3B4A6E0282BA0C5006B5F57 /* PhoneAccountBindViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneAccountBindViewController.swift; sourceTree = "<group>"; };
 		B3B4A6E2282BA146006B5F57 /* AccountSecurityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSecurityViewController.swift; sourceTree = "<group>"; };
@@ -461,14 +463,10 @@
 		B3EC88BE284493230040F664 /* ReportPatrolInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportPatrolInfoCell.swift; sourceTree = "<group>"; };
 		B3EC88C0284493340040F664 /* ReportTaskInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTaskInfoCell.swift; sourceTree = "<group>"; };
 		B3EC88C22844AA5D0040F664 /* ReportTaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTaskModel.swift; sourceTree = "<group>"; };
-		B3EC88C42844B06C0040F664 /* GetByQuestionStatus.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = GetByQuestionStatus.json; path = "../../二期/Models/JSON/GetByQuestionStatus.json"; sourceTree = "<group>"; };
 		B3EC88C62844B2EA0040F664 /* PatrolTaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatrolTaskModel.swift; sourceTree = "<group>"; };
-		B3EC88C82844B6450040F664 /* GetPatrolTaskListForCount.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GetPatrolTaskListForCount.json; sourceTree = "<group>"; };
-		B3EC88CA2844B8340040F664 /* GetStatisticalData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = GetStatisticalData.json; path = ../../../Models/GetStatisticalData.json; sourceTree = "<group>"; };
 		B3EC88CC2844B88C0040F664 /* FlagStatusModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagStatusModel.swift; sourceTree = "<group>"; };
 		B3EC88CE2845B89A0040F664 /* ReportTrackPathCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTrackPathCell.swift; sourceTree = "<group>"; };
 		B3EC88D02845BB9E0040F664 /* ReportTrackPachM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTrackPachM.swift; sourceTree = "<group>"; };
-		B3EC88D22845BBD80040F664 /* GetDayFootPrint.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetDayFootPrint.json; sourceTree = "<group>"; };
 		B3EC88D42845C4D80040F664 /* SplitDotlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitDotlineView.swift; sourceTree = "<group>"; };
 		B3F33431281295BC003B834D /* JHVideoActivityBaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHVideoActivityBaseController.swift; sourceTree = "<group>"; };
 		B3F3343328129EA9003B834D /* VideoActivitySquareController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoActivitySquareController.swift; sourceTree = "<group>"; };
@@ -806,29 +804,10 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		B376CD4D283CAD4800D01B26 /* JSON */ = {
-			isa = PBXGroup;
-			children = (
-				B3EC88D22845BBD80040F664 /* GetDayFootPrint.json */,
-				B3EC88CA2844B8340040F664 /* GetStatisticalData.json */,
-				B3EC88C42844B06C0040F664 /* GetByQuestionStatus.json */,
-				B39C859C283F3C96007ABDCC /* GetDepartmentList.json */,
-				B376CD4E283CAD4800D01B26 /* GetDayFootPrint.json */,
-				B376CD4F283CAD4800D01B26 /* GetLastFootPrint.json */,
-				B376CD50283CAD4800D01B26 /* GetEmployeeTaskStat.json */,
-				B376CD51283CAD4800D01B26 /* GetFootPrintUserCount.json */,
-				B376CD52283CAD4800D01B26 /* GetEmployeeInfo.json */,
-				B3EC88C82844B6450040F664 /* GetPatrolTaskListForCount.json */,
-				B38E8A542847078400884A6A /* GetPatrolTaskList.json */,
-			);
-			name = JSON;
-			path = "../../../../SupervisionSel/SupervisionSel/Classes/Controller/拍抢干/1.2/Models/JSON";
-			sourceTree = "<group>";
-		};
 		B37EC65A283B6C6C00D92FC1 /* 人员管理 */ = {
 			isa = PBXGroup;
 			children = (
-				B376CD4D283CAD4800D01B26 /* JSON */,
+				B38E8A56284712A000884A6A /* JSON */,
 				B376CD48283CA75F00D01B26 /* Models */,
 				B37EC662283B6D0E00D92FC1 /* Views */,
 				B37EC65C283B6CB300D92FC1 /* ReportUserMapController.swift */,
@@ -1115,6 +1094,23 @@
 				B38D89CA277C488700888EFB /* RuntimeAPITests.swift */,
 			);
 			path = SwiftLibBTests;
+			sourceTree = "<group>";
+		};
+		B38E8A56284712A000884A6A /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				B38E8A57284712A000884A6A /* GetStatisticalData.json */,
+				B38E8A58284712A000884A6A /* GetDayFootPrint.json */,
+				B38E8A59284712A000884A6A /* GetLastFootPrint.json */,
+				B38E8A5A284712A000884A6A /* GetPatrolTaskListForCount.json */,
+				B38E8A5B284712A000884A6A /* GetEmployeeTaskStat.json */,
+				B38E8A5C284712A000884A6A /* GetPatrolTaskList.json */,
+				B38E8A5D284712A000884A6A /* GetFootPrintUserCount.json */,
+				B38E8A5E284712A000884A6A /* GetByQuestionStatus.json */,
+				B38E8A5F284712A000884A6A /* GetEmployeeInfo.json */,
+				B38E8A60284712A000884A6A /* GetDepartmentList.json */,
+			);
+			path = JSON;
 			sourceTree = "<group>";
 		};
 		B39C8592283F1490007ABDCC /* searchBar */ = {
@@ -1524,42 +1520,41 @@
 			buildActionMask = 2147483647;
 			files = (
 				B38D8909277B1AC000888EFB /* SaveMorningCheckImg.json in Resources */,
+				B38E8A67284712A000884A6A /* GetFootPrintUserCount.json in Resources */,
 				B3D0486E27D0A3C700E9CBF2 /* GetIOTDeviceSceneList.json in Resources */,
-				B376CD55283CAD4800D01B26 /* GetEmployeeTaskStat.json in Resources */,
+				B38E8A69284712A000884A6A /* GetEmployeeInfo.json in Resources */,
 				B323033A27880CF80056BDCC /* Main.storyboard in Resources */,
 				B38D88AB277B199700888EFB /* LaunchScreen.storyboard in Resources */,
+				B38E8A65284712A000884A6A /* GetEmployeeTaskStat.json in Resources */,
 				B3306D4527B23303005E7DDC /* DelFirmChain.json in Resources */,
 				B323036F278D3B460056BDCC /* GetFirmChainList.json in Resources */,
-				B376CD54283CAD4800D01B26 /* GetLastFootPrint.json in Resources */,
-				B376CD57283CAD4800D01B26 /* GetEmployeeInfo.json in Resources */,
 				B3306D3B27B107A9005E7DDC /* AddEnterChain.json in Resources */,
+				B38E8A62284712A000884A6A /* GetDayFootPrint.json in Resources */,
 				B323036E278D3B460056BDCC /* CheckEnterChain.json in Resources */,
+				B38E8A6A284712A000884A6A /* GetDepartmentList.json in Resources */,
+				B38E8A63284712A000884A6A /* GetLastFootPrint.json in Resources */,
 				B31202152816A1AA002D4FA3 /* GetActivityInfo.json in Resources */,
+				B38E8A61284712A000884A6A /* GetStatisticalData.json in Resources */,
 				B31202172816A1AA002D4FA3 /* ActivitySquare.json in Resources */,
 				B312021B2817FEE0002D4FA3 /* Delete.json in Resources */,
 				B3230370278D3B460056BDCC /* GetEnterChainList.json in Resources */,
-				B3EC88C92844B6450040F664 /* GetPatrolTaskListForCount.json in Resources */,
 				B3230365278C301F0056BDCC /* JHUniversalResource.bundle in Resources */,
-				B376CD56283CAD4800D01B26 /* GetFootPrintUserCount.json in Resources */,
-				B376CD53283CAD4800D01B26 /* GetDayFootPrint.json in Resources */,
 				B34635C027E37FA0002CA750 /* DeletePersonDevice.json in Resources */,
 				B3B5653327F5C18A00ED3C13 /* SavePersonDeviceInfo.json in Resources */,
+				B38E8A66284712A000884A6A /* GetPatrolTaskList.json in Resources */,
 				B38D890A277B1AC000888EFB /* GetSimilarityScore.json in Resources */,
 				B323036D278D3B460056BDCC /* ModifyFirmChain.json in Resources */,
-				B39C859D283F3C96007ABDCC /* GetDepartmentList.json in Resources */,
-				B3EC88C52844B06C0040F664 /* GetByQuestionStatus.json in Resources */,
 				B365D33E27C379CB000DBC74 /* 优设标题黑.TTF in Resources */,
 				B38D890B277B1AC000888EFB /* GetMorningCheckSettingByStoreId.json in Resources */,
 				B3230371278D3B460056BDCC /* getCooperateStepList.json in Resources */,
+				B38E8A64284712A000884A6A /* GetPatrolTaskListForCount.json in Resources */,
+				B38E8A68284712A000884A6A /* GetByQuestionStatus.json in Resources */,
 				B31202162816A1AA002D4FA3 /* MyActivity.json in Resources */,
 				B38D890C277B1AC000888EFB /* GetEmployeeFaceInfoByOrgIdUserId.json in Resources */,
 				B38D88A8277B199700888EFB /* Assets.xcassets in Resources */,
-				B3EC88D32845BBD80040F664 /* GetDayFootPrint.json in Resources */,
 				B33EF39627BFA69300A3B6DE /* GetInviteInfo.json in Resources */,
-				B3EC88CB2844B8340040F664 /* GetStatisticalData.json in Resources */,
 				B38D8908277B1AC000888EFB /* ipFile.plist in Resources */,
 				B34635BF27E37FA0002CA750 /* GetSingleIntelligentDeviceInfoNew.json in Resources */,
-				B38E8A552847078400884A6A /* GetPatrolTaskList.json in Resources */,
 				B38D890D277B1AC000888EFB /* RegisterFaceInfo.json in Resources */,
 				B33EF39527BFA68B00A3B6DE /* AddInviteUser.json in Resources */,
 			);
