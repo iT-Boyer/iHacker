@@ -55,23 +55,23 @@ class ReportUserInfoMapView: UIView {
             guard let data = dataM else{return}
             icon.kf.setImage(with: URL(string: data.employeeInfo.employeeHeadIcon), placeholder: UIImage(named:"vatoricon"))
             name.text = data.employeeInfo.employeeName
-            tel.text = data.employeeInfo.employeeID
+            tel.text = "ID：\(data.employeeInfo.employeeMobile)"
             tasknum.attributedText = arrtext(text: "任务数：\(data.waitCheck)/\(data.all)")
-            checknum.attributedText = arrtext(text: "带检查：\(data.checked)")
-            lasttime.text = "最后上传时间：2019-08-09"
+            checknum.attributedText = arrtext(text: "待检查：\(data.checked)")
         }
     }
     
     func arrtext(text:String)->NSAttributedString {
         let attrString = NSMutableAttributedString(string: text)
-        let attr: [NSAttributedString.Key : Any] = [.font: UIFont.systemFont(ofSize: 14),
-                                                    .foregroundColor: UIColor(hexString: "2F3856")!]
+        //2F3856
+        let attr: [NSAttributedString.Key : Any] = [.font: UIFont.systemFont(ofSize: 12),
+                                                    .foregroundColor: UIColor.k99A0B6]
         
         attrString.addAttributes(attr,
                                  range: NSRange(location: 0, length: attrString.length))
-        
-        let strSubAttr1: [NSMutableAttributedString.Key: Any] = [.font: UIFont.systemFont(ofSize: 14),
-                                                                 .foregroundColor: UIColor(hexString: "99A0B6")!]
+        //UIColor.k99A0B6
+        let strSubAttr1: [NSMutableAttributedString.Key: Any] = [.font: UIFont.systemFont(ofSize: 12),
+                                                                 .foregroundColor: UIColor.k99A0B6]
         attrString.addAttributes(strSubAttr1, range: NSRange(location: 0, length: 4))
         return attrString
     }
@@ -91,13 +91,20 @@ class ReportUserInfoMapView: UIView {
         
         lasttime.font = .systemFont(ofSize: 12)
         lasttime.textColor = .initWithHex("99A0B6")
+        lasttime.textAlignment = .center
         
-        info.addSubviews([icon,name,tel,tasknum,checknum,lasttime])
+        info.addSubviews([lasttime,icon,name,tel,tasknum,checknum])
+        
+        lasttime.snp.makeConstraints { make in
+            make.top.equalTo(8)
+            make.centerX.equalToSuperview()
+        }
         
         icon.snp.makeConstraints { make in
             make.size.equalTo(CGSize(width: 36, height: 36))
-            make.top.equalTo(15)
+            make.top.equalTo(lasttime.snp.bottom).offset(15)
             make.left.equalTo(12)
+            make.bottom.equalTo(-15)
         }
         
         name.snp.makeConstraints { make in
@@ -120,13 +127,6 @@ class ReportUserInfoMapView: UIView {
             make.right.equalTo(-32)
             make.centerY.equalTo(tel.snp.centerY)
         }
-        
-        lasttime.snp.makeConstraints { make in
-            make.top.equalTo(icon.snp.bottom).offset(12)
-            make.left.equalTo(12)
-            make.bottom.equalTo(-15)
-        }
-        
         return info
     }()
     

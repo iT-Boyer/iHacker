@@ -90,7 +90,7 @@ class MapFilterBarView: UIView {
         }
         titleLab.snp.makeConstraints { make in
             make.left.equalTo(backBtn.snp.right).offset(8)
-            make.width.equalTo(60)
+            make.width.equalTo(40)
             make.centerY.equalToSuperview()
         }
         searchBar.snp.makeConstraints { make in
@@ -110,7 +110,7 @@ class MapFilterBarView: UIView {
     
     lazy var titleLab: UILabel = {
         let titleLab = UILabel()
-        titleLab.text = "完美社区"
+        titleLab.text = ""// "完美社区"
         titleLab.textColor = .initWithHex("979797")
         titleLab.font = .systemFont(ofSize: 14)
         return titleLab

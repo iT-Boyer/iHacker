@@ -354,6 +354,7 @@ extension ReportUserDetailController:UITableViewDelegate,UITableViewDataSource
         }else{
             let cell:ReportPatrolInfoCell = tableView.dequeueReusableCell(withIdentifier: "ReportPatrolInfoCell") as! ReportPatrolInfoCell
             cell.model = patrolArray[indexPath.row]
+            cell.showRenLab(status: segmentedControl.selectedSegmentIndex)
             return cell
         }
     }

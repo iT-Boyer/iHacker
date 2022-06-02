@@ -48,6 +48,24 @@ class ReportPatrolInfoCell: UITableViewCell {
             dateLab.attributedText = timetext.applying(attributes: textendattr, toRangesMatching: time)
         }
     }
+    // status: 2 已巡查 ，展示负责人字段
+    func showRenLab(status:Int) {
+        if status == 2 {
+            renLab.isHidden = false
+            renLab.snp.updateConstraints { make in
+                make.top.equalTo(taskLab.snp.bottom).offset(8)
+                make.right.equalTo(-8)
+                make.height.equalTo(15)
+            }
+        }else{
+            renLab.isHidden = true
+            renLab.snp.updateConstraints { make in
+                make.top.equalTo(taskLab.snp.bottom).offset(0)
+                make.right.equalTo(-8)
+                make.height.equalTo(0)
+            }
+        }
+    }
     func createView()
     {
         let icon = UIImageView(image: .init(named: "address"))
@@ -91,6 +109,7 @@ class ReportPatrolInfoCell: UITableViewCell {
             make.left.equalTo(8)
             make.top.equalTo(taskLab.snp.bottom).offset(8)
             make.right.equalTo(-8)
+            make.height.equalTo(15)
         }
         dateLab.snp.makeConstraints { make in
             make.left.equalTo(8)

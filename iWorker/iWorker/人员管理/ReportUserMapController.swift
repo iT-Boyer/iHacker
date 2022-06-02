@@ -76,7 +76,7 @@ class ReportUserMapController: JHBaseNavVC {
         lab.textColor = .white
         view.addSubview(lab)
         lab.snp.makeConstraints { make in
-            make.top.equalTo(filterView.snp.bottom)
+            make.top.equalTo(filterView.snp.bottom).offset(-20)
             make.height.equalTo(18)
             make.centerX.equalToSuperview()
         }

@@ -54,7 +54,8 @@ class ReportUserTaskCell: UITableViewCell {
         statusLab.snp.makeConstraints { make in
             make.centerY.equalTo(nameLab.snp.centerY)
             make.height.equalTo(18)
-            make.left.equalTo(nameLab.snp.right).offset(8)
+            make.left.greaterThanOrEqualTo(nameLab.snp.right).offset(8)
+            make.right.equalTo(-8)
         }
         timeLab.snp.makeConstraints { make in
             make.left.equalTo(12)

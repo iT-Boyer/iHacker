@@ -25,7 +25,7 @@ class ReportMapFilterCell: UITableViewCell {
     var model:ReportLastFootM!{
         didSet{
             nameLab.text = model.userName
-            codeLab.text = model.userTel
+            codeLab.text = "ID：\(model.userTel)"
             iconView.kf.setImage(with: URL(string: model.userHeadIcon), placeholder: UIImage(named: "vatoricon"))
         }
     }
@@ -64,6 +64,8 @@ class ReportMapFilterCell: UITableViewCell {
     }()
     lazy var iconView: UIImageView = {
         let icon = UIImageView()
+        icon.layer.cornerRadius = 18
+        icon.layer.masksToBounds = true
         return icon
     }()
 }
