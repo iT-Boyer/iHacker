@@ -12,24 +12,31 @@
         "ReportDate": "2019-10-22T05:47:02.824Z",
         "ReportDateRemark": "string",
         "ReportTime": "10:34",
-        "Longitude": 0,
-        "Latitude": 0,
-        "Location": "西二旗盈创动力A座"
+        "Longitude": 116.313596,
+        "Latitude": 40.040661,
+        "Location": "清河"
       },{
         "ReportDate": "2019-10-22T05:47:02.824Z",
         "ReportDateRemark": "string",
         "ReportTime": "10:34",
-        "Longitude": 0,
-        "Latitude": 0,
-        "Location": "西二旗盈创动力A座"
+        "Longitude": 116.291624,
+        "Latitude": 40.075083,
+        "Location": "航天城"
       },{
         "ReportDate": "2019-10-22T05:47:02.824Z",
         "ReportDateRemark": "string",
         "ReportTime": "10:34",
-        "Longitude": 0,
-        "Latitude": 0,
-        "Location": "西二旗盈创动力A座"
-      }
+        "Longitude": 116.329559,
+        "Latitude": 40.066807,
+        "Location": "回龙观医院"
+      },{
+          "ReportDate": "2019-10-22T05:47:02.824Z",
+          "ReportDateRemark": "string",
+          "ReportTime": "10:34",
+          "Longitude": 116.34638,
+          "Latitude": 40.028503,
+          "Location": "强佑府学上院"
+        }
     ]
   },
   "InvokeId": "string",

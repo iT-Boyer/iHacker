@@ -38,7 +38,7 @@ struct ReportTrackPachM: Codable {
 // MARK: - LocationList
 struct ReportLocationM: Codable {
     let reportDate, reportDateRemark, reportTime: String
-    let longitude, latitude: Int
+    let longitude, latitude: Double
     let location: String
 
     enum CodingKeys: String, CodingKey {

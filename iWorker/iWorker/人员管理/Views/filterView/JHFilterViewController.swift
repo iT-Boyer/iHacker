@@ -48,7 +48,9 @@ class JHFilterViewController: JHBaseNavVC {
             make.left.centerX.equalToSuperview()
             make.bottom.equalTo(-kEmptyBottomHeight)
         }
-        
+        var model = JHMapFilterM(id: "00000000-0000-0000-0000-000000000000", name: "全部", parentID: "", level: 0)
+        model.selected = true
+        dataArray = [model]
     }
     
     lazy var tableView: UITableView = {
@@ -58,6 +60,7 @@ class JHFilterViewController: JHBaseNavVC {
         tb.register(JHFilterCell.self, forCellReuseIdentifier: "JHFilterCell")
         tb.removeTableFooterView()
         tb.estimatedRowHeight = 40
+        tb.separatorStyle = .none
         tb.rowHeight = UITableView.automaticDimension
         return tb
     }()
@@ -158,7 +161,7 @@ extension JHFilterViewController:UITableViewDelegate,UITableViewDataSource{
 //                    MBProgressHUD.displayError("数据解析失败")
                     return
                 }
-                weakSelf.dataArray = arr
+                weakSelf.dataArray = weakSelf.dataArray + arr
                 weakSelf.tableView.reloadData()
             }else{
                 let msg = json["exceptionMsg"].stringValue

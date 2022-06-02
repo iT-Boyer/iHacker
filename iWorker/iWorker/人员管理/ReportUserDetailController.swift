@@ -101,7 +101,8 @@ class ReportUserDetailController: JHBaseNavVC {
         btn.setTitleColor(.k428BFE, for: .normal)
         btn.jh.setHandleClick {[weak self] button in
             guard let wf = self else{return}
-            let trackVC = ReportTrackPachController()
+            let trackVC = GBPersonalPointMapVC()
+            trackVC.userId = wf.userId
             wf.navigationController?.pushViewController(trackVC)
         }
         

@@ -12,11 +12,15 @@ import MBProgressHUD
 
 class ReportTrackPachController: JHBaseNavVC {
     
+    var userId = ""
+    var dateStr = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         navTitle = "足迹点"
         createView()
-        
+        if dateStr.count == 0 {
+            dateStr = today
+        }
         loadData(by: dateStr)
     }
     
@@ -107,7 +111,7 @@ class ReportTrackPachController: JHBaseNavVC {
         return time
     }()
     var dataArray: [ReportLocationM] = []
-    var dateStr: String {
+    var today: String {
         let format = DateFormatter()
         format.dateFormat = "yyyy-MM-dd"
         let now = NSDate() as Date
@@ -131,7 +135,7 @@ class ReportTrackPachController: JHBaseNavVC {
     }()
     
     func loadData(by date:String) {
-        let param:[String:Any] = ["UserId":JHBaseInfo.userID,
+        let param:[String:Any] = ["UserId":userId,
                                   "AppId":JHBaseInfo.appID,
                                   "ReportDate":date,
                                   ]

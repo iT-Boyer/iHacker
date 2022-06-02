@@ -65,7 +65,7 @@ class ReportTaskInfoCell: UITableViewCell {
             make.size.equalTo(CGSize(width: 12, height: 12))
         }
         addrLab.snp.makeConstraints { make in
-            make.top.equalTo(titleLab.snp.bottom).offset(8)
+            make.centerY.equalTo(icon.snp.centerY)
             make.right.equalTo(-8)
             make.left.equalTo(icon.snp.right).offset(8)
         }
