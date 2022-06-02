@@ -24,7 +24,7 @@ class ReportUserMapController: JHBaseNavVC {
         super.viewDidLoad()
         navBar.isHidden = true
         //请求权限
-        requestLocationMap()
+        JHLocationManager.shared.requestLocationServicesEnabled()
         setRegion(latitude: 39.95, longitude: 116.36)
         if let smid = UserDefaults.standard.object(forKey: "ScoreManageId") as? String {
             if layoutId == "" {
