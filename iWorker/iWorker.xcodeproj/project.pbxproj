@@ -38,6 +38,7 @@
 		B3230370278D3B460056BDCC /* GetEnterChainList.json in Resources */ = {isa = PBXBuildFile; fileRef = B323036B278D3B460056BDCC /* GetEnterChainList.json */; };
 		B3230371278D3B460056BDCC /* getCooperateStepList.json in Resources */ = {isa = PBXBuildFile; fileRef = B323036C278D3B460056BDCC /* getCooperateStepList.json */; };
 		B32943FC284DF1E700123F94 /* PhoneBindCombine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32943FB284DF1E700123F94 /* PhoneBindCombine.swift */; };
+		B32943FE284E09B900123F94 /* UpdatePwdCombineVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32943FD284E09B900123F94 /* UpdatePwdCombineVC.swift */; };
 		B3306D3B27B107A9005E7DDC /* AddEnterChain.json in Resources */ = {isa = PBXBuildFile; fileRef = B3306D3A27B10766005E7DDC /* AddEnterChain.json */; };
 		B3306D3D27B10922005E7DDC /* JHUnitOrgHigherController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3306D3C27B10922005E7DDC /* JHUnitOrgHigherController.swift */; };
 		B3306D3F27B1093E005E7DDC /* JHUnitOrgLowerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3306D3E27B1093E005E7DDC /* JHUnitOrgLowerController.swift */; };
@@ -322,6 +323,7 @@
 		B323036B278D3B460056BDCC /* GetEnterChainList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetEnterChainList.json; sourceTree = "<group>"; };
 		B323036C278D3B460056BDCC /* getCooperateStepList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = getCooperateStepList.json; sourceTree = "<group>"; };
 		B32943FB284DF1E700123F94 /* PhoneBindCombine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneBindCombine.swift; sourceTree = "<group>"; };
+		B32943FD284E09B900123F94 /* UpdatePwdCombineVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePwdCombineVC.swift; sourceTree = "<group>"; };
 		B3306D3A27B10766005E7DDC /* AddEnterChain.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AddEnterChain.json; sourceTree = "<group>"; };
 		B3306D3C27B10922005E7DDC /* JHUnitOrgHigherController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHUnitOrgHigherController.swift; sourceTree = "<group>"; };
 		B3306D3E27B1093E005E7DDC /* JHUnitOrgLowerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHUnitOrgLowerController.swift; sourceTree = "<group>"; };
@@ -1167,6 +1169,7 @@
 				B3B4A6E0282BA0C5006B5F57 /* PhoneAccountBindViewController.swift */,
 				B32943FB284DF1E700123F94 /* PhoneBindCombine.swift */,
 				B3B4A6E6282BA469006B5F57 /* JHNewLoginSetPswViewController.swift */,
+				B32943FD284E09B900123F94 /* UpdatePwdCombineVC.swift */,
 				B3B4A6E4282BA3A5006B5F57 /* LoginGetBackPassword.swift */,
 			);
 			path = "帐号安全";
@@ -1731,6 +1734,7 @@
 				B312021028168E34002D4FA3 /* JHVideoActBaseCell.swift in Sources */,
 				B39C8587283E0A52007ABDCC /* ReportMapFilterCell.swift in Sources */,
 				B39C8596283F153C007ABDCC /* JHFilterCell.swift in Sources */,
+				B32943FE284E09B900123F94 /* UpdatePwdCombineVC.swift in Sources */,
 				B3EC88C1284493340040F664 /* ReportTaskInfoCell.swift in Sources */,
 				B3306D3D27B10922005E7DDC /* JHUnitOrgHigherController.swift in Sources */,
 				B323035E278C2B490056BDCC /* JHUnitOrgSearchCell.swift in Sources */,

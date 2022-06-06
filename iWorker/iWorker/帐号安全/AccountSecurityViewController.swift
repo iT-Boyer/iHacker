@@ -70,5 +70,9 @@ extension AccountSecurityViewController:UITableViewDataSource,UITableViewDelegat
             let bindcombine = PhoneBindCombine()
             self.navigationController?.pushViewController(bindcombine, animated: true)
         }
+        if indexPath.row == 4 {
+            let updatePwdVC = UpdatePwdCombineVC()
+            self.navigationController?.pushViewController(updatePwdVC, animated: true)
+        }
     }
 }

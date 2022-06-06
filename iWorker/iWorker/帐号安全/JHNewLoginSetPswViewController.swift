@@ -98,6 +98,7 @@ class JHNewLoginSetPswViewController: JHBaseNavVC {
         let attributes = [NSAttributedString.Key.font:UIFont.systemFont(ofSize: 14),
                           NSAttributedString.Key.foregroundColor:UIColor.initWithHex("B5B5B5")]
         tf.attributedPlaceholder = NSAttributedString(string: "请输入6-16位数字或字母，区分大小写", attributes: attributes)
+        tf.addTarget(self, action: #selector(newpwd(tf:)), for: .editingChanged)
         return tf
     }()
     lazy var seeNewPwdBtn: UIButton = {
@@ -121,6 +122,7 @@ class JHNewLoginSetPswViewController: JHBaseNavVC {
         let attributes = [NSAttributedString.Key.font:UIFont.systemFont(ofSize: 14),
                           NSAttributedString.Key.foregroundColor:UIColor.initWithHex("B5B5B5")]
         tf.attributedPlaceholder = NSAttributedString(string: "请再次输入上面的密码", attributes: attributes)
+        tf.addTarget(self, action: #selector(trypwd(tf:)), for: .editingChanged)
         return tf
     }()
     lazy var seeTryPwdBtn: UIButton = {
