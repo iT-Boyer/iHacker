@@ -66,5 +66,9 @@ extension AccountSecurityViewController:UITableViewDataSource,UITableViewDelegat
             let find = LoginGetBackPassword()
             self.navigationController?.pushViewController(find, animated: true)
         }
+        if indexPath.row == 3 {
+            let bindcombine = PhoneBindCombine()
+            self.navigationController?.pushViewController(bindcombine, animated: true)
+        }
     }
 }

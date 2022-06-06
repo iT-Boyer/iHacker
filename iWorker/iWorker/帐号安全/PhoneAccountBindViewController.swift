@@ -10,68 +10,7 @@ import JHBase
 import Combine
 import SwifterSwift
 
-class PhoneBindCombine: PhoneAccountBindViewController {
-    
-    @Published var tel:String = ""
-    @Published var code:String = ""
-    
-    var telSubscriber: AnyCancellable?
-    var codeSubscriber: AnyCancellable?
-    
-    var myBackgroundQueue: DispatchQueue = .init(label: "myBackgroundQueue")
-    //MARK: 验证
-    var validatedTel:AnyPublisher<String?,Never>{
-        return $tel.map { tel in
-            guard tel.count > 11 else{
-                DispatchQueue.main.async {
-                    self.codeBtn.isEnabled = false
-                }
-                return nil
-            }
-            DispatchQueue.main.async {
-                self.codeBtn.isEnabled = true
-            }
-            return tel
-        }.eraseToAnyPublisher()
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        telSubscriber = $tel
-            .throttle(for: 0.5, scheduler: myBackgroundQueue, latest: true)
-            .removeDuplicates()
-            .print("手机绑定管道") // debugging output for pipeline
-            .map { tel -> Bool in
-                guard tel.count != 11 else{
-                    return true
-                }
-                return false
-            }
-            .receive(on: RunLoop.main)
-            .assign(to: \.isEnabled, on: codeBtn)
-        
-        codeSubscriber = $code
-            .throttle(for: 0.5, scheduler: myBackgroundQueue, latest: true)
-            .removeDuplicates()
-            .print("验证码管道")
-            .map { code -> Bool in
-                if self.tel.count == 11 && code.count == 6
-                {
-                    return true
-                }
-                return false
-            }
-            .receive(on: RunLoop.main)
-            .assign(to: \.isEnabled, on: submmitBtn)
-    }
-}
-
-class PhoneAccountBindViewController: JHBaseNavVC {
-    
-    var timerSubscriber: AnyCancellable?
-    var timerPublisher = Timer.publish(every: 1.0, on: .main, in: .common).autoconnect()
-    
+class PhoneBindBaseVC: JHBaseNavVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -79,6 +18,12 @@ class PhoneAccountBindViewController: JHBaseNavVC {
         createView()
     }
     
+    func codeAction() {}
+    
+    @objc func changeTel(tf:UITextField) {}
+    
+    @objc func changeCode(tf:UITextField) {}
+    @objc func submmit() {}
     func createView() {
         view.backgroundColor = .white
         let tipLab = UILabel()
@@ -213,16 +158,26 @@ class PhoneAccountBindViewController: JHBaseNavVC {
     }()
 }
 
-extension PhoneAccountBindViewController
-{
-    @objc func submmit() {
+class PhoneAccountBindViewController: PhoneBindBaseVC {
+    
+    var timer: Timer?
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        if timer != nil {
+            timer?.invalidate()
+            timer = nil
+        }
+    }
+    
+    override func submmit() {
         //手机号
         let rules = NSPredicate(format: "SELF MATCHES %@", "1\\d{10}$")
         let phone = phoneField.text ?? ""
         let isphone: Bool = rules.evaluate(with: phone)
         if !isphone{
             //手机格式不正确，请重新输入
-//            MBProgressHUD.displayError("手机格式不正确，请重新输入")
+            VCTools.toast("手机格式不正确，请重新输入")
             return
         }
         
@@ -230,44 +185,53 @@ extension PhoneAccountBindViewController
         let code = codeField.text ?? ""
         let iscode: Bool = coderex.evaluate(with: code)
         if !iscode{
-//            MBProgressHUD.displayError("验证码格式不正确，请重新输入")
+            VCTools.toast("验证码格式不正确，请重新输入")
             return
         }
     }
     
-    func codeAction() {
+    override func codeAction() {
         var count = 120
         codeBtn.isEnabled = false
         //必须属性引用，否则正常倒计时
-        timerSubscriber = timerPublisher.print("倒计时").sink {[weak self] receivedTimeStamp in
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) {[weak self] timer in
             guard let weakSelf = self else { return }
             if count == 0{
                 weakSelf.codeBtn.isEnabled = true
-                //取消定时器
-                weakSelf.timerPublisher.upstream.connect().cancel()
+                weakSelf.timer?.invalidate()
+                weakSelf.timer = nil
             }
             count -= 1
             weakSelf.codeBtn.setTitle("重新获取(\(count))", for: .disabled)
         }
+        RunLoop.current.add(timer!, forMode: .common)
     }
     
-    @objc func changeTel(tf:UITextField) {
-//        tel = tf.text ?? ""
+    override func changeTel(tf: UITextField) {
         codeBtn.isEnabled = tf.text?.count == 11
         if tf.text?.count == 11 && codeField.text?.count == 6 {
             submmitBtn.isEnabled = true
         }else{
             submmitBtn.isEnabled = false
-            timerPublisher.upstream.connect().cancel()
+            if timer != nil {
+                timer?.invalidate()
+                timer = nil
+            }
         }
     }
     
-    @objc func changeCode(tf:UITextField) {
-//        code = tf.text ?? ""
+    override func changeCode(tf: UITextField) {
         if tf.text?.count == 6 && phoneField.text?.count == 11 {
             submmitBtn.isEnabled = true
         }else{
             submmitBtn.isEnabled = false
+        }
+    }
+    
+    deinit {
+        if timer != nil {
+            timer?.invalidate()
+            timer = nil
         }
     }
 }

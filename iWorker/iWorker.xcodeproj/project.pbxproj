@@ -37,6 +37,7 @@
 		B323036F278D3B460056BDCC /* GetFirmChainList.json in Resources */ = {isa = PBXBuildFile; fileRef = B323036A278D3B460056BDCC /* GetFirmChainList.json */; };
 		B3230370278D3B460056BDCC /* GetEnterChainList.json in Resources */ = {isa = PBXBuildFile; fileRef = B323036B278D3B460056BDCC /* GetEnterChainList.json */; };
 		B3230371278D3B460056BDCC /* getCooperateStepList.json in Resources */ = {isa = PBXBuildFile; fileRef = B323036C278D3B460056BDCC /* getCooperateStepList.json */; };
+		B32943FC284DF1E700123F94 /* PhoneBindCombine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32943FB284DF1E700123F94 /* PhoneBindCombine.swift */; };
 		B3306D3B27B107A9005E7DDC /* AddEnterChain.json in Resources */ = {isa = PBXBuildFile; fileRef = B3306D3A27B10766005E7DDC /* AddEnterChain.json */; };
 		B3306D3D27B10922005E7DDC /* JHUnitOrgHigherController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3306D3C27B10922005E7DDC /* JHUnitOrgHigherController.swift */; };
 		B3306D3F27B1093E005E7DDC /* JHUnitOrgLowerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3306D3E27B1093E005E7DDC /* JHUnitOrgLowerController.swift */; };
@@ -320,6 +321,7 @@
 		B323036A278D3B460056BDCC /* GetFirmChainList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetFirmChainList.json; sourceTree = "<group>"; };
 		B323036B278D3B460056BDCC /* GetEnterChainList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetEnterChainList.json; sourceTree = "<group>"; };
 		B323036C278D3B460056BDCC /* getCooperateStepList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = getCooperateStepList.json; sourceTree = "<group>"; };
+		B32943FB284DF1E700123F94 /* PhoneBindCombine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneBindCombine.swift; sourceTree = "<group>"; };
 		B3306D3A27B10766005E7DDC /* AddEnterChain.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AddEnterChain.json; sourceTree = "<group>"; };
 		B3306D3C27B10922005E7DDC /* JHUnitOrgHigherController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHUnitOrgHigherController.swift; sourceTree = "<group>"; };
 		B3306D3E27B1093E005E7DDC /* JHUnitOrgLowerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHUnitOrgLowerController.swift; sourceTree = "<group>"; };
@@ -1163,6 +1165,7 @@
 			children = (
 				B3B4A6E2282BA146006B5F57 /* AccountSecurityViewController.swift */,
 				B3B4A6E0282BA0C5006B5F57 /* PhoneAccountBindViewController.swift */,
+				B32943FB284DF1E700123F94 /* PhoneBindCombine.swift */,
 				B3B4A6E6282BA469006B5F57 /* JHNewLoginSetPswViewController.swift */,
 				B3B4A6E4282BA3A5006B5F57 /* LoginGetBackPassword.swift */,
 			);
@@ -1760,6 +1763,7 @@
 				B3306D4727B245DA005E7DDC /* JHShapeView.swift in Sources */,
 				B38D8939277B1C7300888EFB /* JHMornCameraController.swift in Sources */,
 				B3B4A6E5282BA3A5006B5F57 /* LoginGetBackPassword.swift in Sources */,
+				B32943FC284DF1E700123F94 /* PhoneBindCombine.swift in Sources */,
 				B313EF3A278EDCD40089625F /* StoreDSelSearchBar.swift in Sources */,
 				B368E064283336AB0039D4D7 /* JHNotificationCenterNoDisturbingVCViewController.swift in Sources */,
 				B3EC88BF284493230040F664 /* ReportPatrolInfoCell.swift in Sources */,
