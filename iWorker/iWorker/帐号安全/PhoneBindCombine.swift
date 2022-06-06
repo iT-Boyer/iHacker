@@ -71,6 +71,7 @@ class PhoneBindCombine: PhoneBindBaseVC {
 
 extension PhoneBindCombine{
     
+    // CombineLatest 使用关联多个订阅者的方式刷新UI
     func combineTwoPublisher() {
         validatedTel = $tel.map { tel in
             guard let telValue = tel ,telValue.count == 11 else{
@@ -92,7 +93,7 @@ extension PhoneBindCombine{
         }.eraseToAnyPublisher()
     }
     
-    // Combine 相关监听相应逻辑
+    // Combine 订阅者独立响应链刷新UI
     func combineAction() {
         telSubscriber = $tel
             .throttle(for: 0.5, scheduler: myBackgroundQueue, latest: true)
