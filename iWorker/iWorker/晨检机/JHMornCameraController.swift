@@ -17,7 +17,7 @@ class JHMornCameraController: JHBaseNavVC,AVCapturePhotoCaptureDelegate {
     var ensureBtn:UIButton!
     
     //相机属性
-    var imageOutput:AVCapturePhotoOutput!
+    var imageOutput:AVCapturePhotoOutput?
     var imageInput:AVCaptureDeviceInput!
     var session:AVCaptureSession!
     var previewLayer:AVCaptureVideoPreviewLayer!
@@ -78,7 +78,11 @@ class JHMornCameraController: JHBaseNavVC,AVCapturePhotoCaptureDelegate {
     @objc func takePhtoClick()
     {
         let set = AVCapturePhotoSettings()
-        imageOutput.capturePhoto(with: set, delegate: self)
+        guard let output = imageOutput else {
+            VCTools.toast("相机拍照异常")
+            return
+        }
+        output.capturePhoto(with: set, delegate: self)
     }
     
     func refresh(_ tip:String, icon:String) {
@@ -96,22 +100,25 @@ extension JHMornCameraController
         if session.canSetSessionPreset(.hd1280x720) {
             session.canSetSessionPreset(.hd1280x720)
         }
-        let device = AVCaptureDevice.default(for: .video)
-        imageInput = try! AVCaptureDeviceInput(device: device!)
+        guard let device = AVCaptureDevice.default(for: .video) else{
+            VCTools.toast("相机初始化错误")
+            return
+        }
+        imageInput = try! AVCaptureDeviceInput(device: device)
         
         if session.canAddInput(imageInput) {
             session.addInput(imageInput)
         }
         
         imageOutput = AVCapturePhotoOutput()
-        if session.canAddOutput(imageOutput) {
-            session.addOutput(imageOutput)
-            let connection = imageOutput.connection(with: .video)
+        if session.canAddOutput(imageOutput!) {
+            session.addOutput(imageOutput!)
+            let connection = imageOutput!.connection(with: .video)
             if connection!.isVideoStabilizationSupported {
                 connection?.preferredVideoStabilizationMode = .cinematic
             }
         }
-        imageOutput.connections.last?.videoOrientation = .portrait
+        imageOutput!.connections.last?.videoOrientation = .portrait
         session.startRunning()
         
         //拍照场景layer
