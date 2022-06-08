@@ -1,0 +1,26 @@
+{
+  "TotalCount": 0,
+  "Data": [
+    {
+      "BrandPubId": "string",
+      "PicDes": "string",
+      "PicUrl": "string",
+      "IsPicList": true,
+      "PicTotal": 0
+    }
+  ],
+  "Content": [
+    {
+      "BrandPubId": "string",
+      "PicDes": "string",
+      "PicUrl": "string",
+      "IsPicList": true,
+      "PicTotal": 0
+    }
+  ],
+  "Message": "string",
+  "IsSuccess": true,
+  "Code": "string",
+  "StatusCode": "string",
+  "ResultCode": "string"
+}

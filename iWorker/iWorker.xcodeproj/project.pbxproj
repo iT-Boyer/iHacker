@@ -169,6 +169,23 @@
 		B39C8599283F17B7007ABDCC /* JHFilterTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39C8598283F17B7007ABDCC /* JHFilterTransition.swift */; };
 		B39C859B283F2E9F007ABDCC /* JHMapFilterM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39C859A283F2E9F007ABDCC /* JHMapFilterM.swift */; };
 		B39C859F284110D5007ABDCC /* ReportGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39C859E284110D5007ABDCC /* ReportGroupView.swift */; };
+		B39E51372850868900EAE842 /* JHPhotoBaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39E51362850868900EAE842 /* JHPhotoBaseController.swift */; };
+		B39E5139285086D100EAE842 /* PhotoHomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39E5138285086D100EAE842 /* PhotoHomeController.swift */; };
+		B39E513E2850A72800EAE842 /* JHPhotosModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39E513D2850A72800EAE842 /* JHPhotosModel.swift */; };
+		B39E51402850A7F500EAE842 /* PhotoBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39E513F2850A7F500EAE842 /* PhotoBaseCell.swift */; };
+		B39E51422850A85E00EAE842 /* GetStoreAmbient.json in Resources */ = {isa = PBXBuildFile; fileRef = B39E51412850A85E00EAE842 /* GetStoreAmbient.json */; };
+		B39E51452850A93C00EAE842 /* StoreAmbientModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39E51442850A93C00EAE842 /* StoreAmbientModel.swift */; };
+		B39E51472850A97000EAE842 /* JHRecommendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39E51462850A97000EAE842 /* JHRecommendModel.swift */; };
+		B39E51492850A99300EAE842 /* GetBrandPubDetail.json in Resources */ = {isa = PBXBuildFile; fileRef = B39E51482850A99300EAE842 /* GetBrandPubDetail.json */; };
+		B39E514B2850A9A900EAE842 /* SubmitAmbient.json in Resources */ = {isa = PBXBuildFile; fileRef = B39E514A2850A9A900EAE842 /* SubmitAmbient.json */; };
+		B39E514D2850A9C200EAE842 /* GetStoreBrandPub.json in Resources */ = {isa = PBXBuildFile; fileRef = B39E514C2850A9C200EAE842 /* GetStoreBrandPub.json */; };
+		B39E514F2850A9DA00EAE842 /* SubmitBrandPub.json in Resources */ = {isa = PBXBuildFile; fileRef = B39E514E2850A9DA00EAE842 /* SubmitBrandPub.json */; };
+		B39E51512850A9F200EAE842 /* submitBusinessRecommend.json in Resources */ = {isa = PBXBuildFile; fileRef = B39E51502850A9F200EAE842 /* submitBusinessRecommend.json */; };
+		B39E51532850AA0F00EAE842 /* getRecommendInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = B39E51522850AA0F00EAE842 /* getRecommendInfo.json */; };
+		B39E51552850AA2300EAE842 /* DelAmbient.json in Resources */ = {isa = PBXBuildFile; fileRef = B39E51542850AA2300EAE842 /* DelAmbient.json */; };
+		B39E51572850AA3200EAE842 /* DelStoreBrandPub.json in Resources */ = {isa = PBXBuildFile; fileRef = B39E51562850AA3200EAE842 /* DelStoreBrandPub.json */; };
+		B39E51592850AA4E00EAE842 /* UptBrandPubSort.json in Resources */ = {isa = PBXBuildFile; fileRef = B39E51582850AA4E00EAE842 /* UptBrandPubSort.json */; };
+		B39E515B2850AA6600EAE842 /* UptStoreBrandPubCover.json in Resources */ = {isa = PBXBuildFile; fileRef = B39E515A2850AA6600EAE842 /* UptStoreBrandPubCover.json */; };
 		B3B4A6E1282BA0C5006B5F57 /* PhoneAccountBindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B4A6E0282BA0C5006B5F57 /* PhoneAccountBindViewController.swift */; };
 		B3B4A6E3282BA146006B5F57 /* AccountSecurityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B4A6E2282BA146006B5F57 /* AccountSecurityViewController.swift */; };
 		B3B4A6E5282BA3A5006B5F57 /* LoginGetBackPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B4A6E4282BA3A5006B5F57 /* LoginGetBackPassword.swift */; };
@@ -451,6 +468,24 @@
 		B39C8598283F17B7007ABDCC /* JHFilterTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHFilterTransition.swift; sourceTree = "<group>"; };
 		B39C859A283F2E9F007ABDCC /* JHMapFilterM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHMapFilterM.swift; sourceTree = "<group>"; };
 		B39C859E284110D5007ABDCC /* ReportGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportGroupView.swift; sourceTree = "<group>"; };
+		B39E51362850868900EAE842 /* JHPhotoBaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHPhotoBaseController.swift; sourceTree = "<group>"; };
+		B39E5138285086D100EAE842 /* PhotoHomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoHomeController.swift; sourceTree = "<group>"; };
+		B39E513D2850A72800EAE842 /* JHPhotosModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHPhotosModel.swift; sourceTree = "<group>"; };
+		B39E513F2850A7F500EAE842 /* PhotoBaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoBaseCell.swift; sourceTree = "<group>"; };
+		B39E51412850A85E00EAE842 /* GetStoreAmbient.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GetStoreAmbient.json; sourceTree = "<group>"; };
+		B39E51432850A87900EAE842 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		B39E51442850A93C00EAE842 /* StoreAmbientModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreAmbientModel.swift; sourceTree = "<group>"; };
+		B39E51462850A97000EAE842 /* JHRecommendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHRecommendModel.swift; sourceTree = "<group>"; };
+		B39E51482850A99300EAE842 /* GetBrandPubDetail.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GetBrandPubDetail.json; sourceTree = "<group>"; };
+		B39E514A2850A9A900EAE842 /* SubmitAmbient.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SubmitAmbient.json; sourceTree = "<group>"; };
+		B39E514C2850A9C200EAE842 /* GetStoreBrandPub.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GetStoreBrandPub.json; sourceTree = "<group>"; };
+		B39E514E2850A9DA00EAE842 /* SubmitBrandPub.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SubmitBrandPub.json; sourceTree = "<group>"; };
+		B39E51502850A9F200EAE842 /* submitBusinessRecommend.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = submitBusinessRecommend.json; sourceTree = "<group>"; };
+		B39E51522850AA0F00EAE842 /* getRecommendInfo.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = getRecommendInfo.json; sourceTree = "<group>"; };
+		B39E51542850AA2300EAE842 /* DelAmbient.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = DelAmbient.json; sourceTree = "<group>"; };
+		B39E51562850AA3200EAE842 /* DelStoreBrandPub.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = DelStoreBrandPub.json; sourceTree = "<group>"; };
+		B39E51582850AA4E00EAE842 /* UptBrandPubSort.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = UptBrandPubSort.json; sourceTree = "<group>"; };
+		B39E515A2850AA6600EAE842 /* UptStoreBrandPubCover.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = UptStoreBrandPubCover.json; sourceTree = "<group>"; };
 		B3B4A6E0282BA0C5006B5F57 /* PhoneAccountBindViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneAccountBindViewController.swift; sourceTree = "<group>"; };
 		B3B4A6E2282BA146006B5F57 /* AccountSecurityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSecurityViewController.swift; sourceTree = "<group>"; };
 		B3B4A6E4282BA3A5006B5F57 /* LoginGetBackPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginGetBackPassword.swift; sourceTree = "<group>"; };
@@ -914,6 +949,7 @@
 		B38D889D277B199400888EFB /* iWorker */ = {
 			isa = PBXGroup;
 			children = (
+				B39E5135285076AE00EAE842 /* 图片集 */,
 				B37EC65A283B6C6C00D92FC1 /* 人员管理 */,
 				B368E061283336900039D4D7 /* 消息设置 */,
 				B3B4A6DF282B9B26006B5F57 /* 帐号安全 */,
@@ -1160,6 +1196,55 @@
 				B39C8598283F17B7007ABDCC /* JHFilterTransition.swift */,
 			);
 			path = Transition;
+			sourceTree = "<group>";
+		};
+		B39E5135285076AE00EAE842 /* 图片集 */ = {
+			isa = PBXGroup;
+			children = (
+				B39E513A2850A65700EAE842 /* JSON */,
+				B39E513C2850A67100EAE842 /* Views */,
+				B39E513B2850A65F00EAE842 /* Models */,
+				B39E51362850868900EAE842 /* JHPhotoBaseController.swift */,
+				B39E5138285086D100EAE842 /* PhotoHomeController.swift */,
+			);
+			path = "图片集";
+			sourceTree = "<group>";
+		};
+		B39E513A2850A65700EAE842 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				B39E51432850A87900EAE842 /* README.md */,
+				B39E51412850A85E00EAE842 /* GetStoreAmbient.json */,
+				B39E51482850A99300EAE842 /* GetBrandPubDetail.json */,
+				B39E514A2850A9A900EAE842 /* SubmitAmbient.json */,
+				B39E514C2850A9C200EAE842 /* GetStoreBrandPub.json */,
+				B39E514E2850A9DA00EAE842 /* SubmitBrandPub.json */,
+				B39E51502850A9F200EAE842 /* submitBusinessRecommend.json */,
+				B39E51522850AA0F00EAE842 /* getRecommendInfo.json */,
+				B39E51542850AA2300EAE842 /* DelAmbient.json */,
+				B39E51562850AA3200EAE842 /* DelStoreBrandPub.json */,
+				B39E51582850AA4E00EAE842 /* UptBrandPubSort.json */,
+				B39E515A2850AA6600EAE842 /* UptStoreBrandPubCover.json */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
+		B39E513B2850A65F00EAE842 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B39E513D2850A72800EAE842 /* JHPhotosModel.swift */,
+				B39E51442850A93C00EAE842 /* StoreAmbientModel.swift */,
+				B39E51462850A97000EAE842 /* JHRecommendModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B39E513C2850A67100EAE842 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B39E513F2850A7F500EAE842 /* PhotoBaseCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		B3B4A6DF282B9B26006B5F57 /* 帐号安全 */ = {
@@ -1540,6 +1625,8 @@
 				B38E8A69284712A000884A6A /* GetEmployeeInfo.json in Resources */,
 				B323033A27880CF80056BDCC /* Main.storyboard in Resources */,
 				B38D88AB277B199700888EFB /* LaunchScreen.storyboard in Resources */,
+				B39E514F2850A9DA00EAE842 /* SubmitBrandPub.json in Resources */,
+				B39E514D2850A9C200EAE842 /* GetStoreBrandPub.json in Resources */,
 				B38E8A65284712A000884A6A /* GetEmployeeTaskStat.json in Resources */,
 				B3306D4527B23303005E7DDC /* DelFirmChain.json in Resources */,
 				B323036F278D3B460056BDCC /* GetFirmChainList.json in Resources */,
@@ -1548,15 +1635,21 @@
 				B323036E278D3B460056BDCC /* CheckEnterChain.json in Resources */,
 				B38E8A6A284712A000884A6A /* GetDepartmentList.json in Resources */,
 				B38E8A63284712A000884A6A /* GetLastFootPrint.json in Resources */,
+				B39E514B2850A9A900EAE842 /* SubmitAmbient.json in Resources */,
 				B31202152816A1AA002D4FA3 /* GetActivityInfo.json in Resources */,
+				B39E51512850A9F200EAE842 /* submitBusinessRecommend.json in Resources */,
 				B38E8A61284712A000884A6A /* GetStatisticalData.json in Resources */,
 				B31202172816A1AA002D4FA3 /* ActivitySquare.json in Resources */,
 				B312021B2817FEE0002D4FA3 /* Delete.json in Resources */,
 				B3230370278D3B460056BDCC /* GetEnterChainList.json in Resources */,
 				B3230365278C301F0056BDCC /* JHUniversalResource.bundle in Resources */,
 				B34635C027E37FA0002CA750 /* DeletePersonDevice.json in Resources */,
+				B39E51422850A85E00EAE842 /* GetStoreAmbient.json in Resources */,
+				B39E51532850AA0F00EAE842 /* getRecommendInfo.json in Resources */,
+				B39E51592850AA4E00EAE842 /* UptBrandPubSort.json in Resources */,
 				B3B5653327F5C18A00ED3C13 /* SavePersonDeviceInfo.json in Resources */,
 				B38E8A66284712A000884A6A /* GetPatrolTaskList.json in Resources */,
+				B39E51572850AA3200EAE842 /* DelStoreBrandPub.json in Resources */,
 				B38D890A277B1AC000888EFB /* GetSimilarityScore.json in Resources */,
 				B323036D278D3B460056BDCC /* ModifyFirmChain.json in Resources */,
 				B365D33E27C379CB000DBC74 /* 优设标题黑.TTF in Resources */,
@@ -1570,8 +1663,11 @@
 				B33EF39627BFA69300A3B6DE /* GetInviteInfo.json in Resources */,
 				B38D8908277B1AC000888EFB /* ipFile.plist in Resources */,
 				B34635BF27E37FA0002CA750 /* GetSingleIntelligentDeviceInfoNew.json in Resources */,
+				B39E51552850AA2300EAE842 /* DelAmbient.json in Resources */,
 				B38D890D277B1AC000888EFB /* RegisterFaceInfo.json in Resources */,
 				B33EF39527BFA68B00A3B6DE /* AddInviteUser.json in Resources */,
+				B39E515B2850AA6600EAE842 /* UptStoreBrandPubCover.json in Resources */,
+				B39E51492850A99300EAE842 /* GetBrandPubDetail.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1729,6 +1825,7 @@
 				B3EC88D12845BB9E0040F664 /* ReportTrackPachM.swift in Sources */,
 				B38E8A6C2848584700884A6A /* GBPersonalPointMapVC.swift in Sources */,
 				B39C859B283F2E9F007ABDCC /* JHMapFilterM.swift in Sources */,
+				B39E513E2850A72800EAE842 /* JHPhotosModel.swift in Sources */,
 				B3306D4327B124EC005E7DDC /* JHUnitOrgChangeController.swift in Sources */,
 				B3EC88C72844B2EB0040F664 /* PatrolTaskModel.swift in Sources */,
 				B312021028168E34002D4FA3 /* JHVideoActBaseCell.swift in Sources */,
@@ -1736,12 +1833,15 @@
 				B39C8596283F153C007ABDCC /* JHFilterCell.swift in Sources */,
 				B32943FE284E09B900123F94 /* UpdatePwdCombineVC.swift in Sources */,
 				B3EC88C1284493340040F664 /* ReportTaskInfoCell.swift in Sources */,
+				B39E5139285086D100EAE842 /* PhotoHomeController.swift in Sources */,
 				B3306D3D27B10922005E7DDC /* JHUnitOrgHigherController.swift in Sources */,
 				B323035E278C2B490056BDCC /* JHUnitOrgSearchCell.swift in Sources */,
 				B312022428191D88002D4FA3 /* JHCreateVideoActController.swift in Sources */,
 				B37EC65F283B6CE900D92FC1 /* ReportUserDetailController.swift in Sources */,
 				B374E96127EC21F60033B72C /* JHDeviceTimePicker.swift in Sources */,
 				B39C858D283E2C40007ABDCC /* ReportUserInfoMapView.swift in Sources */,
+				B39E51372850868900EAE842 /* JHPhotoBaseController.swift in Sources */,
+				B39E51452850A93C00EAE842 /* StoreAmbientModel.swift in Sources */,
 				B3B4A6E3282BA146006B5F57 /* AccountSecurityViewController.swift in Sources */,
 				B32225BA2795753500953EF3 /* JHUnitOrgAlertController.swift in Sources */,
 				B374E95D27E9B08C0033B72C /* Tools.swift in Sources */,
@@ -1751,7 +1851,9 @@
 				B38D889F277B199400888EFB /* AppDelegate.swift in Sources */,
 				B3230362278C2BAA0056BDCC /* JHUnitOrgBaseModel.swift in Sources */,
 				B31202192816A6AF002D4FA3 /* JHActivityModel.swift in Sources */,
+				B39E51402850A7F500EAE842 /* PhotoBaseCell.swift in Sources */,
 				B3F3343628129ED8003B834D /* PersonalVideoActivityController.swift in Sources */,
+				B39E51472850A97000EAE842 /* JHRecommendModel.swift in Sources */,
 				B316369628447FD300A09F62 /* ReportUserInfoM.swift in Sources */,
 				B38D88A1277B199400888EFB /* SceneDelegate.swift in Sources */,
 				B3697E7927E42481004D8867 /* JHDeviceSNCell.swift in Sources */,

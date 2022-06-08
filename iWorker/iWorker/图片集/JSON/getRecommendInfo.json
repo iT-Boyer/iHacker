@@ -1,0 +1,18 @@
+{
+  "specialDishes": [
+    {
+      "imageUrl": "string",
+      "name": "string",
+      "price": 0,
+      "businessRecommendId": "string",
+      "sort": 0,
+      "elePlatId": "string",
+      "elePctIntr": "string"
+    }
+  ],
+  "Message": "string",
+  "IsSuccess": true,
+  "Code": "string",
+  "StatusCode": "string",
+  "ResultCode": "string"
+}

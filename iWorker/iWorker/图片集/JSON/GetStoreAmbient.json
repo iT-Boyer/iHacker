@@ -1,0 +1,22 @@
+{
+  "TotalCount": 0,
+  "Data": [
+    {
+      "AmbientDesc": "string",
+      "AmbientUrl": "string",
+      "AmbientId": "string"
+    }
+  ],
+  "Content": [
+    {
+      "AmbientDesc": "string",
+      "AmbientUrl": "string",
+      "AmbientId": "string"
+    }
+  ],
+  "Message": "string",
+  "IsSuccess": true,
+  "Code": "string",
+  "StatusCode": "string",
+  "ResultCode": "string"
+}
