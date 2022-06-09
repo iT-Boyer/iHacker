@@ -7,21 +7,24 @@
 
 import UIKit
 import JHBase
+import MBProgressHUD
+import SwiftyJSON
 
 class PhotoHomeController: JHPhotoBaseController {
     
-    var storeId = ""
-    var pageIndex = 1
-    var totalCount = 0
-    var dataArray:[PhotoBaseVM] = []
+    var dataArray:[StoreAmbientModel] = []
     override func viewDidLoad() {
         super.viewDidLoad()
-        createView()
     }
     
-    func createView() {
-//        navTitle = "图片集"
-        //Bar
+    override func createView() {
+        super.createView()
+        // 设置tableview
+        tableView.register(PhotoHomeCell.self, forCellReuseIdentifier: "PhotoHomeCell")
+        typeControl.frame.size.height = 40
+        tableView.tableHeaderView = typeControl
+        
+        //导航bar
         navBar.addSubviews([titleControl,rightView])
         titleControl.snp.makeConstraints { make in
             make.centerY.equalTo(navBar.titleLabel.snp.centerY)
@@ -34,30 +37,7 @@ class PhotoHomeController: JHPhotoBaseController {
             make.right.equalTo(-8)
             make.centerY.equalTo(navBar.titleLabel.snp.centerY)
         }
-        
-        view.addSubview(tableView)
-        tableView.snp.makeConstraints { make in
-            make.top.equalTo(navBar.snp.bottom)
-            make.left.right.bottom.equalToSuperview()
-        }
     }
-    
-    
-    lazy var tableView: UITableView = {
-        let tb = UITableView()
-        tb.dataSource = self
-        tb.delegate = self
-        tb.backgroundColor = .white
-        tb.removeTableFooterView()
-        tb.separatorStyle = .none
-        tb.estimatedRowHeight = 75
-        tb.rowHeight = UITableView.automaticDimension
-        tb.register(PhotoBaseCell.self, forCellReuseIdentifier: "PhotoBaseCell")
-        tb.register(PhotoCollectCell.self, forCellReuseIdentifier: "PhotoCollectCell")
-        typeControl.frame.size.height = 40
-        tb.tableHeaderView = typeControl
-        return tb
-    }()
     
     lazy var titleControl: UISegmentedControl = {
         let segment = UISegmentedControl(items: ["图片", "视频"])
@@ -106,6 +86,7 @@ class PhotoHomeController: JHPhotoBaseController {
     func typeControlChange(_ segmented: JHSegmentedControl) {
         //TODO: 获得荣誉, 环境图片 分类
         segmented.animateLine()
+        loadData()
     }
     lazy var rightView: UIView = {
         let right = UIView()
@@ -122,12 +103,13 @@ class PhotoHomeController: JHPhotoBaseController {
             guard let wf = self else{return}
             //TODO: 设置
             let setvc = JHPhotoSetController()
-            wf.navigationController?.present(setvc, animated: true)
+            wf.navigationController?.pushViewController(setvc, animated: true)
         }
         
         right.addSubviews([upbtn,setbtn])
         
         upbtn.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(8)
             make.size.equalTo(CGSize(width: 25, height: 25))
             make.left.centerY.equalToSuperview()
         }
@@ -141,15 +123,51 @@ class PhotoHomeController: JHPhotoBaseController {
     }()
 }
 
-extension PhotoHomeController:UITableViewDataSource,UITableViewDelegate
+extension PhotoHomeController
 {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func loadData() {
+        super.loadData()
+        let type = typeControl.selectedSegmentIndex == 0 ? 1:2
+        let param:[String:Any] = ["StoreId":storeId,
+                                  "Type":type,
+                                  "PageIndex":pageIndex,
+                                  "PageSize":20,
+                                  ]
+        
+        let urlStr = JHBaseDomain.fullURL(with: "api_host_patrol", path: "/api/Store/GetStoreAmbient")
+        let hud = MBProgressHUD.showAdded(to:view, animated: true)
+        hud.removeFromSuperViewOnHide = true
+        let request = JN.post(urlStr, parameters: param, headers: nil)
+        request.response {[weak self] response in
+            hud.hide(animated: true)
+            guard let weakSelf = self else { return }
+            guard let data = response.data else {
+                //                MBProgressHUD.displayError(kInternetError)
+                return
+            }
+            let json = JSON(data)
+            let result = json["IsSuccess"].boolValue
+            if result {
+                if json["Data"].isEmpty {
+                    return
+                }
+                let rawData = try! json["Data"].rawData()
+                weakSelf.totalCount = json["totalCount"].intValue
+                guard let photos:[StoreAmbientModel] =  StoreAmbientModel.parsed(data: rawData) else { return }
+                weakSelf.dataArray = photos
+                weakSelf.tableView.reloadData()
+            }else{
+                let msg = json["message"].stringValue
+                //                MBProgressHUD.displayError(kInternetError)
+            }
+        }
+    }
+    override func numberOfRowsInSection() -> Int {
         dataArray.count
     }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellId = dataArray[indexPath.row].number > 0 ? "PhotoCollectCell":"PhotoBaseCell"
-        let cell:PhotoBaseCell = tableView.dequeueReusableCell(withIdentifier: cellId) as! PhotoBaseCell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell:PhotoHomeCell = tableView.dequeueReusableCell(withIdentifier: "PhotoHomeCell") as! PhotoHomeCell
+        cell.model = dataArray[indexPath.row]
         return cell
     }
 }

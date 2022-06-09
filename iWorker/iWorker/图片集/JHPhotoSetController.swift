@@ -8,10 +8,18 @@
 import Foundation
 import JHBase
 
-class JHPhotoSetController: JHBaseNavVC {
+class JHPhotoSetController: JHPhotoBaseController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+    }
+    
+    override func createView() {
+        super.createView()
+        navTitle = "图片设置"
     }
     
 }
+
+
