@@ -262,7 +262,16 @@ class ReportUserDetailController: JHBaseNavVC {
     
     lazy var segmentedControl: JHSegmentedControl = {
         let items = ["待检查", "超期未查", "已完成"]
-        let segmentedControl = JHSegmentedControl(items: items)
+        let textattr:[NSAttributedString.Key:Any] = [
+            .foregroundColor:UIColor.k2F3856,
+            .font:UIFont.systemFont(ofSize: 13)
+        ]
+        let textattr2:[NSAttributedString.Key:Any] = [
+            .foregroundColor:UIColor.k2CD773,
+            .font:UIFont.systemFont(ofSize: 14)
+        ]
+        let segmentedControl = JHSegmentedControl(items: items,normal: textattr,selected: textattr2)
+        segmentedControl.addBottomline()
         segmentedControl.addTarget(self, action: #selector(segmentedControlChange(_ :)), for: .valueChanged)
         return segmentedControl
     }()

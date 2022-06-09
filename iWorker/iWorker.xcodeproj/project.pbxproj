@@ -186,6 +186,10 @@
 		B39E51572850AA3200EAE842 /* DelStoreBrandPub.json in Resources */ = {isa = PBXBuildFile; fileRef = B39E51562850AA3200EAE842 /* DelStoreBrandPub.json */; };
 		B39E51592850AA4E00EAE842 /* UptBrandPubSort.json in Resources */ = {isa = PBXBuildFile; fileRef = B39E51582850AA4E00EAE842 /* UptBrandPubSort.json */; };
 		B39E515B2850AA6600EAE842 /* UptStoreBrandPubCover.json in Resources */ = {isa = PBXBuildFile; fileRef = B39E515A2850AA6600EAE842 /* UptStoreBrandPubCover.json */; };
+		B39E515D285189AC00EAE842 /* PhotoCollectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39E515C285189AC00EAE842 /* PhotoCollectCell.swift */; };
+		B39E515F2851931B00EAE842 /* PhotoBaseVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39E515E2851931B00EAE842 /* PhotoBaseVM.swift */; };
+		B39E51612851BF7300EAE842 /* JHPhotoSetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39E51602851BF7300EAE842 /* JHPhotoSetController.swift */; };
+		B39E51632851C08000EAE842 /* JHHandlePictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39E51622851C08000EAE842 /* JHHandlePictureViewController.swift */; };
 		B3B4A6E1282BA0C5006B5F57 /* PhoneAccountBindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B4A6E0282BA0C5006B5F57 /* PhoneAccountBindViewController.swift */; };
 		B3B4A6E3282BA146006B5F57 /* AccountSecurityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B4A6E2282BA146006B5F57 /* AccountSecurityViewController.swift */; };
 		B3B4A6E5282BA3A5006B5F57 /* LoginGetBackPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B4A6E4282BA3A5006B5F57 /* LoginGetBackPassword.swift */; };
@@ -486,6 +490,10 @@
 		B39E51562850AA3200EAE842 /* DelStoreBrandPub.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = DelStoreBrandPub.json; sourceTree = "<group>"; };
 		B39E51582850AA4E00EAE842 /* UptBrandPubSort.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = UptBrandPubSort.json; sourceTree = "<group>"; };
 		B39E515A2850AA6600EAE842 /* UptStoreBrandPubCover.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = UptStoreBrandPubCover.json; sourceTree = "<group>"; };
+		B39E515C285189AC00EAE842 /* PhotoCollectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectCell.swift; sourceTree = "<group>"; };
+		B39E515E2851931B00EAE842 /* PhotoBaseVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoBaseVM.swift; sourceTree = "<group>"; };
+		B39E51602851BF7300EAE842 /* JHPhotoSetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHPhotoSetController.swift; sourceTree = "<group>"; };
+		B39E51622851C08000EAE842 /* JHHandlePictureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHHandlePictureViewController.swift; sourceTree = "<group>"; };
 		B3B4A6E0282BA0C5006B5F57 /* PhoneAccountBindViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneAccountBindViewController.swift; sourceTree = "<group>"; };
 		B3B4A6E2282BA146006B5F57 /* AccountSecurityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSecurityViewController.swift; sourceTree = "<group>"; };
 		B3B4A6E4282BA3A5006B5F57 /* LoginGetBackPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginGetBackPassword.swift; sourceTree = "<group>"; };
@@ -1206,6 +1214,8 @@
 				B39E513B2850A65F00EAE842 /* Models */,
 				B39E51362850868900EAE842 /* JHPhotoBaseController.swift */,
 				B39E5138285086D100EAE842 /* PhotoHomeController.swift */,
+				B39E51602851BF7300EAE842 /* JHPhotoSetController.swift */,
+				B39E51622851C08000EAE842 /* JHHandlePictureViewController.swift */,
 			);
 			path = "图片集";
 			sourceTree = "<group>";
@@ -1232,6 +1242,7 @@
 		B39E513B2850A65F00EAE842 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B39E515E2851931B00EAE842 /* PhotoBaseVM.swift */,
 				B39E513D2850A72800EAE842 /* JHPhotosModel.swift */,
 				B39E51442850A93C00EAE842 /* StoreAmbientModel.swift */,
 				B39E51462850A97000EAE842 /* JHRecommendModel.swift */,
@@ -1243,6 +1254,7 @@
 			isa = PBXGroup;
 			children = (
 				B39E513F2850A7F500EAE842 /* PhotoBaseCell.swift */,
+				B39E515C285189AC00EAE842 /* PhotoCollectCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1818,6 +1830,7 @@
 				B3B4A6E7282BA469006B5F57 /* JHNewLoginSetPswViewController.swift in Sources */,
 				B39C8589283E22F7007ABDCC /* ReportMapUserTaskStatM.swift in Sources */,
 				B323035A278C11240056BDCC /* UnitOrgChainModel.swift in Sources */,
+				B39E515D285189AC00EAE842 /* PhotoCollectCell.swift in Sources */,
 				B38D893B277B1CD800888EFB /* JHMornUploadModel.swift in Sources */,
 				B3306D4127B111C1005E7DDC /* JHUnitOrgHigherCell.swift in Sources */,
 				B3F4599927EDDAB300AADC08 /* JHNickViewModel.swift in Sources */,
@@ -1833,9 +1846,11 @@
 				B39C8596283F153C007ABDCC /* JHFilterCell.swift in Sources */,
 				B32943FE284E09B900123F94 /* UpdatePwdCombineVC.swift in Sources */,
 				B3EC88C1284493340040F664 /* ReportTaskInfoCell.swift in Sources */,
+				B39E51612851BF7300EAE842 /* JHPhotoSetController.swift in Sources */,
 				B39E5139285086D100EAE842 /* PhotoHomeController.swift in Sources */,
 				B3306D3D27B10922005E7DDC /* JHUnitOrgHigherController.swift in Sources */,
 				B323035E278C2B490056BDCC /* JHUnitOrgSearchCell.swift in Sources */,
+				B39E515F2851931B00EAE842 /* PhotoBaseVM.swift in Sources */,
 				B312022428191D88002D4FA3 /* JHCreateVideoActController.swift in Sources */,
 				B37EC65F283B6CE900D92FC1 /* ReportUserDetailController.swift in Sources */,
 				B374E96127EC21F60033B72C /* JHDeviceTimePicker.swift in Sources */,
@@ -1861,6 +1876,7 @@
 				B3CDC61D27C3A67E007F1FF2 /* JHPriDeviceSetingController.swift in Sources */,
 				B3230360278C2B7D0056BDCC /* JHUnitOrgBaseCell.swift in Sources */,
 				B312022028190C4F002D4FA3 /* JHTimeSetingView.swift in Sources */,
+				B39E51632851C08000EAE842 /* JHHandlePictureViewController.swift in Sources */,
 				B323033C278827350056BDCC /* JHUnitOrgBaseViewController.swift in Sources */,
 				B3EC88CF2845B89A0040F664 /* ReportTrackPathCell.swift in Sources */,
 				B39C858F283E3189007ABDCC /* ReportUserTaskCell.swift in Sources */,
