@@ -104,7 +104,16 @@ class PhotoHomeController: JHPhotoBaseController {
         upbtn.jh.setHandleClick {[weak self] button in
             guard let wf = self else{return}
             //TODO: 新增 0: 图片 1:视频
-            
+            if wf.typeControl.selectedSegmentIndex == 0{
+                let add = JHPhotoAddController()
+                add.type = 0
+                add.storeId = wf.storeId
+                wf.navigationController?.pushViewController(add, animated: true)
+            }else{
+                let handler = JHHandlePictureViewController()
+                handler.storeId = wf.storeId
+                wf.navigationController?.pushViewController(handler, animated: true)
+            }
         }
         let setbtn = UIButton()
         setbtn.setImage(.init(named: "set"), for: .normal)
@@ -201,5 +210,31 @@ extension PhotoHomeController
         let cell:PhotoHomeCell = tableView.dequeueReusableCell(withIdentifier: "PhotoHomeCell") as! PhotoHomeCell
         cell.model = dataArray[indexPath.row]
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        //TODO: 删除环境/菜品
+        let model = dataArray[indexPath.row]
+        let param:[String:Any] = ["AmbientId":model.ambientID!]
+        let urlStr = JHBaseDomain.fullURL(with: "api_host_patrol", path: "/api/Store/DelAmbient")
+        let hud = MBProgressHUD.showAdded(to:view, animated: true)
+        hud.removeFromSuperViewOnHide = true
+        let request = JN.post(urlStr, parameters: param, headers: nil)
+        request.response {[weak self] response in
+            hud.hide(animated: true)
+            guard let weakSelf = self else { return }
+            guard let data = response.data else {
+                //                MBProgressHUD.displayError(kInternetError)
+                return
+            }
+            let json = JSON(data)
+            let result = json["IsSuccess"].boolValue
+            let msg = json["Message"].string
+            if result {
+                weakSelf.dataArray.remove(at: indexPath.row)
+                weakSelf.tableView.reloadData()
+            }
+            //MBProgressHUD.displayError(msg)
+        }
     }
 }

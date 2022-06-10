@@ -10,6 +10,7 @@ import JHBase
 
 class JHHandlePictureViewController: JHBaseNavVC {
     
+    var storeId = ""
     override func viewDidLoad() {
         super.viewDidLoad()
     }

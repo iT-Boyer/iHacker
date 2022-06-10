@@ -159,6 +159,28 @@ extension JHPhotoSetController
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         //TODO: 删除图集/图片
+        let model = dataArray[indexPath.row]
+        let param:[String:Any] = ["BrandPubUrlId":model.brandPubID!]
+        let urlStr = JHBaseDomain.fullURL(with: "api_host_patrol", path: "/api/Store/DelStoreBrandPub")
+        let hud = MBProgressHUD.showAdded(to:view, animated: true)
+        hud.removeFromSuperViewOnHide = true
+        let request = JN.post(urlStr, parameters: param, headers: nil)
+        request.response {[weak self] response in
+            hud.hide(animated: true)
+            guard let weakSelf = self else { return }
+            guard let data = response.data else {
+                //                MBProgressHUD.displayError(kInternetError)
+                return
+            }
+            let json = JSON(data)
+            let result = json["IsSuccess"].boolValue
+            let msg = json["Message"].string
+            if result {
+                weakSelf.dataArray.remove(at: indexPath.row)
+                weakSelf.tableView.reloadData()
+            }
+            //MBProgressHUD.displayError(msg)
+        }
     }
 }
 

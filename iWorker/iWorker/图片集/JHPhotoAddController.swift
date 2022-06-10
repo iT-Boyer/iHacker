@@ -9,6 +9,8 @@ import UIKit
 
 class JHPhotoAddController: JHPhotoBaseController {
 
+    /// 0:图片 1:图集
+    var type = 0
     override func viewDidLoad() {
         super.viewDidLoad()
 
