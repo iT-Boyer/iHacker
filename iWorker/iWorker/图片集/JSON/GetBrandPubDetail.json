@@ -4,20 +4,19 @@
     {
       "BrandPubId": "string",
       "PicDes": "string",
-      "PicUrl": "string",
+      "PicUrl": "https://upload.jianshu.io/users/upload_avatars/2456771/d9dc05b91093.jpg",
       "IsPicList": true,
       "PicTotal": 0
-    }
-  ],
-  "Content": [
+    },
     {
       "BrandPubId": "string",
       "PicDes": "string",
-      "PicUrl": "string",
+      "PicUrl": "https://upload.jianshu.io/users/upload_avatars/2456771/d9dc05b91093.jpg",
       "IsPicList": true,
       "PicTotal": 0
     }
   ],
+  "Content": null,
   "Message": "string",
   "IsSuccess": true,
   "Code": "string",

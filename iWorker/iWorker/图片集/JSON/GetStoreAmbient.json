@@ -4,15 +4,15 @@
     {
       "AmbientDesc": "我们经常使用的一个控件是Tab，这个控件可以帮助我们将App分为几个模块，但是在一个界面内我们想要再进行细分怎么办呢？这时候就需要用到UISegmentedControl控件了，这个控件的用处就是进行分段控制，实现的样式如下",
       "AmbientUrl": "https://upload.jianshu.io/users/upload_avatars/2456771/d9dc05b91093.jpg",
-      "AmbientId": "string"
+      "AmbientId": "string1"
     },{
         "AmbientDesc": "我们经常使用的一个控件是Tab，这个控件可以帮助我们将App分为几个模块，但是在一个界面内我们想要再进行细分怎么办呢？这时候就需要用到UISegmentedControl控件了，这个控件的用处就是进行分段控制，实现的样式如下",
         "AmbientUrl": "https://upload.jianshu.io/users/upload_avatars/2456771/d9dc05b91093.jpg",
-        "AmbientId": "string"
+        "AmbientId": "string2"
       },{
           "AmbientDesc": "string",
           "AmbientUrl": "https://upload.jianshu.io/users/upload_avatars/2456771/d9dc05b91093.jpg",
-          "AmbientId": "string"
+          "AmbientId": "string3"
         }
   ],
   "Content": null,

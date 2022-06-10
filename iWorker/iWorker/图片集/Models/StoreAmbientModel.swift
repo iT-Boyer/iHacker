@@ -10,7 +10,9 @@ import Foundation
 // MARK: - StoreAmbientModel
 struct StoreAmbientModel: Codable {
     var ambientDesc, ambientURL, ambientID: String?
-
+    
+    var selected = false
+    
     enum CodingKeys: String, CodingKey {
         case ambientDesc = "AmbientDesc"
         case ambientURL = "AmbientUrl"

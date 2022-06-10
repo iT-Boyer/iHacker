@@ -41,7 +41,6 @@ class JHPhotoSetController: JHPhotoBaseController {
             make.centerY.equalTo(navBar.titleLabel.snp.centerY)
             make.size.equalTo(CGSize(width: 25, height: 25))
         }
-        
     }
     
     lazy var headerView: UIView = {
@@ -138,8 +137,6 @@ extension JHPhotoSetController
                     weakSelf.showNoDataView()
                     weakSelf.emptyView.frame = CGRect(x: 0, y: 80, width: UIScreen.main.bounds.width, height: 500)
                 }
-                weakSelf.dataArray = photos
-                weakSelf.tableView.reloadData()
             }else{
                 let msg = json["message"].stringValue
                 //                MBProgressHUD.displayError(kInternetError)
@@ -157,7 +154,16 @@ extension JHPhotoSetController
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let model = dataArray[indexPath.row]
+        guard let picsId = model.brandPubID else { return }
+        if !model.isPicList { return }
+        let picsVC = JHPhotoNewController()
+        picsVC.picsId = picsId
+        navigationController?.pushViewController(picsVC, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         //TODO: 删除图集/图片
         let model = dataArray[indexPath.row]
         let param:[String:Any] = ["BrandPubUrlId":model.brandPubID!]
@@ -183,5 +189,3 @@ extension JHPhotoSetController
         }
     }
 }
-
-

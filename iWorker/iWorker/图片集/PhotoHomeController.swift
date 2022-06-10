@@ -105,8 +105,7 @@ class PhotoHomeController: JHPhotoBaseController {
             guard let wf = self else{return}
             //TODO: 新增 0: 图片 1:视频
             if wf.typeControl.selectedSegmentIndex == 0{
-                let add = JHPhotoAddController()
-                add.type = 0
+                let add = JHPhotoRecommendController()
                 add.storeId = wf.storeId
                 wf.navigationController?.pushViewController(add, animated: true)
             }else{
@@ -195,8 +194,6 @@ extension PhotoHomeController
                     weakSelf.showNoDataView()//showCustomNoDataView()
                     weakSelf.emptyView.frame = CGRect(x: 0, y: 40, width: UIScreen.main.bounds.width, height: 500)
                 }
-                weakSelf.dataArray = photos
-                weakSelf.tableView.reloadData()
             }else{
                 let msg = json["message"].stringValue
                 //                MBProgressHUD.displayError(kInternetError)
@@ -212,7 +209,7 @@ extension PhotoHomeController
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         //TODO: 删除环境/菜品
         let model = dataArray[indexPath.row]
         let param:[String:Any] = ["AmbientId":model.ambientID!]
