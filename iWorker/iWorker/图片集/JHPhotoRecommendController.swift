@@ -64,7 +64,7 @@ extension JHPhotoRecommendController
             }
             return mm
         }
-        bottomBtn.isEnabled = dataArray.filter{ $0.selected }.count > 0
+        bottomBtn.isEnabled = recommendArray.filter{ $0.selected }.count > 0
         tableView.reloadData()
     }
     override func addAction() {
