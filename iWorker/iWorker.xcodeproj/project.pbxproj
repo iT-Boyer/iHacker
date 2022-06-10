@@ -191,6 +191,8 @@
 		B39E51612851BF7300EAE842 /* JHPhotoSetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39E51602851BF7300EAE842 /* JHPhotoSetController.swift */; };
 		B39E51632851C08000EAE842 /* JHHandlePictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39E51622851C08000EAE842 /* JHHandlePictureViewController.swift */; };
 		B39E51A22851F48F00EAE842 /* PhotoHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39E51A12851F48F00EAE842 /* PhotoHomeCell.swift */; };
+		B39E51A52852E23500EAE842 /* JHSortViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39E51A42852E23500EAE842 /* JHSortViewController.swift */; };
+		B39E51A72852E25500EAE842 /* JHPhotoAddController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39E51A62852E25500EAE842 /* JHPhotoAddController.swift */; };
 		B3B4A6E1282BA0C5006B5F57 /* PhoneAccountBindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B4A6E0282BA0C5006B5F57 /* PhoneAccountBindViewController.swift */; };
 		B3B4A6E3282BA146006B5F57 /* AccountSecurityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B4A6E2282BA146006B5F57 /* AccountSecurityViewController.swift */; };
 		B3B4A6E5282BA3A5006B5F57 /* LoginGetBackPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B4A6E4282BA3A5006B5F57 /* LoginGetBackPassword.swift */; };
@@ -496,6 +498,8 @@
 		B39E51602851BF7300EAE842 /* JHPhotoSetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHPhotoSetController.swift; sourceTree = "<group>"; };
 		B39E51622851C08000EAE842 /* JHHandlePictureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHHandlePictureViewController.swift; sourceTree = "<group>"; };
 		B39E51A12851F48F00EAE842 /* PhotoHomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoHomeCell.swift; sourceTree = "<group>"; };
+		B39E51A42852E23500EAE842 /* JHSortViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHSortViewController.swift; sourceTree = "<group>"; };
+		B39E51A62852E25500EAE842 /* JHPhotoAddController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHPhotoAddController.swift; sourceTree = "<group>"; };
 		B3B4A6E0282BA0C5006B5F57 /* PhoneAccountBindViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneAccountBindViewController.swift; sourceTree = "<group>"; };
 		B3B4A6E2282BA146006B5F57 /* AccountSecurityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSecurityViewController.swift; sourceTree = "<group>"; };
 		B3B4A6E4282BA3A5006B5F57 /* LoginGetBackPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginGetBackPassword.swift; sourceTree = "<group>"; };
@@ -1217,6 +1221,8 @@
 				B39E51362850868900EAE842 /* JHPhotoBaseController.swift */,
 				B39E5138285086D100EAE842 /* PhotoHomeController.swift */,
 				B39E51602851BF7300EAE842 /* JHPhotoSetController.swift */,
+				B39E51A42852E23500EAE842 /* JHSortViewController.swift */,
+				B39E51A62852E25500EAE842 /* JHPhotoAddController.swift */,
 				B39E51622851C08000EAE842 /* JHHandlePictureViewController.swift */,
 			);
 			path = "图片集";
@@ -1833,6 +1839,7 @@
 				B3B4A6E7282BA469006B5F57 /* JHNewLoginSetPswViewController.swift in Sources */,
 				B39C8589283E22F7007ABDCC /* ReportMapUserTaskStatM.swift in Sources */,
 				B323035A278C11240056BDCC /* UnitOrgChainModel.swift in Sources */,
+				B39E51A52852E23500EAE842 /* JHSortViewController.swift in Sources */,
 				B39E515D285189AC00EAE842 /* PhotoCollectCell.swift in Sources */,
 				B38D893B277B1CD800888EFB /* JHMornUploadModel.swift in Sources */,
 				B3306D4127B111C1005E7DDC /* JHUnitOrgHigherCell.swift in Sources */,
@@ -1893,6 +1900,7 @@
 				B313EF3A278EDCD40089625F /* StoreDSelSearchBar.swift in Sources */,
 				B368E064283336AB0039D4D7 /* JHNotificationCenterNoDisturbingVCViewController.swift in Sources */,
 				B3EC88BF284493230040F664 /* ReportPatrolInfoCell.swift in Sources */,
+				B39E51A72852E25500EAE842 /* JHPhotoAddController.swift in Sources */,
 				B323033E278827670056BDCC /* JHUnitOrgSearchController.swift in Sources */,
 				B3F3343428129EA9003B834D /* VideoActivitySquareController.swift in Sources */,
 				B3F4599B27F3F1C500AADC08 /* JHSNViewModel.swift in Sources */,
