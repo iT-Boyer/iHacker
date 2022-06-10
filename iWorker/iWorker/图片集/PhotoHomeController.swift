@@ -82,10 +82,19 @@ class PhotoHomeController: JHPhotoBaseController {
     
     func titleControlChange(_ segmented: UISegmentedControl) {
         //TODO: 图片 视频 分类
+        if segmented.selectedSegmentIndex == 0 {
+            tableView.isHidden = false
+            hideEmptyView()
+        }else{
+            tableView.isHidden = true
+            showNoDataView(view, tipMsg: "敬请期待")
+            emptyView.frame = CGRect(x: 0, y: navBar.frame.maxY, width: kScreenWidth, height: kScreenHeight - navBar.frame.maxY)
+        }
     }
     func typeControlChange(_ segmented: JHSegmentedControl) {
         //TODO: 获得荣誉, 环境图片 分类
         segmented.animateLine()
+        pageIndex = 1
         loadData()
     }
     lazy var rightView: UIView = {
@@ -141,6 +150,8 @@ extension PhotoHomeController
         request.response {[weak self] response in
             hud.hide(animated: true)
             guard let weakSelf = self else { return }
+            weakSelf.tableView.es.stopLoadingMore()
+            weakSelf.tableView.es.stopPullToRefresh()
             guard let data = response.data else {
                 //                MBProgressHUD.displayError(kInternetError)
                 return
@@ -154,6 +165,27 @@ extension PhotoHomeController
                 let rawData = try! json["Data"].rawData()
                 weakSelf.totalCount = json["totalCount"].intValue
                 guard let photos:[StoreAmbientModel] =  StoreAmbientModel.parsed(data: rawData) else { return }
+                if weakSelf.pageIndex == 1 {
+                    weakSelf.dataArray.removeAll()
+                }
+                if photos.count > 0 {
+                    if photos.count < 20 {
+                        weakSelf.tableView.es.noticeNoMoreData()
+                    }else{
+                        weakSelf.tableView.es.resetNoMoreData()
+                    }
+                    weakSelf.dataArray += photos
+                }
+                
+                if weakSelf.dataArray.count > 0 {
+                    weakSelf.tableView.reloadData()
+                    weakSelf.pageIndex += 1
+                    weakSelf.hideEmptyView()
+                }else{
+                    weakSelf.pageIndex = 1
+                    weakSelf.showNoDataView()//showCustomNoDataView()
+                    weakSelf.emptyView.frame = CGRect(x: 0, y: 40, width: UIScreen.main.bounds.width, height: 500)
+                }
                 weakSelf.dataArray = photos
                 weakSelf.tableView.reloadData()
             }else{

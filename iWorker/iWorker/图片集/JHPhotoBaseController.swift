@@ -19,6 +19,7 @@ class JHPhotoBaseController: JHBaseNavVC {
         loadData()
     }
     func createView() {
+        view.backgroundColor = .white
         view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
             make.top.equalTo(navBar.snp.bottom)
@@ -35,6 +36,18 @@ class JHPhotoBaseController: JHBaseNavVC {
         tb.separatorStyle = .none
         tb.estimatedRowHeight = 75
         tb.rowHeight = UITableView.automaticDimension
+        tb.es.addPullToRefresh { [weak self] in
+            guard let wf = self else{return}
+            /// 在这里做刷新相关事件
+            wf.pageIndex = 1
+            wf.loadData()
+        }
+        
+        /// 在这里做加载更多相关事件
+        tb.es.addInfiniteScrolling { [weak self] in
+            guard let wf = self else{return}
+            wf.loadData()
+        }
         return tb
     }()
     
