@@ -55,6 +55,7 @@ class JHPhotoSetController: JHPhotoBaseController {
             guard let wf = self else {return}
             //TODO: 添加图片
             let add = JHPhotoAddController()
+            add.storeId = wf.storeId
             wf.navigationController?.pushViewController(add, animated: true)
         }
         let addImgsBtn = UIButton()
@@ -67,6 +68,9 @@ class JHPhotoSetController: JHPhotoBaseController {
         addImgsBtn.jh.setHandleClick {[weak self] button in
             guard let wf = self else {return}
             //TODO: 添加图集
+            let addCollect = JHPhotoAddCollectController()
+            addCollect.storeId = wf.storeId
+            wf.navigationController?.pushViewController(addCollect, animated: true)
         }
         let header = UIView()
         header.addSubviews([addImgBtn,addImgsBtn])

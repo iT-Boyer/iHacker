@@ -12,8 +12,22 @@ import MBProgressHUD
 
 /// 特色菜
 class JHPhotoRecommendController: JHPhotoAddController {
-
+    
     var recommendArray:[JHRecommendModel] = []
+    
+    override var addAmbient: AddambientM?{
+        //TODO: 添加特色菜
+        var addAmbient = AddambientM()
+        addAmbient.storeId = storeId
+        addAmbient.type = "1"
+        addAmbient.isPicList = "0"
+        addAmbient.brandPubId = "00000000-0000-0000-0000-000000000000"
+        addAmbient.ambientList = recommendArray.compactMap{ item -> AmbientModel? in
+            let model = AmbientModel(ambientDesc: item.name, ambientUrl: item.imageURL)
+            return model
+        }
+        return addAmbient
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -50,7 +64,36 @@ extension JHPhotoRecommendController
             }
             return mm
         }
+        bottomBtn.isEnabled = dataArray.filter{ $0.selected }.count > 0
         tableView.reloadData()
+    }
+    override func addAction() {
+        guard let model = addAmbient else {
+            return
+        }
+        let param = model.toParams()
+        let urlStr = JHBaseDomain.fullURL(with: "api_host_patrol", path: "/api/Store/SubmitAmbient")
+        let hud = MBProgressHUD.showAdded(to:view, animated: true)
+        hud.removeFromSuperViewOnHide = true
+        let request = JN.post(urlStr, parameters: param, headers: nil)
+        request.response {[weak self] response in
+            hud.hide(animated: true)
+            guard let weakSelf = self else { return }
+            weakSelf.tableView.es.stopLoadingMore()
+            weakSelf.tableView.es.stopPullToRefresh()
+            guard let data = response.data else {
+                //                MBProgressHUD.displayError(kInternetError)
+                return
+            }
+            let json = JSON(data)
+            let result = json["IsSuccess"].boolValue
+            if result {
+                weakSelf.backBtnClicked(UIButton())
+            }else{
+                let msg = json["Message"].stringValue
+                //MBProgressHUD.displayError(msg)
+            }
+        }
     }
     
     override func loadData() {

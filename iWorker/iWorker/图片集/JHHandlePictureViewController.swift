@@ -11,6 +11,7 @@ import JHBase
 class JHHandlePictureViewController: JHBaseNavVC {
     
     var storeId = ""
+    var isPictureGroup = false
     override func viewDidLoad() {
         super.viewDidLoad()
     }

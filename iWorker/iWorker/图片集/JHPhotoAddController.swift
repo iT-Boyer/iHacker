@@ -17,6 +17,20 @@ class JHPhotoAddController: JHPhotoBaseController {
     var type = 0
     var picsId = ""
     var dataArray:[StoreAmbientModel] = []
+    
+    var addAmbient: AddambientM? {
+        //TODO: 添加图片
+        var addAmbient = AddambientM()
+        addAmbient.storeId = storeId
+        addAmbient.isPicList = "1"
+        addAmbient.type = "\(type)"
+        addAmbient.brandPubId = picsId
+        addAmbient.ambientList = dataArray.compactMap{ item -> AmbientModel? in
+            let model = AmbientModel(ambientDesc: item.ambientDesc, ambientUrl: item.ambientURL)
+            return model
+        }
+        return addAmbient
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -42,11 +56,13 @@ class JHPhotoAddController: JHPhotoBaseController {
     
     lazy var bottomBtn: UIButton = {
         let btn = UIButton()
+        btn.isEnabled = false
         btn.setTitle("确定", for: .normal)
-        btn.backgroundColor = .k42DA7F
+//        btn.backgroundColor = .k42DA7F
+        btn.setBackgroundImage(UIImage(color: .k42DA7F, size: CGSize(width: 1, height: 1)), for: .normal)
         btn.jh.setHandleClick {[weak self] button in
             guard let wf = self else {return}
-            
+            wf.addAction()
         }
         return btn
     }()
@@ -74,12 +90,43 @@ extension JHPhotoAddController
             }
             return mm
         }
+        bottomBtn.isEnabled = dataArray.filter{ $0.selected }.count > 0
         tableView.reloadData()
+    }
+    
+    
+    func addAction() {
+        guard let model = addAmbient else {
+            return
+        }
+        let param = model.toParams()
+        let urlStr = JHBaseDomain.fullURL(with: "api_host_patrol", path: "/api/Store/SubmitBrandPub")
+        let hud = MBProgressHUD.showAdded(to:view, animated: true)
+        hud.removeFromSuperViewOnHide = true
+        let request = JN.post(urlStr, parameters: param, headers: nil)
+        request.response {[weak self] response in
+            hud.hide(animated: true)
+            guard let weakSelf = self else { return }
+            weakSelf.tableView.es.stopLoadingMore()
+            weakSelf.tableView.es.stopPullToRefresh()
+            guard let data = response.data else {
+                //                MBProgressHUD.displayError(kInternetError)
+                return
+            }
+            let json = JSON(data)
+            let result = json["IsSuccess"].boolValue
+            if result {
+                weakSelf.backBtnClicked(UIButton())
+            }else{
+                let msg = json["Message"].stringValue
+                //MBProgressHUD.displayError(msg)
+            }
+        }
     }
     
     override func loadData() {
         let param:[String:Any] = ["StoreId":storeId,
-                                  "Type":type,
+                                  "Type": 0,
                                   "PageIndex":pageIndex,
                                   "PageSize":20
         ]
@@ -134,7 +181,6 @@ extension JHPhotoAddController
                 let msg = json["message"].stringValue
                 //                MBProgressHUD.displayError(kInternetError)
             }
-
         }
     }
 }
