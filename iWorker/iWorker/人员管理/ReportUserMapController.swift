@@ -76,7 +76,7 @@ class ReportUserMapController: JHBaseNavVC {
         lab.textColor = .white
         view.addSubview(lab)
         lab.snp.makeConstraints { make in
-            make.top.equalTo(filterView.snp.bottom).offset(-20)
+            make.top.equalTo(filterView.snp.bottom)//.offset(-20)
             make.height.equalTo(18)
             make.centerX.equalToSuperview()
         }
@@ -158,7 +158,7 @@ class ReportUserMapController: JHBaseNavVC {
         infoView.snp.remakeConstraints { make in
             make.height.equalTo(92 + 74 * data.taskList.count)
             make.left.centerX.equalToSuperview()
-            make.bottom.equalTo(-kEmptyBottomHeight)
+            make.bottom.equalToSuperview()
         }
         infoView.dataM = data
         infoView.lasttime.text = "上传位置时间：\(currentAnnotation.reportDate)"

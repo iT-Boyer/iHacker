@@ -529,6 +529,7 @@
 		B3D0486D27D0A3C600E9CBF2 /* GetIOTDeviceSceneList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GetIOTDeviceSceneList.json; sourceTree = "<group>"; };
 		B3D7C6BA27EC65B300E0EDBA /* JHDeviceBindModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHDeviceBindModel.swift; sourceTree = "<group>"; };
 		B3DA503D277D8D13009B6A0E /* SecondB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondB.swift; sourceTree = "<group>"; };
+		B3DED2062856D490002B75CE /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B3EC88BE284493230040F664 /* ReportPatrolInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportPatrolInfoCell.swift; sourceTree = "<group>"; };
 		B3EC88C0284493340040F664 /* ReportTaskInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTaskInfoCell.swift; sourceTree = "<group>"; };
 		B3EC88C22844AA5D0040F664 /* ReportTaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTaskModel.swift; sourceTree = "<group>"; };
@@ -1172,6 +1173,7 @@
 		B38E8A56284712A000884A6A /* JSON */ = {
 			isa = PBXGroup;
 			children = (
+				B3DED2062856D490002B75CE /* README.md */,
 				B38E8A57284712A000884A6A /* GetStatisticalData.json */,
 				B38E8A58284712A000884A6A /* GetDayFootPrint.json */,
 				B38E8A59284712A000884A6A /* GetLastFootPrint.json */,
@@ -2284,7 +2286,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = ZQJGJL288B;
+				DEVELOPMENT_TEAM = 2C4H9T5RF5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = iWorker/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "使用相机说明";
@@ -2292,7 +2294,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2314,7 +2316,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = ZQJGJL288B;
+				DEVELOPMENT_TEAM = 2C4H9T5RF5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = iWorker/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "使用相机说明";
@@ -2322,7 +2324,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
