@@ -24,24 +24,31 @@ class JHPhotoSetController: JHPhotoBaseController {
         navTitle = "图片设置"
         // 设置tableview
         tableView.register(PhotoCollectCell.self, forCellReuseIdentifier: "PhotoCollectCell")
+        customView()
+    }
+    func customView() {
         headerView.frame.size.height = 80
         tableView.tableHeaderView = headerView
-
-        let sortBtn = UIButton()
+        
         navBar.addSubview(sortBtn)
-        sortBtn.setImage(.init(named: "sort"), for: .normal)
-        sortBtn.jh.setHandleClick {[weak self] button in
-            guard let wf = self else {return}
-            //TODO: 排序
-            let sort = JHSortViewController()
-            wf.navigationController?.pushViewController(sort, animated: true)
-        }
         sortBtn.snp.makeConstraints { make in
             make.right.equalTo(-12)
             make.centerY.equalTo(navBar.titleLabel.snp.centerY)
             make.size.equalTo(CGSize(width: 25, height: 25))
         }
     }
+    lazy var sortBtn: UIButton = {
+        let sortBtn = UIButton()
+        sortBtn.setImage(.init(named: "sort"), for: .normal)
+        sortBtn.jh.setHandleClick {[weak self] button in
+            guard let wf = self else {return}
+            //TODO: 排序
+            let sort = JHSortViewController()
+            sort.dataArray = wf.dataArray
+            wf.navigationController?.pushViewController(sort, animated: true)
+        }
+        return sortBtn
+    }()
     
     lazy var headerView: UIView = {
         let addImgBtn = UIButton()

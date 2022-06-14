@@ -10,10 +10,8 @@ import JHBase
 import SwiftyJSON
 import MBProgressHUD
 
-class JHSortViewController: JHPhotoBaseController {
+class JHSortViewController: JHPhotoSetController {
 
-    var dataArray:NSMutableArray = []
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,7 +22,11 @@ class JHSortViewController: JHPhotoBaseController {
         super.createView()
         navTitle = "图片排序"
         tableView.isEditing = true
-        tableView.register(PhotoCollectCell.self, forCellReuseIdentifier: "PhotoCollectCell")
+    }
+    
+    override func customView() {
+        tableView.es.removeRefreshHeader()
+        tableView.es.removeRefreshFooter()
         tableView.snp.remakeConstraints { make in
             make.left.right.equalToSuperview()
             make.top.equalTo(navBar.snp.bottom)
@@ -40,7 +42,6 @@ class JHSortViewController: JHPhotoBaseController {
     lazy var bottomBtn: UIButton = {
         let btn = UIButton()
         btn.setTitle("确定", for: .normal)
-//        btn.backgroundColor = .k42DA7F
         btn.setBackgroundImage(UIImage(color: .k42DA7F, size: CGSize(width: 1, height: 1)), for: .normal)
         btn.jh.setHandleClick {[weak self] button in
             guard let wf = self else {return}
@@ -59,7 +60,7 @@ extension JHSortViewController
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:PhotoCollectCell = tableView.dequeueReusableCell(withIdentifier: "PhotoCollectCell") as! PhotoCollectCell
-        cell.model = dataArray[indexPath.row] as? JHPhotosModel
+        cell.model = dataArray[indexPath.row]
         return cell
     }
     // 隐藏右侧删除按钮
@@ -78,7 +79,14 @@ extension JHSortViewController
     }
     
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        dataArray.exchangeObject(at: sourceIndexPath.row, withObjectAt: destinationIndexPath.row)
+        // 交换
+        //dataArray.swapAt(sourceIndexPath.row, destinationIndexPath.row)
+        // 移动
+        if sourceIndexPath.row > destinationIndexPath.row {
+            dataArray.move(fromOffsets: .init(integer: sourceIndexPath.row), toOffset: destinationIndexPath.row)
+        }else{
+            dataArray.move(fromOffsets: .init(integer: destinationIndexPath.row), toOffset: sourceIndexPath.row)
+        }
         tableView.reloadData()
     }
 }
@@ -87,8 +95,7 @@ extension JHSortViewController
 extension JHSortViewController
 {
     func sortAction() {
-        guard let arr = dataArray as? [JHPhotosModel] else {return}
-        let iDs = arr.compactMap { model -> String? in
+        let iDs = dataArray.compactMap { model -> String? in
             return model.brandPubID
         }
         let param:[String:Any] = ["BrandPubIds":iDs]
@@ -99,8 +106,6 @@ extension JHSortViewController
         request.response {[weak self] response in
             hud.hide(animated: true)
             guard let weakSelf = self else { return }
-            weakSelf.tableView.es.stopLoadingMore()
-            weakSelf.tableView.es.stopPullToRefresh()
             guard let data = response.data else {
                 //                MBProgressHUD.displayError(kInternetError)
                 return
@@ -116,62 +121,5 @@ extension JHSortViewController
         }
     }
     
-    override func loadData() {
-        let param:[String:Any] = ["StoreId":storeId,
-                                  "PageIndex":pageIndex,
-                                  "PageSize":20,
-                                  ]
-        
-        let urlStr = JHBaseDomain.fullURL(with: "api_host_patrol", path: "/api/Store/GetStoreBrandPub")
-        let hud = MBProgressHUD.showAdded(to:view, animated: true)
-        hud.removeFromSuperViewOnHide = true
-        let request = JN.post(urlStr, parameters: param, headers: nil)
-        request.response {[weak self] response in
-            hud.hide(animated: true)
-            guard let weakSelf = self else { return }
-            weakSelf.tableView.es.stopLoadingMore()
-            weakSelf.tableView.es.stopPullToRefresh()
-            guard let data = response.data else {
-                //                MBProgressHUD.displayError(kInternetError)
-                return
-            }
-            let json = JSON(data)
-            let result = json["IsSuccess"].boolValue
-            if result {
-                if json["Data"].isEmpty {
-                    return
-                }
-                let rawData = try! json["Data"].rawData()
-                weakSelf.totalCount = json["TotalCount"].intValue
-                guard let photos:[JHPhotosModel] =  JHPhotosModel.parsed(data: rawData) else { return }
-                if weakSelf.pageIndex == 1 {
-                    weakSelf.dataArray.removeAllObjects()
-                }
-                if photos.count > 0 {
-                    if photos.count < 20 {
-                        weakSelf.tableView.es.noticeNoMoreData()
-                    }else{
-                        weakSelf.tableView.es.resetNoMoreData()
-                    }
-                    weakSelf.dataArray.addObjects(from: photos)
-                }
-                
-                if weakSelf.dataArray.count > 0 {
-                    weakSelf.tableView.reloadData()
-                    weakSelf.pageIndex += 1
-                    weakSelf.bottomBtn.snp.updateConstraints { make in
-                        make.height.equalTo(44)
-                    }
-                    weakSelf.hideEmptyView()
-                }else{
-                    weakSelf.pageIndex = 1
-                    weakSelf.showNoDataView()
-                    weakSelf.emptyView.frame = CGRect(x: 0, y: 80, width: UIScreen.main.bounds.width, height: 500)
-                }
-            }else{
-                let msg = json["message"].stringValue
-                //                MBProgressHUD.displayError(kInternetError)
-            }
-        }
-    }
+    override func loadData() {}
 }
