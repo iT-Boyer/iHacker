@@ -215,7 +215,6 @@
 		B3D0486E27D0A3C700E9CBF2 /* GetIOTDeviceSceneList.json in Resources */ = {isa = PBXBuildFile; fileRef = B3D0486D27D0A3C600E9CBF2 /* GetIOTDeviceSceneList.json */; };
 		B3D7C6BB27EC65B300E0EDBA /* JHDeviceBindModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D7C6BA27EC65B300E0EDBA /* JHDeviceBindModel.swift */; };
 		B3DA503E277D8D13009B6A0E /* SecondB.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DA503D277D8D13009B6A0E /* SecondB.swift */; };
-		B3DED20B28573FAF002B75CE /* JHSortTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3DED20A28573FAE002B75CE /* JHSortTableView.m */; };
 		B3DED20D28585046002B75CE /* ArraySpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DED20C28585046002B75CE /* ArraySpecs.swift */; };
 		B3EC88BF284493230040F664 /* ReportPatrolInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC88BE284493230040F664 /* ReportPatrolInfoCell.swift */; };
 		B3EC88C1284493340040F664 /* ReportTaskInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC88C0284493340040F664 /* ReportTaskInfoCell.swift */; };
@@ -532,9 +531,6 @@
 		B3D7C6BA27EC65B300E0EDBA /* JHDeviceBindModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHDeviceBindModel.swift; sourceTree = "<group>"; };
 		B3DA503D277D8D13009B6A0E /* SecondB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondB.swift; sourceTree = "<group>"; };
 		B3DED2062856D490002B75CE /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		B3DED20828573FAD002B75CE /* iWorker-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iWorker-Bridging-Header.h"; sourceTree = "<group>"; };
-		B3DED20928573FAE002B75CE /* JHSortTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHSortTableView.h; sourceTree = "<group>"; };
-		B3DED20A28573FAE002B75CE /* JHSortTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHSortTableView.m; sourceTree = "<group>"; };
 		B3DED20C28585046002B75CE /* ArraySpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArraySpecs.swift; sourceTree = "<group>"; };
 		B3EC88BE284493230040F664 /* ReportPatrolInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportPatrolInfoCell.swift; sourceTree = "<group>"; };
 		B3EC88C0284493340040F664 /* ReportTaskInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTaskInfoCell.swift; sourceTree = "<group>"; };
@@ -1284,13 +1280,10 @@
 		B39E513C2850A67100EAE842 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B3DED20928573FAE002B75CE /* JHSortTableView.h */,
-				B3DED20A28573FAE002B75CE /* JHSortTableView.m */,
 				B39E513F2850A7F500EAE842 /* PhotoBaseCell.swift */,
 				B39E51AC2853213100EAE842 /* PhotoAddCell.swift */,
 				B39E51A12851F48F00EAE842 /* PhotoHomeCell.swift */,
 				B39E515C285189AC00EAE842 /* PhotoCollectCell.swift */,
-				B3DED20828573FAD002B75CE /* iWorker-Bridging-Header.h */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1933,7 +1926,6 @@
 				B313EF3A278EDCD40089625F /* StoreDSelSearchBar.swift in Sources */,
 				B368E064283336AB0039D4D7 /* JHNotificationCenterNoDisturbingVCViewController.swift in Sources */,
 				B3EC88BF284493230040F664 /* ReportPatrolInfoCell.swift in Sources */,
-				B3DED20B28573FAF002B75CE /* JHSortTableView.m in Sources */,
 				B39E51A72852E25500EAE842 /* JHPhotoAddController.swift in Sources */,
 				B323033E278827670056BDCC /* JHUnitOrgSearchController.swift in Sources */,
 				B3F3343428129EA9003B834D /* VideoActivitySquareController.swift in Sources */,
@@ -2317,7 +2309,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jinhe.-iWorker.iWorker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "iWorker/图片集/Views/iWorker-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2349,7 +2341,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jinhe.-iWorker.iWorker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "iWorker/图片集/Views/iWorker-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
