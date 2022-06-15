@@ -495,6 +495,9 @@ extension ReportUserDetailController
                     weakSelf.patrolArray.removeAll()
                 }
                 if tasks.count > 0 {
+                    if tasks.count < 20 {
+                        weakSelf.tableView.es.noticeNoMoreData()
+                    }
                     weakSelf.patrolArray += tasks
                 }
                 

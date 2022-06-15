@@ -8,12 +8,14 @@
 import Foundation
 import UIKit
 import JHBase
-
+import Kingfisher
+//新建图片集
 class JHPhotoAddCollectController: JHPhotoAddController {
     
     override var addAmbient: AddambientM?{
-        //TODO: 添加图集
-        guard let url = headerModel.ambientUrl else {
+        //TODO: 新建图片集
+        if headerModel.ambientUrl != nil
+            || headerModel.ambientDesc != nil {
             VCTools.toast("需要设置封面内容")
             return nil
         }
@@ -21,7 +23,7 @@ class JHPhotoAddCollectController: JHPhotoAddController {
         addAmbient.storeId = storeId
         addAmbient.type = "\(type)"
         addAmbient.isPicList = "1"
-        addAmbient.brandPubId = "00000000-0000-0000-0000-000000000000"
+        addAmbient.brandPubId = picsId
         addAmbient.ambientList = dataArray.compactMap{ item -> AmbientModel? in
             let model = AmbientModel(ambientDesc: item.ambientDesc, ambientUrl: item.ambientURL)
             return model
@@ -30,7 +32,7 @@ class JHPhotoAddCollectController: JHPhotoAddController {
         return addAmbient
     }
     
-    lazy var headerModel = AmbientModel()
+    lazy var headerModel:AmbientModel = AmbientModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +40,7 @@ class JHPhotoAddCollectController: JHPhotoAddController {
     
     override func createView() {
         super.createView()
+        navTitle = "添加图片集"
         // 设置tableview
         headerView.frame.size.height = 130
         tableView.tableHeaderView = headerView
@@ -73,9 +76,13 @@ class JHPhotoAddCollectController: JHPhotoAddController {
         btn.jh.setHandleClick {[weak self] button in
             guard let wf = self else { return }
             //TODO: 更新封面
-            let handler = JHHandlePictureViewController()
-            handler.storeId = wf.storeId
-            handler.isPictureGroup = true
+            let handler = JHHandlerCoverPicsController()
+            handler.handler = {model in
+                wf.headerModel.ambientDesc = model.ambientDesc
+                wf.headerModel.ambientUrl = model.ambientURL
+                wf.descLab.text = model.ambientDesc
+                wf.imgBtn.kf.setImage(with: URL(string: model.ambientURL), for: .normal, placeholder:UIImage(named: "addimgarr"))
+            }
             wf.navigationController?.pushViewController(handler, animated: true)
         }
         return btn

@@ -66,12 +66,13 @@ class JHPhotoSetController: JHPhotoBaseController {
             guard let wf = self else {return}
             //TODO: 添加图片
             let add = JHPhotoAddController()
+            add.type = 1
             add.storeId = wf.storeId
             wf.navigationController?.pushViewController(add, animated: true)
         }
         let addImgsBtn = UIButton()
         addImgsBtn.setImage(.init(named: "imgarr"), for: .normal)
-        addImgsBtn.setTitle("添加图集", for: .normal)
+        addImgsBtn.setTitle("添加图片集", for: .normal)
         addImgsBtn.layer.cornerRadius = 8
         addImgsBtn.titleLabel?.font = .systemFont(ofSize: 16)
         addImgsBtn.backgroundColor = .k428BFE
@@ -80,6 +81,7 @@ class JHPhotoSetController: JHPhotoBaseController {
             guard let wf = self else {return}
             //TODO: 添加图集
             let addCollect = JHPhotoAddCollectController()
+            addCollect.type = 2
             addCollect.storeId = wf.storeId
             wf.navigationController?.pushViewController(addCollect, animated: true)
         }

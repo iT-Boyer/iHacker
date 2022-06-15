@@ -71,6 +71,8 @@
 		B374E95F27EB02610033B72C /* JHDeviceTimesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B374E95E27EB02610033B72C /* JHDeviceTimesCell.swift */; };
 		B374E96127EC21F60033B72C /* JHDeviceTimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B374E96027EC21F60033B72C /* JHDeviceTimePicker.swift */; };
 		B374EA2D27EC47DF0033B72C /* VCTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = B374EA2C27EC47DF0033B72C /* VCTools.swift */; };
+		B376987C2859B53B00A3A638 /* JHHandlerCoverPicsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B376987B2859B53B00A3A638 /* JHHandlerCoverPicsController.swift */; };
+		B376987E2859BA1800A3A638 /* PhotoEditCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B376987D2859BA1800A3A638 /* PhotoEditCell.swift */; };
 		B376CD4A283CA7DC00D01B26 /* ReportUserAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B376CD49283CA7DC00D01B26 /* ReportUserAnnotationView.swift */; };
 		B376CD59283CAF8D00D01B26 /* ReportLastFootM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B376CD58283CAF8D00D01B26 /* ReportLastFootM.swift */; };
 		B37705F927BF693C00018309 /* JHShareDevicePreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37705F827BF693C00018309 /* JHShareDevicePreController.swift */; };
@@ -386,6 +388,8 @@
 		B374E95E27EB02610033B72C /* JHDeviceTimesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHDeviceTimesCell.swift; sourceTree = "<group>"; };
 		B374E96027EC21F60033B72C /* JHDeviceTimePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHDeviceTimePicker.swift; sourceTree = "<group>"; };
 		B374EA2C27EC47DF0033B72C /* VCTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCTools.swift; sourceTree = "<group>"; };
+		B376987B2859B53B00A3A638 /* JHHandlerCoverPicsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHHandlerCoverPicsController.swift; sourceTree = "<group>"; };
+		B376987D2859BA1800A3A638 /* PhotoEditCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoEditCell.swift; sourceTree = "<group>"; };
 		B376CD49283CA7DC00D01B26 /* ReportUserAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportUserAnnotationView.swift; sourceTree = "<group>"; };
 		B376CD58283CAF8D00D01B26 /* ReportLastFootM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportLastFootM.swift; sourceTree = "<group>"; };
 		B37705F827BF693C00018309 /* JHShareDevicePreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHShareDevicePreController.swift; sourceTree = "<group>"; };
@@ -1241,6 +1245,7 @@
 				B39E51A62852E25500EAE842 /* JHPhotoAddController.swift */,
 				B39E51B028533D3E00EAE842 /* JHPhotoAddCollectController.swift */,
 				B39E51AA28531C3900EAE842 /* JHPhotoRecommendController.swift */,
+				B376987B2859B53B00A3A638 /* JHHandlerCoverPicsController.swift */,
 				B39E51622851C08000EAE842 /* JHHandlePictureViewController.swift */,
 			);
 			path = "图片集";
@@ -1281,8 +1286,9 @@
 			isa = PBXGroup;
 			children = (
 				B39E513F2850A7F500EAE842 /* PhotoBaseCell.swift */,
-				B39E51AC2853213100EAE842 /* PhotoAddCell.swift */,
 				B39E51A12851F48F00EAE842 /* PhotoHomeCell.swift */,
+				B39E51AC2853213100EAE842 /* PhotoAddCell.swift */,
+				B376987D2859BA1800A3A638 /* PhotoEditCell.swift */,
 				B39E515C285189AC00EAE842 /* PhotoCollectCell.swift */,
 			);
 			path = Views;
@@ -1852,12 +1858,14 @@
 				B38D8938277B1C7300888EFB /* JHMornInspecterController.swift in Sources */,
 				B3F4599D27F438F100AADC08 /* JHDeviceViewModel.swift in Sources */,
 				B37EC661283B6CFD00D92FC1 /* ReportTrackPachController.swift in Sources */,
+				B376987C2859B53B00A3A638 /* JHHandlerCoverPicsController.swift in Sources */,
 				B3230364278C2C370056BDCC /* JHUnitOrgHigherModel.swift in Sources */,
 				B312022228190DA9002D4FA3 /* JHTimePicker.swift in Sources */,
 				B38D88A3277B199400888EFB /* ViewController.swift in Sources */,
 				B39C859F284110D5007ABDCC /* ReportGroupView.swift in Sources */,
 				B38E8A762848C78B00884A6A /* JHLocationManager.swift in Sources */,
 				B3697E7D27E42D10004D8867 /* JHDeviceNickCell.swift in Sources */,
+				B376987E2859BA1800A3A638 /* PhotoEditCell.swift in Sources */,
 				B3B4A6E7282BA469006B5F57 /* JHNewLoginSetPswViewController.swift in Sources */,
 				B39C8589283E22F7007ABDCC /* ReportMapUserTaskStatM.swift in Sources */,
 				B323035A278C11240056BDCC /* UnitOrgChainModel.swift in Sources */,

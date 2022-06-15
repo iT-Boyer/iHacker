@@ -15,16 +15,21 @@ class JHPhotoAddController: JHPhotoBaseController {
 
     /// 1:图集 2:添加图集
     var type = 0
-    var picsId = ""
+    var picsId = "00000000-0000-0000-0000-000000000000"
     var dataArray:[StoreAmbientModel] = []
     
     var addAmbient: AddambientM? {
-        //TODO: 添加图片
+        //TODO: 向图片集中添加图片
         var addAmbient = AddambientM()
         addAmbient.storeId = storeId
-        addAmbient.isPicList = "1"
-        addAmbient.type = "\(type)"
-        addAmbient.brandPubId = picsId
+        if type == 0 {
+            //添加特色菜
+            addAmbient.isPicList = "0"
+            addAmbient.type = "1"
+        }else{ //向图片集中添加图片
+            addAmbient.isPicList = "1"
+            addAmbient.brandPubId = picsId
+        }
         addAmbient.ambientList = dataArray.compactMap{ item -> AmbientModel? in
             let model = AmbientModel(ambientDesc: item.ambientDesc, ambientUrl: item.ambientURL)
             return model

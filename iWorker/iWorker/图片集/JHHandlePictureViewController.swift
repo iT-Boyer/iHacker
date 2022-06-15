@@ -8,11 +8,14 @@
 import Foundation
 import JHBase
 
-class JHHandlePictureViewController: JHBaseNavVC {
+class JHHandlePictureViewController: JHHandlerCoverPicsController {
     
-    var storeId = ""
-    var isPictureGroup = false
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    override func createView() {
+        super.createView()
+        navTitle = "新增图片"
+        
     }
 }
