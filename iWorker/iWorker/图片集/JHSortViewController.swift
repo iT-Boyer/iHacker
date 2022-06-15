@@ -33,7 +33,7 @@ class JHSortViewController: JHPhotoSetController {
         }
         view.addSubview(bottomBtn)
         bottomBtn.snp.makeConstraints { make in
-            make.height.equalTo(0)
+            make.height.equalTo(44)
             make.left.right.bottom.equalToSuperview()
             make.top.equalTo(tableView.snp.bottom)
         }

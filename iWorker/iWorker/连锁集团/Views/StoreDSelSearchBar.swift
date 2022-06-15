@@ -45,6 +45,33 @@ class StoreDSelSearchBar: UIView {
     
     func clearType()
     {
+        if #available(iOS 13, *) {
+            setSearchBarForiOS13()
+        }else{
+            setSearchBarForiOS12()
+        }
+    }
+    
+    func setSearchBarForiOS12() {
+        for subView:UIView in self.searchBar.subviews {
+            for secondLevSubView in subView.subviews {
+                if secondLevSubView.isKind(of: UITextField.self) {
+                    if let field = secondLevSubView as? UITextField{
+                        field.backgroundColor = .clear
+                        field.layer.masksToBounds = true
+                        field.layer.cornerRadius = 20
+                        field.font = .systemFont(ofSize: 14)
+                        field.textColor = .k2F3856
+                        field.setValue(UIColor.k000000, forKeyPath: "_placeholderLabel.textColor")
+                        field.setValue(UIFont.systemFont(ofSize: 12), forKeyPath: "_placeholderLabel.font")
+                    }
+                    break
+                }
+            }
+        }
+        searchBar.subviews.first?.subviews.first?.removeFromSuperview()
+    }
+    func setSearchBarForiOS13() {
         for subView:UIView in self.searchBar.subviews {
             for secondLevSubView in subView.subviews {
                 if secondLevSubView.isKind(of: UIImageView.self) {

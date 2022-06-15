@@ -90,6 +90,7 @@ class ReportUserMapController: JHBaseNavVC {
         let view = MapFilterBarView(with: "请输入人员名称") {[weak self] data in
             //TODO: 选择人员业务
             guard let wf = self else{return}
+            wf.filterBtn.isHidden = false
             guard let model:ReportLastFootM = data else{
                 wf.keyword = ""
                 wf.loadLastFootData()
@@ -170,6 +171,7 @@ class ReportUserMapController: JHBaseNavVC {
     
     @objc
     func showKeyboard(_ notf:Notification) {
+        filterBtn.isHidden = true
         hideInfoView(tap: nil)
     }
     

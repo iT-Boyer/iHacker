@@ -90,7 +90,7 @@ class MapFilterBarView: UIView {
         }
         titleLab.snp.makeConstraints { make in
             make.left.equalTo(backBtn.snp.right).offset(8)
-            make.width.equalTo(40)
+            make.width.equalTo(20)
             make.centerY.equalToSuperview()
         }
         searchBar.snp.makeConstraints { make in
@@ -172,7 +172,7 @@ class MapFilterBarView: UIView {
                 make.height.equalTo(120)
             }
             titleLab.snp.updateConstraints { make in
-                make.width.equalTo(60)
+                make.width.equalTo(20)
             }
             titleLab.isHidden = false
             startBtn.isHidden = true

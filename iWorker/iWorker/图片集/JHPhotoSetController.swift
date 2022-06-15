@@ -43,6 +43,10 @@ class JHPhotoSetController: JHPhotoBaseController {
         sortBtn.jh.setHandleClick {[weak self] button in
             guard let wf = self else {return}
             //TODO: 排序
+            if wf.dataArray.count == 0 {
+                //无数据，无法排序
+                return
+            }
             let sort = JHSortViewController()
             sort.dataArray = wf.dataArray
             wf.navigationController?.pushViewController(sort, animated: true)
