@@ -45,6 +45,8 @@ class StoreDSelSearchBar: UIView {
     
     func clearType()
     {
+        searchBar.barTintColor = .clear
+        searchBar.tintColor = .k999999
         if #available(iOS 13, *) {
             setSearchBarForiOS13()
         }else{
@@ -62,7 +64,7 @@ class StoreDSelSearchBar: UIView {
                         field.layer.cornerRadius = 20
                         field.font = .systemFont(ofSize: 14)
                         field.textColor = .k2F3856
-                        field.setValue(UIColor.k000000, forKeyPath: "_placeholderLabel.textColor")
+                        field.setValue(UIColor.k999999, forKeyPath: "_placeholderLabel.textColor")
                         field.setValue(UIFont.systemFont(ofSize: 12), forKeyPath: "_placeholderLabel.font")
                     }
                     break
@@ -80,8 +82,6 @@ class StoreDSelSearchBar: UIView {
                 }
             }
         }
-        searchBar.barTintColor = .clear
-        searchBar.tintColor = .init(red: 153/255.0, green: 153/255.0, blue: 153/255.0, alpha: 1.0)
         var attr:NSAttributedString!
         if #available(iOS 15, *) {
             var attrNew = AttributedString(placeholder)
@@ -94,9 +94,11 @@ class StoreDSelSearchBar: UIView {
                                                         .foregroundColor: UIColor(hexString: "ABAAAA")!]
             attr = NSAttributedString.init(string: placeholder, attributes: attrNew)
         }
-        searchBar.searchTextField.attributedPlaceholder = attr
-        searchBar.searchTextField.backgroundColor = .clear
-        searchBar.searchTextField.background = nil
+        if #available(iOS 13.0, *) {
+            searchBar.searchTextField.attributedPlaceholder = attr
+            searchBar.searchTextField.backgroundColor = .clear
+            searchBar.searchTextField.background = nil
+        }
     }
 }
 
