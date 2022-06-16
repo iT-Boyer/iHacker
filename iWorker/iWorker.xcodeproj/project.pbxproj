@@ -217,6 +217,9 @@
 		B3D0486E27D0A3C700E9CBF2 /* GetIOTDeviceSceneList.json in Resources */ = {isa = PBXBuildFile; fileRef = B3D0486D27D0A3C600E9CBF2 /* GetIOTDeviceSceneList.json */; };
 		B3D7C6BB27EC65B300E0EDBA /* JHDeviceBindModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D7C6BA27EC65B300E0EDBA /* JHDeviceBindModel.swift */; };
 		B3DA503E277D8D13009B6A0E /* SecondB.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DA503D277D8D13009B6A0E /* SecondB.swift */; };
+		B3DCCF61285AFFBA0000853C /* JHPhotoDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DCCF60285AFFB90000853C /* JHPhotoDetailController.swift */; };
+		B3DCCF63285B03780000853C /* PhotoDetailCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DCCF62285B03780000853C /* PhotoDetailCollectionView.swift */; };
+		B3DCCF65285B0FBA0000853C /* JHPictureGroupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DCCF64285B0FBA0000853C /* JHPictureGroupController.swift */; };
 		B3DED20D28585046002B75CE /* ArraySpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DED20C28585046002B75CE /* ArraySpecs.swift */; };
 		B3EC88BF284493230040F664 /* ReportPatrolInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC88BE284493230040F664 /* ReportPatrolInfoCell.swift */; };
 		B3EC88C1284493340040F664 /* ReportTaskInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC88C0284493340040F664 /* ReportTaskInfoCell.swift */; };
@@ -534,6 +537,9 @@
 		B3D0486D27D0A3C600E9CBF2 /* GetIOTDeviceSceneList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GetIOTDeviceSceneList.json; sourceTree = "<group>"; };
 		B3D7C6BA27EC65B300E0EDBA /* JHDeviceBindModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHDeviceBindModel.swift; sourceTree = "<group>"; };
 		B3DA503D277D8D13009B6A0E /* SecondB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondB.swift; sourceTree = "<group>"; };
+		B3DCCF60285AFFB90000853C /* JHPhotoDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHPhotoDetailController.swift; sourceTree = "<group>"; };
+		B3DCCF62285B03780000853C /* PhotoDetailCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailCollectionView.swift; sourceTree = "<group>"; };
+		B3DCCF64285B0FBA0000853C /* JHPictureGroupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHPictureGroupController.swift; sourceTree = "<group>"; };
 		B3DED2062856D490002B75CE /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B3DED20C28585046002B75CE /* ArraySpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArraySpecs.swift; sourceTree = "<group>"; };
 		B3EC88BE284493230040F664 /* ReportPatrolInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportPatrolInfoCell.swift; sourceTree = "<group>"; };
@@ -1243,6 +1249,8 @@
 				B39E51A42852E23500EAE842 /* JHSortViewController.swift */,
 				B39E51A82853103300EAE842 /* JHPhotoNewController.swift */,
 				B39E51A62852E25500EAE842 /* JHPhotoAddController.swift */,
+				B3DCCF60285AFFB90000853C /* JHPhotoDetailController.swift */,
+				B3DCCF64285B0FBA0000853C /* JHPictureGroupController.swift */,
 				B39E51B028533D3E00EAE842 /* JHPhotoAddCollectController.swift */,
 				B39E51AA28531C3900EAE842 /* JHPhotoRecommendController.swift */,
 				B376987B2859B53B00A3A638 /* JHHandlerCoverPicsController.swift */,
@@ -1290,6 +1298,7 @@
 				B39E51AC2853213100EAE842 /* PhotoAddCell.swift */,
 				B376987D2859BA1800A3A638 /* PhotoEditCell.swift */,
 				B39E515C285189AC00EAE842 /* PhotoCollectCell.swift */,
+				B3DCCF62285B03780000853C /* PhotoDetailCollectionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1868,6 +1877,7 @@
 				B376987E2859BA1800A3A638 /* PhotoEditCell.swift in Sources */,
 				B3B4A6E7282BA469006B5F57 /* JHNewLoginSetPswViewController.swift in Sources */,
 				B39C8589283E22F7007ABDCC /* ReportMapUserTaskStatM.swift in Sources */,
+				B3DCCF61285AFFBA0000853C /* JHPhotoDetailController.swift in Sources */,
 				B323035A278C11240056BDCC /* UnitOrgChainModel.swift in Sources */,
 				B39E51A52852E23500EAE842 /* JHSortViewController.swift in Sources */,
 				B39E515D285189AC00EAE842 /* PhotoCollectCell.swift in Sources */,
@@ -1912,6 +1922,7 @@
 				B3F3343628129ED8003B834D /* PersonalVideoActivityController.swift in Sources */,
 				B39E51472850A97000EAE842 /* JHRecommendModel.swift in Sources */,
 				B316369628447FD300A09F62 /* ReportUserInfoM.swift in Sources */,
+				B3DCCF65285B0FBA0000853C /* JHPictureGroupController.swift in Sources */,
 				B38D88A1277B199400888EFB /* SceneDelegate.swift in Sources */,
 				B3697E7927E42481004D8867 /* JHDeviceSNCell.swift in Sources */,
 				B3697E8227E45778004D8867 /* JHSceneModels.swift in Sources */,
@@ -1921,6 +1932,7 @@
 				B39E51632851C08000EAE842 /* JHHandlePictureViewController.swift in Sources */,
 				B323033C278827350056BDCC /* JHUnitOrgBaseViewController.swift in Sources */,
 				B39E51A92853103300EAE842 /* JHPhotoNewController.swift in Sources */,
+				B3DCCF63285B03780000853C /* PhotoDetailCollectionView.swift in Sources */,
 				B39E51A22851F48F00EAE842 /* PhotoHomeCell.swift in Sources */,
 				B3EC88CF2845B89A0040F664 /* ReportTrackPathCell.swift in Sources */,
 				B39C858F283E3189007ABDCC /* ReportUserTaskCell.swift in Sources */,

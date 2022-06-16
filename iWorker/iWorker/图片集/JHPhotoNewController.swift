@@ -9,11 +9,9 @@ import UIKit
 import JHBase
 import SwiftyJSON
 import MBProgressHUD
-///新建图片集
-class JHPhotoNewController: JHPhotoBaseController {
+///图片集中添加图片
+class JHPhotoNewController: JHPictureGroupController {
 
-    var picsId = "00000000-0000-0000-0000-000000000000"
-    var dataArray:[JHPhotosModel] = []
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,7 +20,6 @@ class JHPhotoNewController: JHPhotoBaseController {
     
     override func createView() {
         super.createView()
-        tableView.register(PhotoCollectCell.self, forCellReuseIdentifier: "PhotoCollectCell")
         navTitle = "添加图片集"
         
         let addBtn = UIButton()
@@ -62,7 +59,7 @@ extension JHPhotoNewController
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
             //TODO: 修改封面
             let handler = JHHandlerCoverPicsController()
@@ -100,59 +97,6 @@ extension JHPhotoNewController
                 weakSelf.tableView.reloadData()
             }
             //MBProgressHUD.displayError(msg)
-        }
-    }
-    
-    override func loadData() {
-        let param:[String:Any] = ["BrandPubId":picsId,
-                                  "PageIndex":pageIndex,
-                                  "PageSize":20,
-                                  ]
-        
-        let urlStr = JHBaseDomain.fullURL(with: "api_host_patrol", path: "/api/Store/GetBrandPubDetail")
-        let hud = MBProgressHUD.showAdded(to:view, animated: true)
-        hud.removeFromSuperViewOnHide = true
-        let request = JN.post(urlStr, parameters: param, headers: nil)
-        request.response {[weak self] response in
-            hud.hide(animated: true)
-            guard let weakSelf = self else { return }
-            weakSelf.tableView.es.stopLoadingMore()
-            weakSelf.tableView.es.stopPullToRefresh()
-            guard let data = response.data else {
-                //                MBProgressHUD.displayError(kInternetError)
-                return
-            }
-            let json = JSON(data)
-            let result = json["IsSuccess"].boolValue
-            if result {
-                guard let rawData = try? json["Data"].rawData() else {return}
-                weakSelf.totalCount = json["TotalCount"].intValue
-                guard let photos:[JHPhotosModel] =  JHPhotosModel.parsed(data: rawData) else { return }
-                if weakSelf.pageIndex == 1 {
-                    weakSelf.dataArray.removeAll()
-                }
-                if photos.count > 0 {
-                    if photos.count < 20 {
-                        weakSelf.tableView.es.noticeNoMoreData()
-                    }else{
-                        weakSelf.tableView.es.resetNoMoreData()
-                    }
-                    weakSelf.dataArray += photos
-                }
-                
-                if weakSelf.dataArray.count > 0 {
-                    weakSelf.tableView.reloadData()
-                    weakSelf.pageIndex += 1
-                    weakSelf.hideEmptyView()
-                }else{
-                    weakSelf.pageIndex = 1
-                    weakSelf.showNoDataView()
-                    weakSelf.emptyView.frame = CGRect(x: 0, y: 80, width: UIScreen.main.bounds.width, height: 500)
-                }
-            }else{
-                let msg = json["message"].stringValue
-                //                MBProgressHUD.displayError(kInternetError)
-            }
         }
     }
 }

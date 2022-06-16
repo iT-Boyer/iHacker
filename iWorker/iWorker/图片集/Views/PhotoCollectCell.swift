@@ -18,7 +18,16 @@ class PhotoCollectCell: PhotoBaseCell {
             make.center.equalTo(iconView.snp.center)
             make.size.equalTo(iconView)
         }
+        let tap = UITapGestureRecognizer(target: self, action: #selector(showBigImageView))
+        iconView.addGestureRecognizer(tap)
     }
+    
+    @objc func showBigImageView() {
+        //TODO: 大图预览
+        print("大图预览:\(model?.picURL)")
+    }
+    
+    
     
     var model:JHPhotosModel?{
         didSet{
