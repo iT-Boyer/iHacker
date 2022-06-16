@@ -259,10 +259,7 @@ extension ReportUserMapController {
             let json = JSON(data)
             let result = json["IsCompleted"].boolValue
             if result {
-                if json["Data"].isEmpty {
-                    return
-                }
-                let rawData = try! json["Data"].rawData()
+                guard let rawData = try? json["Data"].rawData() else {return}
                 guard let info:ReportMapUserTaskStatM = ReportMapUserTaskStatM.parsed(data: rawData) else { return }
                 weakSelf.showInfoView(data: info)
             }else{
@@ -295,8 +292,7 @@ extension ReportUserMapController {
             let json = JSON(data)
             let result = json["IsCompleted"].boolValue
             if result {
-                if json["Data"].isEmpty {return}
-                let rawData = try! json["Data"].rawData()
+                guard let rawData = try? json["Data"].rawData() else {return}
                 guard let dataArray:[ReportLastFootM] = ReportLastFootM.parsed(data: rawData)else{return}
                 for model in dataArray {
                     let annotation = ReportUserAnnotation()

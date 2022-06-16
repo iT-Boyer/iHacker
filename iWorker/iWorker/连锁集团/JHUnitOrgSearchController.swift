@@ -53,7 +53,7 @@ class JHUnitOrgSearchController: JHUnitOrgBaseViewController {
                 return
             }
             let json = JSON(data)
-            let storeData = try! json["storeList"].rawData()
+            guard let storeData = try? json["storeList"].rawData() else{return}
             let totalCount = json["totalCount"].intValue
             if totalCount > 0 {
                 weakSelf.selectAllBtn.isSelected = false

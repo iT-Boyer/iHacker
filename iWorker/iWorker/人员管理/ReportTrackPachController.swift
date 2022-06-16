@@ -154,10 +154,7 @@ class ReportTrackPachController: JHBaseNavVC {
             let json = JSON(data)
             let result = json["IsCompleted"].boolValue
             if result {
-                if json["Data"].isEmpty {
-                    return
-                }
-                let rawData = try! json["Data"].rawData()
+                guard let rawData = try? json["Data"].rawData() else {return}
                 guard let trackPach:ReportTrackPachM =  ReportTrackPachM.parsed(data: rawData) else { return }
                 // info
                 weakSelf.nameLab.text = trackPach.userName

@@ -472,7 +472,7 @@ extension JHBindingEditIntelDescisionVC
     func submit() {
         var apithmod = "SaveIntelligentDeviceInfo"
         let jsonEncoder = JSONEncoder()
-        let data = try! jsonEncoder.encode(bindModel)
+        guard let data = try? jsonEncoder.encode(bindModel) else {return}
         var param:[String:Any] = JSON(data).dictionaryObject!
         if isPersonal {
             apithmod = "SavePersonDeviceInfo"
@@ -534,7 +534,7 @@ extension JHBindingEditIntelDescisionVC
             let json = JSON(data)
             let result = json["IsSuccess"].boolValue
             if result {
-                let content = try! json["Content"].rawData()
+                guard let content = try? json["Content"].rawData() else{return}
                 weakSelf.bindModel = JHDeviceBindModel.parsed(data: content)
                 OperationQueue.main.addOperation {
                     weakSelf.snVM.value = weakSelf.bindModel.sn

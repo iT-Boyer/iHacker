@@ -175,7 +175,8 @@ class JHUnitOrgHigherController: JHUnitOrgBaseViewController {
                     weakSelf.hideEmptyView()
                     for modelJ:JSON in dataArray {
                         var isExist = false
-                        let model:JHUnitOrgHigherModel = JHUnitOrgHigherModel.parsed(data: try!modelJ.rawData()) 
+                        guard let rawData = try? modelJ.rawData() else {return}
+                        let model:JHUnitOrgHigherModel = JHUnitOrgHigherModel.parsed(data: rawData) 
                         for origin:JHUnitOrgBaseModel in weakSelf.dataArray {
                             if origin.bindId == model.bindId {
                                 isExist = true

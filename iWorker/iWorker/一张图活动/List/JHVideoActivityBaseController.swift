@@ -109,7 +109,7 @@ extension JHVideoActivityBaseController:UITableViewDataSource,UITableViewDelegat
             let json = JSON(data)
             let result = json["IsSuccess"].boolValue
             if result {
-                let rawData = try! json["Data"].rawData()
+                guard let rawData = try? json["Data"].rawData() else {return}
                 let dataArray:[JHActivityModel] = JHActivityModel.parsed(data: rawData)
                 if weakSelf.pageIndex == 1 {
                     weakSelf.dataArray.removeAll()

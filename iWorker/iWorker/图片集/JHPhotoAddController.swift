@@ -152,10 +152,7 @@ extension JHPhotoAddController
             let json = JSON(data)
             let result = json["IsSuccess"].boolValue
             if result {
-                if json["Data"].isEmpty {
-                    return
-                }
-                let rawData = try! json["Data"].rawData()
+                guard let rawData = try? json["Data"].rawData() else {return}
                 weakSelf.totalCount = json["TotalCount"].intValue
                 guard let photos:[StoreAmbientModel] =  StoreAmbientModel.parsed(data: rawData) else { return }
                 if weakSelf.pageIndex == 1 {

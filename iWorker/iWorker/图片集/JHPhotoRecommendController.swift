@@ -115,10 +115,7 @@ extension JHPhotoRecommendController
             let json = JSON(data)
             let result = json["IsSuccess"].boolValue
             if result {
-                if json["specialDishes"].isEmpty {
-                    return
-                }
-                let rawData = try! json["specialDishes"].rawData()
+                guard let rawData = try? json["specialDishes"].rawData() else {return}
                 guard let photos:[JHRecommendModel] =  JHRecommendModel.parsed(data: rawData) else { return }
                 if photos.count > 0 {
                     weakSelf.recommendArray = photos
