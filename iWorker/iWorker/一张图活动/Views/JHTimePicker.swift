@@ -41,17 +41,19 @@ class JHTimePicker: UIViewController {
         let cancel = UIButton()
         cancel.setTitle("取消", for: .normal)
         cancel.titleLabel?.font = .systemFont(ofSize: 17)
-        cancel.setTitleColor(.initWithHex("007AFF"), for: .normal)
-        cancel.jh.setHandleClick { button in
-            self.dismiss(animated: true)
+        cancel.setTitleColor(.k007AFF, for: .normal)
+        cancel.jh.setHandleClick {[weak self] button in
+            guard let wf = self else {return}
+            wf.dismiss(animated: true)
         }
         let sure = UIButton()
         sure.setTitle("确定", for: .normal)
         sure.titleLabel?.font = .systemFont(ofSize: 17)
-        sure.setTitleColor(.initWithHex("007AFF"), for: .normal)
-        sure.jh.setHandleClick { [unowned self] button in
-            self.dismiss(animated: true) {
-                self.timeHandler(timePicker.date)
+        sure.setTitleColor(.k007AFF, for: .normal)
+        sure.jh.setHandleClick { [weak self] button in
+            guard let wf = self else {return}
+            wf.dismiss(animated: true) {
+                wf.timeHandler(wf.timePicker.date)
             }
         }
         

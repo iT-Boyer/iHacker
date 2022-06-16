@@ -13,8 +13,8 @@ import MBProgressHUD
 
 class MapFilterBarView: UIView {
     
-    var handlerBlock:((ReportLastFootM?)->())
-    var completedBlock:(()->())
+    var handlerBlock:((ReportLastFootM?)->()) = {_ in}
+    var completedBlock:(()->()) = {}
     var placeholder:String!
     var result:ReportLastFootM!
     
@@ -22,18 +22,17 @@ class MapFilterBarView: UIView {
     var dataArray:[ReportLastFootM] = []
     
     init(with placeholder:String,handler:@escaping (ReportLastFootM?)->(),completed:@escaping ()->()) {
-        handlerBlock = handler
-        completedBlock = completed
         super.init(frame: CGRect.zero)
         self.placeholder = placeholder
-        
+        handlerBlock = handler
+        completedBlock = completed
         createView()
         
         NotificationCenter.default.addObserver(self, selector: #selector(showKeyboard(_:)), name: NSNotification.Name("UIKeyboardWillShowNotification"), object: nil)
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
     }
     
     deinit {
@@ -133,7 +132,7 @@ class MapFilterBarView: UIView {
         startBtn.isHidden = true
         startBtn.setTitle("搜索", for: .normal)
         startBtn.titleLabel?.font = .systemFont(ofSize: 16)
-        startBtn.setTitleColor(.initWithHex("428BFE"), for: .normal)
+        startBtn.setTitleColor(.k428BFE, for: .normal)
         startBtn.addTarget(self, action: #selector(startAction), for: .touchDown)
         return startBtn
     }()

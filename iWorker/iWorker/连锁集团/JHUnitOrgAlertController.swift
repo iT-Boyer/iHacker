@@ -34,7 +34,7 @@ class JHUnitOrgAlertController: UIViewController {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
     }
     
     //吐司提示框
@@ -154,7 +154,7 @@ enum JHAlertActionStyle {
 }
 class JHAlertAction: UIButton {
     
-    var action:()->()
+    var action:()->() = {}
     init(_ title:String,style:JHAlertActionStyle,action:@escaping ()->() = {}) {
         self.action = action
         super.init(frame: CGRect.zero)
@@ -171,7 +171,7 @@ class JHAlertAction: UIButton {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
     }
     @objc
     func tapped(action:JHAlertAction) {

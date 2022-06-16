@@ -21,7 +21,7 @@ class ReportGroupLCell: UITableViewCell {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
     }
 
     let titlab = UILabel()
@@ -71,7 +71,7 @@ class ReportGroupView: UIView {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
     }
     
     func createView() {

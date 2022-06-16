@@ -45,7 +45,7 @@ extension UISegmentedControl {
 class JHSegmentedControl: UISegmentedControl {
     
     override init(items: [Any]?) {
-        super.init(items: items)
+        super.init(frame: .zero)    // 解决13系统初始化崩溃。
         //是否根据segment的内容改变segment的宽度
         apportionsSegmentWidthsByContent = true
         // 选项颜色
@@ -64,7 +64,7 @@ class JHSegmentedControl: UISegmentedControl {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
     }
     
     func clearStyle() {

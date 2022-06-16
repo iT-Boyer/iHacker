@@ -18,19 +18,20 @@ class JHTimeSetingView: UIView {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
     }
     
     lazy var picker: JHTimePicker = {
         let time = JHTimePicker()
-        time.timeHandler = {[unowned self] result in
+        time.timeHandler = {[weak self] result in
+            guard let wf = self else { return }
             let format = DateFormatter()
             format.dateFormat = "YYYY年MM月dd日"
             let time = format.string(from: result)
             print("选择的时间：\(time)")
-            dateBtn.isSelected = true
-            dateBtn.setTitle(time, for: .selected)
-            handler(time)
+            wf.dateBtn.isSelected = true
+            wf.dateBtn.setTitle(time, for: .selected)
+            wf.handler(time)
         }
         return time
     }()

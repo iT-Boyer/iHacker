@@ -11,29 +11,29 @@ import SwifterSwift
 
 class StoreDSelSearchBar: UIView {
     
-    var handlerBlock:((String)->())
-    var clearBlock:(()->())
+    var handlerBlock:((String)->()) = {_ in}
+    var clearBlock:(()->()) = {}
     var placeholder:String!
     
     init(with placeholder:String,handler:@escaping (String)->(),clear:@escaping ()->()) {
+        super.init(frame: CGRect.zero)
         handlerBlock = handler
         clearBlock = clear
-        super.init(frame: CGRect.zero)
         self.placeholder = placeholder
         clearType()
-        self.isUserInteractionEnabled = true
-        self.backgroundColor = .init(red:240/255.0, green:240/255.0, blue:240/255.0, alpha:1.0)
-        self.layer.cornerRadius = 15
+        isUserInteractionEnabled = true
+        backgroundColor = .init(red:240/255.0, green:240/255.0, blue:240/255.0, alpha:1.0)
+        layer.cornerRadius = 15
         
-        self.addSubview(self.searchBar)
-        self.searchBar.snp.makeConstraints { make in
+        addSubview(searchBar)
+        searchBar.snp.makeConstraints { make in
             make.center.equalToSuperview()
             make.left.equalTo(-8)
         }
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
     }
     lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
@@ -109,14 +109,14 @@ extension StoreDSelSearchBar:UISearchBarDelegate
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText.count == 0 {
+        if searchText.isEmpty {
             clearBlock()
         }
     }
     
     func startSearch() {
         let txt = self.searchBar.text ?? ""
-        if txt.count == 0 {
+        if txt.isEmpty {
             let msg = "先输入\(placeholder ?? "搜索内容")"
 //            MBProgressHUD.displayError(msg)
             return
