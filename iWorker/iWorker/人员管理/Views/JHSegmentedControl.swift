@@ -46,6 +46,11 @@ class JHSegmentedControl: UISegmentedControl {
     
     override init(items: [Any]?) {
         super.init(frame: .zero)    // 解决13系统初始化崩溃。
+        guard let titles = items as? [String] else {
+            return
+        }
+        segmentTitles = titles
+//        super.init(items: items)
         //是否根据segment的内容改变segment的宽度
         apportionsSegmentWidthsByContent = true
         // 选项颜色
@@ -71,9 +76,11 @@ class JHSegmentedControl: UISegmentedControl {
         //去除背景色
         let clearimg = UIImage(color: .white, size: CGSize(width: 1, height: 1))
         setBackgroundImage(clearimg, for: .normal, barMetrics: .default)
+        setBackgroundImage(clearimg, for: .selected, barMetrics: .default)
         // 去除分割线
         let clear = UIImage(color: .clear, size: CGSize(width: 0, height: 0))
         setDividerImage(clear, forLeftSegmentState: .normal, rightSegmentState: .normal, barMetrics: .default)
+        setDividerImage(clear, forLeftSegmentState: .selected, rightSegmentState: .selected, barMetrics: .default)
     }
     
     lazy var line: UIView = {
