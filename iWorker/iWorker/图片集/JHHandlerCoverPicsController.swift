@@ -31,6 +31,8 @@ class JHHandlerCoverPicsController: JHPhotoBaseController {
         super.createView()
         navTitle = "设置封面"
         tableView.register(PhotoEditCell.self, forCellReuseIdentifier: "PhotoEditCell")
+        tableView.es.removeRefreshHeader()
+        tableView.es.removeRefreshFooter()
         tableView.snp.remakeConstraints { make in
             make.left.right.equalToSuperview()
             make.top.equalTo(navBar.snp.bottom)

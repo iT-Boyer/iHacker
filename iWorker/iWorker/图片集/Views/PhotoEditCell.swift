@@ -64,7 +64,7 @@ class PhotoEditCell: UITableViewCell {
         text.font = .systemFont(ofSize: 16, weight: .bold)
         text.textColor = .k2F3856
 //        text.autoHeight = true
-        text.limitLength = 130
+//        text.limitLength = 130
 //        text.backgroundColor = .orange
         text.delegate = self
         return text
