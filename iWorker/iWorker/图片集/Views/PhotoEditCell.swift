@@ -10,6 +10,7 @@ import UIKit
 
 class PhotoEditCell: UITableViewCell {
 
+    var updateBlock:(StoreAmbientModel)->() = {_ in}
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
@@ -23,7 +24,11 @@ class PhotoEditCell: UITableViewCell {
     var model: StoreAmbientModel? {
         didSet{
             guard let mm = model else { return }
-            textView.text = mm.ambientDesc
+            if let desc = mm.ambientDesc{
+                textView.text = desc
+            }else{
+                textView.placeholder = "请输入图片描述"
+            }
             iconView.kf.setImage(with: URL(string: mm.ambientURL), placeholder: UIImage(named:"videoplaceholdersmall"))
         }
     }
@@ -39,9 +44,11 @@ class PhotoEditCell: UITableViewCell {
         textView.snp.makeConstraints { make in
             make.right.equalTo(-20)
             make.left.equalTo(iconView.snp.right).offset(8)
-            make.top.equalTo(iconView.snp.top).offset(16)
+            make.top.equalTo(iconView.snp.top).offset(8)
+//            make.height.equalTo(22)
             make.bottom.lessThanOrEqualTo(iconView.snp.bottom).offset(-10)
         }
+        layoutIfNeeded()
     }
     
     lazy var iconView: UIImageView = {
@@ -54,9 +61,11 @@ class PhotoEditCell: UITableViewCell {
     
     lazy var textView: UITextView = {
         let text = UITextView()
-        text.text = "请输入图片描述"
         text.font = .systemFont(ofSize: 16, weight: .bold)
         text.textColor = .k2F3856
+//        text.autoHeight = true
+        text.limitLength = 130
+//        text.backgroundColor = .orange
         text.delegate = self
         return text
     }()
@@ -65,6 +74,8 @@ class PhotoEditCell: UITableViewCell {
 extension PhotoEditCell:UITextViewDelegate
 {
     func textViewDidEndEditing(_ textView: UITextView) {
-        
+        guard var mm = model else { return }
+        mm.ambientDesc = textView.text
+        updateBlock(mm)
     }
 }

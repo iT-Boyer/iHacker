@@ -13,20 +13,23 @@ import MBProgressHUD
 
 class JHHandlerCoverPicsController: JHPhotoBaseController {
     
-    var picsId:String?
+    var picsId = "00000000-0000-0000-0000-000000000000"
     var dataArray:[StoreAmbientModel] = []
     var handler:((StoreAmbientModel)->Void) = {_ in}
     override func viewDidLoad() {
         super.viewDidLoad()
         //TODO: 调用图库
-        callImages()
+        callImages(imageCount: 1)
+        var model = StoreAmbientModel()
+        model.ambientURL = "https://upload.jianshu.io/users/upload_avatars/2456771/d9dc05b91093.jpg"
+        dataArray = [model]
+        tableView.reloadData()
     }
     
     override func createView() {
         super.createView()
         navTitle = "设置封面"
         tableView.register(PhotoEditCell.self, forCellReuseIdentifier: "PhotoEditCell")
-        callImages()
         tableView.snp.remakeConstraints { make in
             make.left.right.equalToSuperview()
             make.top.equalTo(navBar.snp.bottom)
@@ -34,7 +37,7 @@ class JHHandlerCoverPicsController: JHPhotoBaseController {
         
         view.addSubview(bottomBtn)
         bottomBtn.snp.makeConstraints { make in
-            make.height.equalTo(0)
+            make.height.equalTo(44)
             make.left.right.bottom.equalToSuperview()
             make.top.equalTo(tableView.snp.bottom)
         }
@@ -42,9 +45,7 @@ class JHHandlerCoverPicsController: JHPhotoBaseController {
     
     lazy var bottomBtn: UIButton = {
         let btn = UIButton()
-        btn.isEnabled = false
         btn.setTitle("确定", for: .normal)
-//        btn.backgroundColor = .k42DA7F
         btn.setBackgroundImage(UIImage(color: .k42DA7F, size: CGSize(width: 1, height: 1)), for: .normal)
         btn.jh.setHandleClick {[weak self] button in
             guard let wf = self else {return}
@@ -53,9 +54,9 @@ class JHHandlerCoverPicsController: JHPhotoBaseController {
         return btn
     }()
     
-    func callImages() {
+    func callImages(imageCount:Int) {
         let paraDic = ["tkCamareType":0,
-                       "canSelectImageCount":1,
+                       "canSelectImageCount":imageCount,
                        "sourceType":0,
                        "UIViewController":self] as [String : Any]
         /**
@@ -129,11 +130,11 @@ extension JHHandlerCoverPicsController
             return
         }
         
-        if picsId == nil {
-            //TODO: 新增图片集
-            
+        if picsId == "00000000-0000-0000-0000-000000000000" {
+            //TODO: 设置图片集封面
+            handler(model)
         }else{
-            //TODO: 图片集中新增图片
+            //TODO: 更新图片集封面
             let param = ["BrandPubUrlId":picsId, "ImgUrl":model.ambientURL, "ImgDes":model.ambientDesc]
             let urlStr = JHBaseDomain.fullURL(with: "api_host_patrol", path: "/api/Store/UptStoreBrandPubCover")
             let hud = MBProgressHUD.showAdded(to:view, animated: true)
@@ -167,6 +168,10 @@ extension JHHandlerCoverPicsController
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:PhotoEditCell = tableView.dequeueReusableCell(withIdentifier: "PhotoEditCell") as! PhotoEditCell
         cell.model = dataArray[indexPath.row]
+        cell.updateBlock = {[weak self] mm in
+            guard let wf = self else {return}
+            wf.dataArray[indexPath.row] = mm
+        }
         return cell
     }
 }

@@ -68,7 +68,7 @@ class PhotoHomeController: JHPhotoBaseController {
         let selected:[NSAttributedString.Key:Any] = [.foregroundColor:UIColor.k2CD773,
                                                      .font:UIFont.systemFont(ofSize: 16, weight: .bold)]
         
-        let segment = JHSegmentedControl(items: ["获得荣誉", "环境图片"],normal: normal,selected:selected)
+        let segment = JHSegmentedControl(items: ["环境图片", "获得荣誉"],normal: normal,selected:selected)
         //添加
         segment.addBottomline()
         segment.line.snp.updateConstraints { make in
