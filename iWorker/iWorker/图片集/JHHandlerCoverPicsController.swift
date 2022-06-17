@@ -15,6 +15,7 @@ class JHHandlerCoverPicsController: JHPhotoBaseController {
     
     var picsId = "00000000-0000-0000-0000-000000000000"
     var dataArray:[StoreAmbientModel] = []
+    var sourceImages:[[String: Any]] = []
     var handler:((StoreAmbientModel)->Void) = {_ in}
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,26 +65,41 @@ class JHHandlerCoverPicsController: JHPhotoBaseController {
              guard let self = self else { return }
              guard let resultDic = resultDic as? [String: Any] else { return }
              guard let array = resultDic["data"] as? [[String: Any]] else { return }
-             guard let imageDic = array.first else { return }
-             var image = imageDic["originalImage"] as? UIImage
-             if image == nil, let thImage = imageDic["thumbnails"] as? UIImage {
-                 image = thImage
-             }
-             
-             OperationQueue.main.addOperation {
-                 JHLiveBaseRequest.uploadImage(image, showLoading: true) { fileUrl in
-                     OperationQueue.main.addOperation {
-                         if let url = URL(string: fileUrl) {
-                             self.photo.kf.setImage(with: url, for: .normal, placeholder: .init(named: "JHShortVideoResource.bundle/img_placehodler"))
-                             self.photoUrl = fileUrl!
-                         }
-                     }
-                 }
-             }
+             guard let wf = self else {return}
+             wf.sourceImages = array
+             wf.uploadImgAction()
          }
          */
     }
-    
+    // 上传图片
+    func uploadImgAction() {
+//        MBProgressHUD.showText("上传中...", animated: true)
+        //
+        guard let imageDic = sourceImages.first else { return }
+        var coverImg = imageDic["originalImage"] as? UIImage
+        if coverImg == nil, let thImage = imageDic["thumbnails"] as? UIImage {
+            coverImg = thImage
+        }
+//        JHLiveBaseRequest.uploadImage(coverImg, showLoading: false) {[weak self] fileUrl in
+//            OperationQueue.main.addOperation {
+//                guard let wf = self else { return }
+//                // 上传任务结束之后，移除元素
+//                wf.sourceImages.removeFirst()
+//                if let picUrl = fileUrl, picUrl.hasPrefix("http"){
+//                    var model = StoreAmbientModel()
+//                    model.ambientURL = picUrl
+//                    wf.dataArray.append(model)
+//                    if wf.sourceImages.isEmpty{
+//                        MBProgressHUD.hideHUDanimated(true)
+//                        wf.tableView.reloadData()
+//                    }else{
+//                        //继续上传
+//                        wf.uploadImgAction()
+//                    }
+//                }
+//            }
+//        }
+    }
     func uploadImage(image:UIImage) {
         var domainKey = "api_host_upload"
         if JHBaseDomain.environment.count == 0 {

@@ -62,8 +62,9 @@ extension JHPhotoNewController
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
             //TODO: 修改封面
+            guard let pics = dataArray.first, let picsId = pics.brandPubID else { return }
             let handler = JHHandlerCoverPicsController()
-            handler.picsId = dataArray.first?.brandPubID
+            handler.picsId = picsId
             handler.handler = {[weak self] model in
                 guard let wf = self, var first = wf.dataArray.first else { return }
                 first.picDES = model.ambientDesc
