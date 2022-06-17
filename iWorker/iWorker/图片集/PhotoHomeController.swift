@@ -27,10 +27,9 @@ class PhotoHomeController: JHPhotoBaseController {
         //导航bar
         navBar.addSubviews([titleControl,rightView])
         titleControl.snp.makeConstraints { make in
-            make.centerY.equalTo(navBar.titleLabel.snp.centerY)
+            make.center.equalTo(navBar.titleLabel.snp.center)
             make.width.equalTo(150)
             make.height.equalTo(30)
-            make.center.equalToSuperview()
         }
         
         rightView.snp.makeConstraints { make in
@@ -84,11 +83,13 @@ class PhotoHomeController: JHPhotoBaseController {
         //TODO: 图片 视频 分类
         if segmented.selectedSegmentIndex == 0 {
             tableView.isHidden = false
-            hideEmptyView()
+            if !dataArray.isEmpty {
+                hideEmptyView()
+            }
         }else{
             tableView.isHidden = true
             showNoDataView(view, tipMsg: "敬请期待")
-            emptyView.frame = CGRect(x: 0, y: navBar.frame.maxY, width: kScreenWidth, height: kScreenHeight - navBar.frame.maxY)
+            emptyView.frame = CGRect(x: 0, y: navBar.frame.maxY + 40, width: kScreenWidth, height: 500)
         }
     }
     func typeControlChange(_ segmented: JHSegmentedControl) {
@@ -189,7 +190,7 @@ extension PhotoHomeController
                 }else{
                     weakSelf.pageIndex = 1
                     weakSelf.showNoDataView()//showCustomNoDataView()
-                    weakSelf.emptyView.frame = CGRect(x: 0, y: 40, width: UIScreen.main.bounds.width, height: 500)
+                    weakSelf.emptyView.frame = CGRect(x: 0, y: weakSelf.navBar.frame.maxY + 40, width: UIScreen.main.bounds.width, height: 500)
                 }
             }else{
                 let msg = json["message"].stringValue

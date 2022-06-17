@@ -1,14 +1,38 @@
 {
   "specialDishes": [
     {
-      "imageUrl": "string",
+      "imageUrl": "https://upload.jianshu.io/users/upload_avatars/2456771/d9dc05b91093.jpg",
       "name": "string",
       "price": 0,
       "businessRecommendId": "string",
       "sort": 0,
-      "elePlatId": "string",
+      "elePlatId": "string1",
       "elePctIntr": "string"
-    }
+    },{
+        "imageUrl": "https://upload.jianshu.io/users/upload_avatars/2456771/d9dc05b91093.jpg",
+        "name": "string",
+        "price": 0,
+        "businessRecommendId": "string2",
+        "sort": 0,
+        "elePlatId": "string",
+        "elePctIntr": "string"
+      },{
+          "imageUrl": "https://upload.jianshu.io/users/upload_avatars/2456771/d9dc05b91093.jpg",
+          "name": "string",
+          "price": 0,
+          "businessRecommendId": "string3",
+          "sort": 0,
+          "elePlatId": "string",
+          "elePctIntr": "string"
+        },{
+            "imageUrl": "https://upload.jianshu.io/users/upload_avatars/2456771/d9dc05b91093.jpg",
+            "name": "string",
+            "price": 0,
+            "businessRecommendId": "string4",
+            "sort": 0,
+            "elePlatId": "string",
+            "elePctIntr": "string"
+          }
   ],
   "Message": "string",
   "IsSuccess": true,
