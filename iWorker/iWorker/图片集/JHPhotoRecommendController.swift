@@ -23,6 +23,7 @@ class JHPhotoRecommendController: JHPhotoAddController {
         addAmbient.isPicList = "0"
         addAmbient.brandPubId = "00000000-0000-0000-0000-000000000000"
         addAmbient.ambientList = recommendArray.compactMap{ item -> AmbientModel? in
+            if !item.selected {return nil}
             let model = AmbientModel(ambientDesc: item.name, ambientUrl: item.imageURL)
             return model
         }

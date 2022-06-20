@@ -66,7 +66,7 @@ class JHPhotoSetController: JHPhotoBaseController {
             guard let wf = self else {return}
             //TODO: 添加图片
             let add = JHPhotoAddController()
-            add.type = 1
+            add.type = 0
             add.storeId = wf.storeId
             wf.navigationController?.pushViewController(add, animated: true)
         }

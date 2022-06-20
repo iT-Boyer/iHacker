@@ -31,6 +31,7 @@ class JHPhotoAddController: JHPhotoBaseController {
             addAmbient.brandPubId = picsId
         }
         addAmbient.ambientList = dataArray.compactMap{ item -> AmbientModel? in
+            if !item.selected {return nil}
             let model = AmbientModel(ambientDesc: item.ambientDesc, ambientUrl: item.ambientURL)
             return model
         }

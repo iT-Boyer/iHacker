@@ -15,15 +15,29 @@ class PhotoEditCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
         createView()
+        NotificationCenter.default.addObserver(self, selector: #selector(textViewEditChanged(_:)), name: UITextView.textDidChangeNotification, object: nil)
     }
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc func textViewEditChanged(_ obj: Notification) {
+        guard var mm = model else { return }
+        mm.ambientDesc = textView.text
+        updateBlock(mm)
+    }
+    
     var model: StoreAmbientModel? {
         didSet{
             guard let mm = model else { return }
+            textView.text = nil         // 重置，解决cell复用
+            textView.placeholder = nil  // 重置，解决cell复用
+            textView.delegate = self    //解决TextView代理不执行问题
             if let desc = mm.ambientDesc{
                 textView.text = desc
             }else{
@@ -66,7 +80,6 @@ class PhotoEditCell: UITableViewCell {
 //        text.autoHeight = true
 //        text.limitLength = 130
 //        text.backgroundColor = .orange
-        text.delegate = self
         return text
     }()
 }
@@ -74,8 +87,20 @@ class PhotoEditCell: UITableViewCell {
 extension PhotoEditCell:UITextViewDelegate
 {
     func textViewDidEndEditing(_ textView: UITextView) {
-        guard var mm = model else { return }
-        mm.ambientDesc = textView.text
-        updateBlock(mm)
+        if !textView.text.isEmpty{
+            guard var mm = model else { return }
+            mm.ambientDesc = textView.text
+            updateBlock(mm)
+        }
+    }
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if text == "\n" {
+            textView.resignFirstResponder()
+            return false
+        }
+        if range.location > 10 {
+            return false
+        }
+        return true
     }
 }

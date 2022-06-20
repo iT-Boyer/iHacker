@@ -14,8 +14,8 @@ class JHPhotoAddCollectController: JHPhotoAddController {
     
     override var addAmbient: AddambientM?{
         //TODO: 新建图片集
-        if headerModel.ambientUrl != nil
-            || headerModel.ambientDesc != nil {
+        if headerModel.ambientUrl == nil
+            || headerModel.ambientDesc == nil {
             VCTools.toast("需要设置封面内容")
             return nil
         }
@@ -25,6 +25,7 @@ class JHPhotoAddCollectController: JHPhotoAddController {
         addAmbient.isPicList = "1"
         addAmbient.brandPubId = picsId
         addAmbient.ambientList = dataArray.compactMap{ item -> AmbientModel? in
+            if !item.selected {return nil}
             let model = AmbientModel(ambientDesc: item.ambientDesc, ambientUrl: item.ambientURL)
             return model
         }
