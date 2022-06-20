@@ -56,6 +56,7 @@ extension JHPhotoNewController
         let cell:PhotoCollectCell = tableView.dequeueReusableCell(withIdentifier: "PhotoCollectCell") as! PhotoCollectCell
         cell.model = dataArray[indexPath.row]
         cell.collectImageView.isHidden = indexPath.row > 0
+        cell.descLab.isHidden = indexPath.row > 0
         return cell
     }
     

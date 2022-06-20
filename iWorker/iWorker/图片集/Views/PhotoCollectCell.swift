@@ -13,10 +13,14 @@ class PhotoCollectCell: PhotoBaseCell {
     
     override func createView() {
         super.createView()
-        contentView.addSubview(collectImageView)
+        contentView.addSubviews([collectImageView,descLab])
         collectImageView.snp.makeConstraints { make in
             make.center.equalTo(iconView.snp.center)
             make.size.equalTo(iconView)
+        }
+        descLab.snp.makeConstraints { make in
+            make.top.equalTo(titleLab.snp.bottom).offset(8)
+            make.leading.equalTo(titleLab.snp.leading)
         }
         let tap = UITapGestureRecognizer(target: self, action: #selector(showBigImageView))
         iconView.addGestureRecognizer(tap)
@@ -31,9 +35,7 @@ class PhotoCollectCell: PhotoBaseCell {
     
     var model:JHPhotosModel?{
         didSet{
-            guard let mm = model else {
-                return
-            }
+            guard let mm = model else { return }
             collectImageView.isHidden = !mm.isPicList
             iconView.kf.setImage(with: URL(string: mm.picURL), placeholder: UIImage(named: "videoplaceholdersmall"))
             titleLab.text = mm.picDES
@@ -61,6 +63,15 @@ class PhotoCollectCell: PhotoBaseCell {
         lab.layer.cornerRadius = 3
         lab.layer.masksToBounds = true
         lab.textAlignment = .center
+        return lab
+    }()
+    
+    lazy var descLab: UILabel = {
+        let lab = UILabel()
+        lab.isHidden = true
+        lab.textColor = .kFF6A34
+        lab.text = "点击修改封面"
+        lab.font = .systemFont(ofSize: 13)
         return lab
     }()
 }
