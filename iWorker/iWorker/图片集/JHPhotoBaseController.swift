@@ -13,10 +13,24 @@ class JHPhotoBaseController: JHBaseNavVC {
     var storeId = ""
     var pageIndex = 1
     var totalCount = 0
+    var needRefresh = false
     override func viewDidLoad() {
         super.viewDidLoad()
         createView()
         loadData()
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshList), name: .init(rawValue: "JHPhotoBase_refreshList"), object: nil)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if needRefresh {
+            pageIndex = 1
+            loadData()
+        }
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     func createView() {
         view.backgroundColor = .white
@@ -51,11 +65,14 @@ class JHPhotoBaseController: JHBaseNavVC {
         return tb
     }()
     
+    @objc func refreshList() {
+        needRefresh = true
+    }
 }
 
 extension JHPhotoBaseController:UITableViewDataSource,UITableViewDelegate
 {
-    func loadData() {}
+    func loadData() {needRefresh = false}
     func numberOfRowsInSection() -> Int {0}
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         numberOfRowsInSection()

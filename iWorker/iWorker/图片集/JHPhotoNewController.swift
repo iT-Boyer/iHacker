@@ -70,6 +70,7 @@ extension JHPhotoNewController
                 guard let wf = self, var first = wf.dataArray.first else { return }
                 first.picDES = model.ambientDesc
                 first.picURL = model.ambientURL
+                wf.dataArray[0] = first
                 wf.tableView.reloadData()
             }
             navigationController?.pushViewController(handler, animated: true)
@@ -95,6 +96,7 @@ extension JHPhotoNewController
             let result = json["IsSuccess"].boolValue
             let msg = json["Message"].string
             if result {
+                NotificationCenter.default.post(name: .init(rawValue: "JHPhotoBase_refreshList"), object: nil)
                 weakSelf.dataArray.remove(at: indexPath.row)
                 weakSelf.tableView.reloadData()
             }

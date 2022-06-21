@@ -38,7 +38,9 @@ extension JHPictureGroupController
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:PhotoCollectCell = tableView.dequeueReusableCell(withIdentifier: "PhotoCollectCell") as! PhotoCollectCell
-        cell.model = dataArray[indexPath.row]
+        var model = dataArray[indexPath.row]
+        model.picTotal = totalCount
+        cell.model = model
         cell.collectImageView.isUserInteractionEnabled = false
         cell.collectImageView.isHidden = indexPath.row > 0
         cell.iconView.isUserInteractionEnabled = indexPath.row > 0
@@ -55,6 +57,7 @@ extension JHPictureGroupController
     }
     
     override func loadData() {
+        super.loadData()
         let param:[String:Any] = ["BrandPubId":picsId,
                                   "PageIndex":pageIndex,
                                   "PageSize":20,

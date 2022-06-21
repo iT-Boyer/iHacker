@@ -114,6 +114,7 @@ extension JHSortViewController
             let result = json["IsSuccess"].boolValue
             if result {
 //                MBProgressHUD.displayError("上传成功")
+                NotificationCenter.default.post(name: .init(rawValue: "JHPhotoBase_refreshList"), object: nil)
                 weakSelf.backBtnClicked(UIButton())
             }else{
 //                MBProgressHUD.displayError("上传失败，请重新上传")

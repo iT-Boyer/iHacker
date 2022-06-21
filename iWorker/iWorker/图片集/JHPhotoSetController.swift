@@ -106,6 +106,7 @@ class JHPhotoSetController: JHPhotoBaseController {
 extension JHPhotoSetController
 {
     override func loadData() {
+        super.loadData()
         let param:[String:Any] = ["StoreId":storeId,
                                   "PageIndex":pageIndex,
                                   "PageSize":20,
@@ -196,6 +197,7 @@ extension JHPhotoSetController
             let result = json["IsSuccess"].boolValue
             let msg = json["Message"].string
             if result {
+                NotificationCenter.default.post(name: .init(rawValue: "JHPhotoBase_refreshList"), object: nil)
                 weakSelf.dataArray.remove(at: indexPath.row)
                 weakSelf.tableView.reloadData()
             }

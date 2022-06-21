@@ -89,6 +89,7 @@ extension JHPhotoRecommendController
             let json = JSON(data)
             let result = json["IsSuccess"].boolValue
             if result {
+                NotificationCenter.default.post(name: .init(rawValue: "JHPhotoBase_refreshList"), object: nil)
                 weakSelf.backBtnClicked(UIButton())
             }else{
                 let msg = json["Message"].stringValue
