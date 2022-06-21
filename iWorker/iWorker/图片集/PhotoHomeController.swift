@@ -191,6 +191,7 @@ extension PhotoHomeController
                     weakSelf.pageIndex = 1
                     weakSelf.showNoDataView()//showCustomNoDataView()
                     weakSelf.emptyView.frame = CGRect(x: 0, y: weakSelf.navBar.frame.maxY + 40, width: UIScreen.main.bounds.width, height: 500)
+                    weakSelf.tableView.reloadData()
                 }
             }else{
                 let msg = json["message"].stringValue
