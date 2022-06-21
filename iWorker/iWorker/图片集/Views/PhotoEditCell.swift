@@ -35,8 +35,6 @@ class PhotoEditCell: UITableViewCell {
     var model: StoreAmbientModel? {
         didSet{
             guard let mm = model else { return }
-            textView.text = nil         // 重置，解决cell复用
-            textView.placeholder = nil  // 重置，解决cell复用
             textView.delegate = self    //解决TextView代理不执行问题
             if let desc = mm.ambientDesc{
                 textView.text = desc

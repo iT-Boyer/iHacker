@@ -161,7 +161,7 @@
 		B38E8A6C2848584700884A6A /* GBPersonalPointMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38E8A6B2848584700884A6A /* GBPersonalPointMapVC.swift */; };
 		B38E8A6E28485E3C00884A6A /* JHBMKAnnotationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38E8A6D28485E3C00884A6A /* JHBMKAnnotationListView.swift */; };
 		B38E8A762848C78B00884A6A /* JHLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38E8A752848C78B00884A6A /* JHLocationManager.swift */; };
-		B3983CFA285C54720018303F /* Extension+UITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3983CF9285C54720018303F /* Extension+UITextView.swift */; };
+		B3983D00286074DF0018303F /* UITextViewPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3983CF7285C4B8C0018303F /* UITextViewPlaceholder.swift */; };
 		B39C8583283DFA1F007ABDCC /* MapFilterBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39C8582283DFA1F007ABDCC /* MapFilterBarView.swift */; };
 		B39C8587283E0A52007ABDCC /* ReportMapFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39C8586283E0A52007ABDCC /* ReportMapFilterCell.swift */; };
 		B39C8589283E22F7007ABDCC /* ReportMapUserTaskStatM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39C8588283E22F7007ABDCC /* ReportMapUserTaskStatM.swift */; };
@@ -1899,6 +1899,7 @@
 				B3F4599927EDDAB300AADC08 /* JHNickViewModel.swift in Sources */,
 				B39E51AD2853213100EAE842 /* PhotoAddCell.swift in Sources */,
 				B37705F927BF693C00018309 /* JHShareDevicePreController.swift in Sources */,
+				B3983D00286074DF0018303F /* UITextViewPlaceholder.swift in Sources */,
 				B3EC88D12845BB9E0040F664 /* ReportTrackPachM.swift in Sources */,
 				B38E8A6C2848584700884A6A /* GBPersonalPointMapVC.swift in Sources */,
 				B39C859B283F2E9F007ABDCC /* JHMapFilterM.swift in Sources */,
@@ -1949,7 +1950,6 @@
 				B39E51A22851F48F00EAE842 /* PhotoHomeCell.swift in Sources */,
 				B3EC88CF2845B89A0040F664 /* ReportTrackPathCell.swift in Sources */,
 				B39C858F283E3189007ABDCC /* ReportUserTaskCell.swift in Sources */,
-				B3983CFA285C54720018303F /* Extension+UITextView.swift in Sources */,
 				B3163694284470E600A09F62 /* JHSegmentedControl.swift in Sources */,
 				B368E065283336AB0039D4D7 /* JHNotificationCenterManagerViewController.swift in Sources */,
 				B39E51AF285333A100EAE842 /* AddambientM.swift in Sources */,
