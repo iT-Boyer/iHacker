@@ -31,12 +31,16 @@
 		B3230360278C2B7D0056BDCC /* JHUnitOrgBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B323035F278C2B7D0056BDCC /* JHUnitOrgBaseCell.swift */; };
 		B3230362278C2BAA0056BDCC /* JHUnitOrgBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3230361278C2BAA0056BDCC /* JHUnitOrgBaseModel.swift */; };
 		B3230364278C2C370056BDCC /* JHUnitOrgHigherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3230363278C2C370056BDCC /* JHUnitOrgHigherModel.swift */; };
-		B3230365278C301F0056BDCC /* JHUniversalResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B323035B278C28820056BDCC /* JHUniversalResource.bundle */; };
 		B323036D278D3B460056BDCC /* ModifyFirmChain.json in Resources */ = {isa = PBXBuildFile; fileRef = B3230368278D3B460056BDCC /* ModifyFirmChain.json */; };
 		B323036E278D3B460056BDCC /* CheckEnterChain.json in Resources */ = {isa = PBXBuildFile; fileRef = B3230369278D3B460056BDCC /* CheckEnterChain.json */; };
 		B323036F278D3B460056BDCC /* GetFirmChainList.json in Resources */ = {isa = PBXBuildFile; fileRef = B323036A278D3B460056BDCC /* GetFirmChainList.json */; };
 		B3230370278D3B460056BDCC /* GetEnterChainList.json in Resources */ = {isa = PBXBuildFile; fileRef = B323036B278D3B460056BDCC /* GetEnterChainList.json */; };
 		B3230371278D3B460056BDCC /* getCooperateStepList.json in Resources */ = {isa = PBXBuildFile; fileRef = B323036C278D3B460056BDCC /* getCooperateStepList.json */; };
+		B3289D6A2862EBB900E1FF1A /* TZImagePickerController in Frameworks */ = {isa = PBXBuildFile; productRef = B3289D692862EBB900E1FF1A /* TZImagePickerController */; };
+		B3289D6C2862F19A00E1FF1A /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3289D6B2862F19A00E1FF1A /* Photos.framework */; };
+		B3289D6E2862F19F00E1FF1A /* PhotosUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3289D6D2862F19F00E1FF1A /* PhotosUI.framework */; };
+		B3289D722862FA1C00E1FF1A /* TZImagePickerController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B3289D712862FA1C00E1FF1A /* TZImagePickerController.bundle */; };
+		B3289D742862FAD900E1FF1A /* JHUniversalResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B3289D732862FAD900E1FF1A /* JHUniversalResource.bundle */; };
 		B32943FC284DF1E700123F94 /* PhoneBindCombine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32943FB284DF1E700123F94 /* PhoneBindCombine.swift */; };
 		B32943FE284E09B900123F94 /* UpdatePwdCombineVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32943FD284E09B900123F94 /* UpdatePwdCombineVC.swift */; };
 		B3306D3B27B107A9005E7DDC /* AddEnterChain.json in Resources */ = {isa = PBXBuildFile; fileRef = B3306D3A27B10766005E7DDC /* AddEnterChain.json */; };
@@ -348,7 +352,6 @@
 		B323033B278827350056BDCC /* JHUnitOrgBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHUnitOrgBaseViewController.swift; sourceTree = "<group>"; };
 		B323033D278827670056BDCC /* JHUnitOrgSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHUnitOrgSearchController.swift; sourceTree = "<group>"; };
 		B3230359278C11240056BDCC /* UnitOrgChainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitOrgChainModel.swift; sourceTree = "<group>"; };
-		B323035B278C28820056BDCC /* JHUniversalResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = JHUniversalResource.bundle; sourceTree = "<group>"; };
 		B323035D278C2B490056BDCC /* JHUnitOrgSearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHUnitOrgSearchCell.swift; sourceTree = "<group>"; };
 		B323035F278C2B7D0056BDCC /* JHUnitOrgBaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHUnitOrgBaseCell.swift; sourceTree = "<group>"; };
 		B3230361278C2BAA0056BDCC /* JHUnitOrgBaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHUnitOrgBaseModel.swift; sourceTree = "<group>"; };
@@ -358,6 +361,10 @@
 		B323036A278D3B460056BDCC /* GetFirmChainList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetFirmChainList.json; sourceTree = "<group>"; };
 		B323036B278D3B460056BDCC /* GetEnterChainList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetEnterChainList.json; sourceTree = "<group>"; };
 		B323036C278D3B460056BDCC /* getCooperateStepList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = getCooperateStepList.json; sourceTree = "<group>"; };
+		B3289D6B2862F19A00E1FF1A /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		B3289D6D2862F19F00E1FF1A /* PhotosUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotosUI.framework; path = System/Library/Frameworks/PhotosUI.framework; sourceTree = SDKROOT; };
+		B3289D712862FA1C00E1FF1A /* TZImagePickerController.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TZImagePickerController.bundle; sourceTree = "<group>"; };
+		B3289D732862FAD900E1FF1A /* JHUniversalResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = JHUniversalResource.bundle; sourceTree = "<group>"; };
 		B32943FB284DF1E700123F94 /* PhoneBindCombine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneBindCombine.swift; sourceTree = "<group>"; };
 		B32943FD284E09B900123F94 /* UpdatePwdCombineVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePwdCombineVC.swift; sourceTree = "<group>"; };
 		B3306D3A27B10766005E7DDC /* AddEnterChain.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AddEnterChain.json; sourceTree = "<group>"; };
@@ -578,16 +585,19 @@
 			files = (
 				B38D891B277B1BAE00888EFB /* CSQLite in Frameworks */,
 				B38D891F277B1BAE00888EFB /* GRDB in Frameworks */,
+				B3289D6A2862EBB900E1FF1A /* TZImagePickerController in Frameworks */,
 				B38D8925277B1BAE00888EFB /* Moya in Frameworks */,
 				B38D8931277B1BAF00888EFB /* OHHTTPStubsSwift in Frameworks */,
 				B38D8929277B1BAF00888EFB /* SwifterSwift in Frameworks */,
 				B38D892B277B1BAF00888EFB /* SwiftyJSON in Frameworks */,
 				B38D8923277B1BAE00888EFB /* Kingfisher in Frameworks */,
 				B38D892F277B1BAF00888EFB /* OHHTTPStubs in Frameworks */,
+				B3289D6C2862F19A00E1FF1A /* Photos.framework in Frameworks */,
 				B38D892D277B1BAF00888EFB /* MBProgressHUD in Frameworks */,
 				B38D8917277B1BAE00888EFB /* JHBase in Frameworks */,
 				B38D891D277B1BAE00888EFB /* ESPullToRefresh in Frameworks */,
 				B38D8927277B1BAF00888EFB /* SnapKit in Frameworks */,
+				B3289D6E2862F19F00E1FF1A /* PhotosUI.framework in Frameworks */,
 				B38D8919277B1BAE00888EFB /* Alamofire in Frameworks */,
 				B38D8921277B1BAE00888EFB /* IQKeyboardManagerSwift in Frameworks */,
 			);
@@ -1002,7 +1012,8 @@
 				B38D88A2277B199400888EFB /* ViewController.swift */,
 				B38D88A4277B199400888EFB /* Main.storyboard */,
 				B38D88A7277B199700888EFB /* Assets.xcassets */,
-				B323035B278C28820056BDCC /* JHUniversalResource.bundle */,
+				B3289D732862FAD900E1FF1A /* JHUniversalResource.bundle */,
+				B3289D712862FA1C00E1FF1A /* TZImagePickerController.bundle */,
 				B38D88A9277B199700888EFB /* LaunchScreen.storyboard */,
 				B38D88AC277B199700888EFB /* Info.plist */,
 			);
@@ -1105,6 +1116,8 @@
 		B38D8915277B1BAE00888EFB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B3289D6D2862F19F00E1FF1A /* PhotosUI.framework */,
+				B3289D6B2862F19A00E1FF1A /* Photos.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1416,6 +1429,7 @@
 				B38D892C277B1BAF00888EFB /* MBProgressHUD */,
 				B38D892E277B1BAF00888EFB /* OHHTTPStubs */,
 				B38D8930277B1BAF00888EFB /* OHHTTPStubsSwift */,
+				B3289D692862EBB900E1FF1A /* TZImagePickerController */,
 			);
 			productName = iWorker;
 			productReference = B38D889B277B199400888EFB /* iWorker.app */;
@@ -1696,6 +1710,7 @@
 				B323033A27880CF80056BDCC /* Main.storyboard in Resources */,
 				B38D88AB277B199700888EFB /* LaunchScreen.storyboard in Resources */,
 				B39E514F2850A9DA00EAE842 /* SubmitBrandPub.json in Resources */,
+				B3289D722862FA1C00E1FF1A /* TZImagePickerController.bundle in Resources */,
 				B39E514D2850A9C200EAE842 /* GetStoreBrandPub.json in Resources */,
 				B38E8A65284712A000884A6A /* GetEmployeeTaskStat.json in Resources */,
 				B3306D4527B23303005E7DDC /* DelFirmChain.json in Resources */,
@@ -1712,7 +1727,6 @@
 				B31202172816A1AA002D4FA3 /* ActivitySquare.json in Resources */,
 				B312021B2817FEE0002D4FA3 /* Delete.json in Resources */,
 				B3230370278D3B460056BDCC /* GetEnterChainList.json in Resources */,
-				B3230365278C301F0056BDCC /* JHUniversalResource.bundle in Resources */,
 				B34635C027E37FA0002CA750 /* DeletePersonDevice.json in Resources */,
 				B39E51422850A85E00EAE842 /* GetStoreAmbient.json in Resources */,
 				B39E51532850AA0F00EAE842 /* getRecommendInfo.json in Resources */,
@@ -1732,6 +1746,7 @@
 				B38D88A8277B199700888EFB /* Assets.xcassets in Resources */,
 				B33EF39627BFA69300A3B6DE /* GetInviteInfo.json in Resources */,
 				B38D8908277B1AC000888EFB /* ipFile.plist in Resources */,
+				B3289D742862FAD900E1FF1A /* JHUniversalResource.bundle in Resources */,
 				B34635BF27E37FA0002CA750 /* GetSingleIntelligentDeviceInfoNew.json in Resources */,
 				B39E51552850AA2300EAE842 /* DelAmbient.json in Resources */,
 				B38D890D277B1AC000888EFB /* RegisterFaceInfo.json in Resources */,
@@ -2817,6 +2832,10 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		B3289D692862EBB900E1FF1A /* TZImagePickerController */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TZImagePickerController;
+		};
 		B3821F61277C8AE8005FFF8E /* Nimble */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Nimble;

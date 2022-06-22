@@ -27,5 +27,13 @@
 	<string>访问定位权限</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>访问定位权限</string>
+	<key>NSCameraUsageDescription</key>
+	<string>访问相机</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>访问麦克风</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>访问相机</string>
+	<key>PHPhotoLibraryPreventAutomaticLimitedAccessAlert</key>
+	<true/>
 </dict>
 </plist>

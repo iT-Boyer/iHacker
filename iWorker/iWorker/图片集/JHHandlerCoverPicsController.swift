@@ -10,12 +10,13 @@ import JHBase
 import Alamofire
 import SwiftyJSON
 import MBProgressHUD
+import TZImagePickerController
 
-class JHHandlerCoverPicsController: JHPhotoBaseController {
+class JHHandlerCoverPicsController: JHPhotoBaseController{
     
     var picsId = "00000000-0000-0000-0000-000000000000"
     var dataArray:[StoreAmbientModel] = []
-    var sourceImages:[[String: Any]] = []
+    var sourceImages:[UIImage] = []
     var handler:((StoreAmbientModel)->Void) = {_ in}
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,50 +59,21 @@ class JHHandlerCoverPicsController: JHPhotoBaseController {
     }()
     
     func callImages(imageCount:Int) {
-        let paraDic = ["tkCamareType":0,
-                       "canSelectImageCount":imageCount,
-                       "sourceType":0,
-                       "UIViewController":self] as [String : Any]
-        /**
-         JHRoutingComponent.openURL(GETIMAGE, withParameter: paraDic) { [weak self] resultDic in
-             guard let self = self else { return }
-             guard let resultDic = resultDic as? [String: Any] else { return }
-             guard let array = resultDic["data"] as? [[String: Any]] else { return }
-             guard let wf = self else {return}
-             wf.sourceImages = array
-             wf.uploadImgAction()
-         }
-         */
-    }
-    // 上传图片
-    func uploadImgAction() {
-//        MBProgressHUD.showText("上传中...", animated: true)
-        //
-        guard let imageDic = sourceImages.first else { return }
-        var coverImg = imageDic["originalImage"] as? UIImage
-        if coverImg == nil, let thImage = imageDic["thumbnails"] as? UIImage {
-            coverImg = thImage
+        guard let picker = TZImagePickerController(maxImagesCount: 1, delegate: self) else {return}
+        picker.didFinishPickingPhotosHandle = { [weak self] photos, assets, isSelectOriginalPhoto in
+            //TODO: 选择图片结束
+            guard let wf = self else { return }
+            wf.sourceImages = photos ?? []
+            wf.upload()
         }
-//        JHLiveBaseRequest.uploadImage(coverImg, showLoading: false) {[weak self] fileUrl in
-//            OperationQueue.main.addOperation {
-//                guard let wf = self else { return }
-//                // 上传任务结束之后，移除元素
-//                wf.sourceImages.removeFirst()
-//                if let picUrl = fileUrl, picUrl.hasPrefix("http"){
-//                    var model = StoreAmbientModel()
-//                    model.ambientURL = picUrl
-//                    wf.dataArray.append(model)
-//                    if wf.sourceImages.isEmpty{
-//                        MBProgressHUD.hideHUDanimated(true)
-//                        wf.tableView.reloadData()
-//                    }else{
-//                        //继续上传
-//                        wf.uploadImgAction()
-//                    }
-//                }
-//            }
-//        }
+        picker.modalPresentationStyle = .fullScreen
+        present(picker, animated: true)
     }
+    func upload() {
+        guard let imgData = sourceImages.first else { return }
+        uploadImage(image: imgData)
+    }
+    
     func uploadImage(image:UIImage) {
         var domainKey = "api_host_upload"
         if JHBaseDomain.environment.count == 0 {
@@ -110,16 +82,16 @@ class JHHandlerCoverPicsController: JHPhotoBaseController {
         let serverUrl = JHBaseDomain.fullURL(with: domainKey, path: "/Jinher.JAP.BaseApp.FileServer.SV.FileSV.svc/UploadMobileFile")
         let headers:HTTPHeaders = ["Authentication": "YgAhCMxEehT4N/DmhKkA/M0npN3KO0X8PMrNl17+hogw944GDGpzvypteMemdWb9nlzz7mk1jBa/0fpOtxeZUA==",
                                    "Content-Type": "form/data"]
-//        MBProgressHUD.showText("", animated: true)
+        let hud = MBProgressHUD.showAdded(to:view, animated: true)
+        hud.removeFromSuperViewOnHide = true
         AF.upload(multipartFormData: { multipartFormData in
             // params相关入参，不影响图片正常上传
             let imageData = image.compressedData()
             if let data = imageData{
                 multipartFormData.append(data, withName: "FileDataFromPhone", fileName: "\(Date().timeIntervalSince1970).png", mimeType: "image/png")
             }
-        }, to: serverUrl, method: .post, headers: headers).responseJSON { response in
-            
-//            MBProgressHUD.hideHUDanimated(true)
+        }, to: serverUrl, method: .post, headers: headers).responseJSON {[weak self] response in
+            guard let wf = self else { return }
             if let err = response.error{
 //                MBProgressHUD.displayError(err.errorDescription!)
                 return
@@ -133,12 +105,37 @@ class JHHandlerCoverPicsController: JHPhotoBaseController {
                 let filePath = jsonObject["FilePath"].string
                 let fileUrl = JHBaseDomain.fullURL(with: "api_host_upfileserver", path: "/Jinher.JAP.BaseApp.FileServer.UI/FileManage/GetFile?fileURL=\(filePath!)")
 //                self.submitPhoto("", url: fileUrl)
+                OperationQueue.main.addOperation {
+                    // 上传任务结束之后，移除元素
+                    wf.sourceImages.removeFirst()
+                    var model = StoreAmbientModel()
+                    model.ambientURL = fileUrl
+                    wf.dataArray.append(model)
+                    if wf.sourceImages.isEmpty{
+                        hud.hide(animated: true)
+                        wf.tableView.reloadData()
+                    }else{
+                        //继续上传
+                        wf.upload()
+                    }
+                }
             }
         }
     }
 }
 
-
+extension JHHandlerCoverPicsController: TZImagePickerControllerDelegate{
+    
+    func imagePickerController(_ picker: TZImagePickerController!, didFinishPickingPhotos photos: [UIImage]!, sourceAssets assets: [Any]!, isSelectOriginalPhoto: Bool) {
+        //TODO: 选择图片
+        
+    }
+    
+    func tz_imagePickerControllerDidCancel(_ picker: TZImagePickerController!) {
+        //TODO: 取消返回
+        backBtnClicked(UIButton())
+    }
+}
 
 extension JHHandlerCoverPicsController
 {
