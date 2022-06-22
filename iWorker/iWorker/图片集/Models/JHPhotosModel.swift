@@ -10,8 +10,8 @@ import Foundation
 // MARK: - Content
 struct JHPhotosModel: Codable {
     var brandPubID, picDES, picURL: String?
-    var isPicList: Bool
-    var picTotal: Int
+    var isPicList: Bool = false
+    var picTotal: Int = 0
 
     enum CodingKeys: String, CodingKey {
         case brandPubID = "BrandPubId"

@@ -194,7 +194,6 @@
 		B39E51592850AA4E00EAE842 /* UptBrandPubSort.json in Resources */ = {isa = PBXBuildFile; fileRef = B39E51582850AA4E00EAE842 /* UptBrandPubSort.json */; };
 		B39E515B2850AA6600EAE842 /* UptStoreBrandPubCover.json in Resources */ = {isa = PBXBuildFile; fileRef = B39E515A2850AA6600EAE842 /* UptStoreBrandPubCover.json */; };
 		B39E515D285189AC00EAE842 /* PhotoCollectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39E515C285189AC00EAE842 /* PhotoCollectCell.swift */; };
-		B39E515F2851931B00EAE842 /* PhotoBaseVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39E515E2851931B00EAE842 /* PhotoBaseVM.swift */; };
 		B39E51612851BF7300EAE842 /* JHPhotoSetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39E51602851BF7300EAE842 /* JHPhotoSetController.swift */; };
 		B39E51632851C08000EAE842 /* JHHandlePictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39E51622851C08000EAE842 /* JHHandlePictureViewController.swift */; };
 		B39E51A22851F48F00EAE842 /* PhotoHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39E51A12851F48F00EAE842 /* PhotoHomeCell.swift */; };
@@ -517,7 +516,6 @@
 		B39E51582850AA4E00EAE842 /* UptBrandPubSort.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = UptBrandPubSort.json; sourceTree = "<group>"; };
 		B39E515A2850AA6600EAE842 /* UptStoreBrandPubCover.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = UptStoreBrandPubCover.json; sourceTree = "<group>"; };
 		B39E515C285189AC00EAE842 /* PhotoCollectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectCell.swift; sourceTree = "<group>"; };
-		B39E515E2851931B00EAE842 /* PhotoBaseVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoBaseVM.swift; sourceTree = "<group>"; };
 		B39E51602851BF7300EAE842 /* JHPhotoSetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHPhotoSetController.swift; sourceTree = "<group>"; };
 		B39E51622851C08000EAE842 /* JHHandlePictureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHHandlePictureViewController.swift; sourceTree = "<group>"; };
 		B39E51A12851F48F00EAE842 /* PhotoHomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoHomeCell.swift; sourceTree = "<group>"; };
@@ -1308,7 +1306,6 @@
 			isa = PBXGroup;
 			children = (
 				B39E51AE285333A100EAE842 /* AddambientM.swift */,
-				B39E515E2851931B00EAE842 /* PhotoBaseVM.swift */,
 				B39E513D2850A72800EAE842 /* JHPhotosModel.swift */,
 				B39E51442850A93C00EAE842 /* StoreAmbientModel.swift */,
 				B39E51462850A97000EAE842 /* JHRecommendModel.swift */,
@@ -1931,7 +1928,6 @@
 				B39E51B128533D3E00EAE842 /* JHPhotoAddCollectController.swift in Sources */,
 				B3306D3D27B10922005E7DDC /* JHUnitOrgHigherController.swift in Sources */,
 				B323035E278C2B490056BDCC /* JHUnitOrgSearchCell.swift in Sources */,
-				B39E515F2851931B00EAE842 /* PhotoBaseVM.swift in Sources */,
 				B312022428191D88002D4FA3 /* JHCreateVideoActController.swift in Sources */,
 				B37EC65F283B6CE900D92FC1 /* ReportUserDetailController.swift in Sources */,
 				B374E96127EC21F60033B72C /* JHDeviceTimePicker.swift in Sources */,

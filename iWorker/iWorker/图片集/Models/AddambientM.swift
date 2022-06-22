@@ -22,7 +22,7 @@ struct AddambientM:Codable {
     
     func toParams()->[String:Any] {
         guard let data = try? JSONEncoder().encode(self) else {return [:]}
-        let params:[String:Any] = JSON(data).dictionaryObject!
+        guard let params:[String:Any] = JSON(data).dictionaryObject else {return [:]}
         return params
     }
 }

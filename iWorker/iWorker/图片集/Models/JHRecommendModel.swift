@@ -9,9 +9,9 @@ import Foundation
 
 struct JHRecommendModel: Codable {
     var imageURL, name: String?
-    var price: Int
+    var price: Int = 0
     var businessRecommendID: String?
-    var sort: Int
+    var sort: Int = 0
     var elePlatID, elePctIntr: String?
 
     var selected = false
