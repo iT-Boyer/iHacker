@@ -14,7 +14,7 @@ class JHHandlePictureViewController: JHHandlerCoverPicsController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        callImages(imageCount: 9)
+        callImages(imageCount: 1)
     }
     
     //TODO: 添加环境图片

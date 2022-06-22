@@ -21,10 +21,7 @@ class JHHandlerCoverPicsController: JHPhotoBaseController{
     override func viewDidLoad() {
         super.viewDidLoad()
         //TODO: 调用图库
-        callImages(imageCount: 1)
-        var model = StoreAmbientModel()
-        model.ambientURL = "https://upload.jianshu.io/users/upload_avatars/2456771/d9dc05b91093.jpg"
-        dataArray = [model]
+        callImages(imageCount: 9)
         tableView.reloadData()
     }
     
@@ -59,7 +56,7 @@ class JHHandlerCoverPicsController: JHPhotoBaseController{
     }()
     
     func callImages(imageCount:Int) {
-        guard let picker = TZImagePickerController(maxImagesCount: 1, delegate: self) else {return}
+        guard let picker = TZImagePickerController(maxImagesCount: imageCount, delegate: self) else {return}
         picker.didFinishPickingPhotosHandle = { [weak self] photos, assets, isSelectOriginalPhoto in
             //TODO: 选择图片结束
             guard let wf = self else { return }
@@ -104,7 +101,6 @@ class JHHandlerCoverPicsController: JHPhotoBaseController{
                 let jsonObject = JSON(json!)
                 let filePath = jsonObject["FilePath"].string
                 let fileUrl = JHBaseDomain.fullURL(with: "api_host_upfileserver", path: "/Jinher.JAP.BaseApp.FileServer.UI/FileManage/GetFile?fileURL=\(filePath!)")
-//                self.submitPhoto("", url: fileUrl)
                 OperationQueue.main.addOperation {
                     // 上传任务结束之后，移除元素
                     wf.sourceImages.removeFirst()
