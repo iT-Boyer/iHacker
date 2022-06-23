@@ -150,7 +150,7 @@ extension JHPhotoSetController
                 }else{
                     weakSelf.pageIndex = 1
                     weakSelf.showNoDataView()
-                    weakSelf.emptyView.frame = CGRect(x: 0, y: 80, width: UIScreen.main.bounds.width, height: 500)
+                    weakSelf.emptyView.frame = CGRect(x: 0, y:weakSelf.navBar.frame.maxY + 40, width: UIScreen.main.bounds.width, height: 500)
                 }
             }else{
                 let msg = json["message"].stringValue
@@ -200,6 +200,10 @@ extension JHPhotoSetController
                 NotificationCenter.default.post(name: .init(rawValue: "JHPhotoBase_refreshList"), object: nil)
                 weakSelf.dataArray.remove(at: indexPath.row)
                 weakSelf.tableView.reloadData()
+                if weakSelf.dataArray.isEmpty {
+                    weakSelf.showNoDataView()
+                    weakSelf.emptyView.frame = CGRect(x: 0, y:weakSelf.navBar.frame.maxY + 40, width: UIScreen.main.bounds.width, height: 500)
+                }
             }
             //MBProgressHUD.displayError(msg)
         }

@@ -83,6 +83,7 @@ class JHPhotoAddCollectController: JHPhotoAddController {
                 wf.headerModel.ambientUrl = model.ambientURL
                 wf.descLab.text = model.ambientDesc
                 wf.imgBtn.kf.setImage(with: URL(string: model.ambientURL), for: .normal, placeholder:UIImage(named: "addimgarr"))
+                NotificationCenter.default.post(name: .init(rawValue: "JHPhotoBase_refreshList"), object: nil)
             }
             wf.navigationController?.pushViewController(handler, animated: true)
         }

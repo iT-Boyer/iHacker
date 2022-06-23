@@ -72,6 +72,7 @@ extension JHPhotoNewController
                 first.picURL = model.ambientURL
                 wf.dataArray[0] = first
                 wf.tableView.reloadData()
+                NotificationCenter.default.post(name: .init(rawValue: "JHPhotoBase_refreshList"), object: nil)
             }
             navigationController?.pushViewController(handler, animated: true)
         }

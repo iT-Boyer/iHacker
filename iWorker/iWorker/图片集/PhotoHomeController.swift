@@ -106,13 +106,13 @@ class PhotoHomeController: JHPhotoBaseController {
             guard let wf = self else{return}
             //TODO: 新增 0: 图片 1:视频
             if wf.typeControl.selectedSegmentIndex == 0{
-                let add = JHPhotoRecommendController()
-                add.storeId = wf.storeId
-                wf.navigationController?.pushViewController(add, animated: true)
-            }else{
                 let handler = JHHandlePictureViewController()
                 handler.storeId = wf.storeId
                 wf.navigationController?.pushViewController(handler, animated: true)
+            }else{
+                let add = JHPhotoRecommendController()
+                add.storeId = wf.storeId
+                wf.navigationController?.pushViewController(add, animated: true)
             }
         }
         let setbtn = UIButton()
@@ -229,6 +229,10 @@ extension PhotoHomeController
             if result {
                 weakSelf.dataArray.remove(at: indexPath.row)
                 weakSelf.tableView.reloadData()
+                if weakSelf.dataArray.isEmpty {
+                    weakSelf.showNoDataView()
+                    weakSelf.emptyView.frame = CGRect(x: 0, y:weakSelf.navBar.frame.maxY + 40, width: UIScreen.main.bounds.width, height: 500)
+                }
             }
             //MBProgressHUD.displayError(msg)
         }
