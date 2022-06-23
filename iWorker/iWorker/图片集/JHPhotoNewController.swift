@@ -100,6 +100,9 @@ extension JHPhotoNewController
                 NotificationCenter.default.post(name: .init(rawValue: "JHPhotoBase_refreshList"), object: nil)
                 weakSelf.dataArray.remove(at: indexPath.row)
                 weakSelf.tableView.reloadData()
+                if weakSelf.dataArray.isEmpty {
+                    weakSelf.showNoDataView()
+                }
             }
             //MBProgressHUD.displayError(msg)
         }

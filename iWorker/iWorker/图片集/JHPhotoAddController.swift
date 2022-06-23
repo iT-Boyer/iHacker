@@ -171,12 +171,9 @@ extension JHPhotoAddController
                 }
                 
                 if weakSelf.dataArray.count > 0 {
-                    weakSelf.tableView.reloadData()
+                    weakSelf.showData()
                     weakSelf.pageIndex += 1
-                    weakSelf.hideEmptyView()
-                    weakSelf.bottomBtn.snp.updateConstraints { make in
-                        make.height.equalTo(44)
-                    }
+                    weakSelf.tableView.reloadData()
                 }else{
                     weakSelf.pageIndex = 1
                     weakSelf.showNoDataView()
@@ -186,6 +183,12 @@ extension JHPhotoAddController
                 let msg = json["message"].stringValue
                 //                MBProgressHUD.displayError(kInternetError)
             }
+        }
+    }
+    func showData() {
+        hideEmptyView()
+        bottomBtn.snp.updateConstraints { make in
+            make.height.equalTo(44)
         }
     }
 }

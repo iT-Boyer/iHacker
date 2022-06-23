@@ -42,7 +42,10 @@ class JHPhotoAddCollectController: JHPhotoAddController {
     override func createView() {
         super.createView()
         navTitle = "添加图片集"
-        // 设置tableview
+    }
+    
+    override func showData() {
+        super.showData()
         headerView.frame.size.height = 130
         tableView.tableHeaderView = headerView
     }

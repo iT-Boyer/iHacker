@@ -145,7 +145,7 @@ extension PhotoHomeController
 {
     override func loadData() {
         super.loadData()
-        let type = typeControl.selectedSegmentIndex == 0 ? 1:2
+        let type = typeControl.selectedSegmentIndex == 0 ? 2:1
         let param:[String:Any] = ["StoreId":storeId,
                                   "Type":type,
                                   "PageIndex":pageIndex,
