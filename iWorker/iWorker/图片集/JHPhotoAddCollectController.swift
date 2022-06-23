@@ -42,6 +42,7 @@ class JHPhotoAddCollectController: JHPhotoAddController {
     override func createView() {
         super.createView()
         navTitle = "添加图片集"
+        bottomBtn.isEnabled = true
     }
     
     override func showData() {
@@ -98,4 +99,8 @@ class JHPhotoAddCollectController: JHPhotoAddController {
         lab.textColor = .k99A0B6
         return lab
     }()
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        super.tableView(tableView, didSelectRowAt: indexPath)
+        bottomBtn.isEnabled = true
+    }
 }
