@@ -38,8 +38,10 @@ class PhotoEditCell: UITableViewCell {
             textView.delegate = self    //解决TextView代理不执行问题
             if let desc = mm.ambientDesc{
                 textView.text = desc
+                textView.textColor = .k2F3856
             }else{
-                textView.placeholder = "请输入图片描述"
+                textView.textColor = .k99A0B6
+                textView.text = "请输入图片名称"
             }
             iconView.kf.setImage(with: URL(string: mm.ambientURL), placeholder: UIImage(named:"videoplaceholdersmall"))
         }
@@ -78,17 +80,29 @@ class PhotoEditCell: UITableViewCell {
 //        text.autoHeight = true
 //        text.limitLength = 130
 //        text.backgroundColor = .orange
+        text.textColor = .k99A0B6
+        text.text = "请输入图片名称"
         return text
     }()
 }
 
 extension PhotoEditCell:UITextViewDelegate
 {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.text == "请输入图片名称" {
+            textView.textColor = .k2F3856
+            textView.text = nil
+        }
+    }
     func textViewDidEndEditing(_ textView: UITextView) {
         if !textView.text.isEmpty{
             guard var mm = model else { return }
             mm.ambientDesc = textView.text
+            textView.textColor = .k2F3856
             updateBlock(mm)
+        }else{
+            textView.textColor = .k99A0B6
+            textView.text = "请输入图片名称"
         }
     }
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
