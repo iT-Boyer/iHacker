@@ -101,7 +101,11 @@ extension JHSegmentedControl
             make.height.equalTo(1)
             make.width.equalTo(40)
             make.left.equalToSuperview().offset(20)
-            make.bottom.equalTo(self.snp.bottom)
+            if #available(iOS 13, *) {
+                make.bottom.equalTo(-1)
+            }else{
+                make.bottom.equalTo(1)
+            }
         }
     }
     

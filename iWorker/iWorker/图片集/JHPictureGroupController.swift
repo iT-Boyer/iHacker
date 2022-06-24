@@ -24,7 +24,6 @@ class JHPictureGroupController: JHPhotoBaseController {
     override func createView() {
         super.createView()
         tableView.register(PhotoCollectCell.self, forCellReuseIdentifier: "PhotoCollectCell")
-        navTitle = "图片集"
     }
 
 }

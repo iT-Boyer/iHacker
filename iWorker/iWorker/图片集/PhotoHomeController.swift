@@ -21,8 +21,14 @@ class PhotoHomeController: JHPhotoBaseController {
         super.createView()
         // 设置tableview
         tableView.register(PhotoHomeCell.self, forCellReuseIdentifier: "PhotoHomeCell")
-        typeControl.frame.size.height = 40
-        tableView.tableHeaderView = typeControl
+        let header = UIView()
+        header.addSubview(typeControl)
+        typeControl.snp.makeConstraints { make in
+            make.top.left.right.equalToSuperview()
+            make.height.equalTo(40)
+        }
+        header.frame.size.height = 41
+        tableView.tableHeaderView = header
         
         //导航bar
         navBar.addSubviews([titleControl,rightView])

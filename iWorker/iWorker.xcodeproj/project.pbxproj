@@ -41,6 +41,14 @@
 		B3289D6E2862F19F00E1FF1A /* PhotosUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3289D6D2862F19F00E1FF1A /* PhotosUI.framework */; };
 		B3289D722862FA1C00E1FF1A /* TZImagePickerController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B3289D712862FA1C00E1FF1A /* TZImagePickerController.bundle */; };
 		B3289D742862FAD900E1FF1A /* JHUniversalResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B3289D732862FAD900E1FF1A /* JHUniversalResource.bundle */; };
+		B3289D7928654B0200E1FF1A /* JHSelCheckBaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3289D7828654B0100E1FF1A /* JHSelCheckBaseController.swift */; };
+		B3289D7B28654B3200E1FF1A /* CheckSelfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3289D7A28654B3100E1FF1A /* CheckSelfViewController.swift */; };
+		B3289D7D28654B5100E1FF1A /* CheckSelfSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3289D7C28654B5100E1FF1A /* CheckSelfSecondViewController.swift */; };
+		B3289D7F28654B6D00E1FF1A /* CheckSelfThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3289D7E28654B6D00E1FF1A /* CheckSelfThirdViewController.swift */; };
+		B3289D8128654B8600E1FF1A /* CheckReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3289D8028654B8600E1FF1A /* CheckReportViewController.swift */; };
+		B3289D8328654BC800E1FF1A /* InsSignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3289D8228654BC800E1FF1A /* InsSignViewController.swift */; };
+		B3289D8528654BEA00E1FF1A /* InsOptDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3289D8428654BEA00E1FF1A /* InsOptDetailViewController.swift */; };
+		B3289D8728654C0D00E1FF1A /* PatorlCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3289D8628654C0D00E1FF1A /* PatorlCalendarViewController.swift */; };
 		B32943FC284DF1E700123F94 /* PhoneBindCombine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32943FB284DF1E700123F94 /* PhoneBindCombine.swift */; };
 		B32943FE284E09B900123F94 /* UpdatePwdCombineVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32943FD284E09B900123F94 /* UpdatePwdCombineVC.swift */; };
 		B3306D3B27B107A9005E7DDC /* AddEnterChain.json in Resources */ = {isa = PBXBuildFile; fileRef = B3306D3A27B10766005E7DDC /* AddEnterChain.json */; };
@@ -364,6 +372,14 @@
 		B3289D6D2862F19F00E1FF1A /* PhotosUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotosUI.framework; path = System/Library/Frameworks/PhotosUI.framework; sourceTree = SDKROOT; };
 		B3289D712862FA1C00E1FF1A /* TZImagePickerController.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TZImagePickerController.bundle; sourceTree = "<group>"; };
 		B3289D732862FAD900E1FF1A /* JHUniversalResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = JHUniversalResource.bundle; sourceTree = "<group>"; };
+		B3289D7828654B0100E1FF1A /* JHSelCheckBaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHSelCheckBaseController.swift; sourceTree = "<group>"; };
+		B3289D7A28654B3100E1FF1A /* CheckSelfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckSelfViewController.swift; sourceTree = "<group>"; };
+		B3289D7C28654B5100E1FF1A /* CheckSelfSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckSelfSecondViewController.swift; sourceTree = "<group>"; };
+		B3289D7E28654B6D00E1FF1A /* CheckSelfThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckSelfThirdViewController.swift; sourceTree = "<group>"; };
+		B3289D8028654B8600E1FF1A /* CheckReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckReportViewController.swift; sourceTree = "<group>"; };
+		B3289D8228654BC800E1FF1A /* InsSignViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsSignViewController.swift; sourceTree = "<group>"; };
+		B3289D8428654BEA00E1FF1A /* InsOptDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsOptDetailViewController.swift; sourceTree = "<group>"; };
+		B3289D8628654C0D00E1FF1A /* PatorlCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatorlCalendarViewController.swift; sourceTree = "<group>"; };
 		B32943FB284DF1E700123F94 /* PhoneBindCombine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneBindCombine.swift; sourceTree = "<group>"; };
 		B32943FD284E09B900123F94 /* UpdatePwdCombineVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePwdCombineVC.swift; sourceTree = "<group>"; };
 		B3306D3A27B10766005E7DDC /* AddEnterChain.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AddEnterChain.json; sourceTree = "<group>"; };
@@ -787,6 +803,21 @@
 			path = "../../../../SupervisionSel/SupervisionSel/Classes/Controller/我的组织/JSON";
 			sourceTree = "<group>";
 		};
+		B3289D7728654A9E00E1FF1A /* 自检自查 */ = {
+			isa = PBXGroup;
+			children = (
+				B3289D7828654B0100E1FF1A /* JHSelCheckBaseController.swift */,
+				B3289D7A28654B3100E1FF1A /* CheckSelfViewController.swift */,
+				B3289D7C28654B5100E1FF1A /* CheckSelfSecondViewController.swift */,
+				B3289D7E28654B6D00E1FF1A /* CheckSelfThirdViewController.swift */,
+				B3289D8028654B8600E1FF1A /* CheckReportViewController.swift */,
+				B3289D8228654BC800E1FF1A /* InsSignViewController.swift */,
+				B3289D8428654BEA00E1FF1A /* InsOptDetailViewController.swift */,
+				B3289D8628654C0D00E1FF1A /* PatorlCalendarViewController.swift */,
+			);
+			path = "自检自查";
+			sourceTree = "<group>";
+		};
 		B33EF39227BFA63600A3B6DE /* JSON */ = {
 			isa = PBXGroup;
 			children = (
@@ -997,6 +1028,7 @@
 		B38D889D277B199400888EFB /* iWorker */ = {
 			isa = PBXGroup;
 			children = (
+				B3289D7728654A9E00E1FF1A /* 自检自查 */,
 				B39E5135285076AE00EAE842 /* 图片集 */,
 				B37EC65A283B6C6C00D92FC1 /* 人员管理 */,
 				B368E061283336900039D4D7 /* 消息设置 */,
@@ -1902,10 +1934,12 @@
 				B376987E2859BA1800A3A638 /* PhotoEditCell.swift in Sources */,
 				B3B4A6E7282BA469006B5F57 /* JHNewLoginSetPswViewController.swift in Sources */,
 				B39C8589283E22F7007ABDCC /* ReportMapUserTaskStatM.swift in Sources */,
+				B3289D7D28654B5100E1FF1A /* CheckSelfSecondViewController.swift in Sources */,
 				B3DCCF61285AFFBA0000853C /* JHPhotoDetailController.swift in Sources */,
 				B323035A278C11240056BDCC /* UnitOrgChainModel.swift in Sources */,
 				B39E51A52852E23500EAE842 /* JHSortViewController.swift in Sources */,
 				B39E515D285189AC00EAE842 /* PhotoCollectCell.swift in Sources */,
+				B3289D8528654BEA00E1FF1A /* InsOptDetailViewController.swift in Sources */,
 				B38D893B277B1CD800888EFB /* JHMornUploadModel.swift in Sources */,
 				B3306D4127B111C1005E7DDC /* JHUnitOrgHigherCell.swift in Sources */,
 				B3F4599927EDDAB300AADC08 /* JHNickViewModel.swift in Sources */,
@@ -1942,6 +1976,7 @@
 				B38D8936277B1C6D00888EFB /* Env.swift in Sources */,
 				B38D889F277B199400888EFB /* AppDelegate.swift in Sources */,
 				B3230362278C2BAA0056BDCC /* JHUnitOrgBaseModel.swift in Sources */,
+				B3289D7B28654B3200E1FF1A /* CheckSelfViewController.swift in Sources */,
 				B31202192816A6AF002D4FA3 /* JHActivityModel.swift in Sources */,
 				B39E51402850A7F500EAE842 /* PhotoBaseCell.swift in Sources */,
 				B3F3343628129ED8003B834D /* PersonalVideoActivityController.swift in Sources */,
@@ -1951,6 +1986,7 @@
 				B38D88A1277B199400888EFB /* SceneDelegate.swift in Sources */,
 				B3697E7927E42481004D8867 /* JHDeviceSNCell.swift in Sources */,
 				B3697E8227E45778004D8867 /* JHSceneModels.swift in Sources */,
+				B3289D8128654B8600E1FF1A /* CheckReportViewController.swift in Sources */,
 				B3CDC61D27C3A67E007F1FF2 /* JHPriDeviceSetingController.swift in Sources */,
 				B3230360278C2B7D0056BDCC /* JHUnitOrgBaseCell.swift in Sources */,
 				B312022028190C4F002D4FA3 /* JHTimeSetingView.swift in Sources */,
@@ -1959,6 +1995,7 @@
 				B39E51A92853103300EAE842 /* JHPhotoNewController.swift in Sources */,
 				B3DCCF63285B03780000853C /* PhotoDetailCollectionView.swift in Sources */,
 				B39E51A22851F48F00EAE842 /* PhotoHomeCell.swift in Sources */,
+				B3289D8728654C0D00E1FF1A /* PatorlCalendarViewController.swift in Sources */,
 				B3EC88CF2845B89A0040F664 /* ReportTrackPathCell.swift in Sources */,
 				B39C858F283E3189007ABDCC /* ReportUserTaskCell.swift in Sources */,
 				B3163694284470E600A09F62 /* JHSegmentedControl.swift in Sources */,
@@ -1968,12 +2005,14 @@
 				B38D8939277B1C7300888EFB /* JHMornCameraController.swift in Sources */,
 				B3B4A6E5282BA3A5006B5F57 /* LoginGetBackPassword.swift in Sources */,
 				B32943FC284DF1E700123F94 /* PhoneBindCombine.swift in Sources */,
+				B3289D8328654BC800E1FF1A /* InsSignViewController.swift in Sources */,
 				B313EF3A278EDCD40089625F /* StoreDSelSearchBar.swift in Sources */,
 				B368E064283336AB0039D4D7 /* JHNotificationCenterNoDisturbingVCViewController.swift in Sources */,
 				B3EC88BF284493230040F664 /* ReportPatrolInfoCell.swift in Sources */,
 				B39E51A72852E25500EAE842 /* JHPhotoAddController.swift in Sources */,
 				B323033E278827670056BDCC /* JHUnitOrgSearchController.swift in Sources */,
 				B3F3343428129EA9003B834D /* VideoActivitySquareController.swift in Sources */,
+				B3289D7928654B0200E1FF1A /* JHSelCheckBaseController.swift in Sources */,
 				B3F4599B27F3F1C500AADC08 /* JHSNViewModel.swift in Sources */,
 				B374E95F27EB02610033B72C /* JHDeviceTimesCell.swift in Sources */,
 				B33EF39827BFAD9000A3B6DE /* JHDeviceInviteAPI.swift in Sources */,
@@ -1985,6 +2024,7 @@
 				B3D7C6BB27EC65B300E0EDBA /* JHDeviceBindModel.swift in Sources */,
 				B368E06828333F780039D4D7 /* JHNotificationCenterModel.swift in Sources */,
 				B35E116127BF36E400A8BEF3 /* JHDeviceInvitedController.swift in Sources */,
+				B3289D7F28654B6D00E1FF1A /* CheckSelfThirdViewController.swift in Sources */,
 				B376CD4A283CA7DC00D01B26 /* ReportUserAnnotationView.swift in Sources */,
 				B3F33432281295BC003B834D /* JHVideoActivityBaseController.swift in Sources */,
 				B38E8A6E28485E3C00884A6A /* JHBMKAnnotationListView.swift in Sources */,
