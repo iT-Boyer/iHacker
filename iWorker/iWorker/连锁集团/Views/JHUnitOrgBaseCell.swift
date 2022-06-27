@@ -34,6 +34,7 @@ class JHUnitOrgBaseCell: UITableViewCell {
             let nameStr = "企业名称：" + (model.companyName ?? "")
             let addrStr = "地       址：" + (model.address ?? "")
             name.text = nameStr
+            // 换行缩进
             let paragraphStyle = NSMutableParagraphStyle()
             paragraphStyle.alignment = .left
             let emptylen = addr.font.pointSize * 5

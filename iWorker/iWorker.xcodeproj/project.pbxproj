@@ -58,6 +58,8 @@
 		B3306D4327B124EC005E7DDC /* JHUnitOrgChangeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3306D4227B124EC005E7DDC /* JHUnitOrgChangeController.swift */; };
 		B3306D4527B23303005E7DDC /* DelFirmChain.json in Resources */ = {isa = PBXBuildFile; fileRef = B3306D4427B232FC005E7DDC /* DelFirmChain.json */; };
 		B3306D4727B245DA005E7DDC /* JHShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3306D4627B245DA005E7DDC /* JHShapeView.swift */; };
+		B33D237B2869804B009B8B21 /* CheckerBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33D237A2869804B009B8B21 /* CheckerBaseCell.swift */; };
+		B33D237D28698581009B8B21 /* CheckerBaseVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33D237C28698581009B8B21 /* CheckerBaseVM.swift */; };
 		B33EF39527BFA68B00A3B6DE /* AddInviteUser.json in Resources */ = {isa = PBXBuildFile; fileRef = B33EF39427BFA68B00A3B6DE /* AddInviteUser.json */; };
 		B33EF39627BFA69300A3B6DE /* GetInviteInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = B33EF39327BFA66800A3B6DE /* GetInviteInfo.json */; };
 		B33EF39827BFAD9000A3B6DE /* JHDeviceInviteAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33EF39727BFAD9000A3B6DE /* JHDeviceInviteAPI.swift */; };
@@ -212,6 +214,7 @@
 		B39E51AD2853213100EAE842 /* PhotoAddCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39E51AC2853213100EAE842 /* PhotoAddCell.swift */; };
 		B39E51AF285333A100EAE842 /* AddambientM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39E51AE285333A100EAE842 /* AddambientM.swift */; };
 		B39E51B128533D3E00EAE842 /* JHPhotoAddCollectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39E51B028533D3E00EAE842 /* JHPhotoAddCollectController.swift */; };
+		B3B12BC32869A1840052E26F /* JHIconLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B12BC22869A1840052E26F /* JHIconLabel.swift */; };
 		B3B4A6E1282BA0C5006B5F57 /* PhoneAccountBindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B4A6E0282BA0C5006B5F57 /* PhoneAccountBindViewController.swift */; };
 		B3B4A6E3282BA146006B5F57 /* AccountSecurityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B4A6E2282BA146006B5F57 /* AccountSecurityViewController.swift */; };
 		B3B4A6E5282BA3A5006B5F57 /* LoginGetBackPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B4A6E4282BA3A5006B5F57 /* LoginGetBackPassword.swift */; };
@@ -389,6 +392,8 @@
 		B3306D4227B124EC005E7DDC /* JHUnitOrgChangeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHUnitOrgChangeController.swift; sourceTree = "<group>"; };
 		B3306D4427B232FC005E7DDC /* DelFirmChain.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = DelFirmChain.json; sourceTree = "<group>"; };
 		B3306D4627B245DA005E7DDC /* JHShapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHShapeView.swift; sourceTree = "<group>"; };
+		B33D237A2869804B009B8B21 /* CheckerBaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckerBaseCell.swift; sourceTree = "<group>"; };
+		B33D237C28698581009B8B21 /* CheckerBaseVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckerBaseVM.swift; sourceTree = "<group>"; };
 		B33EF39327BFA66800A3B6DE /* GetInviteInfo.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GetInviteInfo.json; sourceTree = "<group>"; };
 		B33EF39427BFA68B00A3B6DE /* AddInviteUser.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AddInviteUser.json; sourceTree = "<group>"; };
 		B33EF39727BFAD9000A3B6DE /* JHDeviceInviteAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHDeviceInviteAPI.swift; sourceTree = "<group>"; };
@@ -542,6 +547,7 @@
 		B39E51AC2853213100EAE842 /* PhotoAddCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAddCell.swift; sourceTree = "<group>"; };
 		B39E51AE285333A100EAE842 /* AddambientM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddambientM.swift; sourceTree = "<group>"; };
 		B39E51B028533D3E00EAE842 /* JHPhotoAddCollectController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHPhotoAddCollectController.swift; sourceTree = "<group>"; };
+		B3B12BC22869A1840052E26F /* JHIconLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHIconLabel.swift; sourceTree = "<group>"; };
 		B3B4A6E0282BA0C5006B5F57 /* PhoneAccountBindViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneAccountBindViewController.swift; sourceTree = "<group>"; };
 		B3B4A6E2282BA146006B5F57 /* AccountSecurityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSecurityViewController.swift; sourceTree = "<group>"; };
 		B3B4A6E4282BA3A5006B5F57 /* LoginGetBackPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginGetBackPassword.swift; sourceTree = "<group>"; };
@@ -806,6 +812,8 @@
 		B3289D7728654A9E00E1FF1A /* 自检自查 */ = {
 			isa = PBXGroup;
 			children = (
+				B33D237928697FC6009B8B21 /* Models */,
+				B33D237828697FBB009B8B21 /* Views */,
 				B3289D7828654B0100E1FF1A /* JHSelCheckBaseController.swift */,
 				B3289D7A28654B3100E1FF1A /* CheckSelfViewController.swift */,
 				B3289D7C28654B5100E1FF1A /* CheckSelfSecondViewController.swift */,
@@ -816,6 +824,23 @@
 				B3289D8628654C0D00E1FF1A /* PatorlCalendarViewController.swift */,
 			);
 			path = "自检自查";
+			sourceTree = "<group>";
+		};
+		B33D237828697FBB009B8B21 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B33D237A2869804B009B8B21 /* CheckerBaseCell.swift */,
+				B3B12BC22869A1840052E26F /* JHIconLabel.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B33D237928697FC6009B8B21 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B33D237C28698581009B8B21 /* CheckerBaseVM.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		B33EF39227BFA63600A3B6DE /* JSON */ = {
@@ -1914,6 +1939,7 @@
 				B37EC65D283B6CB300D92FC1 /* ReportUserMapController.swift in Sources */,
 				B374EA2D27EC47DF0033B72C /* VCTools.swift in Sources */,
 				B38D8937277B1C7300888EFB /* JHMornUpPhotoController.swift in Sources */,
+				B3B12BC32869A1840052E26F /* JHIconLabel.swift in Sources */,
 				B3EC88CD2844B88C0040F664 /* FlagStatusModel.swift in Sources */,
 				B39E51AB28531C3900EAE842 /* JHPhotoRecommendController.swift in Sources */,
 				B3B4A6E1282BA0C5006B5F57 /* PhoneAccountBindViewController.swift in Sources */,
@@ -1936,6 +1962,7 @@
 				B39C8589283E22F7007ABDCC /* ReportMapUserTaskStatM.swift in Sources */,
 				B3289D7D28654B5100E1FF1A /* CheckSelfSecondViewController.swift in Sources */,
 				B3DCCF61285AFFBA0000853C /* JHPhotoDetailController.swift in Sources */,
+				B33D237D28698581009B8B21 /* CheckerBaseVM.swift in Sources */,
 				B323035A278C11240056BDCC /* UnitOrgChainModel.swift in Sources */,
 				B39E51A52852E23500EAE842 /* JHSortViewController.swift in Sources */,
 				B39E515D285189AC00EAE842 /* PhotoCollectCell.swift in Sources */,
@@ -1965,6 +1992,7 @@
 				B312022428191D88002D4FA3 /* JHCreateVideoActController.swift in Sources */,
 				B37EC65F283B6CE900D92FC1 /* ReportUserDetailController.swift in Sources */,
 				B374E96127EC21F60033B72C /* JHDeviceTimePicker.swift in Sources */,
+				B33D237B2869804B009B8B21 /* CheckerBaseCell.swift in Sources */,
 				B39C858D283E2C40007ABDCC /* ReportUserInfoMapView.swift in Sources */,
 				B39E51372850868900EAE842 /* JHPhotoBaseController.swift in Sources */,
 				B39E51452850A93C00EAE842 /* StoreAmbientModel.swift in Sources */,

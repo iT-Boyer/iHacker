@@ -15,7 +15,7 @@ class JHUnitJoinOrgViewController: JHBaseNavVC {
     }
     @objc
     func backAction() {
-        self.navigationController?.popViewController()
+        dismiss(animated: true)
     }
     
     func createView(){

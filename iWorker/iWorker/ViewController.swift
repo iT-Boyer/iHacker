@@ -13,7 +13,8 @@ class ViewController: JHBaseNavVC {
 
     var page:UIViewController!
     var rows:[(String, UIViewController.Type)]{
-        [("图片集首页", PhotoHomeController.self),
+        [("自检自查", CheckSelfViewController.self),
+         ("图片集首页", PhotoHomeController.self),
          ("|- 品牌宣传",JHPhotoDetailController.self),
          ("|- 图片集列表",JHPictureGroupController.self),
          ("人员管理地图",ReportUserMapController.self),

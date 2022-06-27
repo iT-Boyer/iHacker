@@ -13,6 +13,20 @@
     {
       "filename" : "backicon@3x.png",
       "idiom" : "universal",
+      "resizing" : {
+        "cap-insets" : {
+          "bottom" : 33,
+          "left" : 32,
+          "right" : 33,
+          "top" : 32
+        },
+        "center" : {
+          "height" : 1,
+          "mode" : "tile",
+          "width" : 1
+        },
+        "mode" : "9-part"
+      },
       "scale" : "3x"
     }
   ],
