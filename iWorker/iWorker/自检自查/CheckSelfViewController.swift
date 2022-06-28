@@ -16,8 +16,19 @@ class CheckSelfViewController: JHSelCheckBaseController {
         // Do any additional setup after loading the view.
     }
 
+    override func nextStepAction() {
+        super.nextStepAction()
+        //TODO: 下一步
+        let second = CheckSelfSecondViewController()
+        second.storeId = storeId
+        navigationController?.pushViewController(second, animated: true)
+    }
+    
+    //MARK: - UI
+    
     override func createView() {
         super.createView()
+        setStepImage(img: "Inspect步骤1")
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(CheckerBaseCell.self, forCellReuseIdentifier: "CheckerBaseCell")
@@ -26,6 +37,7 @@ class CheckSelfViewController: JHSelCheckBaseController {
         headerView.frame.size.height = height
         tableView.tableHeaderView = headerView
         
+        // 虚线设置
         headerView.layoutIfNeeded()
         vline.refresh(isHorizontal: false, lineColor: .initWithHex("BB9881"))
         userView.drawDottedLine(userView.bounds, 10, .initWithHex("BB9881"))
@@ -130,4 +142,9 @@ extension CheckSelfViewController:UITableViewDataSource,UITableViewDelegate
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 1 {
+            //TODO: 切换检查类型 日检/周检
+        }
+    }
 }

@@ -14,4 +14,9 @@ class CheckSelfSecondViewController: JHSelCheckBaseController {
 
         // Do any additional setup after loading the view.
     }
+    
+    override func createView() {
+        super.createView()
+        setStepImage(img: "Inspect步骤2")
+    }
 }

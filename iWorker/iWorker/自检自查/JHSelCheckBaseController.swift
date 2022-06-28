@@ -17,13 +17,18 @@ class JHSelCheckBaseController: JHBaseNavVC {
         createView()
     }
     
+    @objc
+    func nextStepAction() {
+        //TODO: 下一步
+        print("下一步....")
+    }
+    
     func createView() {
         navTitle = "自检自查"
         navBar.backgroundColor = .clear
         navBar.titleLabel.textColor = .white
         navBar.lineView.isHidden = true
         navBar.backBtn.setImage(.init(named: "Inspect返回"), for: .normal)
-        
         
         view.addSubviews([stepView,tableView])
         view.sendSubviewToBack(stepView)
@@ -36,16 +41,25 @@ class JHSelCheckBaseController: JHBaseNavVC {
             make.top.equalTo(stepView.snp.bottom)
             make.right.left.bottom.equalToSuperview()
         }
+        
+        let height = footerView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
+        footerView.frame.size.height = height
+        tableView.tableFooterView = footerView
     }
     
     // 导航条背景图
     lazy var stepView: UIImageView = {
         let header = UIImageView()
-        let image = UIImage(named: "stepfirst")
-//        image?.resizableImage(withCapInsets: UIEdgeInsets(top: 20, left: 20, bottom: 0, right: 20))
-        header.image = image
+        header.contentMode = .scaleToFill
         return header
     }()
+    
+    func setStepImage(img:String) {
+        let image = UIImage(named: img)
+        //resizableImageWithCapInsets: 指定拉伸区域
+        let rect = UIEdgeInsets(top: 0, left: 0, bottom: 100, right: 0)
+        stepView.image = image?.resizableImage(withCapInsets: rect, resizingMode: .stretch) //拉伸
+    }
     
     lazy var tableView: UITableView = {
         let tb = UITableView()
@@ -54,8 +68,33 @@ class JHSelCheckBaseController: JHBaseNavVC {
         tb.separatorStyle = .singleLine
         tb.estimatedRowHeight = 75
         tb.separatorColor = .k666666
+        tb.separatorInset = .zero
         tb.rowHeight = UITableView.automaticDimension
         return tb
+    }()
+    
+    lazy var footerView: UIView = {
+        let footer = UIView()
+        footer.addSubview(bottomBtn)
+        bottomBtn.snp.makeConstraints { make in
+            make.left.equalTo(30)
+            make.height.equalTo(50)
+            make.top.equalTo(40)
+            make.center.equalToSuperview()
+        }
+        return footer
+    }()
+    
+    lazy var bottomBtn: UIButton = {
+        let btn = UIButton()
+        btn.setTitle("下一步", for: .normal)
+        btn.titleLabel?.font = .systemFont(ofSize: 18)
+        btn.setTitleColor(.white, for: .normal)
+        btn.backgroundColor = .initWithHex("FDAD44")
+        btn.layer.cornerRadius = 10
+        btn.layer.masksToBounds = true
+        btn.addTarget(self, action: #selector(nextStepAction), for: .touchDown)
+        return btn
     }()
 }
 
