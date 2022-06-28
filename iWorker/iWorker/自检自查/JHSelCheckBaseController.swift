@@ -15,7 +15,10 @@ class JHSelCheckBaseController: JHBaseNavVC {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         createView()
+        loadData()
     }
+    
+    func loadData() {}
     
     @objc
     func nextStepAction() {

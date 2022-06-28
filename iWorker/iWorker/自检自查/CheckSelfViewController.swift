@@ -7,15 +7,66 @@
 
 import UIKit
 import JHBase
+import MBProgressHUD
+import SwiftyJSON
 
 class CheckSelfViewController: JHSelCheckBaseController {
 
+    var inspectInfoModel:InspectInfoModel?
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        JHLocationManager.shared.startLocation {[weak self] location in
+            guard let wf = self else{return}
+            wf.addrLab.refresh(icon: "Inspect地址", text: location.desc)
+        }
     }
-
+    
+    override func loadData() {
+        super.loadData()
+        let param:[String:Any] = ["commonParam":["appId":JHBaseInfo.appID,
+                                                 "userId": JHBaseInfo.userID,
+                                                 "storeId":storeId
+                                                ]
+                                 ]
+        let urlStr = JHBaseDomain.fullURL(with: "api_host_rips", path: "/Jinher.AMP.RIP.SV.ComInspectAssistantSV.svc/GetInfoToSelfInspect")
+        let hud = MBProgressHUD.showAdded(to:view, animated: true)
+        hud.removeFromSuperViewOnHide = true
+        let request = JN.post(urlStr, parameters: param, headers: nil)
+        request.response {[weak self] response in
+            hud.hide(animated: true)
+            guard let weakSelf = self else { return }
+            guard let data = response.data else {
+                VCTools.toast("数据错误")
+                return
+            }
+            let json = JSON(data)
+            let result = json["IsSuccess"].boolValue
+            if result {
+                guard let rawData = try? json["Content"].rawData() else {return}
+                guard let info:InspectInfoModel =  InspectInfoModel.parsed(data: rawData) else { return }
+                weakSelf.refreshUIData(model: info)
+            }else{
+                let msg = json["message"].stringValue
+                VCTools.toast(msg)
+            }
+        }
+    }
+    
+    func refreshUIData(model:InspectInfoModel) {
+        inspectInfoModel = model
+        nameLab.refresh(icon: "Inspect姓名", text: model.userName ?? "")
+        iconView.kf.setImage(with: URL(string: model.userIcon), placeholder: UIImage(named: "Inspect全通过"))
+        guard var first = dataArray.first else { return }
+        guard var third = dataArray.last else { return }
+        first.value = model.storeName
+        third.value = "本年度第\(model.yearTimes ?? 0)次检查"
+        dataArray[0] = first
+        dataArray[2] = third
+        tableView.reloadData()
+    }
+    
     override func nextStepAction() {
         super.nextStepAction()
         //TODO: 下一步
@@ -76,7 +127,7 @@ class CheckSelfViewController: JHSelCheckBaseController {
         }
         
         nameLab.snp.makeConstraints { make in
-            make.top.equalTo(28)
+            make.top.equalTo(20)
             make.left.equalTo(vline.snp.right).offset(10)
             make.right.equalTo(-10)
         }
@@ -111,7 +162,7 @@ class CheckSelfViewController: JHSelCheckBaseController {
         return lab
     }()
     lazy var timeLab: JHIconLabel = {
-        let lab = JHIconLabel(icon: "Inspect时间")
+        let lab = JHIconLabel(icon: "Inspect时间", text: today)
         return lab
     }()
     lazy var addrLab: JHIconLabel = {
@@ -119,12 +170,19 @@ class CheckSelfViewController: JHSelCheckBaseController {
         return lab
     }()
     
+    lazy var today: String = {
+        let format = DateFormatter()
+        format.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let now = NSDate() as Date
+        let time = format.string(from: now)
+        return time
+    }()
     
     
     lazy var dataArray: [CheckerBaseVM] = {
-        let data = [CheckerBaseVM(icon: "Inspect经营者名称", name: "经营者名称", value: "白兔咖啡有限责任公司", type: 0),
+        let data = [CheckerBaseVM(icon: "Inspect经营者名称", name: "经营者名称", value: "", type: 0),
                     CheckerBaseVM(icon: "Inspect自查类型", name: "自查类型", value: "请选择", type: 0),
-                    CheckerBaseVM(icon: "Inspect检查次数", name: "检查次数", value: "本年度第5次检查", type: 0)
+                    CheckerBaseVM(icon: "Inspect检查次数", name: "检查次数", value: "", type: 0)
         ]
         return data
     }()
@@ -139,12 +197,38 @@ extension CheckSelfViewController:UITableViewDataSource,UITableViewDelegate
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CheckerBaseCell") as! CheckerBaseCell
         cell.model = dataArray[indexPath.row]
+        var right = -20
+        cell.accessoryType = .none
+        if indexPath.row == 1 {
+            right = -5
+            cell.accessoryType = .disclosureIndicator
+        }
+        cell.valueLab.snp.updateConstraints { make in
+            make.right.equalTo(right)
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 1 {
             //TODO: 切换检查类型 日检/周检
+            guard let typelist = inspectInfoModel?.inspectTypeList else { return }
+            var btns = typelist.compactMap { inspectType -> String? in
+                inspectType.text
+            }
+            var types = typelist.compactMap { inspectType -> UIAlertAction.Style? in
+                UIAlertAction.Style.default
+            }
+            btns.append("取消")
+            types.append(.cancel)
+            UIAlertController.showDarkSheet(btns: btns, types: types) {[weak self] row in
+                //TODO: 选择自检类型
+                guard let wf = self else { return }
+                var typecell = wf.dataArray[1]
+                typecell.value = btns[row]
+                wf.dataArray[1] = typecell
+                wf.tableView.reloadData()
+            }
         }
     }
 }

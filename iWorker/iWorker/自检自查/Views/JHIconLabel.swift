@@ -15,14 +15,20 @@ class JHIconLabel: UILabel {
     }
     
     func refresh(icon:String, text:String){
-        let attribute = NSMutableAttributedString(string: text)
+        // 文本
+        let attr:[NSAttributedString.Key:Any] = [.foregroundColor: UIColor.initWithHex("A87050"),
+                                                 .font: UIFont.systemFont(ofSize: 14)]
+        let attrStr = NSMutableAttributedString(string: text, attributes: attr)
+        // 间距
+        let spaceStr = NSMutableAttributedString(string:"  ")
         let markattch = NSTextAttachment() //定义一个attachment
         markattch.image = UIImage(named: icon)//初始化图片
-        markattch.bounds = CGRect(x: 0, y: -1, width: 13, height: 13) //初始化图片的 bounds
+        let y = (UIFont.systemFont(ofSize: 15).capHeight - 6.5)/2.0   // 图片的坐标Y值
+        markattch.bounds = CGRect(x: 0, y: -y, width: 13, height: 13) //初始化图片的 bounds
         let markattchStr = NSAttributedString(attachment: markattch) // 将attachment  加入富文本中
-        attribute.insert(markattchStr, at: 0)// 将markattchStr  加入原有文字的某个位置
-        
-        attributedText = attribute
+        attrStr.insert(markattchStr, at: 0)// 将markattchStr  加入原有文字的某个位置
+        attrStr.insert(spaceStr, at: 1)
+        attributedText = attrStr
     }
 }
 
@@ -71,5 +77,34 @@ class JHSquareView: UIView {
         boderLayer.strokeColor = color.cgColor
         
         layer.addSublayer(boderLayer)
+    }
+}
+
+
+extension UIAlertController {
+    static func showDarkSheet(style: UIAlertController.Style = .actionSheet, title: String? = nil,
+                              msg: String? = nil, btns:[String]? = nil,
+                              types:[UIAlertAction.Style]? = nil, handler: ((Int) -> Void)? = nil)
+    {
+        let alertVC = UIAlertController(title: title, message: msg, preferredStyle: style)
+        alertVC.view.tintColor = .darkGray
+        let btnsList = btns ?? []
+        let typesList = types ?? []
+        for (index, value) in btnsList.enumerated() {
+            var btnType = UIAlertAction.Style.default
+            if index < typesList.count {
+                btnType = typesList[index]
+            }
+            let action = UIAlertAction(title: value, style: btnType) { _ in
+                if let handler = handler {
+                    handler(index)
+                }
+            }
+            if index == btnsList.count - 1 {
+                action.setValue(UIColor.systemBlue, forKey: "_titleTextColor")
+            }
+            alertVC.addAction(action)
+        }
+        UIViewController.topVC?.present(alertVC, animated: true, completion: nil)
     }
 }

@@ -1,0 +1,34 @@
+{
+    "Code": null,
+    "Data": null,
+    "Detail": null,
+    "IsSuccess": true,
+    "Message": null,
+    "Content": {
+        "CompleteDate": null,
+        "InspectDate": "2022-06-28 14:42:53",
+        "InspectTypeId": "5296d2a6-494d-47ce-af01-da7dff257d2f",
+        "InspectTypeName": "日检",
+        "IsReform": null,
+        "StoreId": "a5bac1d7-0c0c-4328-8af1-2df7955a0e74",
+        "StoreName": "白兔咖啡有限责任公司",
+        "StoreSecTypeName": "中型餐饮",
+        "StoreTypeName": "食品-餐饮",
+        "YearTimes": 5,
+        "InspectDateArg": "\/Date(1656398573865+0800)\/",
+        "InspectTypeList": [{
+            "Id": "5296d2a6-494d-47ce-af01-da7dff257d2f",
+            "IsDefault": false,
+            "Text": "日检"
+        }, {
+            "Id": "62cc7300-239d-422c-8fb0-223e0c217a25",
+            "IsDefault": false,
+            "Text": "周检"
+        }],
+        "StoreSecTypeId": "00000000-0000-0000-0000-000000000000",
+        "StoreTypeId": "00000000-0000-0000-0000-000000000000",
+        "UserIcon": "https:\/\/scfileserver.iuoooo.com\/Jinher.JAP.BaseApp.FileServer.UI\/FileManage\/GetFile?fileURL=29e54e46-3e17-4ca4-8f03-db71fb8f967c\/2014121511\/8fa7c59b-6784-490e-897e-b9f4cc11548b_20.png",
+        "UserId": "b58eb369-2104-40d5-ad2b-45a786e0bc68",
+        "UserName": "布衣男儿"
+    }
+}

@@ -17,11 +17,14 @@ func installOHHTTPStubs(){
     let host3 = JHBaseDomain.domain(for: "api_host_patrol")
     let host4 = JHBaseDomain.domain(for: "api_host_imv")
     let host5 = JHBaseDomain.domain(for: "api_host_scg")
+    let host6 = JHBaseDomain.domain(for: "api_host_rips")
+    
     stub(condition: isHost(host)
                     || isHost(host2)
                     || isHost(host3)
                     || isHost(host4)
-                    || isHost(host5))
+                    || isHost(host5)
+                    || isHost(host6))
     { request in
       // Stub it with our "wsresponse.json" stub file
         let urlStr = request.url?.path

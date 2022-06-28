@@ -11,6 +11,9 @@ import CoreLocation
 struct JHLocation {
     var latitude,longitude:Double
     var city,subLocality,address:String
+    var desc: String {
+        "\(city)-\(subLocality)-\(address)"
+    }
 }
 
 class JHLocationManager: NSObject{
@@ -19,7 +22,7 @@ class JHLocationManager: NSObject{
     static let shared = JHLocationManager()
     var manager:CLLocationManager!
     var currLocation:JHLocation?
-    
+    var complatedHandler:(JHLocation)->Void = {_ in}
     override init() {
         super.init()
         manager = CLLocationManager()
@@ -28,6 +31,12 @@ class JHLocationManager: NSObject{
         manager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         //移动100m之后，重新定位
         manager.distanceFilter = 100
+    }
+    
+    //MARK: API
+    func startLocation(complated:@escaping (JHLocation)->Void) {
+        complatedHandler = complated
+        requestLocationServicesEnabled()
     }
     
     // 开启定位
@@ -56,6 +65,7 @@ class JHLocationManager: NSObject{
     func requestLocationServicesEnabled() {
         switch manager.authorizationStatus {
         case .authorized,.authorizedWhenInUse,.authorizedAlways:
+            manager.startUpdatingLocation()
             break
         case .notDetermined:
             manager.requestAlwaysAuthorization()
@@ -78,7 +88,13 @@ class JHLocationManager: NSObject{
     }
 }
 
-extension JHLocationManager:CLLocationManagerDelegate{
+extension JHLocationManager:CLLocationManagerDelegate
+{
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == .authorizedAlways || status == .authorizedWhenInUse {
+            manager.startUpdatingLocation()
+        }
+    }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let last = locations.last else{ return }
@@ -86,7 +102,7 @@ extension JHLocationManager:CLLocationManagerDelegate{
     }
  
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("失败")
+        print("定位失败")
     }
     
     // 由坐标点获取地理信息
@@ -107,7 +123,6 @@ extension JHLocationManager:CLLocationManagerDelegate{
             guard let wf = self else{return}
             if let placemark = placemarks?.first{
                 wf.geoLocation(placemark)
-                
             }
         }
     }
@@ -126,5 +141,7 @@ extension JHLocationManager:CLLocationManagerDelegate{
                                   city: city,
                                   subLocality: placemark.subLocality ?? "",
                                   address: placemark.name ?? "")
+        guard let location = currLocation else { return }
+        complatedHandler(location)
     }
 }

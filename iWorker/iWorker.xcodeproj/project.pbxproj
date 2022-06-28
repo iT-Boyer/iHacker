@@ -215,6 +215,8 @@
 		B39E51AF285333A100EAE842 /* AddambientM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39E51AE285333A100EAE842 /* AddambientM.swift */; };
 		B39E51B128533D3E00EAE842 /* JHPhotoAddCollectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39E51B028533D3E00EAE842 /* JHPhotoAddCollectController.swift */; };
 		B3B12BC32869A1840052E26F /* JHIconLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B12BC22869A1840052E26F /* JHIconLabel.swift */; };
+		B3B12BC7286ADAFA0052E26F /* GetInfoToSelfInspect.json in Resources */ = {isa = PBXBuildFile; fileRef = B3B12BC6286ADAFA0052E26F /* GetInfoToSelfInspect.json */; };
+		B3B12BC9286ADBD40052E26F /* InspectInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B12BC8286ADBD40052E26F /* InspectInfoModel.swift */; };
 		B3B4A6E1282BA0C5006B5F57 /* PhoneAccountBindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B4A6E0282BA0C5006B5F57 /* PhoneAccountBindViewController.swift */; };
 		B3B4A6E3282BA146006B5F57 /* AccountSecurityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B4A6E2282BA146006B5F57 /* AccountSecurityViewController.swift */; };
 		B3B4A6E5282BA3A5006B5F57 /* LoginGetBackPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B4A6E4282BA3A5006B5F57 /* LoginGetBackPassword.swift */; };
@@ -548,6 +550,8 @@
 		B39E51AE285333A100EAE842 /* AddambientM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddambientM.swift; sourceTree = "<group>"; };
 		B39E51B028533D3E00EAE842 /* JHPhotoAddCollectController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHPhotoAddCollectController.swift; sourceTree = "<group>"; };
 		B3B12BC22869A1840052E26F /* JHIconLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHIconLabel.swift; sourceTree = "<group>"; };
+		B3B12BC6286ADAFA0052E26F /* GetInfoToSelfInspect.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GetInfoToSelfInspect.json; sourceTree = "<group>"; };
+		B3B12BC8286ADBD40052E26F /* InspectInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspectInfoModel.swift; sourceTree = "<group>"; };
 		B3B4A6E0282BA0C5006B5F57 /* PhoneAccountBindViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneAccountBindViewController.swift; sourceTree = "<group>"; };
 		B3B4A6E2282BA146006B5F57 /* AccountSecurityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSecurityViewController.swift; sourceTree = "<group>"; };
 		B3B4A6E4282BA3A5006B5F57 /* LoginGetBackPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginGetBackPassword.swift; sourceTree = "<group>"; };
@@ -812,6 +816,7 @@
 		B3289D7728654A9E00E1FF1A /* 自检自查 */ = {
 			isa = PBXGroup;
 			children = (
+				B3B12BC5286ADACE0052E26F /* JSON */,
 				B33D237928697FC6009B8B21 /* Models */,
 				B33D237828697FBB009B8B21 /* Views */,
 				B3289D7828654B0100E1FF1A /* JHSelCheckBaseController.swift */,
@@ -839,6 +844,7 @@
 			isa = PBXGroup;
 			children = (
 				B33D237C28698581009B8B21 /* CheckerBaseVM.swift */,
+				B3B12BC8286ADBD40052E26F /* InspectInfoModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1383,6 +1389,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		B3B12BC5286ADACE0052E26F /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				B3B12BC6286ADAFA0052E26F /* GetInfoToSelfInspect.json */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
 		B3B4A6DF282B9B26006B5F57 /* 帐号安全 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1765,6 +1779,7 @@
 				B38D88AB277B199700888EFB /* LaunchScreen.storyboard in Resources */,
 				B39E514F2850A9DA00EAE842 /* SubmitBrandPub.json in Resources */,
 				B3289D722862FA1C00E1FF1A /* TZImagePickerController.bundle in Resources */,
+				B3B12BC7286ADAFA0052E26F /* GetInfoToSelfInspect.json in Resources */,
 				B39E514D2850A9C200EAE842 /* GetStoreBrandPub.json in Resources */,
 				B38E8A65284712A000884A6A /* GetEmployeeTaskStat.json in Resources */,
 				B3306D4527B23303005E7DDC /* DelFirmChain.json in Resources */,
@@ -2030,6 +2045,7 @@
 				B368E065283336AB0039D4D7 /* JHNotificationCenterManagerViewController.swift in Sources */,
 				B39E51AF285333A100EAE842 /* AddambientM.swift in Sources */,
 				B3306D4727B245DA005E7DDC /* JHShapeView.swift in Sources */,
+				B3B12BC9286ADBD40052E26F /* InspectInfoModel.swift in Sources */,
 				B38D8939277B1C7300888EFB /* JHMornCameraController.swift in Sources */,
 				B3B4A6E5282BA3A5006B5F57 /* LoginGetBackPassword.swift in Sources */,
 				B32943FC284DF1E700123F94 /* PhoneBindCombine.swift in Sources */,
