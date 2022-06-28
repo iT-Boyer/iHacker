@@ -217,6 +217,7 @@
 		B3B12BC32869A1840052E26F /* JHIconLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B12BC22869A1840052E26F /* JHIconLabel.swift */; };
 		B3B12BC7286ADAFA0052E26F /* GetInfoToSelfInspect.json in Resources */ = {isa = PBXBuildFile; fileRef = B3B12BC6286ADAFA0052E26F /* GetInfoToSelfInspect.json */; };
 		B3B12BC9286ADBD40052E26F /* InspectInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B12BC8286ADBD40052E26F /* InspectInfoModel.swift */; };
+		B3B12BCB286B0B510052E26F /* UIView+WaterMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B12BCA286B0B510052E26F /* UIView+WaterMark.swift */; };
 		B3B4A6E1282BA0C5006B5F57 /* PhoneAccountBindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B4A6E0282BA0C5006B5F57 /* PhoneAccountBindViewController.swift */; };
 		B3B4A6E3282BA146006B5F57 /* AccountSecurityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B4A6E2282BA146006B5F57 /* AccountSecurityViewController.swift */; };
 		B3B4A6E5282BA3A5006B5F57 /* LoginGetBackPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B4A6E4282BA3A5006B5F57 /* LoginGetBackPassword.swift */; };
@@ -552,6 +553,7 @@
 		B3B12BC22869A1840052E26F /* JHIconLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHIconLabel.swift; sourceTree = "<group>"; };
 		B3B12BC6286ADAFA0052E26F /* GetInfoToSelfInspect.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GetInfoToSelfInspect.json; sourceTree = "<group>"; };
 		B3B12BC8286ADBD40052E26F /* InspectInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspectInfoModel.swift; sourceTree = "<group>"; };
+		B3B12BCA286B0B510052E26F /* UIView+WaterMark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+WaterMark.swift"; sourceTree = "<group>"; };
 		B3B4A6E0282BA0C5006B5F57 /* PhoneAccountBindViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneAccountBindViewController.swift; sourceTree = "<group>"; };
 		B3B4A6E2282BA146006B5F57 /* AccountSecurityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSecurityViewController.swift; sourceTree = "<group>"; };
 		B3B4A6E4282BA3A5006B5F57 /* LoginGetBackPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginGetBackPassword.swift; sourceTree = "<group>"; };
@@ -834,6 +836,7 @@
 		B33D237828697FBB009B8B21 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B3B12BCA286B0B510052E26F /* UIView+WaterMark.swift */,
 				B33D237A2869804B009B8B21 /* CheckerBaseCell.swift */,
 				B3B12BC22869A1840052E26F /* JHIconLabel.swift */,
 			);
@@ -2048,6 +2051,7 @@
 				B3B12BC9286ADBD40052E26F /* InspectInfoModel.swift in Sources */,
 				B38D8939277B1C7300888EFB /* JHMornCameraController.swift in Sources */,
 				B3B4A6E5282BA3A5006B5F57 /* LoginGetBackPassword.swift in Sources */,
+				B3B12BCB286B0B510052E26F /* UIView+WaterMark.swift in Sources */,
 				B32943FC284DF1E700123F94 /* PhoneBindCombine.swift in Sources */,
 				B3289D8328654BC800E1FF1A /* InsSignViewController.swift in Sources */,
 				B313EF3A278EDCD40089625F /* StoreDSelSearchBar.swift in Sources */,

@@ -29,6 +29,7 @@ class CheckerBaseCell: UITableViewCell {
     }
     
     func createView() {
+        contentView.backgroundColor = .clear
         contentView.addSubviews([iconView, nameLab,valueLab])
         
         iconView.snp.makeConstraints { make in

@@ -7,6 +7,7 @@
 
 import UIKit
 
+//MARK: - UILabel 支持icon图标
 class JHIconLabel: UILabel {
 
     convenience init(icon: String, text:String = "") {
@@ -32,6 +33,7 @@ class JHIconLabel: UILabel {
     }
 }
 
+//MARK: - 绘制虚线 直线支持水平/垂直
 class JHLineImageView: UIImageView {
     
     func refresh(isHorizontal:Bool,lineColor:UIColor) {
@@ -62,6 +64,7 @@ class JHLineImageView: UIImageView {
     }
 }
 
+//MARK: - 虚线描边
 class JHSquareView: UIView {
     
     func drawDottedLine(_ rect: CGRect, _ radius: CGFloat, _ color: UIColor) {

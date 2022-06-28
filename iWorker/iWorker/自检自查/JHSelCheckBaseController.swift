@@ -32,9 +32,12 @@ class JHSelCheckBaseController: JHBaseNavVC {
         navBar.titleLabel.textColor = .white
         navBar.lineView.isHidden = true
         navBar.backBtn.setImage(.init(named: "Inspect返回"), for: .normal)
+        view.addWaterText(text: "测试文本", color: .darkGray, font: .systemFont(ofSize: 15))
         
         view.addSubviews([stepView,tableView])
-        view.sendSubviewToBack(stepView)
+
+        let index = view.subviews.firstIndex(of: navBar) ?? 0
+        view.insertSubview(stepView, at: index)
         stepView.snp.makeConstraints { make in
             make.top.left.right.equalToSuperview()
             let height = kPhoneXSeries ? 150:130
@@ -66,7 +69,7 @@ class JHSelCheckBaseController: JHBaseNavVC {
     
     lazy var tableView: UITableView = {
         let tb = UITableView()
-        tb.backgroundColor = .white
+        tb.backgroundColor = .clear
         tb.removeTableFooterView()
         tb.separatorStyle = .singleLine
         tb.estimatedRowHeight = 75
