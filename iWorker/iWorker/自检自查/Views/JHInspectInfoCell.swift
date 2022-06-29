@@ -7,11 +7,12 @@
 
 import UIKit
 
-class CheckerBaseCell: UITableViewCell {
+class JHInspectInfoCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
+//        backgroundColor = .clear
         createView()
     }
     

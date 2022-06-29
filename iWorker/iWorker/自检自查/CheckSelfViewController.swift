@@ -13,14 +13,15 @@ import SwiftyJSON
 class CheckSelfViewController: JHSelCheckBaseController {
 
     var inspectInfoModel:InspectInfoModel?
+    var typeId = "00000000-0000-0000-0000-000000000000"
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-        JHLocationManager.shared.startLocation {[weak self] location in
-            guard let wf = self else{return}
-            wf.addrLab.refresh(icon: "Inspect地址", text: location.desc)
-        }
+    }
+    
+    override func refreshLocationUI(location: JHLocation) {
+        super.refreshLocationUI(location: location)
+        addrLab.refresh(icon: "Inspect地址", text: location.desc)
     }
     
     override func loadData() {
@@ -72,6 +73,7 @@ class CheckSelfViewController: JHSelCheckBaseController {
         //TODO: 下一步
         let second = CheckSelfSecondViewController()
         second.storeId = storeId
+        second.typeId = typeId
         navigationController?.pushViewController(second, animated: true)
     }
     
@@ -82,7 +84,7 @@ class CheckSelfViewController: JHSelCheckBaseController {
         setStepImage(img: "Inspect步骤1")
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(CheckerBaseCell.self, forCellReuseIdentifier: "CheckerBaseCell")
+        tableView.register(JHInspectInfoCell.self, forCellReuseIdentifier: "JHInspectInfoCell")
         
         let height = headerView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
         headerView.frame.size.height = height
@@ -170,15 +172,6 @@ class CheckSelfViewController: JHSelCheckBaseController {
         return lab
     }()
     
-    lazy var today: String = {
-        let format = DateFormatter()
-        format.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        let now = NSDate() as Date
-        let time = format.string(from: now)
-        return time
-    }()
-    
-    
     lazy var dataArray: [CheckerBaseVM] = {
         let data = [CheckerBaseVM(icon: "Inspect经营者名称", name: "经营者名称", value: "", type: 0),
                     CheckerBaseVM(icon: "Inspect自查类型", name: "自查类型", value: "请选择", type: 0),
@@ -195,7 +188,7 @@ extension CheckSelfViewController:UITableViewDataSource,UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CheckerBaseCell") as! CheckerBaseCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "JHInspectInfoCell") as! JHInspectInfoCell
         cell.model = dataArray[indexPath.row]
         var right = -20
         cell.accessoryType = .none
@@ -224,10 +217,17 @@ extension CheckSelfViewController:UITableViewDataSource,UITableViewDelegate
             UIAlertController.showDarkSheet(btns: btns, types: types) {[weak self] row in
                 //TODO: 选择自检类型
                 guard let wf = self else { return }
+                if row == btns.count - 1 { return } //取消按钮
                 var typecell = wf.dataArray[1]
                 typecell.value = btns[row]
                 wf.dataArray[1] = typecell
                 wf.tableView.reloadData()
+                
+                //
+                guard let typelist = wf.inspectInfoModel?.inspectTypeList else { return }
+                let typeM = typelist[row]
+                guard let typeId = typeM.id else { return }
+                wf.typeId = typeId
             }
         }
     }

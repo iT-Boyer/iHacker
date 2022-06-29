@@ -14,6 +14,10 @@ class JHSelCheckBaseController: JHBaseNavVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        JHLocationManager.shared.startLocation {[weak self] location in
+            guard let wf = self else{return}
+            wf.refreshLocationUI(location: location)
+        }
         createView()
         loadData()
     }
@@ -32,12 +36,15 @@ class JHSelCheckBaseController: JHBaseNavVC {
         navBar.titleLabel.textColor = .white
         navBar.lineView.isHidden = true
         navBar.backBtn.setImage(.init(named: "Inspect返回"), for: .normal)
-        view.addWaterText(text: "测试文本", color: .darkGray, font: .systemFont(ofSize: 15))
         
-        view.addSubviews([stepView,tableView])
+        view.addSubviews([waterView,stepView,tableView])
 
         let index = view.subviews.firstIndex(of: navBar) ?? 0
         view.insertSubview(stepView, at: index)
+        waterView.snp.makeConstraints { make in
+            make.top.equalTo(stepView.snp.bottom).offset(20)
+            make.right.left.bottom.equalToSuperview()
+        }
         stepView.snp.makeConstraints { make in
             make.top.left.right.equalToSuperview()
             let height = kPhoneXSeries ? 150:130
@@ -52,6 +59,26 @@ class JHSelCheckBaseController: JHBaseNavVC {
         footerView.frame.size.height = height
         tableView.tableFooterView = footerView
     }
+    
+    func refreshLocationUI(location:JHLocation) {
+        let mark = JHBaseInfo.userAccount + "  " + today + "  " + location.desc
+        waterView.addWaterText(text: mark, color: .darkGray, font: .systemFont(ofSize: 15))
+    }
+    
+    lazy var waterView: UIView = {
+        let water = UIView()
+        let mark = JHBaseInfo.userAccount + "  " + today
+        water.addWaterText(text: mark, color: .darkGray, font: .systemFont(ofSize: 15))
+        return water
+    }()
+    
+    lazy var today: String = {
+        let format = DateFormatter()
+        format.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let now = NSDate() as Date
+        let time = format.string(from: now)
+        return time
+    }()
     
     // 导航条背景图
     lazy var stepView: UIImageView = {

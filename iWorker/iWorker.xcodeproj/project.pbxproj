@@ -58,7 +58,7 @@
 		B3306D4327B124EC005E7DDC /* JHUnitOrgChangeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3306D4227B124EC005E7DDC /* JHUnitOrgChangeController.swift */; };
 		B3306D4527B23303005E7DDC /* DelFirmChain.json in Resources */ = {isa = PBXBuildFile; fileRef = B3306D4427B232FC005E7DDC /* DelFirmChain.json */; };
 		B3306D4727B245DA005E7DDC /* JHShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3306D4627B245DA005E7DDC /* JHShapeView.swift */; };
-		B33D237B2869804B009B8B21 /* CheckerBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33D237A2869804B009B8B21 /* CheckerBaseCell.swift */; };
+		B33D237B2869804B009B8B21 /* JHInspectInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33D237A2869804B009B8B21 /* JHInspectInfoCell.swift */; };
 		B33D237D28698581009B8B21 /* CheckerBaseVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33D237C28698581009B8B21 /* CheckerBaseVM.swift */; };
 		B33EF39527BFA68B00A3B6DE /* AddInviteUser.json in Resources */ = {isa = PBXBuildFile; fileRef = B33EF39427BFA68B00A3B6DE /* AddInviteUser.json */; };
 		B33EF39627BFA69300A3B6DE /* GetInviteInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = B33EF39327BFA66800A3B6DE /* GetInviteInfo.json */; };
@@ -239,6 +239,10 @@
 		B3DCCF63285B03780000853C /* PhotoDetailCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DCCF62285B03780000853C /* PhotoDetailCollectionView.swift */; };
 		B3DCCF65285B0FBA0000853C /* JHPictureGroupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DCCF64285B0FBA0000853C /* JHPictureGroupController.swift */; };
 		B3DED20D28585046002B75CE /* ArraySpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DED20C28585046002B75CE /* ArraySpecs.swift */; };
+		B3E2AF07286C31F6002FA252 /* JHInspectBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E2AF06286C31F6002FA252 /* JHInspectBaseCell.swift */; };
+		B3E2AF09286C3F82002FA252 /* GetSelfInspectOptions.json in Resources */ = {isa = PBXBuildFile; fileRef = B3E2AF08286C3F82002FA252 /* GetSelfInspectOptions.json */; };
+		B3E2AF0B286C3FC7002FA252 /* InspectOptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E2AF0A286C3FC7002FA252 /* InspectOptionModel.swift */; };
+		B3E2AF0D286C53E1002FA252 /* JHSwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E2AF0C286C53E1002FA252 /* JHSwitchView.swift */; };
 		B3EC88BF284493230040F664 /* ReportPatrolInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC88BE284493230040F664 /* ReportPatrolInfoCell.swift */; };
 		B3EC88C1284493340040F664 /* ReportTaskInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC88C0284493340040F664 /* ReportTaskInfoCell.swift */; };
 		B3EC88C32844AA5D0040F664 /* ReportTaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC88C22844AA5D0040F664 /* ReportTaskModel.swift */; };
@@ -395,7 +399,7 @@
 		B3306D4227B124EC005E7DDC /* JHUnitOrgChangeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHUnitOrgChangeController.swift; sourceTree = "<group>"; };
 		B3306D4427B232FC005E7DDC /* DelFirmChain.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = DelFirmChain.json; sourceTree = "<group>"; };
 		B3306D4627B245DA005E7DDC /* JHShapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHShapeView.swift; sourceTree = "<group>"; };
-		B33D237A2869804B009B8B21 /* CheckerBaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckerBaseCell.swift; sourceTree = "<group>"; };
+		B33D237A2869804B009B8B21 /* JHInspectInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHInspectInfoCell.swift; sourceTree = "<group>"; };
 		B33D237C28698581009B8B21 /* CheckerBaseVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckerBaseVM.swift; sourceTree = "<group>"; };
 		B33EF39327BFA66800A3B6DE /* GetInviteInfo.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GetInviteInfo.json; sourceTree = "<group>"; };
 		B33EF39427BFA68B00A3B6DE /* AddInviteUser.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AddInviteUser.json; sourceTree = "<group>"; };
@@ -578,6 +582,10 @@
 		B3DCCF64285B0FBA0000853C /* JHPictureGroupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHPictureGroupController.swift; sourceTree = "<group>"; };
 		B3DED2062856D490002B75CE /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B3DED20C28585046002B75CE /* ArraySpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArraySpecs.swift; sourceTree = "<group>"; };
+		B3E2AF06286C31F6002FA252 /* JHInspectBaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHInspectBaseCell.swift; sourceTree = "<group>"; };
+		B3E2AF08286C3F82002FA252 /* GetSelfInspectOptions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetSelfInspectOptions.json; sourceTree = "<group>"; };
+		B3E2AF0A286C3FC7002FA252 /* InspectOptionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspectOptionModel.swift; sourceTree = "<group>"; };
+		B3E2AF0C286C53E1002FA252 /* JHSwitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHSwitchView.swift; sourceTree = "<group>"; };
 		B3EC88BE284493230040F664 /* ReportPatrolInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportPatrolInfoCell.swift; sourceTree = "<group>"; };
 		B3EC88C0284493340040F664 /* ReportTaskInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTaskInfoCell.swift; sourceTree = "<group>"; };
 		B3EC88C22844AA5D0040F664 /* ReportTaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTaskModel.swift; sourceTree = "<group>"; };
@@ -837,8 +845,10 @@
 			isa = PBXGroup;
 			children = (
 				B3B12BCA286B0B510052E26F /* UIView+WaterMark.swift */,
-				B33D237A2869804B009B8B21 /* CheckerBaseCell.swift */,
+				B33D237A2869804B009B8B21 /* JHInspectInfoCell.swift */,
+				B3E2AF06286C31F6002FA252 /* JHInspectBaseCell.swift */,
 				B3B12BC22869A1840052E26F /* JHIconLabel.swift */,
+				B3E2AF0C286C53E1002FA252 /* JHSwitchView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -848,6 +858,7 @@
 			children = (
 				B33D237C28698581009B8B21 /* CheckerBaseVM.swift */,
 				B3B12BC8286ADBD40052E26F /* InspectInfoModel.swift */,
+				B3E2AF0A286C3FC7002FA252 /* InspectOptionModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1395,6 +1406,7 @@
 		B3B12BC5286ADACE0052E26F /* JSON */ = {
 			isa = PBXGroup;
 			children = (
+				B3E2AF08286C3F82002FA252 /* GetSelfInspectOptions.json */,
 				B3B12BC6286ADAFA0052E26F /* GetInfoToSelfInspect.json */,
 			);
 			path = JSON;
@@ -1824,6 +1836,7 @@
 				B38D890D277B1AC000888EFB /* RegisterFaceInfo.json in Resources */,
 				B33EF39527BFA68B00A3B6DE /* AddInviteUser.json in Resources */,
 				B39E515B2850AA6600EAE842 /* UptStoreBrandPubCover.json in Resources */,
+				B3E2AF09286C3F82002FA252 /* GetSelfInspectOptions.json in Resources */,
 				B39E51492850A99300EAE842 /* GetBrandPubDetail.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2010,7 +2023,7 @@
 				B312022428191D88002D4FA3 /* JHCreateVideoActController.swift in Sources */,
 				B37EC65F283B6CE900D92FC1 /* ReportUserDetailController.swift in Sources */,
 				B374E96127EC21F60033B72C /* JHDeviceTimePicker.swift in Sources */,
-				B33D237B2869804B009B8B21 /* CheckerBaseCell.swift in Sources */,
+				B33D237B2869804B009B8B21 /* JHInspectInfoCell.swift in Sources */,
 				B39C858D283E2C40007ABDCC /* ReportUserInfoMapView.swift in Sources */,
 				B39E51372850868900EAE842 /* JHPhotoBaseController.swift in Sources */,
 				B39E51452850A93C00EAE842 /* StoreAmbientModel.swift in Sources */,
@@ -2034,7 +2047,9 @@
 				B3697E8227E45778004D8867 /* JHSceneModels.swift in Sources */,
 				B3289D8128654B8600E1FF1A /* CheckReportViewController.swift in Sources */,
 				B3CDC61D27C3A67E007F1FF2 /* JHPriDeviceSetingController.swift in Sources */,
+				B3E2AF0B286C3FC7002FA252 /* InspectOptionModel.swift in Sources */,
 				B3230360278C2B7D0056BDCC /* JHUnitOrgBaseCell.swift in Sources */,
+				B3E2AF07286C31F6002FA252 /* JHInspectBaseCell.swift in Sources */,
 				B312022028190C4F002D4FA3 /* JHTimeSetingView.swift in Sources */,
 				B39E51632851C08000EAE842 /* JHHandlePictureViewController.swift in Sources */,
 				B323033C278827350056BDCC /* JHUnitOrgBaseViewController.swift in Sources */,
@@ -2052,6 +2067,7 @@
 				B38D8939277B1C7300888EFB /* JHMornCameraController.swift in Sources */,
 				B3B4A6E5282BA3A5006B5F57 /* LoginGetBackPassword.swift in Sources */,
 				B3B12BCB286B0B510052E26F /* UIView+WaterMark.swift in Sources */,
+				B3E2AF0D286C53E1002FA252 /* JHSwitchView.swift in Sources */,
 				B32943FC284DF1E700123F94 /* PhoneBindCombine.swift in Sources */,
 				B3289D8328654BC800E1FF1A /* InsSignViewController.swift in Sources */,
 				B313EF3A278EDCD40089625F /* StoreDSelSearchBar.swift in Sources */,

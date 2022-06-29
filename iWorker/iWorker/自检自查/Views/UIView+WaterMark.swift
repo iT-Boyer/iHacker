@@ -9,8 +9,8 @@
 import UIKit
 
 extension UIView {
-    func addWaterText(text:NSString,color:UIColor,font:UIFont) {
-            let waterText:String = text as String
+    func addWaterText(text:String,color:UIColor,font:UIFont) {
+            let waterText:String = text
             
             let textSize:CGSize = waterText.sizeWithText(font: UIFont.systemFont(ofSize: 15))
             let height = UIScreen.main.bounds.size.height
