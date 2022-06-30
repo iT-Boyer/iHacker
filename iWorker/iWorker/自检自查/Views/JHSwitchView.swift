@@ -12,6 +12,24 @@ import UIKit
  1. 无法使用willSet监听isOn属性, 仅对UISwitch 无效
  2. 无法设置UISwitch大小
     btn.transform = CGAffineTransform(scaleX: 1.2, y: 1.15)
+ 
+ // 使用案例
+ lazy var switchBtn: JHSwitchView = {
+     let btn = JHSwitchView()
+     btn.isOn = false
+     btn.addTarget(self, action: #selector(switchAction(btn:)), for: .valueChanged)
+     btn.snp.makeConstraints { make in
+         make.size.equalTo(CGSize(width: 65, height: 30))
+     }
+     btn.transform = CGAffineTransform(scaleX: 1.2, y: 1.15)
+     return btn
+ }()
+ 
+ @objc func switchAction(btn:JHSwitchView) {
+     print("开关状态：\(btn.isOn)")
+     btn.leftLab.isHidden = !btn.isOn
+     btn.rightLab.isHidden = btn.isOn
+ }
  */
 class JHSwitchView: UISwitch {
     
