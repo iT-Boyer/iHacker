@@ -13,13 +13,18 @@ import MBProgressHUD
 class CheckSelfSecondViewController: JHSelCheckBaseController {
 
     var typeId:String?
-    var dataArray:[InspectOptionModel] = []
+    var dataArray:[AddInsOptModel] = []
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        //归档
+        addModel.toArchive()
+    }
     override func createView() {
         super.createView()
         setStepImage(img: "Inspect步骤2")
@@ -60,6 +65,10 @@ class CheckSelfSecondViewController: JHSelCheckBaseController {
     
     override func loadData() {
         super.loadData()
+        if let opts = addModel.options, !opts.isEmpty {
+            dataArray = opts
+            return
+        }
         let param:[String:Any] = ["commonParam":["appId": JHBaseInfo.appID,
                                                  "userId": JHBaseInfo.userID,
                                                  "storeId":storeId,
@@ -82,7 +91,11 @@ class CheckSelfSecondViewController: JHSelCheckBaseController {
             if result {
                 guard let rawData = try? json["Content"].rawData() else {return}
                 guard let options:[InspectOptionModel] =  InspectOptionModel.parsed(data: rawData) else { return }
-                weakSelf.dataArray = options
+                weakSelf.dataArray = options.compactMap { origin in
+                    var add = AddInsOptModel()
+                    add.origin = origin
+                    return add
+                }
                 weakSelf.tableView.reloadData()
             }else{
                 let msg = json["message"].stringValue
@@ -101,6 +114,18 @@ extension CheckSelfSecondViewController:UITableViewDataSource,UITableViewDelegat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "JHInspectBaseCell") as! JHInspectBaseCell
         cell.model = dataArray[indexPath.row]
+        cell.actionHandler = {[weak self] model in
+            guard let wf = self else { return }
+            wf.dataArray =  wf.dataArray.compactMap{ item in
+                var mm = item
+                if model?.inspectOptionId == mm.inspectOptionId {
+                    mm.status = model?.status
+                }
+                return mm
+            }
+            wf.addModel.options = wf.dataArray
+            wf.tableView.reloadData()
+        }
         return cell
     }
 }

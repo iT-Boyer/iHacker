@@ -11,6 +11,19 @@ import JHBase
 class JHSelCheckBaseController: JHBaseNavVC {
 
     var storeId = "00000000-0000-0000-0000-000000000000"
+    
+    lazy var addModel: AddSelfInsModel = {
+        if let model = AddSelfInsModel.unArchive(){
+            return model
+        }
+        // 初始化
+        var newModel = AddSelfInsModel()
+        newModel.record = AddRecordModel()
+        newModel.options = []
+        newModel.profiles = []
+        return newModel
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -61,6 +74,10 @@ class JHSelCheckBaseController: JHBaseNavVC {
     }
     
     func refreshLocationUI(location:JHLocation) {
+        addModel.record?.location = location.desc
+        addModel.record?.longitude = location.longitude
+        addModel.record?.latitude = location.latitude
+        addModel.toArchive()
         let mark = JHBaseInfo.userAccount + "  " + today + "  " + location.desc
         waterView.addWaterText(text: mark, color: waterColor, font: .systemFont(ofSize: 15))
     }

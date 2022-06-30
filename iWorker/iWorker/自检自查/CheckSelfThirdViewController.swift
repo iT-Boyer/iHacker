@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import JHBase
+import SwiftyJSON
+import MBProgressHUD
 
 class CheckSelfThirdViewController: JHSelCheckBaseController {
 
@@ -14,4 +17,10 @@ class CheckSelfThirdViewController: JHSelCheckBaseController {
 
         // Do any additional setup after loading the view.
     }
+    
+    override func createView() {
+        super.createView()
+        setStepImage(img: "Inspect步骤3")
+    }
+    
 }

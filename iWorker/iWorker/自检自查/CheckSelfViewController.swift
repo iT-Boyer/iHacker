@@ -173,8 +173,12 @@ class CheckSelfViewController: JHSelCheckBaseController {
     }()
     
     lazy var dataArray: [CheckerBaseVM] = {
+        var type = "请选择"
+        if let itype = addModel.record?.selfInspectType{
+            type = itype
+        }
         let data = [CheckerBaseVM(icon: "Inspect经营者名称", name: "经营者名称", value: "", type: 0),
-                    CheckerBaseVM(icon: "Inspect自查类型", name: "自查类型", value: "请选择", type: 0),
+                    CheckerBaseVM(icon: "Inspect自查类型", name: "自查类型", value: type, type: 0),
                     CheckerBaseVM(icon: "Inspect检查次数", name: "检查次数", value: "", type: 0)
         ]
         return data
@@ -222,12 +226,14 @@ extension CheckSelfViewController:UITableViewDataSource,UITableViewDelegate
                 typecell.value = btns[row]
                 wf.dataArray[1] = typecell
                 wf.tableView.reloadData()
-                
                 //
                 guard let typelist = wf.inspectInfoModel?.inspectTypeList else { return }
                 let typeM = typelist[row]
                 guard let typeId = typeM.id else { return }
                 wf.typeId = typeId
+                wf.addModel.record?.selfInspectType = typeM.text
+                wf.addModel.record?.selfInspectTypeId = typeId
+                wf.addModel.toArchive()
             }
         }
     }

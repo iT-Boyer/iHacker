@@ -243,6 +243,7 @@
 		B3E2AF09286C3F82002FA252 /* GetSelfInspectOptions.json in Resources */ = {isa = PBXBuildFile; fileRef = B3E2AF08286C3F82002FA252 /* GetSelfInspectOptions.json */; };
 		B3E2AF0B286C3FC7002FA252 /* InspectOptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E2AF0A286C3FC7002FA252 /* InspectOptionModel.swift */; };
 		B3E2AF0D286C53E1002FA252 /* JHSwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E2AF0C286C53E1002FA252 /* JHSwitchView.swift */; };
+		B3E2AF10286D6B09002FA252 /* AddSelfInsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E2AF0F286D6B09002FA252 /* AddSelfInsModel.swift */; };
 		B3EC88BF284493230040F664 /* ReportPatrolInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC88BE284493230040F664 /* ReportPatrolInfoCell.swift */; };
 		B3EC88C1284493340040F664 /* ReportTaskInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC88C0284493340040F664 /* ReportTaskInfoCell.swift */; };
 		B3EC88C32844AA5D0040F664 /* ReportTaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC88C22844AA5D0040F664 /* ReportTaskModel.swift */; };
@@ -586,6 +587,7 @@
 		B3E2AF08286C3F82002FA252 /* GetSelfInspectOptions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetSelfInspectOptions.json; sourceTree = "<group>"; };
 		B3E2AF0A286C3FC7002FA252 /* InspectOptionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspectOptionModel.swift; sourceTree = "<group>"; };
 		B3E2AF0C286C53E1002FA252 /* JHSwitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHSwitchView.swift; sourceTree = "<group>"; };
+		B3E2AF0F286D6B09002FA252 /* AddSelfInsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSelfInsModel.swift; sourceTree = "<group>"; };
 		B3EC88BE284493230040F664 /* ReportPatrolInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportPatrolInfoCell.swift; sourceTree = "<group>"; };
 		B3EC88C0284493340040F664 /* ReportTaskInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTaskInfoCell.swift; sourceTree = "<group>"; };
 		B3EC88C22844AA5D0040F664 /* ReportTaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTaskModel.swift; sourceTree = "<group>"; };
@@ -859,6 +861,7 @@
 				B33D237C28698581009B8B21 /* CheckerBaseVM.swift */,
 				B3B12BC8286ADBD40052E26F /* InspectInfoModel.swift */,
 				B3E2AF0A286C3FC7002FA252 /* InspectOptionModel.swift */,
+				B3E2AF0F286D6B09002FA252 /* AddSelfInsModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1985,6 +1988,7 @@
 				B3230364278C2C370056BDCC /* JHUnitOrgHigherModel.swift in Sources */,
 				B312022228190DA9002D4FA3 /* JHTimePicker.swift in Sources */,
 				B38D88A3277B199400888EFB /* ViewController.swift in Sources */,
+				B3E2AF10286D6B09002FA252 /* AddSelfInsModel.swift in Sources */,
 				B39C859F284110D5007ABDCC /* ReportGroupView.swift in Sources */,
 				B38E8A762848C78B00884A6A /* JHLocationManager.swift in Sources */,
 				B3697E7D27E42D10004D8867 /* JHDeviceNickCell.swift in Sources */,

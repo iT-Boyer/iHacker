@@ -10,6 +10,7 @@ import JHBase
 
 class JHInspectBaseCell: UITableViewCell {
 
+    var actionHandler:(AddInsOptModel?)->Void = {_ in}
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
@@ -21,13 +22,14 @@ class JHInspectBaseCell: UITableViewCell {
         super.init(coder: coder)
     }
     
-    var model:InspectOptionModel?{
+    var model:AddInsOptModel?{
         didSet{
             guard let mm = model else { return }
-            noteLab.text = mm.text
+            noteLab.text = mm.origin?.text
+            switchBtn.isSelected = mm.status == 0
+            cameraBtn.isHidden = mm.origin?.isNeedPic ?? false
         }
     }
-    
     
     func createView() {
         contentView.addSubviews([cameraBtn, noteLab, arrowIcon, stackView])
@@ -81,8 +83,7 @@ class JHInspectBaseCell: UITableViewCell {
         btn.setImage(.init(named: "Inspectcamera"), for: .normal)
         btn.jh.setHandleClick {[weak self] button in
             //TODO: 拍照
-            guard let wf = self else { return }
-            
+            guard let wf = self, let btn = button else { return }
         }
         return btn
     }()
@@ -120,8 +121,11 @@ class JHInspectBaseCell: UITableViewCell {
         btn.setImage(.init(named: "Inspectpshi"), for: .normal)
         btn.setImage(.init(named: "Inspectfou"), for: .selected)
         btn.jh.setHandleClick {[weak self] button in
+            print("-------")
             guard let wf = self, let btn = button else {return}
             wf.switchBtn.isSelected = !btn.isSelected
+            wf.model?.status = btn.isSelected ? 0:1
+            wf.actionHandler(wf.model)
         }
         return btn
     }()

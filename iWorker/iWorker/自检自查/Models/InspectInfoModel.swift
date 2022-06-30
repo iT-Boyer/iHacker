@@ -30,6 +30,16 @@ struct InspectInfoModel: Codable {
         }
     }
     
+    func archiveData() {
+        //转JSON
+//        let jsonEncoder = JSONEncoder()
+//        jsonEncoder.outputFormatting = .prettyPrinted
+//        let menuJson = try! jsonEncoder.encode(targets)
+//        //写入新文件
+//        let newfile = JHSources()+"iu.json"
+//        try! newfile.write(menuJson)
+    }
+    
     enum CodingKeys: String, CodingKey {
         case completeDate = "CompleteDate"
         case inspectDate = "InspectDate"
