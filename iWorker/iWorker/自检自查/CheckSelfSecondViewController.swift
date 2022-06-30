@@ -43,32 +43,7 @@ class CheckSelfSecondViewController: JHSelCheckBaseController {
         tableView.tableHeaderView = headerView
     }
     
-    lazy var headerView: UIView = {
-        let header = UIView()
-        let icon = UIImageView(image: .init(named: "Inspect检查项"))
-        let title = UILabel()
-        title.text = "检查项"
-        title.textColor = .k333333
-        title.font = .systemFont(ofSize: 15)
-        let line = UIView()
-        line.backgroundColor = .initWithHex("A9A9A9")
-        header.addSubviews([icon, title, line])
-        icon.snp.makeConstraints { make in
-            make.top.equalTo(28)
-            make.size.equalTo(CGSize(width: 22, height: 22))
-            make.left.equalTo(15)
-            make.bottom.equalTo(-10)
-        }
-        title.snp.makeConstraints { make in
-            make.left.equalTo(icon.snp.right).offset(8)
-            make.centerY.equalTo(icon.snp.centerY)
-        }
-        line.snp.makeConstraints { make in
-            make.height.equalTo(0.5)
-            make.right.left.bottom.equalToSuperview()
-        }
-        return header
-    }()
+    lazy var headerView = JHOptionsHeaderView(name: "检查项")
     
     override func loadData() {
         super.loadData()
@@ -113,7 +88,7 @@ class CheckSelfSecondViewController: JHSelCheckBaseController {
     }
 }
 
-extension CheckSelfSecondViewController:UITableViewDataSource,UITableViewDelegate
+extension CheckSelfSecondViewController:UITableViewDataSource
 {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         dataArray.count

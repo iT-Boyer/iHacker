@@ -154,4 +154,20 @@ class JHSelCheckBaseController: JHBaseNavVC {
     }()
 }
 
+extension JHSelCheckBaseController:UITableViewDelegate
+{
+    /// 禁止悬浮
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView == tableView {
+            let sectionHeaderHeight = 60.0
+            if scrollView.contentOffset.y > 0 && scrollView.contentOffset.y <= sectionHeaderHeight
+            {
+                scrollView.contentInset = .init(top: -scrollView.contentOffset.y, left: 0, bottom: 0, right: 0)
+            }else
+            if (scrollView.contentOffset.y >= sectionHeaderHeight){
+                scrollView.contentInset = .init(top: -sectionHeaderHeight, left: 0, bottom: 0, right: 0)
+            }
+        }
+    }
+}
 

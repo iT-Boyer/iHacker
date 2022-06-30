@@ -244,6 +244,7 @@
 		B3E2AF0B286C3FC7002FA252 /* InspectOptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E2AF0A286C3FC7002FA252 /* InspectOptionModel.swift */; };
 		B3E2AF0D286C53E1002FA252 /* JHSwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E2AF0C286C53E1002FA252 /* JHSwitchView.swift */; };
 		B3E2AF10286D6B09002FA252 /* AddSelfInsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E2AF0F286D6B09002FA252 /* AddSelfInsModel.swift */; };
+		B3E2AF12286DB32D002FA252 /* JHOptionsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E2AF11286DB32D002FA252 /* JHOptionsHeaderView.swift */; };
 		B3EC88BF284493230040F664 /* ReportPatrolInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC88BE284493230040F664 /* ReportPatrolInfoCell.swift */; };
 		B3EC88C1284493340040F664 /* ReportTaskInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC88C0284493340040F664 /* ReportTaskInfoCell.swift */; };
 		B3EC88C32844AA5D0040F664 /* ReportTaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC88C22844AA5D0040F664 /* ReportTaskModel.swift */; };
@@ -588,6 +589,7 @@
 		B3E2AF0A286C3FC7002FA252 /* InspectOptionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspectOptionModel.swift; sourceTree = "<group>"; };
 		B3E2AF0C286C53E1002FA252 /* JHSwitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHSwitchView.swift; sourceTree = "<group>"; };
 		B3E2AF0F286D6B09002FA252 /* AddSelfInsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSelfInsModel.swift; sourceTree = "<group>"; };
+		B3E2AF11286DB32D002FA252 /* JHOptionsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHOptionsHeaderView.swift; sourceTree = "<group>"; };
 		B3EC88BE284493230040F664 /* ReportPatrolInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportPatrolInfoCell.swift; sourceTree = "<group>"; };
 		B3EC88C0284493340040F664 /* ReportTaskInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTaskInfoCell.swift; sourceTree = "<group>"; };
 		B3EC88C22844AA5D0040F664 /* ReportTaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTaskModel.swift; sourceTree = "<group>"; };
@@ -851,6 +853,7 @@
 				B3E2AF06286C31F6002FA252 /* JHInspectBaseCell.swift */,
 				B3B12BC22869A1840052E26F /* JHIconLabel.swift */,
 				B3E2AF0C286C53E1002FA252 /* JHSwitchView.swift */,
+				B3E2AF11286DB32D002FA252 /* JHOptionsHeaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -2044,6 +2047,7 @@
 				B39E51402850A7F500EAE842 /* PhotoBaseCell.swift in Sources */,
 				B3F3343628129ED8003B834D /* PersonalVideoActivityController.swift in Sources */,
 				B39E51472850A97000EAE842 /* JHRecommendModel.swift in Sources */,
+				B3E2AF12286DB32D002FA252 /* JHOptionsHeaderView.swift in Sources */,
 				B316369628447FD300A09F62 /* ReportUserInfoM.swift in Sources */,
 				B3DCCF65285B0FBA0000853C /* JHPictureGroupController.swift in Sources */,
 				B38D88A1277B199400888EFB /* SceneDelegate.swift in Sources */,

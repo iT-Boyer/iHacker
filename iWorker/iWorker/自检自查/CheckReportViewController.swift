@@ -7,11 +7,31 @@
 
 import UIKit
 
-class CheckReportViewController: JHSelCheckBaseController {
+class CheckReportViewController: CheckSelfThirdViewController {
 
+    var reportId = ""
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func createView() {
+        super.createView()
+        setStepImage(img: "Inspect报告bar")
+        bottomBtn.setTitle("保存", for: .normal)
+        
+    }
+    
+    override func nextStepAction() {
+        super.nextStepAction()
+        //TODO: 保存
+    }
+    
+    override var headerView: JHOptionsHeaderView{
+        set{}
+        get{
+            JHOptionsHeaderView(name: "未通过检查项", note: "负责人")
+        }
     }
 }

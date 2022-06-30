@@ -21,39 +21,19 @@ class CheckSelfThirdViewController: JHSelCheckBaseController {
     override func createView() {
         super.createView()
         setStepImage(img: "Inspect步骤3")
+        
+        bottomBtn.setTitle("保存生成报告", for: .normal)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(JHInspectInfoCell.self, forCellReuseIdentifier: "JHInspectInfoCell")
         tableView.register(JHInspectBaseCell.self, forCellReuseIdentifier: "JHInspectBaseCell")
     }
     
-    lazy var headerView: UIView = {
-        let header = UIView()
-        let icon = UIImageView(image: .init(named: "Inspect检查项"))
-        let title = UILabel()
-        title.text = "检查项"
-        title.textColor = .k333333
-        title.font = .systemFont(ofSize: 15)
-        let line = UIView()
-        line.backgroundColor = .initWithHex("A9A9A9")
-        header.addSubviews([icon, title, line])
-        icon.snp.makeConstraints { make in
-            make.top.equalTo(28)
-            make.size.equalTo(CGSize(width: 22, height: 22))
-            make.left.equalTo(15)
-            make.bottom.equalTo(-10)
-        }
-        title.snp.makeConstraints { make in
-            make.left.equalTo(icon.snp.right).offset(8)
-            make.centerY.equalTo(icon.snp.centerY)
-        }
-        line.snp.makeConstraints { make in
-            make.height.equalTo(0.5)
-            make.right.left.bottom.equalToSuperview()
-        }
-        return header
-    }()
-    
+    override func nextStepAction() {
+        super.nextStepAction()
+        let report = CheckReportViewController()
+        navigationController?.pushViewController(report, animated: true)
+    }
     
     lazy var dataArray:[[Any]] = [infoArray,optionsArray] as [[Any]]
     
@@ -91,9 +71,18 @@ class CheckSelfThirdViewController: JHSelCheckBaseController {
         }
         return []
     }()
+
+    lazy var headerView = JHOptionsHeaderView(name: "检查项"){
+        didSet{
+            print("第三步。。。didSet")
+        }
+        willSet{
+            print("第三步。。。willSet")
+        }
+    }
 }
 
-extension CheckSelfThirdViewController:UITableViewDelegate,UITableViewDataSource
+extension CheckSelfThirdViewController:UITableViewDataSource
 {
     func numberOfSections(in tableView: UITableView) -> Int {
         dataArray.count

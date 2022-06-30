@@ -186,7 +186,7 @@ class CheckSelfViewController: JHSelCheckBaseController {
     }()
 }
 
-extension CheckSelfViewController:UITableViewDataSource,UITableViewDelegate
+extension CheckSelfViewController:UITableViewDataSource
 {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         dataArray.count
