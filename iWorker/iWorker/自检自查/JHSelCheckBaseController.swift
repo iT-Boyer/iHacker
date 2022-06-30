@@ -10,15 +10,7 @@ import JHBase
 
 class JHSelCheckBaseController: JHBaseNavVC {
 
-    var storeId = "00000000-0000-0000-0000-000000000000"{
-        didSet{
-            print("父类:didSet --- storeId: \(oldValue)")
-        }
-        
-        willSet{
-            print("父类:willSet --- storeId: \(newValue)")
-        }
-    }
+    var storeId = "00000000-0000-0000-0000-000000000000"
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -46,7 +38,7 @@ class JHSelCheckBaseController: JHBaseNavVC {
         navBar.backBtn.setImage(.init(named: "Inspect返回"), for: .normal)
         
         view.addSubviews([waterView,stepView,tableView])
-
+        view.sendSubviewToBack(waterView)
         let index = view.subviews.firstIndex(of: navBar) ?? 0
         view.insertSubview(stepView, at: index)
         waterView.snp.makeConstraints { make in
@@ -70,15 +62,17 @@ class JHSelCheckBaseController: JHBaseNavVC {
     
     func refreshLocationUI(location:JHLocation) {
         let mark = JHBaseInfo.userAccount + "  " + today + "  " + location.desc
-        waterView.addWaterText(text: mark, color: .darkGray, font: .systemFont(ofSize: 15))
+        waterView.addWaterText(text: mark, color: waterColor, font: .systemFont(ofSize: 15))
     }
     
     lazy var waterView: UIView = {
         let water = UIView()
         let mark = JHBaseInfo.userAccount + "  " + today
-        water.addWaterText(text: mark, color: .darkGray, font: .systemFont(ofSize: 15))
+        water.addWaterText(text: mark, color: waterColor, font: .systemFont(ofSize: 15))
         return water
     }()
+    
+    lazy var waterColor = UIColor(white: 0, alpha: 0.2)
     
     lazy var today: String = {
         let format = DateFormatter()

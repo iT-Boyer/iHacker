@@ -14,15 +14,6 @@ class CheckSelfSecondViewController: JHSelCheckBaseController {
 
     var typeId:String?
     var dataArray:[InspectOptionModel] = []
-    override var storeId: String{
-        didSet{
-            print("子类:didSet --- storeId: \(oldValue)")
-        }
-        
-        willSet{
-            print("子类:willSet --- storeId: \(newValue)")
-        }
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,7 +27,36 @@ class CheckSelfSecondViewController: JHSelCheckBaseController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(JHInspectBaseCell.self, forCellReuseIdentifier: "JHInspectBaseCell")
+        headerView.frame.size.height = 60
+        tableView.tableHeaderView = headerView
     }
+    
+    lazy var headerView: UIView = {
+        let header = UIView()
+        let icon = UIImageView(image: .init(named: "Inspect检查项"))
+        let title = UILabel()
+        title.text = "检查项"
+        title.textColor = .k333333
+        title.font = .systemFont(ofSize: 15)
+        let line = UIView()
+        line.backgroundColor = .initWithHex("A9A9A9")
+        header.addSubviews([icon, title, line])
+        icon.snp.makeConstraints { make in
+            make.top.equalTo(28)
+            make.size.equalTo(CGSize(width: 22, height: 22))
+            make.left.equalTo(15)
+            make.bottom.equalTo(-10)
+        }
+        title.snp.makeConstraints { make in
+            make.left.equalTo(icon.snp.right).offset(8)
+            make.centerY.equalTo(icon.snp.centerY)
+        }
+        line.snp.makeConstraints { make in
+            make.height.equalTo(0.5)
+            make.right.left.bottom.equalToSuperview()
+        }
+        return header
+    }()
     
     override func loadData() {
         super.loadData()
