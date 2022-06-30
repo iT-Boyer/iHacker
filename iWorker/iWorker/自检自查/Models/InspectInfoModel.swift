@@ -30,14 +30,34 @@ struct InspectInfoModel: Codable {
         }
     }
     
-    func archiveData() {
-        //转JSON
-//        let jsonEncoder = JSONEncoder()
-//        jsonEncoder.outputFormatting = .prettyPrinted
-//        let menuJson = try! jsonEncoder.encode(targets)
-//        //写入新文件
-//        let newfile = JHSources()+"iu.json"
-//        try! newfile.write(menuJson)
+    // 解档
+    static func unArchive() -> InspectInfoModel?{
+        do{
+            let jsonData = try Data(contentsOf: InspectInfoModel.arcchiveUrl,
+                                       options: NSData.ReadingOptions(rawValue: 0))
+            let decoder = JSONDecoder()
+            return try decoder.decode(InspectInfoModel.self, from: jsonData)
+        }catch{
+            return nil
+        }
+    }
+    // 归档
+    func toArchive() {
+        do{
+            let jsonEncoder = JSONEncoder()
+            jsonEncoder.outputFormatting = .prettyPrinted
+            let menuJson = try jsonEncoder.encode(self)
+            try menuJson.write(to: InspectInfoModel.arcchiveUrl, options: .atomic)
+        }catch{
+            print("归档失败...")
+        }
+    }
+    
+    static var arcchiveUrl: URL{
+        //写入新文件
+        let newfile = Bundle.main.bundlePath + "selfinfo.json"
+        let url = URL(fileURLWithPath: newfile)
+        return url
     }
     
     enum CodingKeys: String, CodingKey {

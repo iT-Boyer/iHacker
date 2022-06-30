@@ -10,6 +10,7 @@ import Foundation
 // MARK: - Content
 struct InspectOptionModel: Codable {
     var id: String?
+    //isNeedPic 是否拍照 //isNotForAll合理缺项
     var isNeedPic, isNotForAll: Bool?
     var text: String?
 

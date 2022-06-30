@@ -12,7 +12,7 @@ class JHInspectInfoCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
-//        backgroundColor = .clear
+        backgroundColor = .clear
         createView()
     }
     
@@ -26,16 +26,18 @@ class JHInspectInfoCell: UITableViewCell {
             iconView.image = .init(named: mm.icon ?? "")
             nameLab.text = mm.name ?? ""
             valueLab.text = mm.value ?? ""
+            subLab.isHidden = mm.type != 1
         }
     }
     
     func createView() {
         contentView.backgroundColor = .clear
-        contentView.addSubviews([iconView, nameLab,valueLab])
+        contentView.addSubviews([iconView, nameLab, valueLab, subLab])
         
         iconView.snp.makeConstraints { make in
             make.size.equalTo(CGSize(width: 15, height: 13))
             make.left.equalTo(20)
+            make.top.equalTo(20)
             make.centerY.equalToSuperview()
         }
         
@@ -48,6 +50,11 @@ class JHInspectInfoCell: UITableViewCell {
             make.centerY.equalToSuperview()
             make.right.equalTo(-20)
         }
+        
+        subLab.snp.makeConstraints { make in
+            make.right.equalTo(-20)
+            make.bottom.equalTo(-3)
+        }
     }
     
     lazy var iconView: UIImageView = {
@@ -57,7 +64,6 @@ class JHInspectInfoCell: UITableViewCell {
     
     lazy var nameLab: UILabel = {
         let lab = UILabel()
-        lab.textColor = .k000000
         lab.font = .systemFont(ofSize: 15)
         return lab
     }()
@@ -66,6 +72,15 @@ class JHInspectInfoCell: UITableViewCell {
         let lab = UILabel()
         lab.textAlignment = .right
         lab.font = .systemFont(ofSize: 15)
+        return lab
+    }()
+    
+    lazy var subLab: UILabel = {
+        let lab = UILabel()
+        lab.isHidden = true
+        lab.textAlignment = .right
+        lab.textColor = .k666666
+        lab.font = .systemFont(ofSize: 11)
         return lab
     }()
 }

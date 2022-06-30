@@ -21,6 +21,10 @@ class JHSelCheckBaseController: JHBaseNavVC {
         newModel.record = AddRecordModel()
         newModel.options = []
         newModel.profiles = []
+        newModel.record?.storeId = storeId
+        newModel.record?.appId = JHBaseInfo.appID
+        newModel.record?.userId = JHBaseInfo.userID
+        newModel.record?.inspectDate = today
         return newModel
     }()
     
@@ -119,8 +123,8 @@ class JHSelCheckBaseController: JHBaseNavVC {
         tb.removeTableFooterView()
         tb.separatorStyle = .singleLine
         tb.estimatedRowHeight = 75
-        tb.separatorColor = .k666666
-        tb.separatorInset = .zero
+        tb.separatorColor = .initWithHex("A9A9A9")
+        tb.separatorInset = .init(top: 0.5, left: 0, bottom: 0, right: 0)
         tb.rowHeight = UITableView.automaticDimension
         return tb
     }()

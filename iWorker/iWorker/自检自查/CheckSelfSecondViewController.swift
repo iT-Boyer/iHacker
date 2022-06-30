@@ -25,6 +25,13 @@ class CheckSelfSecondViewController: JHSelCheckBaseController {
         //归档
         addModel.toArchive()
     }
+    
+    override func nextStepAction() {
+        super.nextStepAction()
+        let third = CheckSelfThirdViewController()
+        navigationController?.pushViewController(third, animated: true)
+    }
+    
     override func createView() {
         super.createView()
         setStepImage(img: "Inspect步骤2")
@@ -96,6 +103,7 @@ class CheckSelfSecondViewController: JHSelCheckBaseController {
                     add.origin = origin
                     return add
                 }
+                weakSelf.addModel.options = weakSelf.dataArray
                 weakSelf.tableView.reloadData()
             }else{
                 let msg = json["message"].stringValue

@@ -47,6 +47,7 @@ class CheckSelfViewController: JHSelCheckBaseController {
             if result {
                 guard let rawData = try? json["Content"].rawData() else {return}
                 guard let info:InspectInfoModel =  InspectInfoModel.parsed(data: rawData) else { return }
+                info.toArchive()
                 weakSelf.refreshUIData(model: info)
             }else{
                 let msg = json["message"].stringValue
