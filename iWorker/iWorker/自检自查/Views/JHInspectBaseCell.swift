@@ -114,10 +114,18 @@ class JHInspectBaseCell: UITableViewCell {
     
     lazy var switchBtn: JHSwitchView = {
         let btn = JHSwitchView()
+        btn.isOn = false
+        btn.addTarget(self, action: #selector(switchAction(btn:)), for: .valueChanged)
         btn.snp.makeConstraints { make in
             make.size.equalTo(CGSize(width: 65, height: 30))
         }
         btn.transform = CGAffineTransform(scaleX: 1.2, y: 1.15)
         return btn
     }()
+    
+    @objc func switchAction(btn:JHSwitchView) {
+        print("开关状态：\(btn.isOn)")
+        btn.leftLab.isHidden = !btn.isOn
+        btn.rightLab.isHidden = btn.isOn
+    }
 }

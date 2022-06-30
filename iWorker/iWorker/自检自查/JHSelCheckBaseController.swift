@@ -10,7 +10,15 @@ import JHBase
 
 class JHSelCheckBaseController: JHBaseNavVC {
 
-    var storeId = "00000000-0000-0000-0000-000000000000"
+    var storeId = "00000000-0000-0000-0000-000000000000"{
+        didSet{
+            print("父类:didSet --- storeId: \(oldValue)")
+        }
+        
+        willSet{
+            print("父类:willSet --- storeId: \(newValue)")
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.

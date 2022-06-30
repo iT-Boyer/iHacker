@@ -14,6 +14,15 @@ class CheckSelfSecondViewController: JHSelCheckBaseController {
 
     var typeId:String?
     var dataArray:[InspectOptionModel] = []
+    override var storeId: String{
+        didSet{
+            print("子类:didSet --- storeId: \(oldValue)")
+        }
+        
+        willSet{
+            print("子类:willSet --- storeId: \(newValue)")
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
