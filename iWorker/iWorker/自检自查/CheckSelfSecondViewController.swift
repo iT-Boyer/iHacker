@@ -111,4 +111,11 @@ extension CheckSelfSecondViewController:UITableViewDataSource
         }
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detail = InsOptDetailViewController()
+        let model = dataArray[indexPath.row]
+        detail.insOptId = model.inspectOptionId
+        navigationController?.pushViewController(detail, completion: nil)
+    }
 }

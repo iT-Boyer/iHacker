@@ -245,6 +245,7 @@
 		B3E2AF0D286C53E1002FA252 /* JHSwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E2AF0C286C53E1002FA252 /* JHSwitchView.swift */; };
 		B3E2AF10286D6B09002FA252 /* AddSelfInsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E2AF0F286D6B09002FA252 /* AddSelfInsModel.swift */; };
 		B3E2AF12286DB32D002FA252 /* JHOptionsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E2AF11286DB32D002FA252 /* JHOptionsHeaderView.swift */; };
+		B3E2AF14286E8D5A002FA252 /* GetSelfInspectOptionDes.json in Resources */ = {isa = PBXBuildFile; fileRef = B3E2AF13286E8D5A002FA252 /* GetSelfInspectOptionDes.json */; };
 		B3EC88BF284493230040F664 /* ReportPatrolInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC88BE284493230040F664 /* ReportPatrolInfoCell.swift */; };
 		B3EC88C1284493340040F664 /* ReportTaskInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC88C0284493340040F664 /* ReportTaskInfoCell.swift */; };
 		B3EC88C32844AA5D0040F664 /* ReportTaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC88C22844AA5D0040F664 /* ReportTaskModel.swift */; };
@@ -590,6 +591,7 @@
 		B3E2AF0C286C53E1002FA252 /* JHSwitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHSwitchView.swift; sourceTree = "<group>"; };
 		B3E2AF0F286D6B09002FA252 /* AddSelfInsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSelfInsModel.swift; sourceTree = "<group>"; };
 		B3E2AF11286DB32D002FA252 /* JHOptionsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHOptionsHeaderView.swift; sourceTree = "<group>"; };
+		B3E2AF13286E8D5A002FA252 /* GetSelfInspectOptionDes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GetSelfInspectOptionDes.json; sourceTree = "<group>"; };
 		B3EC88BE284493230040F664 /* ReportPatrolInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportPatrolInfoCell.swift; sourceTree = "<group>"; };
 		B3EC88C0284493340040F664 /* ReportTaskInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTaskInfoCell.swift; sourceTree = "<group>"; };
 		B3EC88C22844AA5D0040F664 /* ReportTaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTaskModel.swift; sourceTree = "<group>"; };
@@ -1414,6 +1416,7 @@
 			children = (
 				B3E2AF08286C3F82002FA252 /* GetSelfInspectOptions.json */,
 				B3B12BC6286ADAFA0052E26F /* GetInfoToSelfInspect.json */,
+				B3E2AF13286E8D5A002FA252 /* GetSelfInspectOptionDes.json */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -1838,6 +1841,7 @@
 				B38D8908277B1AC000888EFB /* ipFile.plist in Resources */,
 				B3289D742862FAD900E1FF1A /* JHUniversalResource.bundle in Resources */,
 				B34635BF27E37FA0002CA750 /* GetSingleIntelligentDeviceInfoNew.json in Resources */,
+				B3E2AF14286E8D5A002FA252 /* GetSelfInspectOptionDes.json in Resources */,
 				B39E51552850AA2300EAE842 /* DelAmbient.json in Resources */,
 				B38D890D277B1AC000888EFB /* RegisterFaceInfo.json in Resources */,
 				B33EF39527BFA68B00A3B6DE /* AddInviteUser.json in Resources */,

@@ -24,7 +24,6 @@ class CheckReportViewController: CheckSelfThirdViewController {
     }
     
     override func nextStepAction() {
-        super.nextStepAction()
         //TODO: 保存
     }
     

@@ -72,14 +72,7 @@ class CheckSelfThirdViewController: JHSelCheckBaseController {
         return []
     }()
 
-    lazy var headerView = JHOptionsHeaderView(name: "检查项"){
-        didSet{
-            print("第三步。。。didSet")
-        }
-        willSet{
-            print("第三步。。。willSet")
-        }
-    }
+    lazy var headerView = JHOptionsHeaderView(name: "检查项")
 }
 
 extension CheckSelfThirdViewController:UITableViewDataSource
@@ -126,5 +119,17 @@ extension CheckSelfThirdViewController:UITableViewDataSource
             return cell
         }
         return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if indexPath.section == 1 {
+            if let infoArr = dataArray[indexPath.section] as? [AddInsOptModel]{
+                let model = infoArr[indexPath.row]
+                let detail = InsOptDetailViewController()
+                detail.insOptId = model.inspectOptionId
+                navigationController?.pushViewController(detail, completion: nil)
+            }
+        }
     }
 }
