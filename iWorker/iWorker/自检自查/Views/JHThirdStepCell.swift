@@ -21,9 +21,16 @@ class JHThirdStepCell: JHInspectBaseCell {
             guard let mm = model else { return }
             titleLab.text = mm.origin?.text
             cameraBtn.isHidden = mm.origin?.isNeedPic ?? false
-            checkBtn.isSelected = mm.status == 1
-            let imageName = checkBtn.isSelected ? "Inspect第三步状态":"Inspect第三步状态2"
-            checkBtn.setBackgroundImage(.init(named:imageName), for: .normal)
+            if mm.status == 2 {
+                //合理缺项
+                checkBtn.isSelected = false
+                checkBtn.setTitle("合理缺项", for: .normal)
+                checkBtn.setBackgroundImage(UIImage(), for: .normal)
+            }else{
+                checkBtn.isSelected = mm.status == 1
+                let imageName = checkBtn.isSelected ? "Inspect第三步状态":"Inspect第三步状态2"
+                checkBtn.setBackgroundImage(.init(named:imageName), for: .normal)
+            }
         }
     }
     
