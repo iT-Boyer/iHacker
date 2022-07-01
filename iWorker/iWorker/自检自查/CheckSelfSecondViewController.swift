@@ -38,7 +38,7 @@ class CheckSelfSecondViewController: JHSelCheckBaseController {
         
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(JHInspectBaseCell.self, forCellReuseIdentifier: "JHInspectBaseCell")
+        tableView.register(JHSecondStepCell.self, forCellReuseIdentifier: "JHSecondStepCell")
         headerView.frame.size.height = 60
         tableView.tableHeaderView = headerView
     }
@@ -95,7 +95,7 @@ extension CheckSelfSecondViewController:UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "JHInspectBaseCell") as! JHInspectBaseCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "JHSecondStepCell") as! JHSecondStepCell
         cell.model = dataArray[indexPath.row]
         cell.actionHandler = {[weak self] model in
             guard let wf = self else { return }

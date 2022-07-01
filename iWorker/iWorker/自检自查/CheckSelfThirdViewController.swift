@@ -26,7 +26,7 @@ class CheckSelfThirdViewController: JHSelCheckBaseController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(JHInspectInfoCell.self, forCellReuseIdentifier: "JHInspectInfoCell")
-        tableView.register(JHInspectBaseCell.self, forCellReuseIdentifier: "JHInspectBaseCell")
+        tableView.register(JHThirdStepCell.self, forCellReuseIdentifier: "JHThirdStepCell")
         tableView.register(CheckNoteCell.self, forCellReuseIdentifier: "CheckNoteCell")
         tableView.register(CheckSignCell.self, forCellReuseIdentifier: "CheckSignCell")
     }
@@ -120,7 +120,7 @@ extension CheckSelfThirdViewController:UITableViewDataSource
         }
         
         if indexPath.section == 1 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "JHInspectBaseCell") as! JHInspectBaseCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "JHThirdStepCell") as! JHThirdStepCell
             if let infoArr = dataArray[indexPath.section] as? [AddInsOptModel]{
                 cell.model = infoArr[indexPath.row]
             }

@@ -145,7 +145,7 @@ extension CheckReportViewController:UITableViewDataSource
         if indexPath.section == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "JHReformOptCell") as! JHReformOptCell
             if let optsArr = dataArray[indexPath.section] as? [ReformOptionModel]{
-                cell.reformModel = optsArr[indexPath.row]
+                cell.model = optsArr[indexPath.row]
             }
             return cell
         }

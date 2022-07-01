@@ -12,7 +12,7 @@
     }, {
         "Id": "69d7bd73-5735-48ac-b117-4c7db52b8d28",
         "IsNeedPic": true,
-        "IsNotForAll": false,
+        "IsNotForAll": true,
         "Text": "在经营场所醒目位置公示食品经营许可证。"
     }, {
         "Id": "8b1b98ce-c819-42bc-bb14-4ac1fcfbcd26",
@@ -22,7 +22,7 @@
     }, {
         "Id": "f7f20e8c-0573-49cb-93ae-829d1acb6b42",
         "IsNeedPic": true,
-        "IsNotForAll": false,
+        "IsNotForAll": true,
         "Text": "监督检查结果记录表公示的时间、位置等符合"
     }, {
         "Id": "4e273ced-95fd-4846-9d53-5aab38f94b0c",
@@ -32,7 +32,7 @@
     }, {
         "Id": "83efea41-3c33-4c9e-aa1e-b4d6cb62d778",
         "IsNeedPic": true,
-        "IsNotForAll": false,
+        "IsNotForAll": true,
         "Text": "建立从业人员健康管理、食品安全自查、进货"
     }, {
         "Id": "cb1ec177-dda2-49df-9a3c-b53f0aee6cfb",

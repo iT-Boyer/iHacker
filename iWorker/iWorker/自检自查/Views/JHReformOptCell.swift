@@ -13,10 +13,7 @@ class JHReformOptCell: JHInspectBaseCell {
     
     override func createView() {
         super.createView()
-        rightBtn.setTitle("负责人签字", for: .normal)
-        rightBtn.setImageForAllStates(UIImage())
-        rightBtn.setTitleColor(.black, for: .normal)
-        rightBtn.titleLabel?.font = .systemFont(ofSize: 15)
+        stackView.addArrangedSubview(signBtn)
         
         contentView.addSubview(noteLab)
         titleLab.snp.remakeConstraints { make in
@@ -30,18 +27,26 @@ class JHReformOptCell: JHInspectBaseCell {
             make.top.equalTo(titleLab.snp.bottom).offset(5)
             make.bottom.equalTo(-5)
         }
-        
-        rightBtn.snp.updateConstraints { make in
-            make.size.equalTo(CGSize(width: 80, height: 60))
-        }
     }
-    var reformModel:ReformOptionModel?{
+    var model:ReformOptionModel?{
         willSet{
             guard let new = newValue else { return }
             titleLab.text = new.remark
         }
     }
-    override func rightAction() {
+    lazy var signBtn: UIButton = {
+        let btn = UIButton()
+        btn.setTitle("负责人签字", for: .normal)
+        btn.setTitleColor(.black, for: .normal)
+        btn.titleLabel?.font = .systemFont(ofSize: 15)
+        btn.snp.updateConstraints { make in
+            make.size.equalTo(CGSize(width: 80, height: 60))
+        }
+        btn.addTarget(self, action: #selector(signAction), for: .touchDown)
+        return btn
+    }()
+    
+    @objc func signAction() {
         //TODO: 签名跳转
         let signvc = InsSignViewController()
         signvc.signHandler = { url in
