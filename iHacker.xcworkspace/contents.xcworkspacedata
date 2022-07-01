@@ -35,6 +35,9 @@
       location = "group:../CwlPreconditionTesting">
    </FileRef>
    <FileRef
+      location = "group:../YPDrawSignatureView">
+   </FileRef>
+   <FileRef
       location = "group:../TZImagePickerController">
    </FileRef>
 </Workspace>

@@ -254,6 +254,7 @@
 		B3E2AF22286EC453002FA252 /* JHReformOptCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E2AF21286EC453002FA252 /* JHReformOptCell.swift */; };
 		B3E2AF24286EDBAF002FA252 /* JHSecondStepCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E2AF23286EDBAF002FA252 /* JHSecondStepCell.swift */; };
 		B3E2AF26286EDBBF002FA252 /* JHThirdStepCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E2AF25286EDBBF002FA252 /* JHThirdStepCell.swift */; };
+		B3E2AF28286EFD49002FA252 /* YPDrawSignature in Frameworks */ = {isa = PBXBuildFile; productRef = B3E2AF27286EFD49002FA252 /* YPDrawSignature */; };
 		B3EC88BF284493230040F664 /* ReportPatrolInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC88BE284493230040F664 /* ReportPatrolInfoCell.swift */; };
 		B3EC88C1284493340040F664 /* ReportTaskInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC88C0284493340040F664 /* ReportTaskInfoCell.swift */; };
 		B3EC88C32844AA5D0040F664 /* ReportTaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC88C22844AA5D0040F664 /* ReportTaskModel.swift */; };
@@ -647,6 +648,7 @@
 				B38D8929277B1BAF00888EFB /* SwifterSwift in Frameworks */,
 				B38D892B277B1BAF00888EFB /* SwiftyJSON in Frameworks */,
 				B38D8923277B1BAE00888EFB /* Kingfisher in Frameworks */,
+				B3E2AF28286EFD49002FA252 /* YPDrawSignature in Frameworks */,
 				B38D892F277B1BAF00888EFB /* OHHTTPStubs in Frameworks */,
 				B3289D6C2862F19A00E1FF1A /* Photos.framework in Frameworks */,
 				B38D892D277B1BAF00888EFB /* MBProgressHUD in Frameworks */,
@@ -1554,6 +1556,7 @@
 				B38D892E277B1BAF00888EFB /* OHHTTPStubs */,
 				B38D8930277B1BAF00888EFB /* OHHTTPStubsSwift */,
 				B3289D692862EBB900E1FF1A /* TZImagePickerController */,
+				B3E2AF27286EFD49002FA252 /* YPDrawSignature */,
 			);
 			productName = iWorker;
 			productReference = B38D889B277B199400888EFB /* iWorker.app */;
@@ -3075,6 +3078,10 @@
 		B38D89C7277C482A00888EFB /* Quick */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Quick;
+		};
+		B3E2AF27286EFD49002FA252 /* YPDrawSignature */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = YPDrawSignature;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
