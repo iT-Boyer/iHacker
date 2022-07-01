@@ -25,14 +25,21 @@ class JHInspectBaseCell: UITableViewCell {
     var model:AddInsOptModel?{
         didSet{
             guard let mm = model else { return }
-            noteLab.text = mm.origin?.text
-            switchBtn.isSelected = mm.status == 0
+            titleLab.text = mm.origin?.text
+            rightBtn.isSelected = mm.status == 0
             cameraBtn.isHidden = mm.origin?.isNeedPic ?? false
         }
     }
     
+    @objc func rightAction() {
+        rightBtn.isSelected = !rightBtn.isSelected
+        guard var item = model else { return }
+        item.status = rightBtn.isSelected ? 0:1
+        actionHandler(item)
+    }
+    
     func createView() {
-        contentView.addSubviews([cameraBtn, noteLab, arrowIcon, stackView])
+        contentView.addSubviews([cameraBtn, titleLab, arrowIcon, stackView])
         
         cameraBtn.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
@@ -40,19 +47,19 @@ class JHInspectBaseCell: UITableViewCell {
             make.top.equalTo(15)
             make.size.equalTo(CGSize(width: 44, height: 44))
         }
-        noteLab.snp.makeConstraints { make in
+        titleLab.snp.makeConstraints { make in
             make.left.equalTo(cameraBtn.snp.right).offset(5)
             make.centerY.equalToSuperview()
         }
         arrowIcon.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.left.equalTo(noteLab.snp.right).offset(8)
+            make.left.equalTo(titleLab.snp.right).offset(8)
             make.size.equalTo(CGSize(width: 11, height: 20))
         }
         stackView.snp.makeConstraints { make in
             make.left.equalTo(arrowIcon.snp.right).offset(8)
-            make.width.equalTo(65 + 10)
-            make.height.equalTo(33)
+//            make.width.greaterThanOrEqualTo(65 + 10)
+//            make.height.greaterThanOrEqualTo(33)
             make.centerY.equalToSuperview()
             make.right.equalTo(-10)
         }
@@ -71,7 +78,7 @@ class JHInspectBaseCell: UITableViewCell {
     }
     
     lazy var stackView: UIStackView = {
-        let arrView = [vline, switchBtn]
+        let arrView = [vline, rightBtn]
         let stack = UIStackView(arrangedSubviews: arrView, axis: .horizontal)
         stack.spacing = 5
         stack.distribution = .fillProportionally
@@ -95,7 +102,7 @@ class JHInspectBaseCell: UITableViewCell {
         return num
     }()
     
-    lazy var noteLab: UILabel = {
+    lazy var titleLab: UILabel = {
         let note = UILabel()
         note.textColor = .k333333
         note.font = .systemFont(ofSize: 15)
@@ -116,16 +123,13 @@ class JHInspectBaseCell: UITableViewCell {
         return line
     }()
     
-    lazy var switchBtn: UIButton = {
+    lazy var rightBtn: UIButton = {
         let btn = UIButton()
         btn.setImage(.init(named: "Inspectpshi"), for: .normal)
         btn.setImage(.init(named: "Inspectfou"), for: .selected)
-        btn.jh.setHandleClick {[weak self] button in
-            print("-------")
-            guard let wf = self, let btn = button else {return}
-            wf.switchBtn.isSelected = !btn.isSelected
-            wf.model?.status = btn.isSelected ? 0:1
-            wf.actionHandler(wf.model)
+        btn.addTarget(self, action: #selector(rightAction), for: .touchDown)
+        btn.snp.makeConstraints { make in
+            make.size.equalTo(CGSize(width: 65, height: 33))
         }
         return btn
     }()

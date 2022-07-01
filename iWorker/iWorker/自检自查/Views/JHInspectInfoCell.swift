@@ -26,7 +26,6 @@ class JHInspectInfoCell: UITableViewCell {
             iconView.image = .init(named: mm.icon ?? "")
             nameLab.text = mm.name ?? ""
             valueLab.text = mm.value ?? ""
-            subLab.isHidden = mm.type != 1
         }
     }
     

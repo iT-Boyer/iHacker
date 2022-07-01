@@ -27,7 +27,7 @@ class CheckNoteCell: CheckEditBaseCell {
 extension CheckNoteCell:UITextViewDelegate
 {
     func textViewDidChange(_ textView: UITextView) {
-        model?.desc = textView.text
+        model?.note = textView.text
         actionHandler(model)
     }
 }

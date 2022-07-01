@@ -49,20 +49,16 @@ class CheckSelfThirdViewController: JHSelCheckBaseController {
         }
         let data = [CheckerBaseVM(icon: "Inspect经营者名称",
                                   name: "经营者名称",
-                                  value: info.storeName,
-                                  type: 0),
+                                  value: info.storeName),
                     CheckerBaseVM(icon: "Inspect自查类型",
                                   name: "自查类型",
-                                  value: type,
-                                  type: 0),
+                                  value: type),
                     CheckerBaseVM(icon: "Inspect检查次数",
                                   name: "检查时间",
-                                  value: today,
-                                  type: 1),
+                                  value: today),
                     CheckerBaseVM(icon: "Inspect业态类型",
                                   name: "业态类型",
-                                  value: info.storeTypeName,
-                                  type: 0)
+                                  value: info.storeTypeName)
         ]
         return data
     }()
@@ -75,13 +71,11 @@ class CheckSelfThirdViewController: JHSelCheckBaseController {
     }()
 
     lazy var signArray: [CheckEditCellVM] = {
-        let notevm = CheckEditCellVM(desc: "备注", type: .checker)
-        let signvm = CheckEditCellVM(desc: "检查人签名", type: .checkerSign)
-        let notevm1 = CheckEditCellVM(desc: "食品安全管理员意见", type: .manager)
-        let signvm1 = CheckEditCellVM(desc: "食品安全管理员签字", type: .managerSign)
-        let notevm2 = CheckEditCellVM(desc: "法人代表(负责人)意见", type: .owner)
-        let signvm2 = CheckEditCellVM(desc: "法人代表(负责人)签字", type: .ownerSign)
-        return [notevm, signvm, notevm1, signvm1, notevm2, signvm2]
+        let note = addModel.record?.remark ?? ""
+        let sign = addModel.record?.inspectSignature ?? ""
+        let notevm = CheckEditCellVM(desc: "备注", type: .note, note: note)
+        let signvm = CheckEditCellVM(desc: "检查人签名", type: .sign, picture: sign)
+        return [notevm, signvm]
     }()
     
     lazy var headerView = JHOptionsHeaderView(name: "检查项")
@@ -94,11 +88,7 @@ extension CheckSelfThirdViewController:UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 2 {
-            //
-            return dataArray[section].count - 4
-        }
-        return dataArray[section].count
+        dataArray[section].count
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -120,9 +110,11 @@ extension CheckSelfThirdViewController:UITableViewDataSource
             let cell = tableView.dequeueReusableCell(withIdentifier: "JHInspectInfoCell") as! JHInspectInfoCell
             if let infoArr = dataArray.first as? [CheckerBaseVM]{
                 cell.model = infoArr[indexPath.row]
-                if cell.model?.type == 1 {
-                    cell.subLab.text = "本年度第\(infoModel?.yearTimes ?? 0)次检查"
+                var text = ""
+                if indexPath.row == 2 {
+                    text = "本年度第\(infoModel?.yearTimes ?? 0)次检查"
                 }
+                cell.subLab.text = text
             }
             return cell
         }
@@ -138,20 +130,12 @@ extension CheckSelfThirdViewController:UITableViewDataSource
         if indexPath.section == 2 {
             if let signArr = dataArray[2] as? [CheckEditCellVM]{
                 let model = signArr[indexPath.row]
-                var cellId = "CheckNoteCell"
-                switch model.type {
-                case .checkerSign, .managerSign, .ownerSign:
-                    cellId = "CheckSignCell"
-                default:
-                    cellId = "CheckNoteCell"
-                }
+                let cellId = model.type == .note ? "CheckNoteCell":"CheckSignCell"
                 let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as! CheckEditBaseCell
                 cell.model = model
                 return cell
             }
         }
-        
-        
         return UITableViewCell()
     }
     

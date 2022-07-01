@@ -1,0 +1,39 @@
+{
+    "Code": "1",
+    "Data": null,
+    "Detail": null,
+    "IsSuccess": true,
+    "Message": "获取成功！",
+    "Content": {
+        "CompleteDate": "",
+        "InspectDate": "2022\/6\/30 14:47:04",
+        "InspectTypeId": "5296d2a6-494d-47ce-af01-da7dff257d2f",
+        "InspectTypeName": "日检",
+        "IsReform": null,
+        "StoreId": "a5bac1d7-0c0c-4328-8af1-2df7955a0e74",
+        "StoreName": "白兔咖啡有限责任公司",
+        "StoreSecTypeName": "中型餐饮",
+        "StoreTypeName": "食品-餐饮",
+        "YearTimes": 5,
+        "AuthUserProfile": [],
+        "InsOpts": [{
+            "Id": "e4bdaf66-5103-4a0a-a507-27ec4527d66c",
+            "Pics": "http:\/\/upfileserver.iuoooo.com\/Jinher.JAP.BaseApp.FileServer.UI\/FileManage\/GetFile?fileURL=29e54e46-3e17-4ca4-8f03-db71fb8f967d\/2022070110\/528cf34e5e264cf9ab9696d7d45b90e1_22071822553.png",
+            "Remark": null,
+            "Signature": null,
+            "Status": 0,
+            "Text": "持有有效的健康证明"
+        }],
+        "ReformSignature": [{
+            "Remark": null,
+            "RoleName": "食品安全管理员",
+            "Signature": null
+        }, {
+            "Remark": null,
+            "RoleName": "法人代表(负责人)",
+            "Signature": null
+        }],
+        "Remark": null,
+        "Signature": "http:\/\/upfileserver.iuoooo.com\/Jinher.JAP.BaseApp.FileServer.UI\/FileManage\/GetFile?fileURL=29e54e46-3e17-4ca4-8f03-db71fb8f967d\/2022070110\/9038b3160fa1436a9a34f277e8aa1e4e_22071824016.png"
+    }
+}

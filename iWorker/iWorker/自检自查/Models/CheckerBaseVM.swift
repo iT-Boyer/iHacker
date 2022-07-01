@@ -8,8 +8,5 @@
 import Foundation
 
 struct CheckerBaseVM {
-
     var icon,name,value:String?
-    var type:Int    // 0: 无箭头，1: 有箭头
-    
 }

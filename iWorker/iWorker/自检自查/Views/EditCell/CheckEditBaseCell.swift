@@ -8,17 +8,13 @@
 import UIKit
 
 enum CheckEditCellType {
-    case checker //检查人
-    case checkerSign //检查人签字
-    case manager //食品安全管理员
-    case managerSign //食品安全管理签字
-    case owner //法人
-    case ownerSign //法人签字
+    case note       //备注
+    case sign       //签字
 }
 
 struct CheckEditCellVM {
     var desc:String?
-    var type:CheckEditCellType = .checker
+    var type:CheckEditCellType = .note
     var note = "", picture:String? = ""
 }
 

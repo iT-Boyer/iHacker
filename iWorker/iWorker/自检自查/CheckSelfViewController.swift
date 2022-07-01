@@ -178,9 +178,9 @@ class CheckSelfViewController: JHSelCheckBaseController {
         if let itype = addModel.record?.selfInspectType{
             type = itype
         }
-        let data = [CheckerBaseVM(icon: "Inspect经营者名称", name: "经营者名称", value: "", type: 0),
-                    CheckerBaseVM(icon: "Inspect自查类型", name: "自查类型", value: type, type: 0),
-                    CheckerBaseVM(icon: "Inspect检查次数", name: "检查次数", value: "", type: 0)
+        let data = [CheckerBaseVM(icon: "Inspect经营者名称", name: "经营者名称", value: ""),
+                    CheckerBaseVM(icon: "Inspect自查类型", name: "自查类型", value: type),
+                    CheckerBaseVM(icon: "Inspect检查次数", name: "检查次数", value: "")
         ]
         return data
     }()

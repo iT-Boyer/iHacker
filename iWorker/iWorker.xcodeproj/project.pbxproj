@@ -249,6 +249,9 @@
 		B3E2AF17286E9216002FA252 /* CheckNoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E2AF16286E9216002FA252 /* CheckNoteCell.swift */; };
 		B3E2AF1A286E9485002FA252 /* CheckEditBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E2AF19286E9485002FA252 /* CheckEditBaseCell.swift */; };
 		B3E2AF1C286E949C002FA252 /* CheckSignCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E2AF1B286E949C002FA252 /* CheckSignCell.swift */; };
+		B3E2AF1E286EBE7D002FA252 /* GetSelfInspectReformInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = B3E2AF1D286EBE7D002FA252 /* GetSelfInspectReformInfo.json */; };
+		B3E2AF20286EBF13002FA252 /* CheckReportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E2AF1F286EBF13002FA252 /* CheckReportModel.swift */; };
+		B3E2AF22286EC453002FA252 /* JHReformOptCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E2AF21286EC453002FA252 /* JHReformOptCell.swift */; };
 		B3EC88BF284493230040F664 /* ReportPatrolInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC88BE284493230040F664 /* ReportPatrolInfoCell.swift */; };
 		B3EC88C1284493340040F664 /* ReportTaskInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC88C0284493340040F664 /* ReportTaskInfoCell.swift */; };
 		B3EC88C32844AA5D0040F664 /* ReportTaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC88C22844AA5D0040F664 /* ReportTaskModel.swift */; };
@@ -598,6 +601,9 @@
 		B3E2AF16286E9216002FA252 /* CheckNoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckNoteCell.swift; sourceTree = "<group>"; };
 		B3E2AF19286E9485002FA252 /* CheckEditBaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckEditBaseCell.swift; sourceTree = "<group>"; };
 		B3E2AF1B286E949C002FA252 /* CheckSignCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckSignCell.swift; sourceTree = "<group>"; };
+		B3E2AF1D286EBE7D002FA252 /* GetSelfInspectReformInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetSelfInspectReformInfo.json; sourceTree = "<group>"; };
+		B3E2AF1F286EBF13002FA252 /* CheckReportModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckReportModel.swift; sourceTree = "<group>"; };
+		B3E2AF21286EC453002FA252 /* JHReformOptCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHReformOptCell.swift; sourceTree = "<group>"; };
 		B3EC88BE284493230040F664 /* ReportPatrolInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportPatrolInfoCell.swift; sourceTree = "<group>"; };
 		B3EC88C0284493340040F664 /* ReportTaskInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTaskInfoCell.swift; sourceTree = "<group>"; };
 		B3EC88C22844AA5D0040F664 /* ReportTaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTaskModel.swift; sourceTree = "<group>"; };
@@ -860,6 +866,7 @@
 				B3B12BCA286B0B510052E26F /* UIView+WaterMark.swift */,
 				B33D237A2869804B009B8B21 /* JHInspectInfoCell.swift */,
 				B3E2AF06286C31F6002FA252 /* JHInspectBaseCell.swift */,
+				B3E2AF21286EC453002FA252 /* JHReformOptCell.swift */,
 				B3B12BC22869A1840052E26F /* JHIconLabel.swift */,
 				B3E2AF0C286C53E1002FA252 /* JHSwitchView.swift */,
 				B3E2AF11286DB32D002FA252 /* JHOptionsHeaderView.swift */,
@@ -874,6 +881,7 @@
 				B3B12BC8286ADBD40052E26F /* InspectInfoModel.swift */,
 				B3E2AF0A286C3FC7002FA252 /* InspectOptionModel.swift */,
 				B3E2AF0F286D6B09002FA252 /* AddSelfInsModel.swift */,
+				B3E2AF1F286EBF13002FA252 /* CheckReportModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1424,6 +1432,7 @@
 				B3E2AF08286C3F82002FA252 /* GetSelfInspectOptions.json */,
 				B3B12BC6286ADAFA0052E26F /* GetInfoToSelfInspect.json */,
 				B3E2AF13286E8D5A002FA252 /* GetSelfInspectOptionDes.json */,
+				B3E2AF1D286EBE7D002FA252 /* GetSelfInspectReformInfo.json */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -1862,6 +1871,7 @@
 				B39E51552850AA2300EAE842 /* DelAmbient.json in Resources */,
 				B38D890D277B1AC000888EFB /* RegisterFaceInfo.json in Resources */,
 				B33EF39527BFA68B00A3B6DE /* AddInviteUser.json in Resources */,
+				B3E2AF1E286EBE7D002FA252 /* GetSelfInspectReformInfo.json in Resources */,
 				B39E515B2850AA6600EAE842 /* UptStoreBrandPubCover.json in Resources */,
 				B3E2AF09286C3F82002FA252 /* GetSelfInspectOptions.json in Resources */,
 				B39E51492850A99300EAE842 /* GetBrandPubDetail.json in Resources */,
@@ -2034,6 +2044,7 @@
 				B3983D00286074DF0018303F /* UITextViewPlaceholder.swift in Sources */,
 				B3EC88D12845BB9E0040F664 /* ReportTrackPachM.swift in Sources */,
 				B38E8A6C2848584700884A6A /* GBPersonalPointMapVC.swift in Sources */,
+				B3E2AF20286EBF13002FA252 /* CheckReportModel.swift in Sources */,
 				B39C859B283F2E9F007ABDCC /* JHMapFilterM.swift in Sources */,
 				B39E513E2850A72800EAE842 /* JHPhotosModel.swift in Sources */,
 				B3306D4327B124EC005E7DDC /* JHUnitOrgChangeController.swift in Sources */,
@@ -2071,6 +2082,7 @@
 				B3E2AF12286DB32D002FA252 /* JHOptionsHeaderView.swift in Sources */,
 				B3E2AF1A286E9485002FA252 /* CheckEditBaseCell.swift in Sources */,
 				B316369628447FD300A09F62 /* ReportUserInfoM.swift in Sources */,
+				B3E2AF22286EC453002FA252 /* JHReformOptCell.swift in Sources */,
 				B3DCCF65285B0FBA0000853C /* JHPictureGroupController.swift in Sources */,
 				B38D88A1277B199400888EFB /* SceneDelegate.swift in Sources */,
 				B3697E7927E42481004D8867 /* JHDeviceSNCell.swift in Sources */,
