@@ -19,24 +19,28 @@ class JHSecondStepCell: JHInspectBaseCell {
         didSet{
             guard let mm = model else { return }
             
-            switchBtn.isHidden = mm.origin?.isNotForAll ?? false
-            pullBtn.isHidden = !(mm.origin?.isNotForAll ?? true)
-            
             titleLab.text = mm.origin?.text
-            switchBtn.isSelected = mm.status == 1
             cameraBtn.isHidden = mm.origin?.isNeedPic ?? false
             
-            if mm.status == 0 {
-                pullBtn.setTitle("   否   ", for: .normal)
-                pullBtn.titleLabel?.font = .systemFont(ofSize: 14)
-            }
-            if mm.status == 1 {
-                pullBtn.setTitle("   是   ", for: .normal)
-                pullBtn.titleLabel?.font = .systemFont(ofSize: 14)
-            }
-            if mm.status == 2 {
-                pullBtn.setTitle("合理缺项", for: .normal)
-                pullBtn.titleLabel?.font = .systemFont(ofSize: 12)
+            let isOption = mm.origin?.isNotForAll ?? false
+            switchBtn.isHidden = isOption
+            pullBtn.isHidden = !isOption
+            
+            if isOption {
+                if mm.status == 0 {
+                    pullBtn.setTitle("   否   ", for: .normal)
+                    pullBtn.titleLabel?.font = .systemFont(ofSize: 14)
+                }else
+                if mm.status == 1 {
+                    pullBtn.setTitle("   是   ", for: .normal)
+                    pullBtn.titleLabel?.font = .systemFont(ofSize: 14)
+                }else
+                if mm.status == 2 {
+                    pullBtn.setTitle("合理缺项", for: .normal)
+                    pullBtn.titleLabel?.font = .systemFont(ofSize: 12)
+                }
+            }else{
+                switchBtn.isSelected = mm.status == 1
             }
         }
     }

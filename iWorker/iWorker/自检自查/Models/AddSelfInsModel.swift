@@ -78,8 +78,8 @@ struct AddRecordModel: Codable {
 struct AddInsOptModel:Codable {
     
     var inspectOptionId:String?
-    var picture: String? // picture ;分号分割的图片路径
-    var status: Int?    //0:未通过 1:通过 2:可选
+    var picture: String?    // picture ;分号分割的图片路径
+    var status: Int? = 0    // 0:未通过 1:通过 2:可选
 
     var origin:InspectOptionModel?{
         willSet{
