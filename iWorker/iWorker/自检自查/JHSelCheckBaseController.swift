@@ -126,6 +126,9 @@ class JHSelCheckBaseController: JHBaseNavVC {
         tb.separatorColor = .initWithHex("A9A9A9")
         tb.separatorInset = .init(top: 0.5, left: 0, bottom: 0, right: 0)
         tb.rowHeight = UITableView.automaticDimension
+        if #available (iOS 15.0, *) {
+            UITableView.appearance().sectionHeaderTopPadding = 0.5
+        }
         return tb
     }()
     

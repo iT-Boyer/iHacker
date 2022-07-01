@@ -246,6 +246,9 @@
 		B3E2AF10286D6B09002FA252 /* AddSelfInsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E2AF0F286D6B09002FA252 /* AddSelfInsModel.swift */; };
 		B3E2AF12286DB32D002FA252 /* JHOptionsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E2AF11286DB32D002FA252 /* JHOptionsHeaderView.swift */; };
 		B3E2AF14286E8D5A002FA252 /* GetSelfInspectOptionDes.json in Resources */ = {isa = PBXBuildFile; fileRef = B3E2AF13286E8D5A002FA252 /* GetSelfInspectOptionDes.json */; };
+		B3E2AF17286E9216002FA252 /* CheckNoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E2AF16286E9216002FA252 /* CheckNoteCell.swift */; };
+		B3E2AF1A286E9485002FA252 /* CheckEditBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E2AF19286E9485002FA252 /* CheckEditBaseCell.swift */; };
+		B3E2AF1C286E949C002FA252 /* CheckSignCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E2AF1B286E949C002FA252 /* CheckSignCell.swift */; };
 		B3EC88BF284493230040F664 /* ReportPatrolInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC88BE284493230040F664 /* ReportPatrolInfoCell.swift */; };
 		B3EC88C1284493340040F664 /* ReportTaskInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC88C0284493340040F664 /* ReportTaskInfoCell.swift */; };
 		B3EC88C32844AA5D0040F664 /* ReportTaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC88C22844AA5D0040F664 /* ReportTaskModel.swift */; };
@@ -592,6 +595,9 @@
 		B3E2AF0F286D6B09002FA252 /* AddSelfInsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSelfInsModel.swift; sourceTree = "<group>"; };
 		B3E2AF11286DB32D002FA252 /* JHOptionsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHOptionsHeaderView.swift; sourceTree = "<group>"; };
 		B3E2AF13286E8D5A002FA252 /* GetSelfInspectOptionDes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GetSelfInspectOptionDes.json; sourceTree = "<group>"; };
+		B3E2AF16286E9216002FA252 /* CheckNoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckNoteCell.swift; sourceTree = "<group>"; };
+		B3E2AF19286E9485002FA252 /* CheckEditBaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckEditBaseCell.swift; sourceTree = "<group>"; };
+		B3E2AF1B286E949C002FA252 /* CheckSignCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckSignCell.swift; sourceTree = "<group>"; };
 		B3EC88BE284493230040F664 /* ReportPatrolInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportPatrolInfoCell.swift; sourceTree = "<group>"; };
 		B3EC88C0284493340040F664 /* ReportTaskInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTaskInfoCell.swift; sourceTree = "<group>"; };
 		B3EC88C22844AA5D0040F664 /* ReportTaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTaskModel.swift; sourceTree = "<group>"; };
@@ -850,6 +856,7 @@
 		B33D237828697FBB009B8B21 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B3E2AF18286E9453002FA252 /* EditCell */,
 				B3B12BCA286B0B510052E26F /* UIView+WaterMark.swift */,
 				B33D237A2869804B009B8B21 /* JHInspectInfoCell.swift */,
 				B3E2AF06286C31F6002FA252 /* JHInspectBaseCell.swift */,
@@ -1442,6 +1449,16 @@
 				B3BC83DC277C76100023257B /* RuntimeCmd-Bridging-Header.h */,
 			);
 			path = RuntimeCmd;
+			sourceTree = "<group>";
+		};
+		B3E2AF18286E9453002FA252 /* EditCell */ = {
+			isa = PBXGroup;
+			children = (
+				B3E2AF19286E9485002FA252 /* CheckEditBaseCell.swift */,
+				B3E2AF16286E9216002FA252 /* CheckNoteCell.swift */,
+				B3E2AF1B286E949C002FA252 /* CheckSignCell.swift */,
+			);
+			path = EditCell;
 			sourceTree = "<group>";
 		};
 		B3F334302812956F003B834D /* 一张图活动 */ = {
@@ -2052,6 +2069,7 @@
 				B3F3343628129ED8003B834D /* PersonalVideoActivityController.swift in Sources */,
 				B39E51472850A97000EAE842 /* JHRecommendModel.swift in Sources */,
 				B3E2AF12286DB32D002FA252 /* JHOptionsHeaderView.swift in Sources */,
+				B3E2AF1A286E9485002FA252 /* CheckEditBaseCell.swift in Sources */,
 				B316369628447FD300A09F62 /* ReportUserInfoM.swift in Sources */,
 				B3DCCF65285B0FBA0000853C /* JHPictureGroupController.swift in Sources */,
 				B38D88A1277B199400888EFB /* SceneDelegate.swift in Sources */,
@@ -2062,6 +2080,7 @@
 				B3E2AF0B286C3FC7002FA252 /* InspectOptionModel.swift in Sources */,
 				B3230360278C2B7D0056BDCC /* JHUnitOrgBaseCell.swift in Sources */,
 				B3E2AF07286C31F6002FA252 /* JHInspectBaseCell.swift in Sources */,
+				B3E2AF17286E9216002FA252 /* CheckNoteCell.swift in Sources */,
 				B312022028190C4F002D4FA3 /* JHTimeSetingView.swift in Sources */,
 				B39E51632851C08000EAE842 /* JHHandlePictureViewController.swift in Sources */,
 				B323033C278827350056BDCC /* JHUnitOrgBaseViewController.swift in Sources */,
@@ -2092,6 +2111,7 @@
 				B3F4599B27F3F1C500AADC08 /* JHSNViewModel.swift in Sources */,
 				B374E95F27EB02610033B72C /* JHDeviceTimesCell.swift in Sources */,
 				B33EF39827BFAD9000A3B6DE /* JHDeviceInviteAPI.swift in Sources */,
+				B3E2AF1C286E949C002FA252 /* CheckSignCell.swift in Sources */,
 				B32303382787EDBD0056BDCC /* JHUnitJoinOrgViewController.swift in Sources */,
 				B3306D3F27B1093E005E7DDC /* JHUnitOrgLowerController.swift in Sources */,
 				B34635BC27E37F8A002CA750 /* JHBindingEditIntelDescisionVC.swift in Sources */,

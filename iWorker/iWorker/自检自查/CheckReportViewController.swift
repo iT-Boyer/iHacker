@@ -33,4 +33,15 @@ class CheckReportViewController: CheckSelfThirdViewController {
             JHOptionsHeaderView(name: "未通过检查项", note: "负责人")
         }
     }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dataArray[section].count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return super.tableView(tableView, cellForRowAt: indexPath)
+        
+        
+        
+    }
 }

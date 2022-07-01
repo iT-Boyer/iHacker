@@ -27,6 +27,8 @@ class CheckSelfThirdViewController: JHSelCheckBaseController {
         tableView.dataSource = self
         tableView.register(JHInspectInfoCell.self, forCellReuseIdentifier: "JHInspectInfoCell")
         tableView.register(JHInspectBaseCell.self, forCellReuseIdentifier: "JHInspectBaseCell")
+        tableView.register(CheckNoteCell.self, forCellReuseIdentifier: "CheckNoteCell")
+        tableView.register(CheckSignCell.self, forCellReuseIdentifier: "CheckSignCell")
     }
     
     override func nextStepAction() {
@@ -35,7 +37,7 @@ class CheckSelfThirdViewController: JHSelCheckBaseController {
         navigationController?.pushViewController(report, animated: true)
     }
     
-    lazy var dataArray:[[Any]] = [infoArray,optionsArray] as [[Any]]
+    lazy var dataArray:[[Any]] = [infoArray,optionsArray, signArray] as [[Any]]
     
     lazy var infoModel = InspectInfoModel.unArchive()
     
@@ -72,6 +74,16 @@ class CheckSelfThirdViewController: JHSelCheckBaseController {
         return []
     }()
 
+    lazy var signArray: [CheckEditCellVM] = {
+        let notevm = CheckEditCellVM(desc: "备注", type: .checker)
+        let signvm = CheckEditCellVM(desc: "检查人签名", type: .checkerSign)
+        let notevm1 = CheckEditCellVM(desc: "食品安全管理员意见", type: .manager)
+        let signvm1 = CheckEditCellVM(desc: "食品安全管理员签字", type: .managerSign)
+        let notevm2 = CheckEditCellVM(desc: "法人代表(负责人)意见", type: .owner)
+        let signvm2 = CheckEditCellVM(desc: "法人代表(负责人)签字", type: .ownerSign)
+        return [notevm, signvm, notevm1, signvm1, notevm2, signvm2]
+    }()
+    
     lazy var headerView = JHOptionsHeaderView(name: "检查项")
 }
 
@@ -82,7 +94,11 @@ extension CheckSelfThirdViewController:UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        dataArray[section].count
+        if section == 2 {
+            //
+            return dataArray[section].count - 4
+        }
+        return dataArray[section].count
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -118,6 +134,24 @@ extension CheckSelfThirdViewController:UITableViewDataSource
             }
             return cell
         }
+        
+        if indexPath.section == 2 {
+            if let signArr = dataArray[2] as? [CheckEditCellVM]{
+                let model = signArr[indexPath.row]
+                var cellId = "CheckNoteCell"
+                switch model.type {
+                case .checkerSign, .managerSign, .ownerSign:
+                    cellId = "CheckSignCell"
+                default:
+                    cellId = "CheckNoteCell"
+                }
+                let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as! CheckEditBaseCell
+                cell.model = model
+                return cell
+            }
+        }
+        
+        
         return UITableViewCell()
     }
     
