@@ -31,7 +31,11 @@ class InsSignViewController: JHBaseNavVC {
     }
     @objc func saveDraw() {
         if let signatureImage = self.drawView.getSignature(scale: 10) {
-            uploadImage(image: signatureImage)
+            
+//            UIImage *imageRight = [UIImage imageWithCGImage:signImage.CGImage scale:1.0 orientation:UIImageOrientationLeft];
+            guard let cgImg = signatureImage.cgImage else {return}
+            let imageRight = UIImage.init(cgImage: cgImg, scale: 1.0, orientation: .left)
+            uploadImage(image: imageRight)
         }
     }
     

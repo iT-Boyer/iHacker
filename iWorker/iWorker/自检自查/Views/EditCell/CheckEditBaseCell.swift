@@ -15,7 +15,7 @@ enum CheckEditCellType {
 struct CheckEditCellVM {
     var desc:String?
     var type:CheckEditCellType = .note
-    var note = "", picture:String? = ""
+    var note = "", picture = ""
 }
 
 class CheckEditBaseCell: UITableViewCell {

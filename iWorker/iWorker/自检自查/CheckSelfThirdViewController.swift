@@ -33,8 +33,30 @@ class CheckSelfThirdViewController: JHSelCheckBaseController {
     
     override func nextStepAction() {
         super.nextStepAction()
-        let report = CheckReportViewController()
-        navigationController?.pushViewController(report, animated: true)
+        let param:[String:Any] = addModel.toParams()
+        let urlStr = JHBaseDomain.fullURL(with: "api_host_rips", path: "/Jinher.AMP.RIP.SV.ComInspectAssistantSV.svc/AddSelfInspect")
+        let hud = MBProgressHUD.showAdded(to:view, animated: true)
+        hud.removeFromSuperViewOnHide = true
+        let request = JN.post(urlStr, parameters: param, headers: nil)
+        request.response {[weak self] response in
+            hud.hide(animated: true)
+            guard let weakSelf = self else { return }
+            guard let data = response.data else {
+                VCTools.toast("数据错误")
+                return
+            }
+            let json = JSON(data)
+            let result = json["IsSuccess"].boolValue
+            if result {
+                let recordId = json["Data"].stringValue
+                let report = CheckReportViewController()
+                report.reportId = recordId
+                weakSelf.navigationController?.pushViewController(report, animated: true)
+            }else{
+                let msg = json["message"].stringValue
+                VCTools.toast(msg)
+            }
+        }
     }
     
     lazy var dataArray:[[Any]] = [infoArray,optionsArray, signArray] as [[Any]]
@@ -83,6 +105,7 @@ class CheckSelfThirdViewController: JHSelCheckBaseController {
 
 extension CheckSelfThirdViewController:UITableViewDataSource
 {
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         dataArray.count
     }
@@ -135,11 +158,18 @@ extension CheckSelfThirdViewController:UITableViewDataSource
                 cell.model = model
                 cell.actionHandler = {[weak self] vm in
                     guard let wf = self, let vv = vm else { return }
-                    signArr = signArr.compactMap{ item in
+                    signArr = signArr.compactMap{[weak self] item in
+                        guard let wf = self else { return nil }
                         var mm = item
                         if vv.desc == mm.desc {
-                            mm.picture = vv.picture
-                            mm.note = vv.note
+                            if !vv.note.isEmpty {
+                                mm.note = vv.note
+                                wf.addModel.record?.remark = mm.note
+                            }
+                            if !vv.picture.isEmpty {
+                                mm.picture = vv.picture
+                                wf.addModel.record?.inspectSignature = mm.picture
+                            }
                         }
                         return mm
                     }
