@@ -10,11 +10,20 @@ import JHBase
 
 class CheckSignCell: CheckEditBaseCell {
 
+    override var model: CheckEditCellVM?{
+        willSet{
+            guard let new = newValue else { return }
+            
+            signView.kf.setImage(with: URL(string: new.picture), for: .normal, placeholder: UIImage(named: "Inspect签名占位"))
+        }
+    }
+    
     override func updateUI() {
         iconView.image = .init(named: "Inspect签字")
         actionView.addSubview(signView)
         signView.snp.makeConstraints { make in
-            make.left.top.bottom.right.equalToSuperview()
+            make.size.equalTo(CGSize(width: 160, height: 75))
+            make.left.top.bottom.equalToSuperview()
         }
     }
     

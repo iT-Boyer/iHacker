@@ -71,7 +71,6 @@ class CheckEditBaseCell: UITableViewCell {
     
     lazy var actionView: UIView = {
         let action = UIView()
-        action.backgroundColor = .red
         return action
     }()
     

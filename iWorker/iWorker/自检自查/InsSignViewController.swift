@@ -7,6 +7,9 @@
 
 import UIKit
 import JHBase
+import Alamofire
+import SwiftyJSON
+import MBProgressHUD
 import YPDrawSignature
 
 class InsSignViewController: JHBaseNavVC {
@@ -28,10 +31,7 @@ class InsSignViewController: JHBaseNavVC {
     }
     @objc func saveDraw() {
         if let signatureImage = self.drawView.getSignature(scale: 10) {
-            
-            UIImageWriteToSavedPhotosAlbum(signatureImage, nil, nil, nil)
-            
-            self.drawView.clear()
+            uploadImage(image: signatureImage)
         }
     }
     
@@ -132,6 +132,45 @@ extension InsSignViewController:YPSignatureDelegate
     }
     
     func didFinish(_ view: YPDrawSignatureView) {
-        
+    }
+    
+    func uploadImage(image:UIImage) {
+        var domainKey = "api_host_upload"
+        if JHBaseDomain.environment.count == 0 {
+            domainKey = "api_host_upload_up"
+        }
+        let serverUrl = JHBaseDomain.fullURL(with: domainKey, path: "/Jinher.JAP.BaseApp.FileServer.SV.FileSV.svc/UploadMobileFile")
+        let headers:HTTPHeaders = ["Authentication": "YgAhCMxEehT4N/DmhKkA/M0npN3KO0X8PMrNl17+hogw944GDGpzvypteMemdWb9nlzz7mk1jBa/0fpOtxeZUA==",
+                                   "Content-Type": "form/data"]
+        let hud = MBProgressHUD.showAdded(to:view, animated: true)
+        hud.removeFromSuperViewOnHide = true
+        AF.upload(multipartFormData: { multipartFormData in
+            // params相关入参，不影响图片正常上传
+            let imageData = image.compressedData()
+            if let data = imageData{
+                multipartFormData.append(data, withName: "FileDataFromPhone", fileName: "\(Date().timeIntervalSince1970).png", mimeType: "image/png")
+            }
+        }, to: serverUrl, method: .post, headers: headers).responseJSON {[weak self] response in
+            guard let wf = self else { return }
+            if let err = response.error{
+//                MBProgressHUD.displayError(err.errorDescription!)
+                return
+            }
+            
+            let json = response.data
+                
+            if (json != nil)
+            {
+                let jsonObject = JSON(json!)
+                let filePath = jsonObject["FilePath"].string
+                let fileUrl = JHBaseDomain.fullURL(with: "api_host_upfileserver", path: "/Jinher.JAP.BaseApp.FileServer.UI/FileManage/GetFile?fileURL=\(filePath!)")
+                OperationQueue.main.addOperation {
+                    hud.hide(animated: true)
+                    // 上传任务结束之后，移除元素
+                    wf.signHandler(fileUrl)
+                    wf.backBtnClicked(UIButton())
+                }
+            }
+        }
     }
 }

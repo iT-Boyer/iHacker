@@ -128,11 +128,23 @@ extension CheckSelfThirdViewController:UITableViewDataSource
         }
         
         if indexPath.section == 2 {
-            if let signArr = dataArray[2] as? [CheckEditCellVM]{
+            if var signArr = dataArray[2] as? [CheckEditCellVM]{
                 let model = signArr[indexPath.row]
                 let cellId = model.type == .note ? "CheckNoteCell":"CheckSignCell"
                 let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as! CheckEditBaseCell
                 cell.model = model
+                cell.actionHandler = {[weak self] vm in
+                    guard let wf = self, let vv = vm else { return }
+                    signArr = signArr.compactMap{ item in
+                        var mm = item
+                        if vv.desc == mm.desc {
+                            mm.picture = vv.picture
+                        }
+                        return mm
+                    }
+                    wf.dataArray[2] = signArr
+                    wf.tableView.reloadData()
+                }
                 return cell
             }
         }
