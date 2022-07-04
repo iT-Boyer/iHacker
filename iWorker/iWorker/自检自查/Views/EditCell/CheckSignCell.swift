@@ -29,6 +29,7 @@ class CheckSignCell: CheckEditBaseCell {
                 wf.model?.picture = url
                 wf.actionHandler(wf.model)
             }
+            signvc.modalPresentationStyle = .fullScreen
             UIViewController.topVC?.present(signvc, animated: true)
         }
         return sign

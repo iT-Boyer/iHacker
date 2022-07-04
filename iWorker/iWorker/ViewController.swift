@@ -47,13 +47,60 @@ class ViewController: JHBaseNavVC {
         tableview.dataSource = self
         tableview.register(UITableViewCell.self, forCellReuseIdentifier: "modeCell")
         self.view.addSubview(tableview)
+        
         tableview.snp.makeConstraints { make in
             make.top.equalTo(self.navBar.snp.bottom)
             make.centerX.equalToSuperview()
             make.left.right.bottom.equalToSuperview()
         }
+        
+        headerView.frame.size.height = 400
+        tableview.tableHeaderView = headerView
+        view.layoutIfNeeded()
+//        firstlab.frame = CGRect(x: 0, y: 0, width: 40, height: 200)
         installOHHTTPStubs()
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+//        firstlab.frame = CGRect(x: 0, y: 0, width: 40, height: 200)
+//        firstlab.center = headerView.center
+    }
+    lazy var headerView: UIView = {
+        let header = UIView()
+        
+        header.addSubview(firstlab)
+        header.addSubview(secondBtn)
+        return header
+    }()
+    
+    
+    lazy var firstlab: UILabel = {
+        let lab = UILabel()
+        lab.frame = CGRect(x: 80, y: 90, width: 200, height: 40)
+        lab.text = "旋转"
+        lab.font = .systemFont(ofSize: 24)
+        lab.textColor = .red
+        lab.textAlignment = .center
+        
+        lab.transform = .init(rotationAngle: Double.pi / 2)
+        lab.layer.borderColor = UIColor.red.cgColor
+        lab.layer.borderWidth = 1
+        
+//        lab.layer.transform = .init(rotationAngle: Double.pi / 2, x: 0, y: 0, z: 0)
+        return lab
+    }()
+    
+    lazy var secondBtn: UIButton = {
+        let btn = UIButton(frame: CGRect(x: 160, y: 80, width: 200, height: 40))
+        btn.setTitle("旋转按钮", for: .normal)
+        btn.setTitleColor(.black, for: .normal)
+        btn.setBackgroundImage(UIImage(color: .gray, size: CGSize(width: 1, height: 1)), for: .normal)
+        btn.layer.borderWidth = 1
+        btn.layer.borderColor = UIColor.blue.cgColor
+        btn.transform = .init(rotationAngle: .pi/2)
+        return btn
+    }()
 }
 
 extension ViewController:UITableViewDataSource,UITableViewDelegate
