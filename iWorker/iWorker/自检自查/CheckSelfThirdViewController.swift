@@ -139,6 +139,7 @@ extension CheckSelfThirdViewController:UITableViewDataSource
                         var mm = item
                         if vv.desc == mm.desc {
                             mm.picture = vv.picture
+                            mm.note = vv.note
                         }
                         return mm
                     }
