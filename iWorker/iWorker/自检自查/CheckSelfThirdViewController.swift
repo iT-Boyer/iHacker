@@ -17,7 +17,11 @@ class CheckSelfThirdViewController: JHSelCheckBaseController {
 
         // Do any additional setup after loading the view.
     }
-    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        //归档
+        addModel.toArchive()
+    }
     override func createView() {
         super.createView()
         setStepImage(img: "Inspect步骤3")
