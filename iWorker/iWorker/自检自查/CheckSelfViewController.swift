@@ -47,7 +47,6 @@ class CheckSelfViewController: JHSelCheckBaseController {
             if result {
                 guard let rawData = try? json["Content"].rawData() else {return}
                 guard let info:InspectInfoModel =  InspectInfoModel.parsed(data: rawData) else { return }
-                info.toArchive()
                 weakSelf.refreshUIData(model: info)
             }else{
                 let msg = json["message"].stringValue
@@ -57,6 +56,7 @@ class CheckSelfViewController: JHSelCheckBaseController {
     }
     
     func refreshUIData(model:InspectInfoModel) {
+        model.toArchive()
         inspectInfoModel = model
         nameLab.refresh(icon: "Inspect姓名", text: model.userName ?? "")
         iconView.kf.setImage(with: URL(string: model.userIcon), placeholder: UIImage(named: "Inspect全通过"))

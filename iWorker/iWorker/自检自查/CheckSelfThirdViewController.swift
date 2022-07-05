@@ -17,11 +17,7 @@ class CheckSelfThirdViewController: JHSelCheckBaseController {
 
         // Do any additional setup after loading the view.
     }
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        //归档
-        addModel.toArchive()
-    }
+
     override func createView() {
         super.createView()
         setStepImage(img: "Inspect步骤3")
@@ -52,6 +48,8 @@ class CheckSelfThirdViewController: JHSelCheckBaseController {
             let json = JSON(data)
             let result = json["IsSuccess"].boolValue
             if result {
+                AddSelfInsModel.clearArchive()
+                InspectInfoModel.clearArchive()
                 let recordId = json["Data"].stringValue
                 let report = CheckReportViewController()
                 report.reportId = recordId
@@ -178,6 +176,7 @@ extension CheckSelfThirdViewController:UITableViewDataSource
                         return mm
                     }
                     wf.dataArray[2] = signArr
+                    wf.addModel.toArchive()
                     wf.tableView.reloadData()
                 }
                 return cell

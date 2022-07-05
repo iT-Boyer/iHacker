@@ -20,12 +20,6 @@ class CheckSelfSecondViewController: JHSelCheckBaseController {
         // Do any additional setup after loading the view.
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        //归档
-        addModel.toArchive()
-    }
-    
     override func nextStepAction() {
         super.nextStepAction()
         let third = CheckSelfThirdViewController()
@@ -107,6 +101,7 @@ extension CheckSelfSecondViewController:UITableViewDataSource
                 return mm
             }
             wf.addModel.options = wf.dataArray
+            wf.addModel.toArchive()
             wf.tableView.reloadData()
         }
         return cell

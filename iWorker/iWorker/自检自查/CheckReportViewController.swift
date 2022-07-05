@@ -38,6 +38,11 @@ class CheckReportViewController: JHSelCheckBaseController {
         //TODO: 保存
     }
     
+    override func backBtnClicked(_ btn: UIButton) {
+//        navigationController?.dismiss(animated: true)
+        navigationController?.popToRootViewController(animated: true)
+    }
+    
     lazy var headerView = JHOptionsHeaderView(name: "未通过检查项", note: "负责人")
     
     func refreshUI(report:CheckReportModel) {

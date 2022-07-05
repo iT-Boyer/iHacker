@@ -53,6 +53,14 @@ struct InspectInfoModel: Codable {
         }
     }
     
+    static func clearArchive() {
+        if FileManager.default.fileExists(atPath: arcchiveUrl.path) {
+            guard let _ = try? FileManager.default.removeItem(at: arcchiveUrl) else{
+                print("删除失败:\(arcchiveUrl.path)")
+                return
+            }
+        }
+    }
     static var arcchiveUrl: URL{
         //写入新文件
         let newfile = Bundle.main.bundlePath + "selfinfo.json"
