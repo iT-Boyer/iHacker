@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import JHBase
 
 struct JHCameraModel {
     var url:String?
@@ -33,7 +34,8 @@ class JHCameraBaseCell: UICollectionViewCell {
     
     lazy var photoView: UIImageView = {
         let photo = UIImageView(image: .init(named: "Inspectcamera"))
-        
+        photo.layer.cornerRadius = 10
+        photo.layer.masksToBounds = true
         return photo
     }()
 }
@@ -45,20 +47,26 @@ class JHCameraCell: JHCameraBaseCell {
     var model:JHCameraModel?{
         willSet{
             guard let new = newValue else { return }
-            photoView.kf.setImage(with: URL(string: new.url), placeholder: UIImage(named: ""))
+            if let url = new.url {
+                removeBtn.isHidden = false
+                photoView.kf.setImage(with: URL(string: url), placeholder: UIImage(named: ""))
+            }else{
+                removeBtn.isHidden = true
+                photoView.image = .init(named: "Inspectcamera")
+            }
         }
     }
     
     override func createView() {
         super.createView()
-        contentView.addSubview(cameraBtn)
-        cameraBtn.snp.makeConstraints { make in
-            make.size.equalTo(CGSize(width: 15, height: 22))
+        contentView.addSubview(removeBtn)
+        removeBtn.snp.makeConstraints { make in
+            make.size.equalTo(CGSize(width: 27, height: 27))
             make.top.right.equalToSuperview()
         }
     }
     
-    lazy var cameraBtn: UIButton = {
+    lazy var removeBtn: UIButton = {
         let btn = UIButton()
         btn.setImage(.init(named: "Inspectshanchu"), for: .normal)
         return btn

@@ -7,6 +7,8 @@
 
 import Foundation
 import UIKit
+import JHBase
+
 // 转场代理：（转场页面，出场动画，退场动画）
 class JHCameraTransitionDelegate:NSObject, UIViewControllerTransitioningDelegate {
     
@@ -52,7 +54,7 @@ class JHCameraAnimatedTransitioning:NSObject, UIViewControllerAnimatedTransition
         //获取动画前后的视图大小
         let finalFrame = transitionContext.finalFrame(for: animatingVC!)
         var initFrame = finalFrame
-        initFrame.origin.x = UIScreen.main.bounds.size.width
+        initFrame.origin.y = UIScreen.main.bounds.size.height
         //
         let animatingInitFrame = isPresentation ? initFrame:finalFrame
         let animatingFinalFrame = isPresentation ? finalFrame:initFrame
@@ -90,21 +92,21 @@ class JHCameraPresentationViewController:UIPresentationController, UIAdaptivePre
         .fullScreen
     }
     
-//    override var presentedView: UIView?{
-//        presentedViewController.view //默认返回。当返回其他视图，一定要是 presentedViewController.view 的上层视图。
-//    }
+    override var presentedView: UIView?{
+        presentedViewController.view.subviews.first //默认返回。当返回其他视图，一定要是 presentedViewController.view 的上层视图。
+    }
     
     override var frameOfPresentedViewInContainerView: CGRect{
         var presentViewFrame = CGRect.zero
         let containerBounds = containerView?.bounds ?? .zero
         //进场控制器内容视图的大小
         presentViewFrame.size = size(forChildContentContainer: presentedViewController, withParentContainerSize: containerBounds.size)
-        presentViewFrame.origin.x = 80
+        presentViewFrame.origin = CGPoint(x: 20, y: kScreenHeight/2 - 90)
         return presentViewFrame
     }
     
     override func size(forChildContentContainer container: UIContentContainer, withParentContainerSize parentSize: CGSize) -> CGSize {
-        CGSize(width: parentSize.width - 80, height: parentSize.height)
+        CGSize(width: parentSize.width - 40, height: 180)
     }
     
     //MARK: 自定义转场动画

@@ -31,7 +31,12 @@ class JHSecondStepCell: JHInspectBaseCell {
             let alert = JHCameraAlertController()
             alert.transitioningDelegate = wf.transitionDelegate
             alert.modalPresentationStyle = .custom
-            alert.dataArray = pics
+            alert.originArray = pics
+            alert.cameraHandler = {[weak self] item in
+                guard let wf = self else { return }
+                wf.model?.picture = item.url
+                wf.actionHandler(wf.model)
+            }
             UIViewController.topVC?.present(alert, animated: true)
         }
     }

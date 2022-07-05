@@ -99,7 +99,13 @@ extension CheckSelfSecondViewController:UITableViewDataSource
                 var mm = item
                 if model?.inspectOptionId == mm.inspectOptionId {
                     mm.status = model?.status
-                    mm.picture = model?.picture
+                    if let url = model?.picture {
+                        if let origin = mm.picture, !origin.contains(url){
+                            mm.picture = origin + ";" + url
+                        }else{
+                            mm.picture = url
+                        }
+                    }
                     currentItem = mm
                 }
                 return mm

@@ -109,10 +109,9 @@ struct AddInsOptModel:Codable, Equatable {
     var pictures:[JHCameraModel]?{
         guard let picurls = picture else { return nil }
         
-        if picurls.hasSuffix(";") {
-            let curls = picurls.suffix(picurls.count - 1)
-            let pics = curls.split(separator: ";").compactMap({ pic -> JHCameraModel? in
-                let model = JHCameraModel(url: pic.base)
+        if picurls.contains(";") {
+            let pics = picurls.components(separatedBy: ";").compactMap({ pic -> JHCameraModel? in
+                let model = JHCameraModel(url: pic)
                 return model
             })
             return pics
