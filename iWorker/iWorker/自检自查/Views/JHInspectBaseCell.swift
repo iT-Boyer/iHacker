@@ -47,17 +47,10 @@ class JHInspectBaseCell: UITableViewCell {
             make.centerY.equalToSuperview()
             make.right.equalTo(-10)
         }
-        
-        let numView = UIImageView(image: .init(named: "Inspect照片数量"))
         cameraBtn.addSubview(numView)
-        numView.addSubview(numLab)
         numView.snp.makeConstraints { make in
             make.size.equalTo(CGSize(width: 26, height: 14))
             make.bottom.right.equalToSuperview()
-        }
-        numLab.snp.makeConstraints { make in
-            make.centerX.equalTo(3)
-            make.centerY.equalToSuperview()
         }
     }
     
@@ -71,17 +64,26 @@ class JHInspectBaseCell: UITableViewCell {
     
     lazy var cameraBtn: UIButton = {
         let btn = UIButton()
-        btn.setImage(.init(named: "Inspectcamera"), for: .normal)
-        btn.jh.setHandleClick {[weak self] button in
-            //TODO: 拍照
-            guard let wf = self, let btn = button else { return }
-        }
+        btn.layer.cornerRadius = 3
+        btn.layer.masksToBounds = true
         return btn
+    }()
+    
+    lazy var numView: UIImageView = {
+        let num = UIImageView(image: .init(named: "Inspect照片数量"))
+        num.addSubview(numLab)
+        numLab.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.right.equalTo(-2)
+            make.left.equalTo(8)
+        }
+        return num
     }()
     
     lazy var numLab: UILabel = {
         let num = UILabel()
         num.textColor = .white
+        num.textAlignment = .center
         num.font = .systemFont(ofSize: 9)
         return num
     }()

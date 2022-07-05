@@ -7,20 +7,54 @@
 
 import Foundation
 import UIKit
+import TZImagePickerController
 
 class JHSecondStepCell: JHInspectBaseCell {
     
+    let vctools = VCTools()
     override func createView() {
         super.createView()
         stackView.addArrangedSubviews([pullBtn,switchBtn])
+        
+        cameraBtn.jh.setHandleClick {[weak self] button in
+            //TODO: 拍照
+            guard let wf = self else { return }
+            guard let pics = wf.model?.pictures else {
+                //TODO: 拍照
+                wf.vctools.showCamera(count: 1) {[weak self] model in
+                    guard let wf = self else { return }
+                    wf.model?.picture = model.url
+                    wf.actionHandler(wf.model)
+                }
+                return
+            }
+            let alert = JHCameraAlertController()
+            alert.transitioningDelegate = wf.transitionDelegate
+            alert.modalPresentationStyle = .custom
+            alert.dataArray = pics
+            UIViewController.topVC?.present(alert, animated: true)
+        }
     }
     
+    lazy var transitionDelegate: JHCameraTransitionDelegate = {
+        let delegate = JHCameraTransitionDelegate()
+        return delegate
+    }()
+    
     var model:AddInsOptModel?{
-        didSet{
-            guard let mm = model else { return }
+        willSet{
+            guard let mm = newValue else { return }
             
             titleLab.text = mm.origin?.text
-            cameraBtn.isHidden = mm.origin?.isNeedPic ?? false
+            cameraBtn.isHidden = !(mm.origin?.isNeedPic ?? false)
+            if let pics = mm.pictures, let first = pics.first {
+                numView.isHidden = false
+                numLab.text = "\(pics.count)"
+                cameraBtn.kf.setImage(with: URL(string: first.url), for: .normal, placeholder: UIImage(named: "Inspectcamera"))
+            }else{
+                numView.isHidden = true
+                cameraBtn.setImage(UIImage(named: "Inspectcamera"), for: .normal)
+            }
             
             let isOption = mm.origin?.isNotForAll ?? false
             switchBtn.isHidden = isOption

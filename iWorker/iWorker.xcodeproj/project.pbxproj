@@ -256,6 +256,9 @@
 		B3E2AF26286EDBBF002FA252 /* JHThirdStepCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E2AF25286EDBBF002FA252 /* JHThirdStepCell.swift */; };
 		B3E2AF28286EFD49002FA252 /* YPDrawSignature in Frameworks */ = {isa = PBXBuildFile; productRef = B3E2AF27286EFD49002FA252 /* YPDrawSignature */; };
 		B3E2AF2A2872F166002FA252 /* AddSelfInspect.json in Resources */ = {isa = PBXBuildFile; fileRef = B3E2AF292872F166002FA252 /* AddSelfInspect.json */; };
+		B3E2AF2D2873DDEB002FA252 /* JHCameraTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E2AF2C2873DDEB002FA252 /* JHCameraTransition.swift */; };
+		B3E2AF2F2873DECE002FA252 /* JHCameraAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E2AF2E2873DECD002FA252 /* JHCameraAlertController.swift */; };
+		B3E2AF322873E18F002FA252 /* JHCameraCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E2AF312873E18F002FA252 /* JHCameraCell.swift */; };
 		B3EC88BF284493230040F664 /* ReportPatrolInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC88BE284493230040F664 /* ReportPatrolInfoCell.swift */; };
 		B3EC88C1284493340040F664 /* ReportTaskInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC88C0284493340040F664 /* ReportTaskInfoCell.swift */; };
 		B3EC88C32844AA5D0040F664 /* ReportTaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC88C22844AA5D0040F664 /* ReportTaskModel.swift */; };
@@ -611,6 +614,9 @@
 		B3E2AF23286EDBAF002FA252 /* JHSecondStepCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHSecondStepCell.swift; sourceTree = "<group>"; };
 		B3E2AF25286EDBBF002FA252 /* JHThirdStepCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHThirdStepCell.swift; sourceTree = "<group>"; };
 		B3E2AF292872F166002FA252 /* AddSelfInspect.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AddSelfInspect.json; sourceTree = "<group>"; };
+		B3E2AF2C2873DDEB002FA252 /* JHCameraTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHCameraTransition.swift; sourceTree = "<group>"; };
+		B3E2AF2E2873DECD002FA252 /* JHCameraAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHCameraAlertController.swift; sourceTree = "<group>"; };
+		B3E2AF312873E18F002FA252 /* JHCameraCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHCameraCell.swift; sourceTree = "<group>"; };
 		B3EC88BE284493230040F664 /* ReportPatrolInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportPatrolInfoCell.swift; sourceTree = "<group>"; };
 		B3EC88C0284493340040F664 /* ReportTaskInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTaskInfoCell.swift; sourceTree = "<group>"; };
 		B3EC88C22844AA5D0040F664 /* ReportTaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTaskModel.swift; sourceTree = "<group>"; };
@@ -870,6 +876,7 @@
 		B33D237828697FBB009B8B21 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B3E2AF2B2873DDC1002FA252 /* CameraView */,
 				B3E2AF18286E9453002FA252 /* EditCell */,
 				B3B12BCA286B0B510052E26F /* UIView+WaterMark.swift */,
 				B33D237A2869804B009B8B21 /* JHInspectInfoCell.swift */,
@@ -1481,6 +1488,24 @@
 			path = EditCell;
 			sourceTree = "<group>";
 		};
+		B3E2AF2B2873DDC1002FA252 /* CameraView */ = {
+			isa = PBXGroup;
+			children = (
+				B3E2AF302873E14E002FA252 /* Views */,
+				B3E2AF2C2873DDEB002FA252 /* JHCameraTransition.swift */,
+				B3E2AF2E2873DECD002FA252 /* JHCameraAlertController.swift */,
+			);
+			path = CameraView;
+			sourceTree = "<group>";
+		};
+		B3E2AF302873E14E002FA252 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B3E2AF312873E18F002FA252 /* JHCameraCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		B3F334302812956F003B834D /* 一张图活动 */ = {
 			isa = PBXGroup;
 			children = (
@@ -2044,6 +2069,7 @@
 				B3B4A6E7282BA469006B5F57 /* JHNewLoginSetPswViewController.swift in Sources */,
 				B39C8589283E22F7007ABDCC /* ReportMapUserTaskStatM.swift in Sources */,
 				B3289D7D28654B5100E1FF1A /* CheckSelfSecondViewController.swift in Sources */,
+				B3E2AF2F2873DECE002FA252 /* JHCameraAlertController.swift in Sources */,
 				B3DCCF61285AFFBA0000853C /* JHPhotoDetailController.swift in Sources */,
 				B33D237D28698581009B8B21 /* CheckerBaseVM.swift in Sources */,
 				B323035A278C11240056BDCC /* UnitOrgChainModel.swift in Sources */,
@@ -2076,6 +2102,7 @@
 				B312022428191D88002D4FA3 /* JHCreateVideoActController.swift in Sources */,
 				B37EC65F283B6CE900D92FC1 /* ReportUserDetailController.swift in Sources */,
 				B374E96127EC21F60033B72C /* JHDeviceTimePicker.swift in Sources */,
+				B3E2AF322873E18F002FA252 /* JHCameraCell.swift in Sources */,
 				B33D237B2869804B009B8B21 /* JHInspectInfoCell.swift in Sources */,
 				B39C858D283E2C40007ABDCC /* ReportUserInfoMapView.swift in Sources */,
 				B39E51372850868900EAE842 /* JHPhotoBaseController.swift in Sources */,
@@ -2098,6 +2125,7 @@
 				B316369628447FD300A09F62 /* ReportUserInfoM.swift in Sources */,
 				B3E2AF22286EC453002FA252 /* JHReformOptCell.swift in Sources */,
 				B3DCCF65285B0FBA0000853C /* JHPictureGroupController.swift in Sources */,
+				B3E2AF2D2873DDEB002FA252 /* JHCameraTransition.swift in Sources */,
 				B38D88A1277B199400888EFB /* SceneDelegate.swift in Sources */,
 				B3697E7927E42481004D8867 /* JHDeviceSNCell.swift in Sources */,
 				B3697E8227E45778004D8867 /* JHSceneModels.swift in Sources */,

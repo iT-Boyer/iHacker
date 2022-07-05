@@ -20,7 +20,7 @@ class JHThirdStepCell: JHInspectBaseCell {
         didSet{
             guard let mm = model else { return }
             titleLab.text = mm.origin?.text
-            cameraBtn.isHidden = mm.origin?.isNeedPic ?? false
+            cameraBtn.isHidden = !(mm.origin?.isNeedPic ?? false)
             if mm.status == 2 {
                 //合理缺项
                 checkBtn.isSelected = false
@@ -30,6 +30,15 @@ class JHThirdStepCell: JHInspectBaseCell {
                 checkBtn.isSelected = mm.status == 1
                 let imageName = checkBtn.isSelected ? "Inspect第三步状态":"Inspect第三步状态2"
                 checkBtn.setBackgroundImage(.init(named:imageName), for: .normal)
+            }
+            
+            if let pics = mm.pictures, let first = pics.first {
+                numView.isHidden = false
+                numLab.text = "\(pics.count)"
+                cameraBtn.kf.setImage(with: URL(string: first.url), for: .normal, placeholder: UIImage(named: "Inspectcamera"))
+            }else{
+                numView.isHidden = true
+                cameraBtn.setImage(UIImage(named: "Inspectcamera"), for: .normal)
             }
         }
     }

@@ -82,7 +82,12 @@ struct AddRecordModel: Codable {
     }
 }
 
-struct AddInsOptModel:Codable {
+struct AddInsOptModel:Codable, Equatable {
+    
+    static func == (lhs: AddInsOptModel, rhs: AddInsOptModel) -> Bool {
+        return lhs.inspectOptionId == rhs.inspectOptionId
+    }
+    
     
     var inspectOptionId:String?
     var picture: String?    // picture ;分号分割的图片路径
@@ -99,5 +104,21 @@ struct AddInsOptModel:Codable {
         case picture = "Picture"
         case status = "Status"
         case origin = "origin"
+    }
+    
+    var pictures:[JHCameraModel]?{
+        guard let picurls = picture else { return nil }
+        
+        if picurls.hasSuffix(";") {
+            let curls = picurls.suffix(picurls.count - 1)
+            let pics = curls.split(separator: ";").compactMap({ pic -> JHCameraModel? in
+                let model = JHCameraModel(url: pic.base)
+                return model
+            })
+            return pics
+        }else{
+            let model = JHCameraModel(url: picurls)
+            return [model]
+        }
     }
 }

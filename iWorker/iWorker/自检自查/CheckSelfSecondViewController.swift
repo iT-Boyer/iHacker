@@ -73,6 +73,7 @@ class CheckSelfSecondViewController: JHSelCheckBaseController {
                     return add
                 }
                 weakSelf.addModel.options = weakSelf.dataArray
+                weakSelf.addModel.toArchive()
                 weakSelf.tableView.reloadData()
             }else{
                 let msg = json["message"].stringValue
@@ -93,16 +94,24 @@ extension CheckSelfSecondViewController:UITableViewDataSource
         cell.model = dataArray[indexPath.row]
         cell.actionHandler = {[weak self] model in
             guard let wf = self else { return }
-            wf.dataArray =  wf.dataArray.compactMap{ item in
+            var currentItem:AddInsOptModel?
+            wf.dataArray = wf.dataArray.compactMap{ item in
                 var mm = item
                 if model?.inspectOptionId == mm.inspectOptionId {
                     mm.status = model?.status
+                    mm.picture = model?.picture
+                    currentItem = mm
                 }
                 return mm
             }
+            guard let current = currentItem else { return }
             wf.addModel.options = wf.dataArray
             wf.addModel.toArchive()
-            wf.tableView.reloadData()
+            if let index = wf.dataArray.firstIndex(of: current){
+                wf.tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .none)
+            }else{
+                wf.tableView.reloadData()
+            }
         }
         return cell
     }
