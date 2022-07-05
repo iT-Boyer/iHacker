@@ -12,7 +12,7 @@ class JHSelCheckBaseController: JHBaseNavVC {
 
     var storeId = "00000000-0000-0000-0000-000000000000"
     
-    lazy var addModel: AddSelfInsModel = {
+    var addModel: AddSelfInsModel = {
         if let model = AddSelfInsModel.unArchive(){
             return model
         }
@@ -21,10 +21,8 @@ class JHSelCheckBaseController: JHBaseNavVC {
         newModel.record = AddRecordModel()
         newModel.options = []
         newModel.profiles = []
-        newModel.record?.storeId = storeId
         newModel.record?.appId = JHBaseInfo.appID
         newModel.record?.userId = JHBaseInfo.userID
-        newModel.record?.inspectDate = today
         return newModel
     }()
     
@@ -35,6 +33,8 @@ class JHSelCheckBaseController: JHBaseNavVC {
             guard let wf = self else{return}
             wf.refreshLocationUI(location: location)
         }
+        addModel.record?.storeId = storeId
+        addModel.record?.inspectDate = today
         createView()
         loadData()
     }

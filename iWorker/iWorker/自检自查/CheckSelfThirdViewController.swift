@@ -168,11 +168,11 @@ extension CheckSelfThirdViewController:UITableViewDataSource
                         if vv.desc == mm.desc {
                             if !vv.note.isEmpty {
                                 mm.note = vv.note
-                                wf.addModel.record?.remark = mm.note
+                                wf.addModel.record?.remark = vv.note
                             }
                             if !vv.picture.isEmpty {
                                 mm.picture = vv.picture
-                                wf.addModel.record?.inspectSignature = mm.picture
+                                wf.addModel.record?.inspectSignature = vv.picture
                             }
                         }
                         return mm
