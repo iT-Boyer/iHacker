@@ -211,9 +211,7 @@ extension CheckSelfViewController:UITableViewDataSource
         if indexPath.row == 1 {
             //TODO: 切换检查类型 日检/周检
             guard let typelist = inspectInfoModel?.inspectTypeList else { return }
-            var btns = typelist.compactMap { inspectType -> String? in
-                inspectType.text
-            }
+            var btns = typelist.compactMap {$0.text}
             var types = typelist.compactMap { inspectType -> UIAlertAction.Style? in
                 UIAlertAction.Style.default
             }

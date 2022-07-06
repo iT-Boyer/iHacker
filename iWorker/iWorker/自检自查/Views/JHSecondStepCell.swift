@@ -28,13 +28,14 @@ class JHSecondStepCell: JHInspectBaseCell {
                 }
                 return
             }
+            //TODO: 图片矩阵
             let alert = JHCameraAlertController()
             alert.transitioningDelegate = wf.transitionDelegate
             alert.modalPresentationStyle = .custom
             alert.originArray = pics
             alert.cameraHandler = {[weak self] add,item in
                 guard let wf = self else { return }
-                guard var origin = wf.model?.pictures else {return}
+                var origin = wf.model?.pictures ?? []
                 if add {
                     origin.append(item)
                 }else{

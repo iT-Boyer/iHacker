@@ -107,7 +107,7 @@ struct AddInsOptModel:Codable, Equatable {
     }
     
     var pictures:[JHCameraModel]?{
-        guard let picurls = picture else { return nil }
+        guard let picurls = picture, !picurls.isEmpty else { return nil }
         
         if picurls.contains(";") {
             let pics = picurls.components(separatedBy: ";").compactMap({ pic -> JHCameraModel? in
