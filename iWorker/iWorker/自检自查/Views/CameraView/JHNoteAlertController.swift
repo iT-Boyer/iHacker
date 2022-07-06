@@ -10,7 +10,7 @@ import JHBase
 
 class JHNoteAlertController: UIViewController {
 
-    var note:String = "请输入..."
+    var note:String? = "请输入..."
     var noteHandler:(String)->Void = {_ in}
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -37,6 +37,7 @@ class JHReformOptCell: JHInspectBaseCell {
         let alert = JHNoteAlertController()
         alert.transitioningDelegate = transitionDelegate
         alert.modalPresentationStyle = .custom
+        alert.note = model?.remark
         alert.noteHandler = {[weak self] text in
             guard let wf = self,var mm = wf.model else { return }
             mm.remark = text
@@ -49,6 +50,7 @@ class JHReformOptCell: JHInspectBaseCell {
         willSet{
             guard let new = newValue else { return }
             titleLab.text = new.text
+            noteLab.text = new.remark
             if let url = new.signature {
                 signBtn.setTitle(nil, for: .normal)
                 signBtn.kf.setImage(with: URL(string: url), for: .normal)
