@@ -49,13 +49,17 @@ struct CheckReportModel: Codable {
 }
 
 // MARK: - InsOpt
-struct ReformOptionModel: Codable {
+struct ReformOptionModel: Codable, Equatable {
     var id: String?
     var pics: String?
     var remark, signature: String?
     var status: Int?
     var text: String?
 
+    static func == (lhs: ReformOptionModel, rhs: ReformOptionModel) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
     enum CodingKeys: String, CodingKey {
         case id = "Id"
         case pics = "Pics"
@@ -63,6 +67,21 @@ struct ReformOptionModel: Codable {
         case signature = "Signature"
         case status = "Status"
         case text = "Text"
+    }
+    
+    var pictures:[JHCameraModel]?{
+        guard let picurls = pics, !picurls.isEmpty else { return nil }
+        
+        if picurls.contains(";") {
+            let pics = picurls.components(separatedBy: ";").compactMap({ pic -> JHCameraModel? in
+                let model = JHCameraModel(url: pic)
+                return model
+            })
+            return pics
+        }else{
+            let model = JHCameraModel(url: picurls)
+            return [model]
+        }
     }
 }
 

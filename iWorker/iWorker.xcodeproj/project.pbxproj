@@ -175,6 +175,7 @@
 		B38E8A6C2848584700884A6A /* GBPersonalPointMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38E8A6B2848584700884A6A /* GBPersonalPointMapVC.swift */; };
 		B38E8A6E28485E3C00884A6A /* JHBMKAnnotationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38E8A6D28485E3C00884A6A /* JHBMKAnnotationListView.swift */; };
 		B38E8A762848C78B00884A6A /* JHLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38E8A752848C78B00884A6A /* JHLocationManager.swift */; };
+		B3931915287555EE00A0CBCC /* JHNoteAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3931914287555EE00A0CBCC /* JHNoteAlertController.swift */; };
 		B3983D00286074DF0018303F /* UITextViewPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3983CF7285C4B8C0018303F /* UITextViewPlaceholder.swift */; };
 		B39C8583283DFA1F007ABDCC /* MapFilterBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39C8582283DFA1F007ABDCC /* MapFilterBarView.swift */; };
 		B39C8587283E0A52007ABDCC /* ReportMapFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39C8586283E0A52007ABDCC /* ReportMapFilterCell.swift */; };
@@ -529,6 +530,7 @@
 		B38E8A6B2848584700884A6A /* GBPersonalPointMapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GBPersonalPointMapVC.swift; sourceTree = "<group>"; };
 		B38E8A6D28485E3C00884A6A /* JHBMKAnnotationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHBMKAnnotationListView.swift; sourceTree = "<group>"; };
 		B38E8A752848C78B00884A6A /* JHLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHLocationManager.swift; sourceTree = "<group>"; };
+		B3931914287555EE00A0CBCC /* JHNoteAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHNoteAlertController.swift; sourceTree = "<group>"; };
 		B3983CF7285C4B8C0018303F /* UITextViewPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewPlaceholder.swift; sourceTree = "<group>"; };
 		B3983CF9285C54720018303F /* Extension+UITextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UITextView.swift"; sourceTree = "<group>"; };
 		B39C8582283DFA1F007ABDCC /* MapFilterBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapFilterBarView.swift; sourceTree = "<group>"; };
@@ -1494,6 +1496,7 @@
 				B3E2AF302873E14E002FA252 /* Views */,
 				B3E2AF2C2873DDEB002FA252 /* JHCameraTransition.swift */,
 				B3E2AF2E2873DECD002FA252 /* JHCameraAlertController.swift */,
+				B3931914287555EE00A0CBCC /* JHNoteAlertController.swift */,
 			);
 			path = CameraView;
 			sourceTree = "<group>";
@@ -2086,6 +2089,7 @@
 				B38E8A6C2848584700884A6A /* GBPersonalPointMapVC.swift in Sources */,
 				B3E2AF20286EBF13002FA252 /* CheckReportModel.swift in Sources */,
 				B39C859B283F2E9F007ABDCC /* JHMapFilterM.swift in Sources */,
+				B3931915287555EE00A0CBCC /* JHNoteAlertController.swift in Sources */,
 				B39E513E2850A72800EAE842 /* JHPhotosModel.swift in Sources */,
 				B3306D4327B124EC005E7DDC /* JHUnitOrgChangeController.swift in Sources */,
 				B3EC88C72844B2EB0040F664 /* PatrolTaskModel.swift in Sources */,

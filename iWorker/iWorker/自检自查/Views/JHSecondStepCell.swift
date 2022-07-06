@@ -15,55 +15,44 @@ class JHSecondStepCell: JHInspectBaseCell {
     override func createView() {
         super.createView()
         stackView.addArrangedSubviews([pullBtn,switchBtn])
-        
-        cameraBtn.jh.setHandleClick {[weak self] button in
+    }
+
+    override func showAlertCamera() {
+        if optionPics.isEmpty{
             //TODO: 拍照
-            guard let wf = self else { return }
-            guard let pics = wf.model?.pictures else {
-                //TODO: 拍照
-                wf.vctools.showCamera(count: 1) {[weak self] model in
-                    guard let wf = self else { return }
-                    wf.model?.picture = model.url
-                    wf.actionHandler(wf.model)
-                }
-                return
-            }
-            //TODO: 图片矩阵
-            let alert = JHCameraAlertController()
-            alert.transitioningDelegate = wf.transitionDelegate
-            alert.modalPresentationStyle = .custom
-            alert.originArray = pics
-            alert.cameraHandler = {[weak self] add,item in
+            vctools.showCamera(count: 1) {[weak self] model in
                 guard let wf = self else { return }
-                var origin = wf.model?.pictures ?? []
-                if add {
-                    origin.append(item)
-                }else{
-                    origin.removeAll(item)
-                }
-                //对象数组转字符串数组
-                let stringArray = origin.compactMap{$0.url}
-                //字符串数组转分隔字符串
-                let string = stringArray.joined(separator: ";")
-                wf.model?.picture = string
+                wf.model?.picture = model.url
                 wf.actionHandler(wf.model)
             }
-            UIViewController.topVC?.present(alert, animated: true)
+            return
         }
+        //TODO: 图片矩阵
+        cameraAlert.cameraHandler = {[weak self] add,item in
+            guard let wf = self else { return }
+            var origin = wf.model?.pictures ?? []
+            if add {
+                origin.append(item)
+            }else{
+                origin.removeAll(item)
+            }
+            //对象数组转字符串数组
+            let stringArray = origin.compactMap{$0.url}
+            //字符串数组转分隔字符串
+            let string = stringArray.joined(separator: ";")
+            wf.model?.picture = string
+            wf.actionHandler(wf.model)
+        }
+        super.showAlertCamera()
     }
-    
-    lazy var transitionDelegate: JHCameraTransitionDelegate = {
-        let delegate = JHCameraTransitionDelegate()
-        return delegate
-    }()
     
     var model:AddInsOptModel?{
         willSet{
             guard let mm = newValue else { return }
-            
             titleLab.text = mm.origin?.text
             cameraBtn.isHidden = !(mm.origin?.isNeedPic ?? false)
             if let pics = mm.pictures, let first = pics.first {
+                optionPics = pics
                 numView.isHidden = false
                 numLab.text = "\(pics.count)"
                 cameraBtn.kf.setImage(with: URL(string: first.url), for: .normal, placeholder: UIImage(named: "Inspectcamera"))

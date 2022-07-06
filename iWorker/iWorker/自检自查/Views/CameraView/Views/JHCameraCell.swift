@@ -27,7 +27,6 @@ class JHCameraBaseCell: UICollectionViewCell {
     func createView() {
         contentView.addSubview(photoView)
         photoView.snp.makeConstraints { make in
-            make.size.equalTo(CGSize(width: 80, height: 80))
             make.left.bottom.equalToSuperview()
             make.top.equalTo(10)
             make.right.equalTo(-10)
@@ -46,16 +45,27 @@ class JHCameraBaseCell: UICollectionViewCell {
 class JHCameraCell: JHCameraBaseCell {
     
     var removeHandler:(JHCameraModel)->Void = {_ in}
-    
+    var ishowRemoveBtn:Bool{
+        model?.url?.isEmpty ?? true
+    }
     var model:JHCameraModel?{
         willSet{
             guard let new = newValue else { return }
-            if let url = new.url {
-                removeBtn.isHidden = false
-                photoView.kf.setImage(with: URL(string: url), placeholder: UIImage(named: ""))
-            }else{
-                removeBtn.isHidden = true
-                photoView.image = .init(named: "Inspectcamera")
+            photoView.kf.setImage(with: URL(string: new.url), placeholder: UIImage(named: "Inspectcamera"))
+        }
+    }
+    //详情时，刷新UI
+    func refreshUI(_ detail:Bool) {
+        if detail {
+            removeBtn.isHidden = true
+            photoView.snp.updateConstraints { make in
+                make.right.top.equalToSuperview()
+            }
+        }else{
+            removeBtn.isHidden = ishowRemoveBtn
+            photoView.snp.updateConstraints { make in
+                make.top.equalTo(10)
+                make.right.equalTo(-10)
             }
         }
     }

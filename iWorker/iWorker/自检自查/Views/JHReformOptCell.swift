@@ -11,8 +11,10 @@ import UIKit
 
 class JHReformOptCell: JHInspectBaseCell {
     
+    var reformHandler:(ReformOptionModel)->Void = {_ in}
     override func createView() {
         super.createView()
+        
         stackView.addArrangedSubview(signBtn)
         
         contentView.addSubview(noteLab)
@@ -28,10 +30,36 @@ class JHReformOptCell: JHInspectBaseCell {
             make.bottom.equalTo(-5)
         }
     }
+    
+    
+    @objc func showNoteAlert() {
+        //TODO: 图片矩阵
+        let alert = JHNoteAlertController()
+        alert.transitioningDelegate = transitionDelegate
+        alert.modalPresentationStyle = .custom
+        UIViewController.topVC?.present(alert, animated: true)
+    }
+    
     var model:ReformOptionModel?{
         willSet{
             guard let new = newValue else { return }
-            titleLab.text = new.remark
+            titleLab.text = new.text
+            if let url = new.signature {
+                signBtn.setTitle(nil, for: .normal)
+                signBtn.kf.setImage(with: URL(string: url), for: .normal)
+            }else{
+                signBtn.setTitle("负责人签字", for: .normal)
+            }
+            
+            if let pics = new.pictures, let first = pics.first {
+                optionPics = pics
+                numView.isHidden = false
+                numLab.text = "\(pics.count)"
+                cameraBtn.kf.setImage(with: URL(string: first.url), for: .normal, placeholder: UIImage(named: "Inspectcamera"))
+            }else{
+                numView.isHidden = true
+                cameraBtn.setImage(UIImage(named: "Inspectcamera"), for: .normal)
+            }
         }
     }
     lazy var signBtn: UIButton = {
@@ -49,16 +77,13 @@ class JHReformOptCell: JHInspectBaseCell {
     @objc func signAction() {
         //TODO: 签名跳转
         let signvc = InsSignViewController()
-        signvc.signHandler = { url in
-//            model?.picture = url
-//            actionHandler(wf.model)
+        signvc.signHandler = {[weak self] url in
+            guard let wf = self, var mm = wf.model else { return }
+            mm.signature = url
+            wf.reformHandler(mm)
         }
+        signvc.modalPresentationStyle = .fullScreen
         UIViewController.topVC?.present(signvc, animated: true)
-    }
-    
-    @objc func noteAction() {
-        //TODO: 弹出编辑框
-        
     }
     
     lazy var noteLab: UILabel = {
@@ -67,7 +92,7 @@ class JHReformOptCell: JHInspectBaseCell {
         lab.font = .systemFont(ofSize: 12)
         lab.numberOfLines = 0
         lab.isUserInteractionEnabled = true
-        let tap = UITapGestureRecognizer(target: self, action: #selector(noteAction))
+        let tap = UITapGestureRecognizer(target: self, action: #selector(showNoteAlert))
         lab.addGestureRecognizer(tap)
         return lab
     }()

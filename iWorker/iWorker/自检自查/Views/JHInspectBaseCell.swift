@@ -10,6 +10,7 @@ import JHBase
 
 class JHInspectBaseCell: UITableViewCell {
 
+    var optionPics:[JHCameraModel] = []
     var actionHandler:(AddInsOptModel?)->Void = {_ in}
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -20,6 +21,16 @@ class JHInspectBaseCell: UITableViewCell {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+    }
+    
+    lazy var transitionDelegate: JHCameraTransitionDelegate = {
+        let delegate = JHCameraTransitionDelegate()
+        return delegate
+    }()
+    
+    @objc func showAlertCamera() {
+        cameraAlert.originArray = optionPics
+        UIViewController.topVC?.present(cameraAlert, animated: true)
     }
     
     func createView() {
@@ -53,7 +64,12 @@ class JHInspectBaseCell: UITableViewCell {
             make.bottom.right.equalToSuperview()
         }
     }
-    
+    lazy var cameraAlert: JHCameraAlertController = {
+        let alert = JHCameraAlertController()
+        alert.transitioningDelegate = transitionDelegate
+        alert.modalPresentationStyle = .custom
+        return alert
+    }()
     lazy var stackView: UIStackView = {
         let arrView = [vline]
         let stack = UIStackView(arrangedSubviews: arrView, axis: .horizontal)
@@ -66,6 +82,7 @@ class JHInspectBaseCell: UITableViewCell {
         let btn = UIButton()
         btn.layer.cornerRadius = 3
         btn.layer.masksToBounds = true
+        btn.addTarget(self, action: #selector(showAlertCamera), for: .touchDown)
         return btn
     }()
     

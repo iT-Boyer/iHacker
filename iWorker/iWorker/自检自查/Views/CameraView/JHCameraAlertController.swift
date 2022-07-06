@@ -11,11 +11,10 @@ import JHBase
 class JHCameraAlertController: UIViewController {
 
     lazy var vctools = VCTools()
-    
-    var detail = false
+    var isDetail:Bool { cameraHandler == nil }
     var originArray:[JHCameraModel] = []
     var dataArray: [JHCameraModel] {
-        if detail {
+        if isDetail {
             return originArray
         }else{
             if originArray.count == 6 {
@@ -28,7 +27,7 @@ class JHCameraAlertController: UIViewController {
     //占位
     lazy var addModel = JHCameraModel()
     //Bool添加或删除图片操作
-    var cameraHandler:(Bool,JHCameraModel)->Void = {_,_ in}
+    var cameraHandler:((Bool,JHCameraModel)->Void)?
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -95,12 +94,15 @@ extension JHCameraAlertController:UICollectionViewDataSource,UICollectionViewDel
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell:JHCameraCell = collectionView.dequeueReusableCell(withReuseIdentifier: "JHCameraCell", for: indexPath) as! JHCameraCell
         cell.model = dataArray[indexPath.row]
-        cell.removeHandler = {[weak self] item in
-            guard let wf = self else { return }
-            wf.originArray.removeAll(item)
-            wf.cameraHandler(false,item)
-            wf.collectionView.reloadData()
-            wf.refreshUI()
+        cell.refreshUI(isDetail)
+        if !isDetail {
+            cell.removeHandler = {[weak self] item in
+                guard let wf = self, let handler = wf.cameraHandler else { return }
+                wf.originArray.removeAll(item)
+                handler(false,item)
+                wf.collectionView.reloadData()
+                wf.refreshUI()
+            }
         }
         return cell
     }
@@ -109,14 +111,15 @@ extension JHCameraAlertController:UICollectionViewDataSource,UICollectionViewDel
         guard let url = dataArray.last?.url else {
             //TODO: 拍照
             vctools.showCamera(count: 1) {[weak self] model in
-                guard let wf = self else { return }
+                guard let wf = self, let handler = wf.cameraHandler else { return }
                 wf.originArray.append(model)
-                wf.cameraHandler(true,model)
+                handler(true,model)
                 wf.collectionView.reloadData()
                 wf.refreshUI()
             }
             return
         }
+        //TODO: 大图预览
     }
 }
 
