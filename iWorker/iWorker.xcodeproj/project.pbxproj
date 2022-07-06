@@ -176,6 +176,7 @@
 		B38E8A6E28485E3C00884A6A /* JHBMKAnnotationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38E8A6D28485E3C00884A6A /* JHBMKAnnotationListView.swift */; };
 		B38E8A762848C78B00884A6A /* JHLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38E8A752848C78B00884A6A /* JHLocationManager.swift */; };
 		B3931915287555EE00A0CBCC /* JHNoteAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3931914287555EE00A0CBCC /* JHNoteAlertController.swift */; };
+		B393191728758C3000A0CBCC /* ReformInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B393191628758C3000A0CBCC /* ReformInfoModel.swift */; };
 		B3983D00286074DF0018303F /* UITextViewPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3983CF7285C4B8C0018303F /* UITextViewPlaceholder.swift */; };
 		B39C8583283DFA1F007ABDCC /* MapFilterBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39C8582283DFA1F007ABDCC /* MapFilterBarView.swift */; };
 		B39C8587283E0A52007ABDCC /* ReportMapFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39C8586283E0A52007ABDCC /* ReportMapFilterCell.swift */; };
@@ -531,6 +532,7 @@
 		B38E8A6D28485E3C00884A6A /* JHBMKAnnotationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHBMKAnnotationListView.swift; sourceTree = "<group>"; };
 		B38E8A752848C78B00884A6A /* JHLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHLocationManager.swift; sourceTree = "<group>"; };
 		B3931914287555EE00A0CBCC /* JHNoteAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHNoteAlertController.swift; sourceTree = "<group>"; };
+		B393191628758C3000A0CBCC /* ReformInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReformInfoModel.swift; sourceTree = "<group>"; };
 		B3983CF7285C4B8C0018303F /* UITextViewPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewPlaceholder.swift; sourceTree = "<group>"; };
 		B3983CF9285C54720018303F /* Extension+UITextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UITextView.swift"; sourceTree = "<group>"; };
 		B39C8582283DFA1F007ABDCC /* MapFilterBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapFilterBarView.swift; sourceTree = "<group>"; };
@@ -900,6 +902,7 @@
 				B3B12BC8286ADBD40052E26F /* InspectInfoModel.swift */,
 				B3E2AF0A286C3FC7002FA252 /* InspectOptionModel.swift */,
 				B3E2AF0F286D6B09002FA252 /* AddSelfInsModel.swift */,
+				B393191628758C3000A0CBCC /* ReformInfoModel.swift */,
 				B3E2AF1F286EBF13002FA252 /* CheckReportModel.swift */,
 			);
 			path = Models;
@@ -2177,6 +2180,7 @@
 				B3697E7727E41F8E004D8867 /* JHDeviceBaseCell.swift in Sources */,
 				B39C8591283F1484007ABDCC /* JHFilterViewController.swift in Sources */,
 				B3D7C6BB27EC65B300E0EDBA /* JHDeviceBindModel.swift in Sources */,
+				B393191728758C3000A0CBCC /* ReformInfoModel.swift in Sources */,
 				B368E06828333F780039D4D7 /* JHNotificationCenterModel.swift in Sources */,
 				B35E116127BF36E400A8BEF3 /* JHDeviceInvitedController.swift in Sources */,
 				B3289D7F28654B6D00E1FF1A /* CheckSelfThirdViewController.swift in Sources */,

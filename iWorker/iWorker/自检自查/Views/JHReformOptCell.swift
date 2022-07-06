@@ -33,10 +33,15 @@ class JHReformOptCell: JHInspectBaseCell {
     
     
     @objc func showNoteAlert() {
-        //TODO: 图片矩阵
+        //TODO: 浮动编辑框
         let alert = JHNoteAlertController()
         alert.transitioningDelegate = transitionDelegate
         alert.modalPresentationStyle = .custom
+        alert.noteHandler = {[weak self] text in
+            guard let wf = self,var mm = wf.model else { return }
+            mm.remark = text
+            wf.reformHandler(mm)
+        }
         UIViewController.topVC?.present(alert, animated: true)
     }
     

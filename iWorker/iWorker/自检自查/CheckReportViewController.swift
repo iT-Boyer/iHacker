@@ -15,6 +15,15 @@ class CheckReportViewController: JHSelCheckBaseController {
     var reportId = ""
     var report: CheckReportModel?
     var dataArray:[[Any]] = []
+    
+    lazy var reform: ReformInfoModel = {
+        var model = ReformInfoModel()
+        model.record = ReformRecordModel(id: reportId,
+                                         appId: JHBaseInfo.appID,
+                                         waterMark: "", isComplete: true)
+        
+        return model
+    }()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,10 +45,35 @@ class CheckReportViewController: JHSelCheckBaseController {
     
     override func nextStepAction() {
         //TODO: 保存
+        reform.options = report?.insOpts?.compactMap{ item -> ReformOptModel? in
+            ReformOptModel(inspectOptionId: item.id, inspectSignature: item.signature, remark: item.remark)
+        }
+        reform.signatures = report?.reformSignature
+        reform.profiles = [] //五定图片
+        let param:[String:Any] = reform.toParams()
+        let urlStr = JHBaseDomain.fullURL(with: "api_host_rips", path: "/Jinher.AMP.RIP.SV.ComInspectReformSV.svc/SaveSelfInspectReformInfo")
+        let hud = MBProgressHUD.showAdded(to:view, animated: true)
+        hud.removeFromSuperViewOnHide = true
+        let request = JN.post(urlStr, parameters: param, headers: nil)
+        request.response {[weak self] response in
+            hud.hide(animated: true)
+            guard let weakSelf = self else { return }
+            guard let data = response.data else {
+                VCTools.toast("数据错误")
+                return
+            }
+            let json = JSON(data)
+            let result = json["IsSuccess"].boolValue
+            if result {
+                weakSelf.backBtnClicked(UIButton())
+            }else{
+                let msg = json["message"].stringValue
+                VCTools.toast(msg)
+            }
+        }
     }
     
     override func backBtnClicked(_ btn: UIButton) {
-//        navigationController?.dismiss(animated: true)
         navigationController?.popToRootViewController(animated: true)
     }
     
