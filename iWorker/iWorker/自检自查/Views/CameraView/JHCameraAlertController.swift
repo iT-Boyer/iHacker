@@ -27,8 +27,8 @@ class JHCameraAlertController: UIViewController {
     
     //占位
     lazy var addModel = JHCameraModel()
-    
-    var cameraHandler:(JHCameraModel)->Void = {_ in}
+    //Bool添加或删除图片操作
+    var cameraHandler:(Bool,JHCameraModel)->Void = {_,_ in}
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,20 +36,25 @@ class JHCameraAlertController: UIViewController {
         createView()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        if dataArray.count > 3{
-            let height = collectionView.collectionViewLayout.collectionViewContentSize.height
-            collectionView.snp.updateConstraints { make in
-                make.height.equalTo(height)
-            }
-        }
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        view.frame.size = CGSize(width: kScreenWidth - 40, height: 180)
-        view.frame.origin = CGPoint(x: 20, y: kScreenHeight/2 - 90)
+        refreshUI()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        refreshUI()
+    }
+    
+    // 自适应高度
+    func refreshUI() {
+        let height = collectionView.collectionViewLayout.collectionViewContentSize.height
+        collectionView.snp.updateConstraints { make in
+            make.height.equalTo(height)
+        }
+        
+        view.frame.size = CGSize(width: kScreenWidth - 40, height: height)
+        view.frame.origin = CGPoint(x: 20, y: (kScreenHeight - height)/2)
     }
     
     func createView() {
@@ -57,7 +62,7 @@ class JHCameraAlertController: UIViewController {
         collectionView.snp.makeConstraints { make in
             make.center.equalToSuperview()
             make.height.equalTo(100)
-            make.left.equalTo(20)
+            make.left.equalToSuperview()
         }
     }
     
@@ -65,8 +70,8 @@ class JHCameraAlertController: UIViewController {
         
         let flowlayout = UICollectionViewFlowLayout()
         flowlayout.scrollDirection = .vertical
-        flowlayout.itemSize = .init(width: 90, height: 90)
-        flowlayout.sectionInset = .zero
+//        flowlayout.itemSize = .init(width: 90, height: 90)
+//        flowlayout.sectionInset = .zero
         let collection = UICollectionView(frame: .zero, collectionViewLayout: flowlayout)
         collection.delegate = self
         collection.dataSource = self
@@ -90,6 +95,13 @@ extension JHCameraAlertController:UICollectionViewDataSource,UICollectionViewDel
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell:JHCameraCell = collectionView.dequeueReusableCell(withReuseIdentifier: "JHCameraCell", for: indexPath) as! JHCameraCell
         cell.model = dataArray[indexPath.row]
+        cell.removeHandler = {[weak self] item in
+            guard let wf = self else { return }
+            wf.originArray.removeAll(item)
+            wf.cameraHandler(false,item)
+            wf.collectionView.reloadData()
+            wf.refreshUI()
+        }
         return cell
     }
     
@@ -99,16 +111,33 @@ extension JHCameraAlertController:UICollectionViewDataSource,UICollectionViewDel
             vctools.showCamera(count: 1) {[weak self] model in
                 guard let wf = self else { return }
                 wf.originArray.append(model)
-                wf.cameraHandler(model)
+                wf.cameraHandler(true,model)
                 wf.collectionView.reloadData()
-                if wf.dataArray.count > 3{
-                    let height = wf.collectionView.collectionViewLayout.collectionViewContentSize.height
-                    wf.collectionView.snp.updateConstraints { make in
-                        make.height.equalTo(height)
-                    }
-                }
+                wf.refreshUI()
             }
             return
         }
+    }
+}
+
+extension JHCameraAlertController:UICollectionViewDelegateFlowLayout
+{
+    // 返回cell的尺寸大小
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width  = (kScreenWidth - 40 - 10 * 4)/3
+        return CGSize(width: width, height: width)
+    }
+    // 返回cell之间行间隙
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        10
+    }
+    
+    // 返回cell之间列间隙
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        10
+    }
+    // section 边距
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     }
 }

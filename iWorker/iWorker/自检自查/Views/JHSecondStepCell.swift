@@ -32,9 +32,19 @@ class JHSecondStepCell: JHInspectBaseCell {
             alert.transitioningDelegate = wf.transitionDelegate
             alert.modalPresentationStyle = .custom
             alert.originArray = pics
-            alert.cameraHandler = {[weak self] item in
+            alert.cameraHandler = {[weak self] add,item in
                 guard let wf = self else { return }
-                wf.model?.picture = item.url
+                guard var origin = wf.model?.pictures else {return}
+                if add {
+                    origin.append(item)
+                }else{
+                    origin.removeAll(item)
+                }
+                //对象数组转字符串数组
+                let stringArray = origin.compactMap{$0.url}
+                //字符串数组转分隔字符串
+                let string = stringArray.joined(separator: ";")
+                wf.model?.picture = string
                 wf.actionHandler(wf.model)
             }
             UIViewController.topVC?.present(alert, animated: true)
