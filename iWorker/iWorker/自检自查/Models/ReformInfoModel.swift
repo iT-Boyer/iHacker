@@ -64,7 +64,7 @@ struct ReformInfoModel:Codable {
     static var arcchiveUrl: URL?{
         //写入新文件
         guard let documentDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first else { return nil }
-        let newfile = documentDir + "report.json"
+        let newfile = documentDir + "/report.json"
         let url = URL(fileURLWithPath: newfile)
         return url
     }

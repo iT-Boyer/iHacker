@@ -51,7 +51,7 @@ struct InspectInfoModel: Codable {
             guard let url = InspectInfoModel.arcchiveUrl else { return}
             try menuJson.write(to: url, options: .atomic)
         }catch{
-            print("归档失败...")
+            print("归档失败...\(error.localizedDescription)")
         }
     }
     
@@ -67,7 +67,7 @@ struct InspectInfoModel: Codable {
     static var arcchiveUrl: URL?{
         //写入新文件
         guard let documentDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first else { return nil }
-        let newfile = documentDir + "selfinfo.json"
+        let newfile = documentDir + "/selfinfo.json"
         let url = URL(fileURLWithPath: newfile)
         return url
     }
