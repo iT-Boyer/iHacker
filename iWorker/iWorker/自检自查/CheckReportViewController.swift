@@ -32,6 +32,7 @@ class CheckReportViewController: JHSelCheckBaseController {
     override func createView() {
         super.createView()
         setStepImage(img: "Inspect报告bar")
+        navTitle = "检查报告"
         bottomBtn.setTitle("保存", for: .normal)
         
         tableView.delegate = self

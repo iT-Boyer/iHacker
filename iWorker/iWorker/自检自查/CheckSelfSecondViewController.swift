@@ -22,6 +22,20 @@ class CheckSelfSecondViewController: JHSelCheckBaseController {
     
     override func nextStepAction() {
         super.nextStepAction()
+        
+        //校验
+        let tmpOptArr = dataArray.filter{item in
+            if let origin = item.origin, origin.isNeedPic ?? false{
+                guard let pic = item.picture else { return true }
+                return pic.isEmpty
+            }
+            return false
+        }
+        if let opt = tmpOptArr.first {
+            VCTools.toast("请完成\(opt.origin?.text ?? "")")
+            return
+        }
+        
         let third = CheckSelfThirdViewController()
         navigationController?.pushViewController(third, animated: true)
     }

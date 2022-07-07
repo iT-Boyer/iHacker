@@ -33,6 +33,16 @@ class CheckSelfThirdViewController: JHSelCheckBaseController {
     
     override func nextStepAction() {
         super.nextStepAction()
+        
+        guard let remark = addModel.record?.remark ,!remark.isEmpty else{
+            VCTools.toast("请完成备注信息")
+            return
+        }
+        guard let sigin = addModel.record?.inspectSignature ,!sigin.isEmpty else{
+            VCTools.toast("请完成签名")
+            return
+        }
+        
         let param:[String:Any] = addModel.toParams()
         let urlStr = JHBaseDomain.fullURL(with: "api_host_rips", path: "/Jinher.AMP.RIP.SV.ComInspectAssistantSV.svc/AddSelfInspect")
         let hud = MBProgressHUD.showAdded(to:view, animated: true)

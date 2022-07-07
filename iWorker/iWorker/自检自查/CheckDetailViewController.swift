@@ -16,7 +16,6 @@ class CheckDetailViewController: CheckReportViewController {
         api = "GetSelfInspectDetailInfo"
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        createView()
     }
     
     override var headerView: JHOptionsHeaderView{
@@ -26,6 +25,8 @@ class CheckDetailViewController: CheckReportViewController {
     
     override func createView() {
         super.createView()
+        setStepImage(img: "Inspect步骤3")
+        navTitle = "自检自查"
         
         tableView.removeTableFooterView()
         tableView.register(JHThirdStepCell.self, forCellReuseIdentifier: "JHThirdStepCell")
