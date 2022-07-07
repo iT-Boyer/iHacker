@@ -11,7 +11,7 @@ import JHBase
 class JHSelCheckBaseController: JHBaseNavVC {
 
     var storeId = "00000000-0000-0000-0000-000000000000"
-    
+    var profiles:[String] = []
     var addModel: AddSelfInsModel = {
         if let model = AddSelfInsModel.unArchive(){
             return model
@@ -54,10 +54,20 @@ class JHSelCheckBaseController: JHBaseNavVC {
         navBar.lineView.isHidden = true
         navBar.backBtn.setImage(.init(named: "Inspect返回"), for: .normal)
         
-        view.addSubviews([waterView,stepView,tableView])
+        view.addSubviews([fiveFirstView, fiveSecondView, waterView, stepView, tableView])
         view.sendSubviewToBack(waterView)
         let index = view.subviews.firstIndex(of: navBar) ?? 0
         view.insertSubview(stepView, at: index)
+        
+        fiveFirstView.snp.makeConstraints { make in
+            make.top.equalTo(stepView.snp.bottom)
+            make.size.equalTo(CGSize(width: 187, height: 112))
+            make.right.equalToSuperview()
+        }
+        fiveSecondView.snp.makeConstraints { make in
+            make.size.equalTo(fiveFirstView)
+            make.right.bottom.equalToSuperview()
+        }
         waterView.snp.makeConstraints { make in
             make.top.equalTo(stepView.snp.bottom).offset(20)
             make.right.left.bottom.equalToSuperview()
@@ -86,6 +96,18 @@ class JHSelCheckBaseController: JHBaseNavVC {
         waterView.addWaterText(text: mark, color: waterColor, font: .systemFont(ofSize: 15))
     }
     
+    func setStepImage(img:String) {
+        let image = UIImage(named: img)
+        //resizableImageWithCapInsets: 指定拉伸区域
+        let rect = UIEdgeInsets(top: 0, left: 0, bottom: 100, right: 0)
+        stepView.image = image?.resizableImage(withCapInsets: rect, resizingMode: .stretch) //拉伸
+    }
+    
+    func fiveWaterMarkAction() {
+        //TODO: 开启五定拍照
+        profiles = ["url"]
+    }
+    
     lazy var waterView: UIView = {
         let water = UIView()
         let mark = JHBaseInfo.userAccount + "  " + today
@@ -94,6 +116,16 @@ class JHSelCheckBaseController: JHBaseNavVC {
     }()
     
     lazy var waterColor = UIColor(white: 0, alpha: 0.2)
+    
+    lazy var fiveFirstView: UIImageView = {
+        let imageView = UIImageView()
+        return imageView
+    }()
+    
+    lazy var fiveSecondView: UIImageView = {
+        let imageView = UIImageView()
+        return imageView
+    }()
     
     lazy var today: String = {
         let format = DateFormatter()
@@ -109,13 +141,6 @@ class JHSelCheckBaseController: JHBaseNavVC {
         header.contentMode = .scaleToFill
         return header
     }()
-    
-    func setStepImage(img:String) {
-        let image = UIImage(named: img)
-        //resizableImageWithCapInsets: 指定拉伸区域
-        let rect = UIEdgeInsets(top: 0, left: 0, bottom: 100, right: 0)
-        stepView.image = image?.resizableImage(withCapInsets: rect, resizingMode: .stretch) //拉伸
-    }
     
     lazy var tableView: UITableView = {
         let tb = UITableView()

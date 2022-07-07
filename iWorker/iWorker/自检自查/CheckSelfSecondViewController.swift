@@ -88,10 +88,10 @@ class CheckSelfSecondViewController: JHSelCheckBaseController {
                 }
                 weakSelf.addModel.options = weakSelf.dataArray
                 weakSelf.addModel.toArchive()
+                weakSelf.fiveWaterMarkAction()
                 weakSelf.tableView.reloadData()
             }else{
-                let msg = json["message"].stringValue
-                VCTools.toast(msg)
+                VCTools.toast("数据加载失败啦！请检查您的网络")
             }
         }
     }

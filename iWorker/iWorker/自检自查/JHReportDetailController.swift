@@ -54,6 +54,10 @@ class JHReportDetailController: CheckReportViewController {
             }
             dataArray[2] = signArr
         }
+        if let five = report.authUserProfile {
+            fiveFirstView.kf.setImage(with: URL(string: five.first))
+            fiveSecondView.kf.setImage(with: URL(string: five.last))
+        }
         tableView.reloadData()
     }
     

@@ -27,6 +27,7 @@ class CheckReportViewController: JHSelCheckBaseController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        fiveWaterMarkAction()
     }
     
     override func createView() {
@@ -78,7 +79,7 @@ class CheckReportViewController: JHSelCheckBaseController {
             return tmp
         }
         
-        reform.profiles = [] //五定图片
+        reform.profiles = profiles //五定图片
         let param:[String:Any] = reform.toParams()
         let urlStr = JHBaseDomain.fullURL(with: "api_host_rips", path: "/Jinher.AMP.RIP.SV.ComInspectReformSV.svc/SaveSelfInspectReformInfo")
         let hud = MBProgressHUD.showAdded(to:view, animated: true)

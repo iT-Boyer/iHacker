@@ -31,16 +31,7 @@ class CheckDetailViewController: CheckReportViewController {
         tableView.removeTableFooterView()
         tableView.register(JHThirdStepCell.self, forCellReuseIdentifier: "JHThirdStepCell")
         
-        let inspectBtn = UIButton()
-        inspectBtn.setImage(.init(named: "Inspect详情"), for: .normal)
-        inspectBtn.imageEdgeInsets = UIEdgeInsets(top: 15, left: 50, bottom: 15, right: 0)
-        inspectBtn.jh.setHandleClick {[weak self] button in
-            guard let wf = self else{return}
-            //TODO: 整改详情
-            let reform = JHReportDetailController()
-            reform.reportId = wf.reportId
-            wf.navigationController?.pushViewController(reform)
-        }
+        
         navBar.addSubview(inspectBtn)
         inspectBtn.snp.makeConstraints { make in
             make.size.equalTo(CGSize(width: 70, height: 50))
@@ -48,6 +39,20 @@ class CheckDetailViewController: CheckReportViewController {
             make.right.equalTo(-10)
         }
     }
+    
+    lazy var inspectBtn: UIButton = {
+        let inspect = UIButton()
+        inspect.setImage(.init(named: "Inspect详情"), for: .normal)
+        inspect.imageEdgeInsets = UIEdgeInsets(top: 15, left: 50, bottom: 15, right: 0)
+        inspect.jh.setHandleClick {[weak self] button in
+            guard let wf = self else{return}
+            //TODO: 整改详情
+            let reform = JHReportDetailController()
+            reform.reportId = wf.reportId
+            wf.navigationController?.pushViewController(reform)
+        }
+        return inspect
+    }()
     
     override func backBtnClicked(_ btn: UIButton) {
         navigationController?.popViewController()
@@ -58,6 +63,11 @@ class CheckDetailViewController: CheckReportViewController {
         let notevm = CheckEditCellVM( type: .note, note: report.remark ?? "", isDetail: true)
         let signvm = CheckEditCellVM(type: .sign, picture: report.signature ?? "", isDetail: true)
         dataArray[2] = [notevm, signvm]
+        if let five = report.authUserProfile {
+            fiveFirstView.kf.setImage(with: URL(string: five.first))
+            fiveSecondView.kf.setImage(with: URL(string: five.last))
+        }
+        inspectBtn.isHidden = !(report.isReform ?? false)
         tableView.reloadData()
     }
     

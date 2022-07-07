@@ -39,10 +39,10 @@ class CheckSelfThirdViewController: JHSelCheckBaseController {
             return
         }
         guard let sigin = addModel.record?.inspectSignature ,!sigin.isEmpty else{
-            VCTools.toast("请完成签名")
+            VCTools.toast("请重新输入签名！")
             return
         }
-        
+        addModel.profiles = profiles
         let param:[String:Any] = addModel.toParams()
         let urlStr = JHBaseDomain.fullURL(with: "api_host_rips", path: "/Jinher.AMP.RIP.SV.ComInspectAssistantSV.svc/AddSelfInspect")
         let hud = MBProgressHUD.showAdded(to:view, animated: true)
