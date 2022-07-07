@@ -10,7 +10,7 @@ import JHBase
 import UIKit
 
 class JHReformOptCell: JHInspectBaseCell {
-    
+    var isDetail = false
     var reformHandler:(ReformOptionModel)->Void = {_ in}
     override func createView() {
         super.createView()
@@ -19,21 +19,22 @@ class JHReformOptCell: JHInspectBaseCell {
         
         contentView.addSubview(noteLab)
         titleLab.snp.remakeConstraints { make in
-            make.top.equalTo(5)
+            make.top.equalTo(8)
+            make.height.equalTo(25)
             make.left.equalTo(cameraBtn.snp.right).offset(8)
             make.right.equalTo(arrowIcon.snp.left).offset(-8)
         }
         noteLab.snp.makeConstraints { make in
             make.leading.equalTo(titleLab.snp.leading)
             make.trailing.equalTo(titleLab.snp.trailing)
-            make.top.equalTo(titleLab.snp.bottom).offset(5)
+            make.top.equalTo(titleLab.snp.bottom)
             make.bottom.equalTo(-5)
         }
     }
     
-    
     @objc func showNoteAlert() {
         //TODO: 浮动编辑框
+        if isDetail{ return }
         let alert = JHNoteAlertController()
         alert.transitioningDelegate = transitionDelegate
         alert.modalPresentationStyle = .custom
@@ -47,6 +48,10 @@ class JHReformOptCell: JHInspectBaseCell {
     }
     
     @objc func signAction() {
+        if isDetail{
+            //TODO: 大图预览
+            return
+        }
         //TODO: 签名跳转
         let signvc = InsSignViewController()
         signvc.signHandler = {[weak self] url in

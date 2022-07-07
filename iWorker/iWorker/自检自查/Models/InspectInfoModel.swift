@@ -39,6 +39,7 @@ struct InspectInfoModel: Codable {
             let decoder = JSONDecoder()
             return try decoder.decode(InspectInfoModel.self, from: jsonData)
         }catch{
+            print("解档失败...\(error.localizedDescription)")
             return nil
         }
     }

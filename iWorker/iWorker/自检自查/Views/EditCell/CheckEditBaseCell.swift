@@ -14,7 +14,6 @@ enum CheckEditCellType {
 
 struct CheckEditCellVM:Equatable {
     var role:String = ""
-    
     var desc:String{
         if !role.isEmpty {
             let tt = type == .note ? "意见":"签字"
@@ -27,6 +26,8 @@ struct CheckEditCellVM:Equatable {
     
     var type:CheckEditCellType = .note
     var note = "", picture = ""
+    
+    var isDetail = false
     
     static func == (lhs: Self, rhs: Self) -> Bool{
         lhs.role == rhs.role

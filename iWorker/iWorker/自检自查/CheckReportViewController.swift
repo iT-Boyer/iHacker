@@ -15,7 +15,7 @@ class CheckReportViewController: JHSelCheckBaseController {
     var reportId = ""
     var report: CheckReportModel?
     var dataArray:[[Any]] = []
-    
+    var api = "GetSelfInspectReformInfo" //整改
     lazy var reform: ReformInfoModel = {
         var model = ReformInfoModel()
         model.record = ReformRecordModel(id: reportId,
@@ -26,13 +26,7 @@ class CheckReportViewController: JHSelCheckBaseController {
     }()
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        view.endEditing(true)
     }
     
     override func createView() {
@@ -134,8 +128,9 @@ class CheckReportViewController: JHSelCheckBaseController {
         if let opts = report.insOpts {
             dataArray.append(opts)
         }
-        
-        var signArr:[CheckEditCellVM] = []
+        let usernote = CheckEditCellVM( type: .note, note: report.remark ?? "", isDetail: true)
+        let usersign = CheckEditCellVM(type: .sign, picture: report.signature ?? "", isDetail: true)
+        var signArr:[CheckEditCellVM] = [usernote, usersign]
         if let roles = report.reformSignature {
             for vm in roles {
                 let role = vm.roleName ?? ""
@@ -155,7 +150,7 @@ class CheckReportViewController: JHSelCheckBaseController {
         let param:[String:Any] = ["commonParam":["appId": JHBaseInfo.appID,
                                                     "Id": reportId]
                                  ]
-        let urlStr = JHBaseDomain.fullURL(with: "api_host_rips", path: "/Jinher.AMP.RIP.SV.ComInspectReformSV.svc/GetSelfInspectReformInfo")
+        let urlStr = JHBaseDomain.fullURL(with: "api_host_rips", path: "/Jinher.AMP.RIP.SV.ComInspectReformSV.svc/\(api)")
         let hud = MBProgressHUD.showAdded(to:view, animated: true)
         hud.removeFromSuperViewOnHide = true
         let request = JN.post(urlStr, parameters: param, headers: nil)
@@ -263,5 +258,14 @@ extension CheckReportViewController:UITableViewDataSource
         }
         
         return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 1, let optsArr = dataArray[1] as? [ReformOptionModel]{
+            let model = optsArr[indexPath.row]
+            let detail = InsOptDetailViewController()
+            detail.insOptId = model.id
+            navigationController?.pushViewController(detail, completion: nil)
+        }
     }
 }

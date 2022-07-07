@@ -32,14 +32,19 @@ class CheckSignCell: CheckEditBaseCell {
         sign.setImage(.init(named: ""), for: .normal)
         sign.jh.setHandleClick {[weak self] button in
             guard let wf = self else{return}
-            //TODO: 签名跳转
-            let signvc = InsSignViewController()
-            signvc.signHandler = { url in
-                wf.model?.picture = url
-                wf.actionHandler(wf.model)
+            if let mm = wf.model, mm.isDetail{
+                //TODO: 大图预览
+                
+            }else{
+                //TODO: 签名跳转
+                let signvc = InsSignViewController()
+                signvc.signHandler = { url in
+                    wf.model?.picture = url
+                    wf.actionHandler(wf.model)
+                }
+                signvc.modalPresentationStyle = .fullScreen
+                UIViewController.topVC?.present(signvc, animated: true)
             }
-            signvc.modalPresentationStyle = .fullScreen
-            UIViewController.topVC?.present(signvc, animated: true)
         }
         return sign
     }()

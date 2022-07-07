@@ -36,6 +36,7 @@ class JHThirdStepCell: JHInspectBaseCell {
                 optionPics = pics
                 numView.isHidden = false
                 numLab.text = "\(pics.count)"
+                cameraBtn.isHidden = false
                 cameraBtn.kf.setImage(with: URL(string: first.url), for: .normal, placeholder: UIImage(named: "Inspectcamera"))
             }else{
                 numView.isHidden = true

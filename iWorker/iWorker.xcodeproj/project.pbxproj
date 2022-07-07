@@ -178,6 +178,10 @@
 		B3931915287555EE00A0CBCC /* JHNoteAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3931914287555EE00A0CBCC /* JHNoteAlertController.swift */; };
 		B393191728758C3000A0CBCC /* ReformInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B393191628758C3000A0CBCC /* ReformInfoModel.swift */; };
 		B39319192876953A00A0CBCC /* SaveSelfInspectReformInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = B39319182876953200A0CBCC /* SaveSelfInspectReformInfo.json */; };
+		B393191B2876A84500A0CBCC /* CheckDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B393191A2876A84500A0CBCC /* CheckDetailViewController.swift */; };
+		B393191D2876B54200A0CBCC /* GetSelfInspectDetailInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = B393191C2876B53500A0CBCC /* GetSelfInspectDetailInfo.json */; };
+		B393191F2876B61A00A0CBCC /* JHReportDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B393191E2876B61A00A0CBCC /* JHReportDetailController.swift */; };
+		B39319212876BC9E00A0CBCC /* GetSelfInspectReformDetailInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = B39319202876BC9200A0CBCC /* GetSelfInspectReformDetailInfo.json */; };
 		B3983D00286074DF0018303F /* UITextViewPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3983CF7285C4B8C0018303F /* UITextViewPlaceholder.swift */; };
 		B39C8583283DFA1F007ABDCC /* MapFilterBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39C8582283DFA1F007ABDCC /* MapFilterBarView.swift */; };
 		B39C8587283E0A52007ABDCC /* ReportMapFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39C8586283E0A52007ABDCC /* ReportMapFilterCell.swift */; };
@@ -535,6 +539,10 @@
 		B3931914287555EE00A0CBCC /* JHNoteAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHNoteAlertController.swift; sourceTree = "<group>"; };
 		B393191628758C3000A0CBCC /* ReformInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReformInfoModel.swift; sourceTree = "<group>"; };
 		B39319182876953200A0CBCC /* SaveSelfInspectReformInfo.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SaveSelfInspectReformInfo.json; sourceTree = "<group>"; };
+		B393191A2876A84500A0CBCC /* CheckDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckDetailViewController.swift; sourceTree = "<group>"; };
+		B393191C2876B53500A0CBCC /* GetSelfInspectDetailInfo.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GetSelfInspectDetailInfo.json; sourceTree = "<group>"; };
+		B393191E2876B61A00A0CBCC /* JHReportDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHReportDetailController.swift; sourceTree = "<group>"; };
+		B39319202876BC9200A0CBCC /* GetSelfInspectReformDetailInfo.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GetSelfInspectReformDetailInfo.json; sourceTree = "<group>"; };
 		B3983CF7285C4B8C0018303F /* UITextViewPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewPlaceholder.swift; sourceTree = "<group>"; };
 		B3983CF9285C54720018303F /* Extension+UITextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UITextView.swift"; sourceTree = "<group>"; };
 		B39C8582283DFA1F007ABDCC /* MapFilterBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapFilterBarView.swift; sourceTree = "<group>"; };
@@ -872,6 +880,8 @@
 				B3289D7C28654B5100E1FF1A /* CheckSelfSecondViewController.swift */,
 				B3289D7E28654B6D00E1FF1A /* CheckSelfThirdViewController.swift */,
 				B3289D8028654B8600E1FF1A /* CheckReportViewController.swift */,
+				B393191A2876A84500A0CBCC /* CheckDetailViewController.swift */,
+				B393191E2876B61A00A0CBCC /* JHReportDetailController.swift */,
 				B3289D8228654BC800E1FF1A /* InsSignViewController.swift */,
 				B3289D8428654BEA00E1FF1A /* InsOptDetailViewController.swift */,
 				B3289D8628654C0D00E1FF1A /* PatorlCalendarViewController.swift */,
@@ -1457,6 +1467,8 @@
 				B3B12BC6286ADAFA0052E26F /* GetInfoToSelfInspect.json */,
 				B3E2AF13286E8D5A002FA252 /* GetSelfInspectOptionDes.json */,
 				B3E2AF1D286EBE7D002FA252 /* GetSelfInspectReformInfo.json */,
+				B393191C2876B53500A0CBCC /* GetSelfInspectDetailInfo.json */,
+				B39319202876BC9200A0CBCC /* GetSelfInspectReformDetailInfo.json */,
 				B39319182876953200A0CBCC /* SaveSelfInspectReformInfo.json */,
 				B3E2AF292872F166002FA252 /* AddSelfInspect.json */,
 			);
@@ -1884,7 +1896,9 @@
 				B38E8A62284712A000884A6A /* GetDayFootPrint.json in Resources */,
 				B323036E278D3B460056BDCC /* CheckEnterChain.json in Resources */,
 				B38E8A6A284712A000884A6A /* GetDepartmentList.json in Resources */,
+				B393191D2876B54200A0CBCC /* GetSelfInspectDetailInfo.json in Resources */,
 				B38E8A63284712A000884A6A /* GetLastFootPrint.json in Resources */,
+				B39319212876BC9E00A0CBCC /* GetSelfInspectReformDetailInfo.json in Resources */,
 				B39E514B2850A9A900EAE842 /* SubmitAmbient.json in Resources */,
 				B31202152816A1AA002D4FA3 /* GetActivityInfo.json in Resources */,
 				B39E51512850A9F200EAE842 /* submitBusinessRecommend.json in Resources */,
@@ -2059,6 +2073,7 @@
 				B3EC88CD2844B88C0040F664 /* FlagStatusModel.swift in Sources */,
 				B39E51AB28531C3900EAE842 /* JHPhotoRecommendController.swift in Sources */,
 				B3B4A6E1282BA0C5006B5F57 /* PhoneAccountBindViewController.swift in Sources */,
+				B393191B2876A84500A0CBCC /* CheckDetailViewController.swift in Sources */,
 				B3EC88D52845C4D80040F664 /* SplitDotlineView.swift in Sources */,
 				B3697E7B27E429A3004D8867 /* JHDeviceSceneCell.swift in Sources */,
 				B39C8599283F17B7007ABDCC /* JHFilterTransition.swift in Sources */,
@@ -2067,6 +2082,7 @@
 				B3F4599D27F438F100AADC08 /* JHDeviceViewModel.swift in Sources */,
 				B37EC661283B6CFD00D92FC1 /* ReportTrackPachController.swift in Sources */,
 				B376987C2859B53B00A3A638 /* JHHandlerCoverPicsController.swift in Sources */,
+				B393191F2876B61A00A0CBCC /* JHReportDetailController.swift in Sources */,
 				B3E2AF26286EDBBF002FA252 /* JHThirdStepCell.swift in Sources */,
 				B3230364278C2C370056BDCC /* JHUnitOrgHigherModel.swift in Sources */,
 				B312022228190DA9002D4FA3 /* JHTimePicker.swift in Sources */,

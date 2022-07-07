@@ -12,6 +12,12 @@ class CheckNoteCell: CheckEditBaseCell {
     override var model: CheckEditCellVM?{
         willSet{
             guard let mm = newValue else { return }
+            textView.isUserInteractionEnabled = !mm.isDetail
+            if mm.isDetail {
+                textView.text = mm.note
+                textView.textColor = .k2F3856
+                return
+            }
             if !mm.note.isEmpty {
                 textView.text = mm.note
                 textView.textColor = .k2F3856
