@@ -17,7 +17,7 @@ class CheckNoteCell: CheckEditBaseCell {
                 textView.textColor = .k2F3856
             }else{
                 textView.textColor = .k99A0B6
-                textView.text = "此处填写\(mm.desc ?? "备注")"
+                textView.text = "此处填写\(mm.desc)"
             }
         }
     }
@@ -41,21 +41,25 @@ extension CheckNoteCell:UITextViewDelegate
 {
     func textViewDidBeginEditing(_ textView: UITextView) {
         guard let mm = model else { return }
-        if textView.text == "此处填写\(mm.desc ?? "备注")" {
+        if textView.text == "此处填写\(mm.desc)" {
             textView.textColor = .k2F3856
             textView.text = nil
         }
     }
-    func textViewDidEndEditing(_ textView: UITextView) {
-        guard var mm = model else { return }
-        if !textView.text.isEmpty{
-            textView.textColor = .k2F3856
-            mm.note = textView.text
-            actionHandler(mm)
-        }else{
+    func textViewDidChange(_ textView: UITextView) {
+        guard let mm = model else { return }
+        let placeholder = "此处填写\(mm.desc)"
+        if textView.text.isEmpty || textView.text == placeholder {
             textView.textColor = .k99A0B6
-            textView.text = "此处填写\(mm.desc ?? "备注")"
+            textView.text = placeholder
+            model?.note = ""
+        }else{
+            textView.textColor = .k2F3856
+            model?.note = textView.text
         }
+    }
+    func textViewDidEndEditing(_ textView: UITextView) {
+        actionHandler(model)
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {

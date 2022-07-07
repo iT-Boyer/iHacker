@@ -18,6 +18,7 @@ class JHNoteAlertController: UIViewController {
         // Do any additional setup after loading the view.
         createView()
         textView.text = note
+        numberLab.text = "\(note?.count ?? 0)/40"
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -107,7 +108,7 @@ class JHNoteAlertController: UIViewController {
         btn.backgroundColor = .initWithHex("FDAD44")
         btn.layer.cornerRadius = 10
         btn.jh.setHandleClick {[weak self] button in
-            guard let wf = self, let tex = wf.textView.text, !tex.isEmpty else {return}
+            guard let wf = self, let tex = wf.textView.text else {return}
             wf.noteHandler(tex)
             wf.dismiss(animated: true)
         }

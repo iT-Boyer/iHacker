@@ -1,0 +1,9 @@
+{
+  "Message": "string",
+  "IsSuccess": true,
+  "Code": "string",
+  "Data": "string",
+  "StatusCode": "string",
+  "ResultCode": "string"
+}
+

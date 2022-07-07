@@ -97,8 +97,8 @@ class CheckSelfThirdViewController: JHSelCheckBaseController {
     lazy var signArray: [CheckEditCellVM] = {
         let note = addModel.record?.remark ?? ""
         let sign = addModel.record?.inspectSignature ?? ""
-        let notevm = CheckEditCellVM(desc: "备注", type: .note, note: note)
-        let signvm = CheckEditCellVM(desc: "检查人签名", type: .sign, picture: sign)
+        let notevm = CheckEditCellVM(type: .note, note: note)
+        let signvm = CheckEditCellVM(type: .sign, picture: sign)
         return [notevm, signvm]
     }()
     
@@ -163,12 +163,12 @@ extension CheckSelfThirdViewController:UITableViewDataSource
                     signArr = signArr.compactMap{[weak self] item in
                         guard let wf = self else { return nil }
                         var mm = item
-                        if vv.desc == mm.desc {
-                            if !vv.note.isEmpty {
+                        if vv == mm {
+                            if mm.type == .note {
                                 mm.note = vv.note
                                 wf.addModel.record?.remark = vv.note
                             }
-                            if !vv.picture.isEmpty {
+                            if mm.type == .sign {
                                 mm.picture = vv.picture
                                 wf.addModel.record?.inspectSignature = vv.picture
                             }

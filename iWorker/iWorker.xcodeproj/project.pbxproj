@@ -177,6 +177,7 @@
 		B38E8A762848C78B00884A6A /* JHLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38E8A752848C78B00884A6A /* JHLocationManager.swift */; };
 		B3931915287555EE00A0CBCC /* JHNoteAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3931914287555EE00A0CBCC /* JHNoteAlertController.swift */; };
 		B393191728758C3000A0CBCC /* ReformInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B393191628758C3000A0CBCC /* ReformInfoModel.swift */; };
+		B39319192876953A00A0CBCC /* SaveSelfInspectReformInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = B39319182876953200A0CBCC /* SaveSelfInspectReformInfo.json */; };
 		B3983D00286074DF0018303F /* UITextViewPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3983CF7285C4B8C0018303F /* UITextViewPlaceholder.swift */; };
 		B39C8583283DFA1F007ABDCC /* MapFilterBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39C8582283DFA1F007ABDCC /* MapFilterBarView.swift */; };
 		B39C8587283E0A52007ABDCC /* ReportMapFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39C8586283E0A52007ABDCC /* ReportMapFilterCell.swift */; };
@@ -533,6 +534,7 @@
 		B38E8A752848C78B00884A6A /* JHLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHLocationManager.swift; sourceTree = "<group>"; };
 		B3931914287555EE00A0CBCC /* JHNoteAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHNoteAlertController.swift; sourceTree = "<group>"; };
 		B393191628758C3000A0CBCC /* ReformInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReformInfoModel.swift; sourceTree = "<group>"; };
+		B39319182876953200A0CBCC /* SaveSelfInspectReformInfo.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SaveSelfInspectReformInfo.json; sourceTree = "<group>"; };
 		B3983CF7285C4B8C0018303F /* UITextViewPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewPlaceholder.swift; sourceTree = "<group>"; };
 		B3983CF9285C54720018303F /* Extension+UITextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UITextView.swift"; sourceTree = "<group>"; };
 		B39C8582283DFA1F007ABDCC /* MapFilterBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapFilterBarView.swift; sourceTree = "<group>"; };
@@ -1455,6 +1457,7 @@
 				B3B12BC6286ADAFA0052E26F /* GetInfoToSelfInspect.json */,
 				B3E2AF13286E8D5A002FA252 /* GetSelfInspectOptionDes.json */,
 				B3E2AF1D286EBE7D002FA252 /* GetSelfInspectReformInfo.json */,
+				B39319182876953200A0CBCC /* SaveSelfInspectReformInfo.json */,
 				B3E2AF292872F166002FA252 /* AddSelfInspect.json */,
 			);
 			path = JSON;
@@ -1916,6 +1919,7 @@
 				B38D890D277B1AC000888EFB /* RegisterFaceInfo.json in Resources */,
 				B33EF39527BFA68B00A3B6DE /* AddInviteUser.json in Resources */,
 				B3E2AF1E286EBE7D002FA252 /* GetSelfInspectReformInfo.json in Resources */,
+				B39319192876953A00A0CBCC /* SaveSelfInspectReformInfo.json in Resources */,
 				B39E515B2850AA6600EAE842 /* UptStoreBrandPubCover.json in Resources */,
 				B3E2AF09286C3F82002FA252 /* GetSelfInspectOptions.json in Resources */,
 				B39E51492850A99300EAE842 /* GetBrandPubDetail.json in Resources */,

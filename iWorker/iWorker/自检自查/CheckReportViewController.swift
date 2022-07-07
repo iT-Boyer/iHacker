@@ -45,10 +45,39 @@ class CheckReportViewController: JHSelCheckBaseController {
     
     override func nextStepAction() {
         //TODO: 保存
+        //校验
+        guard let optArr = dataArray[1] as? [ReformOptionModel] else {return}
+        let tmpOptArr = optArr.filter{item in
+            if let tmp1 = item.signature, !tmp1.isEmpty, let tmp2 = item.remark, !tmp2.isEmpty {return false}else{return true}
+        }
+        if let opt = tmpOptArr.first {
+            VCTools.toast("请完成\(opt.text ?? "")")
+            return
+        }
+        
+        guard let signArr = dataArray[2] as? [CheckEditCellVM] else {return}
+        let tmpSignArr = signArr.filter{$0.note.isEmpty || $0.picture.isEmpty}
+        if let note = tmpSignArr.first {
+            VCTools.toast("请完成\(note.desc)")
+            return
+        }
+        
+        //检查项签字
         reform.options = report?.insOpts?.compactMap{ item -> ReformOptModel? in
             ReformOptModel(inspectOptionId: item.id, inspectSignature: item.signature, remark: item.remark)
         }
-        reform.signatures = report?.reformSignature
+        // 签字
+        reform.signatures = report?.reformSignature?.compactMap{ model -> ReformSignModel? in
+            var tmp = model
+            if let arr = dataArray[2] as? [CheckEditCellVM]{
+                let note = arr.filter{$0.role == tmp.roleName && $0.type == .note}
+                let sign = arr.filter{$0.role == tmp.roleName && $0.type == .sign}
+                tmp.remark = note.first?.note
+                tmp.signature = sign.first?.picture
+            }
+            return tmp
+        }
+        
         reform.profiles = [] //五定图片
         let param:[String:Any] = reform.toParams()
         let urlStr = JHBaseDomain.fullURL(with: "api_host_rips", path: "/Jinher.AMP.RIP.SV.ComInspectReformSV.svc/SaveSelfInspectReformInfo")
@@ -107,8 +136,8 @@ class CheckReportViewController: JHSelCheckBaseController {
                 let role = vm.roleName ?? ""
                 let note = vm.remark ?? ""
                 let sign = vm.signature ?? ""
-                let notevm = CheckEditCellVM(desc: role + "意见", type: .note, note: note)
-                let signvm = CheckEditCellVM(desc: role + "签字", type: .sign, picture: sign)
+                let notevm = CheckEditCellVM(role: role, type: .note, note: note)
+                let signvm = CheckEditCellVM(role: role, type: .sign, picture: sign)
                 signArr.append(notevm)
                 signArr.append(signvm)
             }
@@ -205,6 +234,25 @@ extension CheckReportViewController:UITableViewDataSource
                 let cellId = model.type == .note ? "CheckNoteCell":"CheckSignCell"
                 let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as! CheckEditBaseCell
                 cell.model = model
+                cell.actionHandler = {[weak self] vm in
+                    guard let wf = self, let vv = vm else { return }
+                    if var arr = wf.dataArray[2] as? [CheckEditCellVM]{
+                        arr = arr.compactMap{ item in
+                            var mm = item
+                            if vv == mm {
+                                if vv.type == .note {
+                                    mm.note = vv.note
+                                }
+                                if vv.type == .sign {
+                                    mm.picture = vv.picture
+                                }
+                            }
+                            return mm
+                        }
+                        wf.dataArray[2] = arr
+                        wf.tableView.reloadData()
+                    }
+                }
                 return cell
             }
         }

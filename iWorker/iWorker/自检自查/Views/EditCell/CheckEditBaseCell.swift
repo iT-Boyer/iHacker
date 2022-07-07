@@ -12,10 +12,25 @@ enum CheckEditCellType {
     case sign       //签字
 }
 
-struct CheckEditCellVM {
-    var desc:String?
+struct CheckEditCellVM:Equatable {
+    var role:String = ""
+    
+    var desc:String{
+        if !role.isEmpty {
+            let tt = type == .note ? "意见":"签字"
+            return role+tt
+        }else{
+            let tt = type == .note ? "备注":"检查人签名"
+            return tt
+        }
+    }
+    
     var type:CheckEditCellType = .note
     var note = "", picture = ""
+    
+    static func == (lhs: Self, rhs: Self) -> Bool{
+        lhs.role == rhs.role
+    }
 }
 
 class CheckEditBaseCell: UITableViewCell {

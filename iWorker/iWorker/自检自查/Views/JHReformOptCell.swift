@@ -55,6 +55,7 @@ class JHReformOptCell: JHInspectBaseCell {
                 signBtn.setTitle(nil, for: .normal)
                 signBtn.kf.setImage(with: URL(string: url), for: .normal)
             }else{
+                signBtn.setImage(nil, for: .normal)
                 signBtn.setTitle("负责人签字", for: .normal)
             }
             
@@ -64,6 +65,7 @@ class JHReformOptCell: JHInspectBaseCell {
                 numLab.text = "\(pics.count)"
                 cameraBtn.kf.setImage(with: URL(string: first.url), for: .normal, placeholder: UIImage(named: "Inspectcamera"))
             }else{
+                optionPics = []
                 numView.isHidden = true
                 cameraBtn.setImage(UIImage(named: "Inspectcamera"), for: .normal)
             }
