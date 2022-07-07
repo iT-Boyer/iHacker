@@ -57,6 +57,7 @@ class JHSecondStepCell: JHInspectBaseCell {
                 numLab.text = "\(pics.count)"
                 cameraBtn.kf.setImage(with: URL(string: first.url), for: .normal, placeholder: UIImage(named: "Inspectcamera"))
             }else{
+                optionPics = []
                 numView.isHidden = true
                 cameraBtn.setImage(UIImage(named: "Inspectcamera"), for: .normal)
             }

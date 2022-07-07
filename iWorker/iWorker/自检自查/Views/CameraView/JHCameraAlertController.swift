@@ -47,6 +47,7 @@ class JHCameraAlertController: UIViewController {
     
     // 自适应高度
     func refreshUI() {
+        collectionView.reloadData()
         let height = collectionView.collectionViewLayout.collectionViewContentSize.height
         collectionView.snp.updateConstraints { make in
             make.height.equalTo(height)
