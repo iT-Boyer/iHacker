@@ -30,6 +30,11 @@ class CheckReportViewController: JHSelCheckBaseController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        view.endEditing(true)
+    }
+    
     override func createView() {
         super.createView()
         setStepImage(img: "Inspect报告bar")

@@ -46,6 +46,18 @@ class JHReformOptCell: JHInspectBaseCell {
         UIViewController.topVC?.present(alert, animated: true)
     }
     
+    @objc func signAction() {
+        //TODO: 签名跳转
+        let signvc = InsSignViewController()
+        signvc.signHandler = {[weak self] url in
+            guard let wf = self, var mm = wf.model else { return }
+            mm.signature = url
+            wf.reformHandler(mm)
+        }
+        signvc.modalPresentationStyle = .fullScreen
+        UIViewController.topVC?.present(signvc, animated: true)
+    }
+    
     var model:ReformOptionModel?{
         willSet{
             guard let new = newValue else { return }
@@ -82,18 +94,6 @@ class JHReformOptCell: JHInspectBaseCell {
         btn.addTarget(self, action: #selector(signAction), for: .touchDown)
         return btn
     }()
-    
-    @objc func signAction() {
-        //TODO: 签名跳转
-        let signvc = InsSignViewController()
-        signvc.signHandler = {[weak self] url in
-            guard let wf = self, var mm = wf.model else { return }
-            mm.signature = url
-            wf.reformHandler(mm)
-        }
-        signvc.modalPresentationStyle = .fullScreen
-        UIViewController.topVC?.present(signvc, animated: true)
-    }
     
     lazy var noteLab: UILabel = {
         let lab = UILabel()

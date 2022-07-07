@@ -31,7 +31,8 @@ struct ReformInfoModel:Codable {
     // 解析
     static func unArchive() -> ReformInfoModel?{
         do{
-            let jsonData = try Data(contentsOf: arcchiveUrl,
+            guard let url = arcchiveUrl else { return nil}
+            let jsonData = try Data(contentsOf: url,
                                        options: NSData.ReadingOptions(rawValue: 0))
             let decoder = JSONDecoder()
             return try decoder.decode(ReformInfoModel.self, from: jsonData)
@@ -42,25 +43,28 @@ struct ReformInfoModel:Codable {
     // 归档
     func toArchive() {
         do{
+            guard let url = ReformInfoModel.arcchiveUrl else { return }
             let jsonEncoder = JSONEncoder()
             jsonEncoder.outputFormatting = .prettyPrinted
             let menuJson = try jsonEncoder.encode(self)
-            try menuJson.write(to: ReformInfoModel.arcchiveUrl, options: .atomic)
+            try menuJson.write(to: url, options: .atomic)
         }catch{
             print("归档失败...")
         }
     }
     static func clearArchive() {
-        if FileManager.default.fileExists(atPath: arcchiveUrl.path) {
-            guard let _ = try? FileManager.default.removeItem(at: arcchiveUrl) else{
-                print("删除失败:\(arcchiveUrl.path)")
+        guard let url = arcchiveUrl else { return }
+        if FileManager.default.fileExists(atPath: url.path) {
+            guard let _ = try? FileManager.default.removeItem(at: url) else{
+                print("删除失败:\(url.path)")
                 return
             }
         }
     }
-    static var arcchiveUrl: URL{
+    static var arcchiveUrl: URL?{
         //写入新文件
-        let newfile = Bundle.main.bundlePath + "report.json"
+        guard let documentDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first else { return nil }
+        let newfile = documentDir + "report.json"
         let url = URL(fileURLWithPath: newfile)
         return url
     }

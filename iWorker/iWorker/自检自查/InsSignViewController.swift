@@ -65,21 +65,21 @@ class InsSignViewController: JHBaseNavVC {
             make.top.equalTo(drawView.snp.bottom).offset(20)
             make.size.equalTo(CGSize(width: 40, height: 100))
             make.left.equalTo(20)
-            make.bottom.equalTo(-kEmptyBottomHeight)
+            make.bottom.equalTo(-kEmptyBottomHeight - 20)
         }
         
         clearBtn.snp.makeConstraints { make in
             make.top.equalTo(saveBtn.snp.top)
             make.size.equalTo(saveBtn)
             make.centerX.equalToSuperview()
-            make.bottom.equalTo(-kEmptyBottomHeight)
+            make.bottom.equalTo(-kEmptyBottomHeight  - 20)
         }
         
         backBtn.snp.makeConstraints { make in
             make.top.equalTo(saveBtn.snp.top)
             make.size.equalTo(saveBtn)
             make.right.equalTo(-20)
-            make.bottom.equalTo(-kEmptyBottomHeight)
+            make.bottom.equalTo(-kEmptyBottomHeight - 20)
         }
         
         view.layoutIfNeeded()

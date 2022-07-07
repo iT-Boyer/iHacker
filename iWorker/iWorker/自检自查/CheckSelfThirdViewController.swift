@@ -164,11 +164,11 @@ extension CheckSelfThirdViewController:UITableViewDataSource
                         guard let wf = self else { return nil }
                         var mm = item
                         if vv == mm {
-                            if mm.type == .note {
+                            if vv.type == .note {
                                 mm.note = vv.note
                                 wf.addModel.record?.remark = vv.note
                             }
-                            if mm.type == .sign {
+                            if vv.type == .sign {
                                 mm.picture = vv.picture
                                 wf.addModel.record?.inspectSignature = vv.picture
                             }

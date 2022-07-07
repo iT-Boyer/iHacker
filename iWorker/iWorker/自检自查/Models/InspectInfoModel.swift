@@ -33,7 +33,8 @@ struct InspectInfoModel: Codable {
     // 解档
     static func unArchive() -> InspectInfoModel?{
         do{
-            let jsonData = try Data(contentsOf: InspectInfoModel.arcchiveUrl,
+            guard let url = arcchiveUrl else { return nil }
+            let jsonData = try Data(contentsOf: url,
                                        options: NSData.ReadingOptions(rawValue: 0))
             let decoder = JSONDecoder()
             return try decoder.decode(InspectInfoModel.self, from: jsonData)
@@ -47,23 +48,26 @@ struct InspectInfoModel: Codable {
             let jsonEncoder = JSONEncoder()
             jsonEncoder.outputFormatting = .prettyPrinted
             let menuJson = try jsonEncoder.encode(self)
-            try menuJson.write(to: InspectInfoModel.arcchiveUrl, options: .atomic)
+            guard let url = InspectInfoModel.arcchiveUrl else { return}
+            try menuJson.write(to: url, options: .atomic)
         }catch{
             print("归档失败...")
         }
     }
     
     static func clearArchive() {
-        if FileManager.default.fileExists(atPath: arcchiveUrl.path) {
-            guard let _ = try? FileManager.default.removeItem(at: arcchiveUrl) else{
-                print("删除失败:\(arcchiveUrl.path)")
+        guard let url = arcchiveUrl else { return}
+        if FileManager.default.fileExists(atPath: url.path) {
+            guard let _ = try? FileManager.default.removeItem(at: url) else{
+                print("删除失败:\(url.path)")
                 return
             }
         }
     }
-    static var arcchiveUrl: URL{
+    static var arcchiveUrl: URL?{
         //写入新文件
-        let newfile = Bundle.main.bundlePath + "selfinfo.json"
+        guard let documentDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first else { return nil }
+        let newfile = documentDir + "selfinfo.json"
         let url = URL(fileURLWithPath: newfile)
         return url
     }
