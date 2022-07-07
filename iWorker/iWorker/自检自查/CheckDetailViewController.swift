@@ -31,7 +31,6 @@ class CheckDetailViewController: CheckReportViewController {
         tableView.removeTableFooterView()
         tableView.register(JHThirdStepCell.self, forCellReuseIdentifier: "JHThirdStepCell")
         
-        
         navBar.addSubview(inspectBtn)
         inspectBtn.snp.makeConstraints { make in
             make.size.equalTo(CGSize(width: 70, height: 50))
