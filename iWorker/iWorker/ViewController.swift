@@ -14,6 +14,7 @@ class ViewController: JHBaseNavVC {
     var page:UIViewController!
     var rows:[(String, UIViewController.Type)]{
         [("自检自查", CheckSelfViewController.self),
+         ("|--日历记录", PatorlCalendarViewController.self),
          ("|--检查结果", CheckDetailViewController.self),
          ("图片集首页", PhotoHomeController.self),
          ("|- 品牌宣传",JHPhotoDetailController.self),

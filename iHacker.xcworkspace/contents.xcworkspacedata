@@ -40,4 +40,7 @@
    <FileRef
       location = "group:../TZImagePickerController">
    </FileRef>
+   <FileRef
+      location = "group:../FSCalendar">
+   </FileRef>
 </Workspace>

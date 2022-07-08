@@ -1,0 +1,41 @@
+{
+    "Code": "1",
+    "Data": null,
+    "Detail": null,
+    "IsSuccess": true,
+    "Message": "获取成功！",
+    "Content": {
+        "ComInspectDayList": [{
+            "InspectDate": "2022\/7\/7"
+        },{
+            "InspectDate": "2022\/7\/8"
+        },{
+            "InspectDate": "2022\/7\/9"
+        }],
+        "ComInspectRecordList": [{
+            "Id": "e85c7765-7cf7-44d7-95f7-b69f54b3bc5b",
+            "InspectDate": "2022\/7\/7 19:32:26",
+            "SelfInspectType": "常规自查",
+            "SelfInspectTypeId": "e80d6ac0-81c1-49ce-822c-3b147c94fc58",
+            "UserName": null
+        },{
+            "Id": "e85c7765-7cf7-43d7-95f7-b69f54b3bc5b",
+            "InspectDate": "2022\/7\/7 19:32:26",
+            "SelfInspectType": "常规自查1",
+            "SelfInspectTypeId": "e80d6ac0-81c2-49ce-822c-3b147c94fc58",
+            "UserName": null
+        },{
+        "Id": "e85c7765-7cf7-42d7-95f7-b69f54b3bc5b",
+        "InspectDate": "2022\/7\/7 19:32:26",
+        "SelfInspectType": "常规自查",
+        "SelfInspectTypeId": "e80d6ac0-81c1-49ce-822c-3b147c94fc58",
+        "UserName": null
+    },{
+        "Id": "e85c7765-7cf7-42d7-95f7-b69f54b3bc5b",
+        "InspectDate": "2022\/7\/9 19:32:26",
+        "SelfInspectType": "常规自查",
+        "SelfInspectTypeId": "e80d6ac0-8122-49ce-822c-3b147c94fc58",
+        "UserName": null
+    }]
+    }
+}

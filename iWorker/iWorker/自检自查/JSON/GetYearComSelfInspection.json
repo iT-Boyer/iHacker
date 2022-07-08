@@ -1,0 +1,22 @@
+{
+    "Code": "1",
+    "Data": null,
+    "Detail": null,
+    "IsSuccess": true,
+    "Message": "获取成功！",
+    "Content": [{
+        "AllTimes": 24,
+        "ByMethod": 1,
+        "InspectTimes": 0,
+        "SelfInspectType": "全项自查",
+        "SelfInspectTypeId": "5b032b69-c821-45fd-b565-403e3c843995",
+        "Times": 2
+    }, {
+        "AllTimes": 365,
+        "ByMethod": 0,
+        "InspectTimes": 0,
+        "SelfInspectType": "常规自查",
+        "SelfInspectTypeId": "e80d6ac0-81c1-49ce-822c-3b147c94fc58",
+        "Times": 1
+    }]
+}
