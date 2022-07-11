@@ -110,7 +110,7 @@ class JHSelCheckBaseController: JHBaseNavVC {
     
     lazy var waterView: UIView = {
         let water = UIView()
-        let mark = JHBaseInfo.userAccount + "  " + today
+        let mark = JHBaseInfo.userAccount + "  " + today + today + today
         water.addWaterText(text: mark, color: waterColor, font: .systemFont(ofSize: 15))
         return water
     }()

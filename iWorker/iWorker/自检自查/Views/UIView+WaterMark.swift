@@ -17,7 +17,7 @@ extension UIView {
             let line:NSInteger = Int(height*3.5)%80
             let row:NSInteger = 20
             let lineSpace:Int = Int(textSize.width + 30)
-            let rowHeight:Int = Int(textSize.width+40)
+            let rowHeight:Int = Int(textSize.width + 40)
             let textWidth:Int = Int(textSize.width)
             let textHeight:Int = Int(textSize.height)
             for i in  0...line {

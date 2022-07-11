@@ -87,8 +87,8 @@ class JHSecondStepCell: JHInspectBaseCell {
     
     lazy var switchBtn: UIButton = {
         let btn = UIButton()
-        btn.setImage(.init(named: "Inspectpshi"), for: .normal)
-        btn.setImage(.init(named: "Inspectfou"), for: .selected)
+        btn.setImage(.init(named: "Inspectfou"), for: .normal)
+        btn.setImage(.init(named: "Inspectpshi"), for: .selected)
         btn.snp.makeConstraints { make in
             make.size.equalTo(CGSize(width: 65, height: 33))
         }
