@@ -21,39 +21,9 @@
         "Text": "在经营场所醒目位置公示量化等级标识。"
     }, {
         "Id": "f7f20e8c-0573-49cb-93ae-829d1acb6b42",
-        "IsNeedPic": true,
+        "IsNeedPic": false,
         "IsNotForAll": true,
         "Text": "监督检查结果记录表公示的时间、位置等符合"
-    }, {
-        "Id": "4e273ced-95fd-4846-9d53-5aab38f94b0c",
-        "IsNeedPic": true,
-        "IsNotForAll": false,
-        "Text": "制定食品安全事故处置方案。"
-    }, {
-        "Id": "83efea41-3c33-4c9e-aa1e-b4d6cb62d778",
-        "IsNeedPic": true,
-        "IsNotForAll": true,
-        "Text": "建立从业人员健康管理、食品安全自查、进货"
-    }, {
-        "Id": "cb1ec177-dda2-49df-9a3c-b53f0aee6cfb",
-        "IsNeedPic": true,
-        "IsNotForAll": false,
-        "Text": "具有从业人员食品安全培训记录"
-    }, {
-        "Id": "fe374508-020c-4fb0-950f-4d60dd6beec6",
-        "IsNeedPic": true,
-        "IsNotForAll": false,
-        "Text": "从业人员穿戴清洁"
-    }, {
-        "Id": "2ba4d968-3d69-4e34-a22f-700ebbd91b78",
-        "IsNeedPic": true,
-        "IsNotForAll": false,
-        "Text": "烹饪场所配置排风设备，定期清洁。"
-    }, {
-        "Id": "0cbae656-90c7-44d0-b908-97c48ce6a0ff",
-        "IsNeedPic": true,
-        "IsNotForAll": false,
-        "Text": "卫生间保持清洁、卫生，定期清理。"
     }]
 }
 
