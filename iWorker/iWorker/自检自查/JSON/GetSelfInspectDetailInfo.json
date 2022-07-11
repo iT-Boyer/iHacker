@@ -9,7 +9,7 @@
         "InspectDate": "2022\/6\/30 14:47:04",
         "InspectTypeId": "5296d2a6-494d-47ce-af01-da7dff257d2f",
         "InspectTypeName": "日检",
-        "IsReform": null,
+        "IsReform": true,
         "StoreId": "a5bac1d7-0c0c-4328-8af1-2df7955a0e74",
         "StoreName": "白兔咖啡有限责任公司",
         "StoreSecTypeName": "中型餐饮",
@@ -21,7 +21,7 @@
             "Pics": "http:\/\/upfileserver.iuoooo.com\/Jinher.JAP.BaseApp.FileServer.UI\/FileManage\/GetFile?fileURL=29e54e46-3e17-4ca4-8f03-db71fb8f967d\/2022070110\/528cf34e5e264cf9ab9696d7d45b90e1_22071822553.png;http:\/\/scfileserver.iuoooo.com\/Jinher.JAP.BaseApp.FileServer.UI\/FileManage\/GetFile?fileURL=29e54e46-3e17-4ca4-8f03-db71fb8f967d\/2021122717\/ed9a3f67-f076-43c1-88e5-6748ecd51bc6_47b9e475-265a-4292-978f-f5a62a94a494.jpg;http:\/\/scfileserver.iuoooo.com\/Jinher.JAP.BaseApp.FileServer.UI\/FileManage\/GetFile?fileURL=29e54e46-3e17-4ca4-8f03-db71fb8f967d\/2021122717\/ed9a3f67-f076-43c1-88e5-6748ecd51bc6_47b9e475-265a-4292-978f-f5a62a94a494.jpg;http:\/\/scfileserver.iuoooo.com\/Jinher.JAP.BaseApp.FileServer.UI\/FileManage\/GetFile?fileURL=29e54e46-3e17-4ca4-8f03-db71fb8f967d\/2021122717\/ed9a3f67-f076-43c1-88e5-6748ecd51bc6_47b9e475-265a-4292-978f-f5a62a94a494.jpg",
             "Remark": null,
             "Signature": null,
-            "Status": 0,
+            "Status": 1,
             "Text": "持有有效的健康证明1"
         },{
             "Id": "e4bdaf66-5103-4a0a-a507-27ec4529d66c",
@@ -35,7 +35,7 @@
             "Pics": "http:\/\/upfileserver.iuoooo.com\/Jinher.JAP.BaseApp.FileServer.UI\/FileManage\/GetFile?fileURL=29e54e46-3e17-4ca4-8f03-db71fb8f967d\/2022070110\/528cf34e5e264cf9ab9696d7d45b90e1_22071822553.png;http:\/\/scfileserver.iuoooo.com\/Jinher.JAP.BaseApp.FileServer.UI\/FileManage\/GetFile?fileURL=29e54e46-3e17-4ca4-8f03-db71fb8f967d\/2021122717\/ed9a3f67-f076-43c1-88e5-6748ecd51bc6_47b9e475-265a-4292-978f-f5a62a94a494.jpg;http:\/\/scfileserver.iuoooo.com\/Jinher.JAP.BaseApp.FileServer.UI\/FileManage\/GetFile?fileURL=29e54e46-3e17-4ca4-8f03-db71fb8f967d\/2021122717\/ed9a3f67-f076-43c1-88e5-6748ecd51bc6_47b9e475-265a-4292-978f-f5a62a94a494.jpg;http:\/\/scfileserver.iuoooo.com\/Jinher.JAP.BaseApp.FileServer.UI\/FileManage\/GetFile?fileURL=29e54e46-3e17-4ca4-8f03-db71fb8f967d\/2021122717\/ed9a3f67-f076-43c1-88e5-6748ecd51bc6_47b9e475-265a-4292-978f-f5a62a94a494.jpg",
             "Remark": null,
             "Signature": null,
-            "Status": 0,
+            "Status": 2,
             "Text": "持有有效的健康证明3"
         }],
         "ReformSignature": [{
