@@ -43,4 +43,7 @@
    <FileRef
       location = "group:../FSCalendar">
    </FileRef>
+   <FileRef
+      location = "group:../Viperit">
+   </FileRef>
 </Workspace>

@@ -76,7 +76,6 @@ class JHInspectInfoCell: UITableViewCell {
     
     lazy var subLab: UILabel = {
         let lab = UILabel()
-        lab.isHidden = true
         lab.textAlignment = .right
         lab.textColor = .k666666
         lab.font = .systemFont(ofSize: 11)
