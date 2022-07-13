@@ -186,8 +186,12 @@ extension PatorlCalendarViewController:FSCalendarDelegate, FSCalendarDataSource
                 if types.count == 1 {
                     return item.selfInspectType
                 }else{
-                    let month = date.string(withFormat: "yyyy/M")
-                    return month + " " + (item.selfInspectType ?? "")
+                    if let dateStr = item.inspectDate {
+                        let time = dateStr.dateTime
+                        let timestr = time?.string(withFormat: "HH:mm")
+                        return (item.selfInspectType ?? "") + " " + (timestr ?? "")
+                    }
+                    return item.selfInspectType
                 }
             }
             if actions.isEmpty { return }
