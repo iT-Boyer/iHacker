@@ -227,7 +227,7 @@ extension PatorlCalendarViewController:FSCalendarDelegate, FSCalendarDataSource
                                                  "storeId":storeId
                                                 ]
                                  ]
-        let urlStr = JHBaseDomain.fullURL(with: "api_host_rips", path: "/Jinher.AMP.RIP.SV.ComInspectRecordSV.svc/GetComSelfInspection")
+        let urlStr = JHBaseDomain.fullURL(with: "api_host_rips", path: "/Jinher.AMP.RIP.SV.ComInspectRecordSV.svc/GetComSelfInspection1")
         let hud = MBProgressHUD.showAdded(to:view, animated: true)
         hud.removeFromSuperViewOnHide = true
         let request = JN.post(urlStr, parameters: param, headers: nil)

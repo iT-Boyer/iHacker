@@ -1,0 +1,44 @@
+{
+    "Content": [{
+        "ClassificationId": "bd769edb-38d7-4abf-846f-b4c629470771",
+        "ClassificationName": "人员卫生检查",
+        "OptionList": [{
+            "ClassificationId": "bd769edb-38d7-4abf-846f-b4c629470771",
+            "ClassificationName": "人员卫生检查",
+            "InspectOptionTaskId": "99c541fc-13dc-46ec-8885-983d7ae9f93d",
+            "InspectOptionId": "c1887bc2-d600-4298-8de9-105d11f850da",
+            "OptionAppId": "128b85de-0f43-4aac-bed9-33541f84eedb",
+            "Text": "多步每步一张",
+            "NoticeTime": "08:00",
+            "IsShowStatus": false,
+            "Status": "合格",
+            "StatusValue": 1,
+            "IsForAll": 0,
+            "TotalPersons": 1,
+            "FinishedPersons": 0,
+            "NotFinishPersonNum": 1,
+            "Picture": "http://testfileserver.iuoooo.com/Jinher.JAP.BaseApp.FileServer.UI/FileManage/GetFile?fileURL=29e54e46-3e17-4ca4-8f03-db71fb8f9556/2020052810/3af232cf-b773-4b2c-96b3-28f7d81b4961_2020052810102629_0cebe024dc474fc39ba3844f2f8f8fa5_960f5666-a323-4d84-ac50-4bf9d97a1b9f.png",
+            "Remark": "多步每步一张",
+            "InspectMethod": 3,
+            "IsCompleted": false,
+            "TaskTypeId": "9adcd6bc-e8f1-4c61-a4eb-fa4ddbc24c54",
+            "ClassOrder": 2,
+            "Order": 312,
+            "ExecutorList": [],
+            "PictureList": null,
+            "StatusList": [{
+                "StatusValue": 1,
+                "Status": "合格"
+            }, {
+                "StatusValue": 0,
+                "Status": "不合格"
+            }]
+        }]
+    }],
+    "StoreName": "白兔比萨",
+    "Message": "获取成功！",
+    "IsSuccess": true,
+    "Code": "1",
+    "Data": null,
+    "Detail": null
+}

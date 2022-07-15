@@ -1,0 +1,16 @@
+{
+    "Content": [{
+        "ButtonCode": "xunchajilu",
+        "ButtonUrl": "http://lvpfileserver.iuoooo.com/Jinher.JAP.BaseApp.FileServer.UI/FileManage/GetFile?fileURL=49e54e46-3e17-4ca4-8f03-db71fb8f9655/2019041011/987e1773-7a8d-4784-bac6-93d9f0063fa1_2019041011161183191966.jpg",
+        "ButtonName": "监管记录"
+    }, {
+        "ButtonCode": "zichajilu",
+        "ButtonUrl": "http://lvpfileserver.iuoooo.com/Jinher.JAP.BaseApp.FileServer.UI/FileManage/GetFile?fileURL=49e54e46-3e17-4ca4-8f03-db71fb8f9655/2019041011/94ff97ae-f85e-4d2e-8905-06410fbcd408_2019041011163001679156.jpg",
+        "ButtonName": "自查记录"
+    }],
+    "Message": "获取成功",
+    "IsSuccess": true,
+    "Code": "1",
+    "Data": null,
+    "Detail": null
+}

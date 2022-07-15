@@ -1,0 +1,40 @@
+{
+    "Content": [{
+        "TaskId": "064015e4-7034-4052-ab1a-f179db8d9b97",
+        "Name": "ym测试任务状态 2019-04-04至2019-04-18",
+        "ProcessType": 0,
+        "TaskStatus": 5,
+        "StatusTxt": "异常完成",
+        "StartTime": "2019-04-04 00:00:00",
+        "EndTime": "2019-04-18 23:59:59",
+        "TaskExecutorId": "00000000-0000-0000-0000-000000000000",
+        "UserName": null,
+        "PeopleList": null,
+        "TaskColor": "5E637B",
+        "UserColor": "99A0B6",
+        "TypeColor": "2CD773",
+        "TimeColor": "99A0B6",
+        "TimeTxt": "2019.04.04-2019.04.18"
+    }, {
+        "TaskId": "84d2e747-d78e-4981-8284-1cb72e99653c",
+        "Name": "自查餐饮3（全门店）第1次",
+        "ProcessType": 0,
+        "TaskStatus": 4,
+        "StatusTxt": "未完成",
+        "StartTime": "2020-06-02 00:00:00",
+        "EndTime": "2020-06-02 23:59:59",
+        "TaskExecutorId": "00000000-0000-0000-0000-000000000000",
+        "UserName": null,
+        "PeopleList": null,
+        "TaskColor": "5E637B",
+        "UserColor": "99A0B6",
+        "TypeColor": "2CD773",
+        "TimeColor": "99A0B6",
+        "TimeTxt": "2020.06.02-2020.06.02"
+    }],
+    "Message": null,
+    "IsSuccess": true,
+    "Code": null,
+    "Data": null,
+    "Detail": null
+}

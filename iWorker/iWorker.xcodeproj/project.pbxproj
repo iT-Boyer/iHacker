@@ -274,9 +274,23 @@
 		B3EC88CF2845B89A0040F664 /* ReportTrackPathCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC88CE2845B89A0040F664 /* ReportTrackPathCell.swift */; };
 		B3EC88D12845BB9E0040F664 /* ReportTrackPachM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC88D02845BB9E0040F664 /* ReportTrackPachM.swift */; };
 		B3EC88D52845C4D80040F664 /* SplitDotlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC88D42845C4D80040F664 /* SplitDotlineView.swift */; };
+		B3EC92D8287FE6B500308DE8 /* GetComInspectOptionList.json in Resources */ = {isa = PBXBuildFile; fileRef = B3EC92D7287FE6B500308DE8 /* GetComInspectOptionList.json */; };
+		B3EC92DA287FE73500308DE8 /* GetStoreBasicInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = B3EC92D9287FE73500308DE8 /* GetStoreBasicInfo.json */; };
+		B3EC92DD287FE7C700308DE8 /* GetMenuList.json in Resources */ = {isa = PBXBuildFile; fileRef = B3EC92DC287FE7A700308DE8 /* GetMenuList.json */; };
+		B3EC92DE287FE7CD00308DE8 /* GetStoreTaskList.json in Resources */ = {isa = PBXBuildFile; fileRef = B3EC92DB287FE77D00308DE8 /* GetStoreTaskList.json */; };
+		B3EC92E3287FEA2B00308DE8 /* GetCalendarTaskByStoreId.json in Resources */ = {isa = PBXBuildFile; fileRef = B3EC92E0287FE87100308DE8 /* GetCalendarTaskByStoreId.json */; };
+		B3EC92E4287FEA2F00308DE8 /* GetMyselfCheckCalent.json in Resources */ = {isa = PBXBuildFile; fileRef = B3EC92E1287FE89800308DE8 /* GetMyselfCheckCalent.json */; };
+		B3EC92E5287FEA3200308DE8 /* GetComSelfInspectionByStoreIdAndUserId.json in Resources */ = {isa = PBXBuildFile; fileRef = B3EC92E2287FE8C700308DE8 /* GetComSelfInspectionByStoreIdAndUserId.json */; };
+		B3EC92E7287FEA6900308DE8 /* GetComSelfInspection.json in Resources */ = {isa = PBXBuildFile; fileRef = B3EC92E6287FEA6100308DE8 /* GetComSelfInspection.json */; };
+		B3EC92EB287FF9FE00308DE8 /* SuperRectifTaskListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC92EA287FF9FE00308DE8 /* SuperRectifTaskListController.swift */; };
+		B3EC92F2287FFACE00308DE8 /* SSDisplayData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC92ED287FFACE00308DE8 /* SSDisplayData.swift */; };
+		B3EC92F3287FFACE00308DE8 /* SSPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC92EE287FFACE00308DE8 /* SSPresenter.swift */; };
+		B3EC92F4287FFACE00308DE8 /* SSRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC92EF287FFACE00308DE8 /* SSRouter.swift */; };
+		B3EC92F5287FFACE00308DE8 /* SSInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC92F0287FFACE00308DE8 /* SSInteractor.swift */; };
+		B3EC92F6287FFACE00308DE8 /* SSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC92F1287FFACE00308DE8 /* SSView.swift */; };
 		B3EE1FAC2877D8A3007739CD /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = B3EE1FAB2877D8A3007739CD /* FSCalendar */; };
 		B3EE1FAE2877DD8A007739CD /* CalendarBottomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EE1FAD2877DD8A007739CD /* CalendarBottomCell.swift */; };
-		B3EE1FB02877E22F007739CD /* GetComSelfInspection.json in Resources */ = {isa = PBXBuildFile; fileRef = B3EE1FAF2877E22F007739CD /* GetComSelfInspection.json */; };
+		B3EE1FB02877E22F007739CD /* GetComSelfInspection1.json in Resources */ = {isa = PBXBuildFile; fileRef = B3EE1FAF2877E22F007739CD /* GetComSelfInspection1.json */; };
 		B3EE1FB22877E2A7007739CD /* InsOneMonthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EE1FB12877E2A7007739CD /* InsOneMonthModel.swift */; };
 		B3EE1FB42877F7C9007739CD /* InspectCalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EE1FB32877F7C9007739CD /* InspectCalendarCell.swift */; };
 		B3EE1FB628780BB6007739CD /* InsYearModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EE1FB528780BB6007739CD /* InsYearModel.swift */; };
@@ -646,8 +660,25 @@
 		B3EC88CE2845B89A0040F664 /* ReportTrackPathCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTrackPathCell.swift; sourceTree = "<group>"; };
 		B3EC88D02845BB9E0040F664 /* ReportTrackPachM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTrackPachM.swift; sourceTree = "<group>"; };
 		B3EC88D42845C4D80040F664 /* SplitDotlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitDotlineView.swift; sourceTree = "<group>"; };
+		B3EC92D7287FE6B500308DE8 /* GetComInspectOptionList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetComInspectOptionList.json; sourceTree = "<group>"; };
+		B3EC92D9287FE73500308DE8 /* GetStoreBasicInfo.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GetStoreBasicInfo.json; sourceTree = "<group>"; };
+		B3EC92DB287FE77D00308DE8 /* GetStoreTaskList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GetStoreTaskList.json; sourceTree = "<group>"; };
+		B3EC92DC287FE7A700308DE8 /* GetMenuList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GetMenuList.json; sourceTree = "<group>"; };
+		B3EC92DF287FE81300308DE8 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		B3EC92E0287FE87100308DE8 /* GetCalendarTaskByStoreId.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GetCalendarTaskByStoreId.json; sourceTree = "<group>"; };
+		B3EC92E1287FE89800308DE8 /* GetMyselfCheckCalent.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GetMyselfCheckCalent.json; sourceTree = "<group>"; };
+		B3EC92E2287FE8C700308DE8 /* GetComSelfInspectionByStoreIdAndUserId.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GetComSelfInspectionByStoreIdAndUserId.json; sourceTree = "<group>"; };
+		B3EC92E6287FEA6100308DE8 /* GetComSelfInspection.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GetComSelfInspection.json; sourceTree = "<group>"; };
+		B3EC92E8287FEAD500308DE8 /* GetComInspectTaskList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GetComInspectTaskList.json; sourceTree = "<group>"; };
+		B3EC92E9287FEB7B00308DE8 /* GetComInspectDetailInfo.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GetComInspectDetailInfo.json; sourceTree = "<group>"; };
+		B3EC92EA287FF9FE00308DE8 /* SuperRectifTaskListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperRectifTaskListController.swift; sourceTree = "<group>"; };
+		B3EC92ED287FFACE00308DE8 /* SSDisplayData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDisplayData.swift; sourceTree = "<group>"; };
+		B3EC92EE287FFACE00308DE8 /* SSPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSPresenter.swift; sourceTree = "<group>"; };
+		B3EC92EF287FFACE00308DE8 /* SSRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSRouter.swift; sourceTree = "<group>"; };
+		B3EC92F0287FFACE00308DE8 /* SSInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSInteractor.swift; sourceTree = "<group>"; };
+		B3EC92F1287FFACE00308DE8 /* SSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSView.swift; sourceTree = "<group>"; };
 		B3EE1FAD2877DD8A007739CD /* CalendarBottomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarBottomCell.swift; sourceTree = "<group>"; };
-		B3EE1FAF2877E22F007739CD /* GetComSelfInspection.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetComSelfInspection.json; sourceTree = "<group>"; };
+		B3EE1FAF2877E22F007739CD /* GetComSelfInspection1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetComSelfInspection1.json; sourceTree = "<group>"; };
 		B3EE1FB12877E2A7007739CD /* InsOneMonthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsOneMonthModel.swift; sourceTree = "<group>"; };
 		B3EE1FB32877F7C9007739CD /* InspectCalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspectCalendarCell.swift; sourceTree = "<group>"; };
 		B3EE1FB528780BB6007739CD /* InsYearModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsYearModel.swift; sourceTree = "<group>"; };
@@ -1148,6 +1179,7 @@
 		B38D889D277B199400888EFB /* iWorker */ = {
 			isa = PBXGroup;
 			children = (
+				B3EC92D5287FE67E00308DE8 /* 自改自查 */,
 				B3289D7728654A9E00E1FF1A /* 自检自查 */,
 				B39E5135285076AE00EAE842 /* 图片集 */,
 				B37EC65A283B6C6C00D92FC1 /* 人员管理 */,
@@ -1482,7 +1514,7 @@
 			isa = PBXGroup;
 			children = (
 				B3EE1FB728780BDD007739CD /* GetYearComSelfInspection.json */,
-				B3EE1FAF2877E22F007739CD /* GetComSelfInspection.json */,
+				B3EE1FAF2877E22F007739CD /* GetComSelfInspection1.json */,
 				B3E2AF08286C3F82002FA252 /* GetSelfInspectOptions.json */,
 				B3B12BC6286ADAFA0052E26F /* GetInfoToSelfInspect.json */,
 				B3E2AF13286E8D5A002FA252 /* GetSelfInspectOptionDes.json */,
@@ -1545,6 +1577,46 @@
 				B3E2AF312873E18F002FA252 /* JHCameraCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		B3EC92D5287FE67E00308DE8 /* 自改自查 */ = {
+			isa = PBXGroup;
+			children = (
+				B3EC92EC287FFA8A00308DE8 /* VIPER */,
+				B3EC92DF287FE81300308DE8 /* README.md */,
+				B3EC92D6287FE68F00308DE8 /* JSON */,
+				B3EC92EA287FF9FE00308DE8 /* SuperRectifTaskListController.swift */,
+			);
+			path = "自改自查";
+			sourceTree = "<group>";
+		};
+		B3EC92D6287FE68F00308DE8 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				B3EC92E8287FEAD500308DE8 /* GetComInspectTaskList.json */,
+				B3EC92D7287FE6B500308DE8 /* GetComInspectOptionList.json */,
+				B3EC92DB287FE77D00308DE8 /* GetStoreTaskList.json */,
+				B3EC92DC287FE7A700308DE8 /* GetMenuList.json */,
+				B3EC92E1287FE89800308DE8 /* GetMyselfCheckCalent.json */,
+				B3EC92E2287FE8C700308DE8 /* GetComSelfInspectionByStoreIdAndUserId.json */,
+				B3EC92E0287FE87100308DE8 /* GetCalendarTaskByStoreId.json */,
+				B3EC92E6287FEA6100308DE8 /* GetComSelfInspection.json */,
+				B3EC92E9287FEB7B00308DE8 /* GetComInspectDetailInfo.json */,
+				B3EC92D9287FE73500308DE8 /* GetStoreBasicInfo.json */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
+		B3EC92EC287FFA8A00308DE8 /* VIPER */ = {
+			isa = PBXGroup;
+			children = (
+				B3EC92ED287FFACE00308DE8 /* SSDisplayData.swift */,
+				B3EC92EE287FFACE00308DE8 /* SSPresenter.swift */,
+				B3EC92EF287FFACE00308DE8 /* SSRouter.swift */,
+				B3EC92F0287FFACE00308DE8 /* SSInteractor.swift */,
+				B3EC92F1287FFACE00308DE8 /* SSView.swift */,
+			);
+			path = VIPER;
 			sourceTree = "<group>";
 		};
 		B3F334302812956F003B834D /* 一张图活动 */ = {
@@ -1903,13 +1975,16 @@
 				B38D8909277B1AC000888EFB /* SaveMorningCheckImg.json in Resources */,
 				B38E8A67284712A000884A6A /* GetFootPrintUserCount.json in Resources */,
 				B3D0486E27D0A3C700E9CBF2 /* GetIOTDeviceSceneList.json in Resources */,
+				B3EC92D8287FE6B500308DE8 /* GetComInspectOptionList.json in Resources */,
 				B38E8A69284712A000884A6A /* GetEmployeeInfo.json in Resources */,
 				B323033A27880CF80056BDCC /* Main.storyboard in Resources */,
 				B38D88AB277B199700888EFB /* LaunchScreen.storyboard in Resources */,
+				B3EC92E5287FEA3200308DE8 /* GetComSelfInspectionByStoreIdAndUserId.json in Resources */,
 				B39E514F2850A9DA00EAE842 /* SubmitBrandPub.json in Resources */,
 				B3289D722862FA1C00E1FF1A /* TZImagePickerController.bundle in Resources */,
 				B3B12BC7286ADAFA0052E26F /* GetInfoToSelfInspect.json in Resources */,
 				B39E514D2850A9C200EAE842 /* GetStoreBrandPub.json in Resources */,
+				B3EC92DA287FE73500308DE8 /* GetStoreBasicInfo.json in Resources */,
 				B38E8A65284712A000884A6A /* GetEmployeeTaskStat.json in Resources */,
 				B3306D4527B23303005E7DDC /* DelFirmChain.json in Resources */,
 				B323036F278D3B460056BDCC /* GetFirmChainList.json in Resources */,
@@ -1923,8 +1998,11 @@
 				B39E514B2850A9A900EAE842 /* SubmitAmbient.json in Resources */,
 				B31202152816A1AA002D4FA3 /* GetActivityInfo.json in Resources */,
 				B39E51512850A9F200EAE842 /* submitBusinessRecommend.json in Resources */,
+				B3EC92DE287FE7CD00308DE8 /* GetStoreTaskList.json in Resources */,
 				B38E8A61284712A000884A6A /* GetStatisticalData.json in Resources */,
+				B3EC92E3287FEA2B00308DE8 /* GetCalendarTaskByStoreId.json in Resources */,
 				B31202172816A1AA002D4FA3 /* ActivitySquare.json in Resources */,
+				B3EC92E7287FEA6900308DE8 /* GetComSelfInspection.json in Resources */,
 				B312021B2817FEE0002D4FA3 /* Delete.json in Resources */,
 				B3230370278D3B460056BDCC /* GetEnterChainList.json in Resources */,
 				B34635C027E37FA0002CA750 /* DeletePersonDevice.json in Resources */,
@@ -1935,12 +2013,13 @@
 				B38E8A66284712A000884A6A /* GetPatrolTaskList.json in Resources */,
 				B39E51572850AA3200EAE842 /* DelStoreBrandPub.json in Resources */,
 				B38D890A277B1AC000888EFB /* GetSimilarityScore.json in Resources */,
+				B3EC92DD287FE7C700308DE8 /* GetMenuList.json in Resources */,
 				B323036D278D3B460056BDCC /* ModifyFirmChain.json in Resources */,
 				B365D33E27C379CB000DBC74 /* 优设标题黑.TTF in Resources */,
 				B38D890B277B1AC000888EFB /* GetMorningCheckSettingByStoreId.json in Resources */,
 				B3230371278D3B460056BDCC /* getCooperateStepList.json in Resources */,
 				B3E2AF2A2872F166002FA252 /* AddSelfInspect.json in Resources */,
-				B3EE1FB02877E22F007739CD /* GetComSelfInspection.json in Resources */,
+				B3EE1FB02877E22F007739CD /* GetComSelfInspection1.json in Resources */,
 				B38E8A64284712A000884A6A /* GetPatrolTaskListForCount.json in Resources */,
 				B38E8A68284712A000884A6A /* GetByQuestionStatus.json in Resources */,
 				B31202162816A1AA002D4FA3 /* MyActivity.json in Resources */,
@@ -1955,6 +2034,7 @@
 				B38D890D277B1AC000888EFB /* RegisterFaceInfo.json in Resources */,
 				B33EF39527BFA68B00A3B6DE /* AddInviteUser.json in Resources */,
 				B3E2AF1E286EBE7D002FA252 /* GetSelfInspectReformInfo.json in Resources */,
+				B3EC92E4287FEA2F00308DE8 /* GetMyselfCheckCalent.json in Resources */,
 				B39319192876953A00A0CBCC /* SaveSelfInspectReformInfo.json in Resources */,
 				B39E515B2850AA6600EAE842 /* UptStoreBrandPubCover.json in Resources */,
 				B3E2AF09286C3F82002FA252 /* GetSelfInspectOptions.json in Resources */,
@@ -2085,6 +2165,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3EC92F3287FFACE00308DE8 /* SSPresenter.swift in Sources */,
+				B3EC92EB287FF9FE00308DE8 /* SuperRectifTaskListController.swift in Sources */,
 				B312022628191DAD002D4FA3 /* JHVideoActDetailController.swift in Sources */,
 				B3EC88C32844AA5D0040F664 /* ReportTaskModel.swift in Sources */,
 				B368E06A283350570039D4D7 /* JHNotificationCenterCell.swift in Sources */,
@@ -2147,6 +2229,7 @@
 				B39E51612851BF7300EAE842 /* JHPhotoSetController.swift in Sources */,
 				B39E5139285086D100EAE842 /* PhotoHomeController.swift in Sources */,
 				B39E51B128533D3E00EAE842 /* JHPhotoAddCollectController.swift in Sources */,
+				B3EC92F5287FFACE00308DE8 /* SSInteractor.swift in Sources */,
 				B3306D3D27B10922005E7DDC /* JHUnitOrgHigherController.swift in Sources */,
 				B323035E278C2B490056BDCC /* JHUnitOrgSearchCell.swift in Sources */,
 				B312022428191D88002D4FA3 /* JHCreateVideoActController.swift in Sources */,
@@ -2161,6 +2244,7 @@
 				B32225BA2795753500953EF3 /* JHUnitOrgAlertController.swift in Sources */,
 				B374E95D27E9B08C0033B72C /* Tools.swift in Sources */,
 				B3697E8427E46DE1004D8867 /* JHSceneViewModel.swift in Sources */,
+				B3EC92F4287FFACE00308DE8 /* SSRouter.swift in Sources */,
 				B376CD59283CAF8D00D01B26 /* ReportLastFootM.swift in Sources */,
 				B38D8936277B1C6D00888EFB /* Env.swift in Sources */,
 				B38D889F277B199400888EFB /* AppDelegate.swift in Sources */,
@@ -2208,6 +2292,7 @@
 				B3E2AF0D286C53E1002FA252 /* JHSwitchView.swift in Sources */,
 				B32943FC284DF1E700123F94 /* PhoneBindCombine.swift in Sources */,
 				B3289D8328654BC800E1FF1A /* InsSignViewController.swift in Sources */,
+				B3EC92F2287FFACE00308DE8 /* SSDisplayData.swift in Sources */,
 				B313EF3A278EDCD40089625F /* StoreDSelSearchBar.swift in Sources */,
 				B368E064283336AB0039D4D7 /* JHNotificationCenterNoDisturbingVCViewController.swift in Sources */,
 				B3EC88BF284493230040F664 /* ReportPatrolInfoCell.swift in Sources */,
@@ -2224,6 +2309,7 @@
 				B32303382787EDBD0056BDCC /* JHUnitJoinOrgViewController.swift in Sources */,
 				B3306D3F27B1093E005E7DDC /* JHUnitOrgLowerController.swift in Sources */,
 				B34635BC27E37F8A002CA750 /* JHBindingEditIntelDescisionVC.swift in Sources */,
+				B3EC92F6287FFACE00308DE8 /* SSView.swift in Sources */,
 				B3697E7727E41F8E004D8867 /* JHDeviceBaseCell.swift in Sources */,
 				B39C8591283F1484007ABDCC /* JHFilterViewController.swift in Sources */,
 				B3D7C6BB27EC65B300E0EDBA /* JHDeviceBindModel.swift in Sources */,

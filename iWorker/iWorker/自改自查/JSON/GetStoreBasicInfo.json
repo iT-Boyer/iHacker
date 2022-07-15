@@ -1,0 +1,29 @@
+{
+    "Content": {
+        "StoreId": "0099dd0d-33fa-4324-aadc-1d17ed93c59e",
+        "StoreName": null,
+        "Name": "赵添测试22",
+        "StoreSecTypeId": null,
+        "StoreSecType": "微型餐饮",
+        "Address": "北京市海淀区上地街道上地东路盈创动力科技园",
+        "Longitude": 116.303287,
+        "Latitude": 40.055402,
+        "LinkTel": "13600006000,15797694611,15797694622,15266660050,15",
+        "LicenceCode": "",
+        "LicenceStatus": "0",
+        "IssueDate": "2010-01-01 00:00:00",
+        "LicenseExpire": "2030-01-01 00:00:00",
+        "StoreStatus": 0,
+        "PicUrl": [],
+        "EquipmentState": "1",
+        "StoreAppId": "3668d322-e113-4874-83a2-37e069c4c786",
+        "LocationId": "06a40f85-18a3-4f73-b34c-0b9c69382f8b",
+        "CommunityId": "00000000-0000-0000-0000-000000000000",
+        "CommunityName": ""
+    },
+    "Message": "",
+    "IsSuccess": true,
+    "Code": null,
+    "Data": null,
+    "Detail": null
+}
