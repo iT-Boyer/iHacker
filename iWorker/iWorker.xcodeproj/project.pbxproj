@@ -67,6 +67,28 @@
 		B34635BC27E37F8A002CA750 /* JHBindingEditIntelDescisionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34635BB27E37F8A002CA750 /* JHBindingEditIntelDescisionVC.swift */; };
 		B34635BF27E37FA0002CA750 /* GetSingleIntelligentDeviceInfoNew.json in Resources */ = {isa = PBXBuildFile; fileRef = B34635BD27E37FA0002CA750 /* GetSingleIntelligentDeviceInfoNew.json */; };
 		B34635C027E37FA0002CA750 /* DeletePersonDevice.json in Resources */ = {isa = PBXBuildFile; fileRef = B34635BE27E37FA0002CA750 /* DeletePersonDevice.json */; };
+		B346FA6A2883C8F300B69410 /* Viperit in Frameworks */ = {isa = PBXBuildFile; productRef = B346FA692883C8F300B69410 /* Viperit */; };
+		B346FB362883FADA00B69410 /* Rswift in Frameworks */ = {isa = PBXBuildFile; productRef = B346FB352883FADA00B69410 /* Rswift */; };
+		B346FB3A288406B700B69410 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B346FB39288406B700B69410 /* BaseModel.swift */; };
+		B346FB3D288407BA00B69410 /* ReformService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B346FB3C288407BA00B69410 /* ReformService.swift */; };
+		B346FB3F28840E7000B69410 /* AppModules.swift in Sources */ = {isa = PBXBuildFile; fileRef = B346FB3E28840E7000B69410 /* AppModules.swift */; };
+		B34BC8822884139900490AC8 /* CameraDisplayData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34BC87B2884139900490AC8 /* CameraDisplayData.swift */; };
+		B34BC8832884139900490AC8 /* CameraPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34BC87C2884139900490AC8 /* CameraPresenter.swift */; };
+		B34BC8852884139900490AC8 /* CameraRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34BC87E2884139900490AC8 /* CameraRouter.swift */; };
+		B34BC8862884139900490AC8 /* CameraModuleApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34BC87F2884139900490AC8 /* CameraModuleApi.swift */; };
+		B34BC8872884139900490AC8 /* CameraInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34BC8802884139900490AC8 /* CameraInteractor.swift */; };
+		B34BC8882884139900490AC8 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34BC8812884139900490AC8 /* CameraView.swift */; };
+		B34BC89D2884142C00490AC8 /* RecordDisplayData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34BC8982884142C00490AC8 /* RecordDisplayData.swift */; };
+		B34BC89E2884142C00490AC8 /* RecordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34BC8992884142C00490AC8 /* RecordPresenter.swift */; };
+		B34BC89F2884142C00490AC8 /* RecordRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34BC89A2884142C00490AC8 /* RecordRouter.swift */; };
+		B34BC8A02884142C00490AC8 /* RecordInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34BC89B2884142C00490AC8 /* RecordInteractor.swift */; };
+		B34BC8A12884142C00490AC8 /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34BC89C2884142C00490AC8 /* RecordView.swift */; };
+		B34BC8B6288416E200490AC8 /* IndexDisplayData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34BC8B0288416E200490AC8 /* IndexDisplayData.swift */; };
+		B34BC8B7288416E200490AC8 /* IndexPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34BC8B1288416E200490AC8 /* IndexPresenter.swift */; };
+		B34BC8B8288416E200490AC8 /* IndexRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34BC8B2288416E200490AC8 /* IndexRouter.swift */; };
+		B34BC8B9288416E200490AC8 /* IndexModuleApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34BC8B3288416E200490AC8 /* IndexModuleApi.swift */; };
+		B34BC8BA288416E200490AC8 /* IndexInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34BC8B4288416E200490AC8 /* IndexInteractor.swift */; };
+		B34BC8BB288416E200490AC8 /* IndexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34BC8B5288416E200490AC8 /* IndexView.swift */; };
 		B35E116127BF36E400A8BEF3 /* JHDeviceInvitedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35E116027BF36E300A8BEF3 /* JHDeviceInvitedController.swift */; };
 		B365D33E27C379CB000DBC74 /* 优设标题黑.TTF in Resources */ = {isa = PBXBuildFile; fileRef = B365D33D27C379CB000DBC74 /* 优设标题黑.TTF */; };
 		B368E064283336AB0039D4D7 /* JHNotificationCenterNoDisturbingVCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B368E062283336AB0039D4D7 /* JHNotificationCenterNoDisturbingVCViewController.swift */; };
@@ -283,11 +305,6 @@
 		B3EC92E5287FEA3200308DE8 /* GetComSelfInspectionByStoreIdAndUserId.json in Resources */ = {isa = PBXBuildFile; fileRef = B3EC92E2287FE8C700308DE8 /* GetComSelfInspectionByStoreIdAndUserId.json */; };
 		B3EC92E7287FEA6900308DE8 /* GetComSelfInspection.json in Resources */ = {isa = PBXBuildFile; fileRef = B3EC92E6287FEA6100308DE8 /* GetComSelfInspection.json */; };
 		B3EC92EB287FF9FE00308DE8 /* SuperRectifTaskListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC92EA287FF9FE00308DE8 /* SuperRectifTaskListController.swift */; };
-		B3EC92F2287FFACE00308DE8 /* SSDisplayData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC92ED287FFACE00308DE8 /* SSDisplayData.swift */; };
-		B3EC92F3287FFACE00308DE8 /* SSPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC92EE287FFACE00308DE8 /* SSPresenter.swift */; };
-		B3EC92F4287FFACE00308DE8 /* SSRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC92EF287FFACE00308DE8 /* SSRouter.swift */; };
-		B3EC92F5287FFACE00308DE8 /* SSInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC92F0287FFACE00308DE8 /* SSInteractor.swift */; };
-		B3EC92F6287FFACE00308DE8 /* SSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EC92F1287FFACE00308DE8 /* SSView.swift */; };
 		B3EE1FAC2877D8A3007739CD /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = B3EE1FAB2877D8A3007739CD /* FSCalendar */; };
 		B3EE1FAE2877DD8A007739CD /* CalendarBottomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EE1FAD2877DD8A007739CD /* CalendarBottomCell.swift */; };
 		B3EE1FB02877E22F007739CD /* GetComSelfInspection1.json in Resources */ = {isa = PBXBuildFile; fileRef = B3EE1FAF2877E22F007739CD /* GetComSelfInspection1.json */; };
@@ -453,6 +470,26 @@
 		B34635BB27E37F8A002CA750 /* JHBindingEditIntelDescisionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JHBindingEditIntelDescisionVC.swift; sourceTree = "<group>"; };
 		B34635BD27E37FA0002CA750 /* GetSingleIntelligentDeviceInfoNew.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetSingleIntelligentDeviceInfoNew.json; sourceTree = "<group>"; };
 		B34635BE27E37FA0002CA750 /* DeletePersonDevice.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DeletePersonDevice.json; sourceTree = "<group>"; };
+		B346FB39288406B700B69410 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
+		B346FB3C288407BA00B69410 /* ReformService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReformService.swift; sourceTree = "<group>"; };
+		B346FB3E28840E7000B69410 /* AppModules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModules.swift; sourceTree = "<group>"; };
+		B34BC87B2884139900490AC8 /* CameraDisplayData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraDisplayData.swift; sourceTree = "<group>"; };
+		B34BC87C2884139900490AC8 /* CameraPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPresenter.swift; sourceTree = "<group>"; };
+		B34BC87E2884139900490AC8 /* CameraRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraRouter.swift; sourceTree = "<group>"; };
+		B34BC87F2884139900490AC8 /* CameraModuleApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraModuleApi.swift; sourceTree = "<group>"; };
+		B34BC8802884139900490AC8 /* CameraInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraInteractor.swift; sourceTree = "<group>"; };
+		B34BC8812884139900490AC8 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		B34BC8982884142C00490AC8 /* RecordDisplayData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordDisplayData.swift; sourceTree = "<group>"; };
+		B34BC8992884142C00490AC8 /* RecordPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordPresenter.swift; sourceTree = "<group>"; };
+		B34BC89A2884142C00490AC8 /* RecordRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordRouter.swift; sourceTree = "<group>"; };
+		B34BC89B2884142C00490AC8 /* RecordInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordInteractor.swift; sourceTree = "<group>"; };
+		B34BC89C2884142C00490AC8 /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
+		B34BC8B0288416E200490AC8 /* IndexDisplayData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexDisplayData.swift; sourceTree = "<group>"; };
+		B34BC8B1288416E200490AC8 /* IndexPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexPresenter.swift; sourceTree = "<group>"; };
+		B34BC8B2288416E200490AC8 /* IndexRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexRouter.swift; sourceTree = "<group>"; };
+		B34BC8B3288416E200490AC8 /* IndexModuleApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexModuleApi.swift; sourceTree = "<group>"; };
+		B34BC8B4288416E200490AC8 /* IndexInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexInteractor.swift; sourceTree = "<group>"; };
+		B34BC8B5288416E200490AC8 /* IndexView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexView.swift; sourceTree = "<group>"; };
 		B35E116027BF36E300A8BEF3 /* JHDeviceInvitedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHDeviceInvitedController.swift; sourceTree = "<group>"; };
 		B365D33D27C379CB000DBC74 /* 优设标题黑.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "优设标题黑.TTF"; sourceTree = "<group>"; };
 		B368E062283336AB0039D4D7 /* JHNotificationCenterNoDisturbingVCViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JHNotificationCenterNoDisturbingVCViewController.swift; sourceTree = "<group>"; };
@@ -672,11 +709,6 @@
 		B3EC92E8287FEAD500308DE8 /* GetComInspectTaskList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GetComInspectTaskList.json; sourceTree = "<group>"; };
 		B3EC92E9287FEB7B00308DE8 /* GetComInspectDetailInfo.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GetComInspectDetailInfo.json; sourceTree = "<group>"; };
 		B3EC92EA287FF9FE00308DE8 /* SuperRectifTaskListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperRectifTaskListController.swift; sourceTree = "<group>"; };
-		B3EC92ED287FFACE00308DE8 /* SSDisplayData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDisplayData.swift; sourceTree = "<group>"; };
-		B3EC92EE287FFACE00308DE8 /* SSPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSPresenter.swift; sourceTree = "<group>"; };
-		B3EC92EF287FFACE00308DE8 /* SSRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSRouter.swift; sourceTree = "<group>"; };
-		B3EC92F0287FFACE00308DE8 /* SSInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSInteractor.swift; sourceTree = "<group>"; };
-		B3EC92F1287FFACE00308DE8 /* SSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSView.swift; sourceTree = "<group>"; };
 		B3EE1FAD2877DD8A007739CD /* CalendarBottomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarBottomCell.swift; sourceTree = "<group>"; };
 		B3EE1FAF2877E22F007739CD /* GetComSelfInspection1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GetComSelfInspection1.json; sourceTree = "<group>"; };
 		B3EE1FB12877E2A7007739CD /* InsOneMonthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsOneMonthModel.swift; sourceTree = "<group>"; };
@@ -720,6 +752,8 @@
 				B3289D6C2862F19A00E1FF1A /* Photos.framework in Frameworks */,
 				B38D892D277B1BAF00888EFB /* MBProgressHUD in Frameworks */,
 				B38D8917277B1BAE00888EFB /* JHBase in Frameworks */,
+				B346FA6A2883C8F300B69410 /* Viperit in Frameworks */,
+				B346FB362883FADA00B69410 /* Rswift in Frameworks */,
 				B38D891D277B1BAE00888EFB /* ESPullToRefresh in Frameworks */,
 				B38D8927277B1BAF00888EFB /* SnapKit in Frameworks */,
 				B3289D6E2862F19F00E1FF1A /* PhotosUI.framework in Frameworks */,
@@ -992,6 +1026,54 @@
 				B374E96027EC21F60033B72C /* JHDeviceTimePicker.swift */,
 			);
 			path = "设备绑定";
+			sourceTree = "<group>";
+		};
+		B346FB37288402EF00B69410 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B346FB38288406A100B69410 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				B346FB39288406B700B69410 /* BaseModel.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		B346FB3B2884077700B69410 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				B346FB3C288407BA00B69410 /* ReformService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		B34BC87A2884136B00490AC8 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				B34BC87B2884139900490AC8 /* CameraDisplayData.swift */,
+				B34BC87C2884139900490AC8 /* CameraPresenter.swift */,
+				B34BC87E2884139900490AC8 /* CameraRouter.swift */,
+				B34BC87F2884139900490AC8 /* CameraModuleApi.swift */,
+				B34BC8802884139900490AC8 /* CameraInteractor.swift */,
+				B34BC8812884139900490AC8 /* CameraView.swift */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
+		B34BC889288413C900490AC8 /* Record */ = {
+			isa = PBXGroup;
+			children = (
+				B34BC8982884142C00490AC8 /* RecordDisplayData.swift */,
+				B34BC8992884142C00490AC8 /* RecordPresenter.swift */,
+				B34BC89A2884142C00490AC8 /* RecordRouter.swift */,
+				B34BC89B2884142C00490AC8 /* RecordInteractor.swift */,
+				B34BC89C2884142C00490AC8 /* RecordView.swift */,
+			);
+			path = Record;
 			sourceTree = "<group>";
 		};
 		B35E115E27BF35EC00A8BEF3 /* 智能设备 */ = {
@@ -1582,7 +1664,13 @@
 		B3EC92D5287FE67E00308DE8 /* 自改自查 */ = {
 			isa = PBXGroup;
 			children = (
-				B3EC92EC287FFA8A00308DE8 /* VIPER */,
+				B346FB3E28840E7000B69410 /* AppModules.swift */,
+				B346FB3B2884077700B69410 /* Service */,
+				B346FB38288406A100B69410 /* Base */,
+				B346FB37288402EF00B69410 /* Models */,
+				B3EC92EC287FFA8A00308DE8 /* Index */,
+				B34BC87A2884136B00490AC8 /* Camera */,
+				B34BC889288413C900490AC8 /* Record */,
 				B3EC92DF287FE81300308DE8 /* README.md */,
 				B3EC92D6287FE68F00308DE8 /* JSON */,
 				B3EC92EA287FF9FE00308DE8 /* SuperRectifTaskListController.swift */,
@@ -1607,16 +1695,17 @@
 			path = JSON;
 			sourceTree = "<group>";
 		};
-		B3EC92EC287FFA8A00308DE8 /* VIPER */ = {
+		B3EC92EC287FFA8A00308DE8 /* Index */ = {
 			isa = PBXGroup;
 			children = (
-				B3EC92ED287FFACE00308DE8 /* SSDisplayData.swift */,
-				B3EC92EE287FFACE00308DE8 /* SSPresenter.swift */,
-				B3EC92EF287FFACE00308DE8 /* SSRouter.swift */,
-				B3EC92F0287FFACE00308DE8 /* SSInteractor.swift */,
-				B3EC92F1287FFACE00308DE8 /* SSView.swift */,
+				B34BC8B0288416E200490AC8 /* IndexDisplayData.swift */,
+				B34BC8B1288416E200490AC8 /* IndexPresenter.swift */,
+				B34BC8B2288416E200490AC8 /* IndexRouter.swift */,
+				B34BC8B3288416E200490AC8 /* IndexModuleApi.swift */,
+				B34BC8B4288416E200490AC8 /* IndexInteractor.swift */,
+				B34BC8B5288416E200490AC8 /* IndexView.swift */,
 			);
-			path = VIPER;
+			path = Index;
 			sourceTree = "<group>";
 		};
 		B3F334302812956F003B834D /* 一张图活动 */ = {
@@ -1699,6 +1788,8 @@
 				B3289D692862EBB900E1FF1A /* TZImagePickerController */,
 				B3E2AF27286EFD49002FA252 /* YPDrawSignature */,
 				B3EE1FAB2877D8A3007739CD /* FSCalendar */,
+				B346FA692883C8F300B69410 /* Viperit */,
+				B346FB352883FADA00B69410 /* Rswift */,
 			);
 			productName = iWorker;
 			productReference = B38D889B277B199400888EFB /* iWorker.app */;
@@ -2165,7 +2256,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3EC92F3287FFACE00308DE8 /* SSPresenter.swift in Sources */,
 				B3EC92EB287FF9FE00308DE8 /* SuperRectifTaskListController.swift in Sources */,
 				B312022628191DAD002D4FA3 /* JHVideoActDetailController.swift in Sources */,
 				B3EC88C32844AA5D0040F664 /* ReportTaskModel.swift in Sources */,
@@ -2186,8 +2276,10 @@
 				B38D8938277B1C7300888EFB /* JHMornInspecterController.swift in Sources */,
 				B3F4599D27F438F100AADC08 /* JHDeviceViewModel.swift in Sources */,
 				B37EC661283B6CFD00D92FC1 /* ReportTrackPachController.swift in Sources */,
+				B34BC8862884139900490AC8 /* CameraModuleApi.swift in Sources */,
 				B376987C2859B53B00A3A638 /* JHHandlerCoverPicsController.swift in Sources */,
 				B393191F2876B61A00A0CBCC /* JHReportDetailController.swift in Sources */,
+				B34BC8BA288416E200490AC8 /* IndexInteractor.swift in Sources */,
 				B3E2AF26286EDBBF002FA252 /* JHThirdStepCell.swift in Sources */,
 				B3230364278C2C370056BDCC /* JHUnitOrgHigherModel.swift in Sources */,
 				B312022228190DA9002D4FA3 /* JHTimePicker.swift in Sources */,
@@ -2195,6 +2287,7 @@
 				B3E2AF10286D6B09002FA252 /* AddSelfInsModel.swift in Sources */,
 				B39C859F284110D5007ABDCC /* ReportGroupView.swift in Sources */,
 				B38E8A762848C78B00884A6A /* JHLocationManager.swift in Sources */,
+				B34BC8A02884142C00490AC8 /* RecordInteractor.swift in Sources */,
 				B3697E7D27E42D10004D8867 /* JHDeviceNickCell.swift in Sources */,
 				B376987E2859BA1800A3A638 /* PhotoEditCell.swift in Sources */,
 				B3B4A6E7282BA469006B5F57 /* JHNewLoginSetPswViewController.swift in Sources */,
@@ -2203,14 +2296,17 @@
 				B3E2AF2F2873DECE002FA252 /* JHCameraAlertController.swift in Sources */,
 				B3DCCF61285AFFBA0000853C /* JHPhotoDetailController.swift in Sources */,
 				B33D237D28698581009B8B21 /* CheckerBaseVM.swift in Sources */,
+				B34BC89E2884142C00490AC8 /* RecordPresenter.swift in Sources */,
 				B323035A278C11240056BDCC /* UnitOrgChainModel.swift in Sources */,
 				B39E51A52852E23500EAE842 /* JHSortViewController.swift in Sources */,
 				B39E515D285189AC00EAE842 /* PhotoCollectCell.swift in Sources */,
 				B3289D8528654BEA00E1FF1A /* InsOptDetailViewController.swift in Sources */,
 				B38D893B277B1CD800888EFB /* JHMornUploadModel.swift in Sources */,
+				B34BC8A12884142C00490AC8 /* RecordView.swift in Sources */,
 				B3306D4127B111C1005E7DDC /* JHUnitOrgHigherCell.swift in Sources */,
 				B3F4599927EDDAB300AADC08 /* JHNickViewModel.swift in Sources */,
 				B39E51AD2853213100EAE842 /* PhotoAddCell.swift in Sources */,
+				B346FB3D288407BA00B69410 /* ReformService.swift in Sources */,
 				B37705F927BF693C00018309 /* JHShareDevicePreController.swift in Sources */,
 				B3983D00286074DF0018303F /* UITextViewPlaceholder.swift in Sources */,
 				B3EC88D12845BB9E0040F664 /* ReportTrackPachM.swift in Sources */,
@@ -2229,7 +2325,6 @@
 				B39E51612851BF7300EAE842 /* JHPhotoSetController.swift in Sources */,
 				B39E5139285086D100EAE842 /* PhotoHomeController.swift in Sources */,
 				B39E51B128533D3E00EAE842 /* JHPhotoAddCollectController.swift in Sources */,
-				B3EC92F5287FFACE00308DE8 /* SSInteractor.swift in Sources */,
 				B3306D3D27B10922005E7DDC /* JHUnitOrgHigherController.swift in Sources */,
 				B323035E278C2B490056BDCC /* JHUnitOrgSearchCell.swift in Sources */,
 				B312022428191D88002D4FA3 /* JHCreateVideoActController.swift in Sources */,
@@ -2237,21 +2332,26 @@
 				B374E96127EC21F60033B72C /* JHDeviceTimePicker.swift in Sources */,
 				B3E2AF322873E18F002FA252 /* JHCameraCell.swift in Sources */,
 				B33D237B2869804B009B8B21 /* JHInspectInfoCell.swift in Sources */,
+				B34BC89F2884142C00490AC8 /* RecordRouter.swift in Sources */,
 				B39C858D283E2C40007ABDCC /* ReportUserInfoMapView.swift in Sources */,
+				B346FB3A288406B700B69410 /* BaseModel.swift in Sources */,
 				B39E51372850868900EAE842 /* JHPhotoBaseController.swift in Sources */,
 				B39E51452850A93C00EAE842 /* StoreAmbientModel.swift in Sources */,
 				B3B4A6E3282BA146006B5F57 /* AccountSecurityViewController.swift in Sources */,
 				B32225BA2795753500953EF3 /* JHUnitOrgAlertController.swift in Sources */,
 				B374E95D27E9B08C0033B72C /* Tools.swift in Sources */,
 				B3697E8427E46DE1004D8867 /* JHSceneViewModel.swift in Sources */,
-				B3EC92F4287FFACE00308DE8 /* SSRouter.swift in Sources */,
 				B376CD59283CAF8D00D01B26 /* ReportLastFootM.swift in Sources */,
 				B38D8936277B1C6D00888EFB /* Env.swift in Sources */,
+				B346FB3F28840E7000B69410 /* AppModules.swift in Sources */,
 				B38D889F277B199400888EFB /* AppDelegate.swift in Sources */,
 				B3230362278C2BAA0056BDCC /* JHUnitOrgBaseModel.swift in Sources */,
 				B3289D7B28654B3200E1FF1A /* CheckSelfViewController.swift in Sources */,
 				B31202192816A6AF002D4FA3 /* JHActivityModel.swift in Sources */,
 				B39E51402850A7F500EAE842 /* PhotoBaseCell.swift in Sources */,
+				B34BC8852884139900490AC8 /* CameraRouter.swift in Sources */,
+				B34BC89D2884142C00490AC8 /* RecordDisplayData.swift in Sources */,
+				B34BC8B8288416E200490AC8 /* IndexRouter.swift in Sources */,
 				B3F3343628129ED8003B834D /* PersonalVideoActivityController.swift in Sources */,
 				B39E51472850A97000EAE842 /* JHRecommendModel.swift in Sources */,
 				B3E2AF12286DB32D002FA252 /* JHOptionsHeaderView.swift in Sources */,
@@ -2260,6 +2360,7 @@
 				B3E2AF22286EC453002FA252 /* JHReformOptCell.swift in Sources */,
 				B3DCCF65285B0FBA0000853C /* JHPictureGroupController.swift in Sources */,
 				B3E2AF2D2873DDEB002FA252 /* JHCameraTransition.swift in Sources */,
+				B34BC8832884139900490AC8 /* CameraPresenter.swift in Sources */,
 				B38D88A1277B199400888EFB /* SceneDelegate.swift in Sources */,
 				B3697E7927E42481004D8867 /* JHDeviceSNCell.swift in Sources */,
 				B3EE1FAE2877DD8A007739CD /* CalendarBottomCell.swift in Sources */,
@@ -2269,6 +2370,7 @@
 				B3CDC61D27C3A67E007F1FF2 /* JHPriDeviceSetingController.swift in Sources */,
 				B3E2AF0B286C3FC7002FA252 /* InspectOptionModel.swift in Sources */,
 				B3230360278C2B7D0056BDCC /* JHUnitOrgBaseCell.swift in Sources */,
+				B34BC8822884139900490AC8 /* CameraDisplayData.swift in Sources */,
 				B3E2AF07286C31F6002FA252 /* JHInspectBaseCell.swift in Sources */,
 				B3E2AF17286E9216002FA252 /* CheckNoteCell.swift in Sources */,
 				B312022028190C4F002D4FA3 /* JHTimeSetingView.swift in Sources */,
@@ -2287,16 +2389,20 @@
 				B3306D4727B245DA005E7DDC /* JHShapeView.swift in Sources */,
 				B3B12BC9286ADBD40052E26F /* InspectInfoModel.swift in Sources */,
 				B38D8939277B1C7300888EFB /* JHMornCameraController.swift in Sources */,
+				B34BC8B9288416E200490AC8 /* IndexModuleApi.swift in Sources */,
 				B3B4A6E5282BA3A5006B5F57 /* LoginGetBackPassword.swift in Sources */,
 				B3B12BCB286B0B510052E26F /* UIView+WaterMark.swift in Sources */,
+				B34BC8BB288416E200490AC8 /* IndexView.swift in Sources */,
 				B3E2AF0D286C53E1002FA252 /* JHSwitchView.swift in Sources */,
+				B34BC8B7288416E200490AC8 /* IndexPresenter.swift in Sources */,
 				B32943FC284DF1E700123F94 /* PhoneBindCombine.swift in Sources */,
 				B3289D8328654BC800E1FF1A /* InsSignViewController.swift in Sources */,
-				B3EC92F2287FFACE00308DE8 /* SSDisplayData.swift in Sources */,
 				B313EF3A278EDCD40089625F /* StoreDSelSearchBar.swift in Sources */,
+				B34BC8872884139900490AC8 /* CameraInteractor.swift in Sources */,
 				B368E064283336AB0039D4D7 /* JHNotificationCenterNoDisturbingVCViewController.swift in Sources */,
 				B3EC88BF284493230040F664 /* ReportPatrolInfoCell.swift in Sources */,
 				B39E51A72852E25500EAE842 /* JHPhotoAddController.swift in Sources */,
+				B34BC8882884139900490AC8 /* CameraView.swift in Sources */,
 				B323033E278827670056BDCC /* JHUnitOrgSearchController.swift in Sources */,
 				B3F3343428129EA9003B834D /* VideoActivitySquareController.swift in Sources */,
 				B3EE1FB628780BB6007739CD /* InsYearModel.swift in Sources */,
@@ -2309,8 +2415,8 @@
 				B32303382787EDBD0056BDCC /* JHUnitJoinOrgViewController.swift in Sources */,
 				B3306D3F27B1093E005E7DDC /* JHUnitOrgLowerController.swift in Sources */,
 				B34635BC27E37F8A002CA750 /* JHBindingEditIntelDescisionVC.swift in Sources */,
-				B3EC92F6287FFACE00308DE8 /* SSView.swift in Sources */,
 				B3697E7727E41F8E004D8867 /* JHDeviceBaseCell.swift in Sources */,
+				B34BC8B6288416E200490AC8 /* IndexDisplayData.swift in Sources */,
 				B39C8591283F1484007ABDCC /* JHFilterViewController.swift in Sources */,
 				B3D7C6BB27EC65B300E0EDBA /* JHDeviceBindModel.swift in Sources */,
 				B393191728758C3000A0CBCC /* ReformInfoModel.swift in Sources */,
@@ -3163,6 +3269,14 @@
 		B3289D692862EBB900E1FF1A /* TZImagePickerController */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = TZImagePickerController;
+		};
+		B346FA692883C8F300B69410 /* Viperit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Viperit;
+		};
+		B346FB352883FADA00B69410 /* Rswift */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Rswift;
 		};
 		B3821F61277C8AE8005FFF8E /* Nimble */ = {
 			isa = XCSwiftPackageProductDependency;

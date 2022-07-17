@@ -46,4 +46,7 @@
    <FileRef
       location = "group:../Viperit">
    </FileRef>
+   <FileRef
+      location = "group:../R.swift.Library">
+   </FileRef>
 </Workspace>

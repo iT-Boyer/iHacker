@@ -56,6 +56,13 @@ class ViewController: JHBaseNavVC {
             make.left.right.bottom.equalToSuperview()
         }
         
+        navBar.addSubview(inspectBtn)
+        inspectBtn.snp.makeConstraints { make in
+            make.size.equalTo(CGSize(width: 70, height: 50))
+            make.centerY.equalTo(navBar.titleLabel.snp.centerY)
+            make.right.equalTo(-10)
+        }
+        
         headerView.frame.size.height = 400
         tableview.tableHeaderView = headerView
         view.layoutIfNeeded()
@@ -102,6 +109,27 @@ class ViewController: JHBaseNavVC {
         btn.layer.borderColor = UIColor.blue.cgColor
         btn.transform = .init(rotationAngle: .pi/2)
         return btn
+    }()
+    
+    lazy var inspectBtn: UIButton = {
+        let inspect = UIButton()
+        inspect.setImage(.init(named: "Inspect详情"), for: .normal)
+        inspect.imageEdgeInsets = UIEdgeInsets(top: 15, left: 50, bottom: 15, right: 0)
+        inspect.jh.setHandleClick {[weak self] button in
+            guard let wf = self else{return}
+            //TODO: 整改详情
+            let index = AppModules.Index.build()
+            let router = index.router as! IndexRouter
+            //当embedInNavController为false时，push方式显示，但是金和导航控制器隐藏导航条，导致无法显示导航条。
+//            router.show(from: self!, embedInNavController: false)
+            //解决办法，获取导航控制器
+            let nav = router.embedInNavigationController()
+            nav.modalPresentationStyle = .fullScreen
+            wf.navigationController?.present(nav, animated: true)
+//            let vc = module.view.viewController
+//            wf.navigationController?.pushViewController(vc, animated: true)
+        }
+        return inspect
     }()
 }
 
