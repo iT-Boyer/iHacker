@@ -29,8 +29,7 @@ final class IndexView: TableUserInterface {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         let module = displayData.demos[indexPath.row]
-        let text = module.rawValue
-        cell.textLabel?.text = text
+        cell.textLabel?.text = module.title
         return cell
     }
     
