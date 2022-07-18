@@ -1076,6 +1076,15 @@
 			path = Record;
 			sourceTree = "<group>";
 		};
+		B34BC9862884DAF100490AC8 /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				B34BC8B0288416E200490AC8 /* IndexDisplayData.swift */,
+				B34BC8B4288416E200490AC8 /* IndexInteractor.swift */,
+			);
+			path = Logic;
+			sourceTree = "<group>";
+		};
 		B35E115E27BF35EC00A8BEF3 /* 智能设备 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1698,11 +1707,10 @@
 		B3EC92EC287FFA8A00308DE8 /* Index */ = {
 			isa = PBXGroup;
 			children = (
-				B34BC8B0288416E200490AC8 /* IndexDisplayData.swift */,
+				B34BC8B3288416E200490AC8 /* IndexModuleApi.swift */,
+				B34BC9862884DAF100490AC8 /* Logic */,
 				B34BC8B1288416E200490AC8 /* IndexPresenter.swift */,
 				B34BC8B2288416E200490AC8 /* IndexRouter.swift */,
-				B34BC8B3288416E200490AC8 /* IndexModuleApi.swift */,
-				B34BC8B4288416E200490AC8 /* IndexInteractor.swift */,
 				B34BC8B5288416E200490AC8 /* IndexView.swift */,
 			);
 			path = Index;

@@ -11,6 +11,11 @@ import Viperit
 
 // MARK: - IndexPresenter Class
 final class IndexPresenter: Presenter {
+    
+    override func viewIsAboutToAppear() {
+        loadData()
+    }
+    
 }
 
 // MARK: - IndexPresenter API
@@ -18,6 +23,10 @@ extension IndexPresenter: IndexPresenterApi {
     
     func showCamera() {
         router.showCamera()
+    }
+    
+    func loadData() {
+        
     }
 }
 

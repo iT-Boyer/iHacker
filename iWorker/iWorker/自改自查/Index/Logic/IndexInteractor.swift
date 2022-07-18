@@ -15,6 +15,10 @@ final class IndexInteractor: Interactor {
 
 // MARK: - IndexInteractor API
 extension IndexInteractor: IndexInteractorApi {
+    
+    func reqServer() {
+        
+    }
 }
 
 // MARK: - Interactor Viper Components Api
