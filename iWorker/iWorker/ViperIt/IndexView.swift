@@ -13,37 +13,40 @@ import Viperit
 final class IndexView: TableUserInterface {
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         navigationItem.title = "ViperIt"
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = false
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return displayData.demos.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        switch indexPath.row {
-        case 0:
-            cell.textLabel?.text = "测试一"
-        case 1:
-            cell.textLabel?.text = "测试二"
-        case 2:
-            cell.textLabel?.text = "测试三"
-        default: break
-        }
+        let module = displayData.demos[indexPath.row]
+        let text = module.rawValue
+        cell.textLabel?.text = text
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch indexPath.row {
-        case 0: presenter.showCamera()
-        default: break
-        }
+        let demo = displayData.demos[indexPath.row]
+        presenter.showDemo(demo: demo)
     }
 }
 
 //MARK: - IndexView API
 extension IndexView: IndexViewApi {
+    
+    func refresh(demos: [AppModules]) {
+        displayData.demos = demos
+        tableView.reloadData()
+    }
 }
 
 // MARK: - IndexView Viper Components API

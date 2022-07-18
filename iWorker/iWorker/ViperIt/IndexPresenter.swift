@@ -21,12 +21,13 @@ final class IndexPresenter: Presenter {
 // MARK: - IndexPresenter API
 extension IndexPresenter: IndexPresenterApi {
     
-    func showCamera() {
-        router.showCamera()
+    func showDemo(demo: AppModules) {
+        router.showDemo(demo: demo)
     }
     
     func loadData() {
-        
+        let demos = interactor.reqServer()
+        view.refresh(demos: demos)
     }
 }
 

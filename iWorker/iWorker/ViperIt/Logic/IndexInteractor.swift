@@ -16,8 +16,9 @@ final class IndexInteractor: Interactor {
 // MARK: - IndexInteractor API
 extension IndexInteractor: IndexInteractorApi {
     
-    func reqServer() {
-        
+    func reqServer()->[AppModules] {
+        let demo = AppModules.allCases
+        return demo
     }
 }
 

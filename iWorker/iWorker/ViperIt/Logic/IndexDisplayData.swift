@@ -11,5 +11,5 @@ import Viperit
 
 // MARK: - IndexDisplayData class
 final class IndexDisplayData: DisplayData {
-    
+    var demos:[AppModules] = []
 }

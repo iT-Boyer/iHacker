@@ -121,11 +121,11 @@ class ViewController: JHBaseNavVC {
             let index = AppModules.Index.build()
             let router = index.router as! IndexRouter
             //当embedInNavController为false时，push方式显示，但是金和导航控制器隐藏导航条，导致无法显示导航条。
-//            router.show(from: self!, embedInNavController: false)
+            router.show(from: self!, embedInNavController: false)
             //解决办法，获取导航控制器
-            let nav = router.embedInNavigationController()
-            nav.modalPresentationStyle = .fullScreen
-            wf.navigationController?.present(nav, animated: true)
+//            let nav = router.embedInNavigationController()
+//            nav.modalPresentationStyle = .fullScreen
+//            wf.navigationController?.present(nav, animated: true)
 //            let vc = module.view.viewController
 //            wf.navigationController?.pushViewController(vc, animated: true)
         }
