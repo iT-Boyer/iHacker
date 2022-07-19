@@ -10,6 +10,7 @@ import Viperit
 import UIKit
 import SnapKit
 import JHBase
+import MBProgressHUD
 
 // MARK: - ReformBaseNavVC
 
@@ -45,7 +46,13 @@ import JHBase
         self.view.backgroundColor = .kF5F5F5
         self.view.addSubview(navBar)
         navBar.frame = .init(x: 0, y: 0, width: kScreenWidth, height: kNaviBarMaxY)
+        createView()
+        loadData()
     }
+    
+    func createView() {}
+    
+    func loadData() {}
     
     open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -64,6 +71,15 @@ import JHBase
         } else {
             navi.popViewController(animated: true)
         }
+    }
+    var hub:MBProgressHUD!
+    func showloading(){
+        hub = MBProgressHUD.showAdded(to:view, animated: true)
+        hub.removeFromSuperViewOnHide = true
+    }
+    
+    func hideloading() {
+        hub.hide(animated: true)
     }
     
     @objc open func refreshBtnClicked(_ btn: UIButton) {}

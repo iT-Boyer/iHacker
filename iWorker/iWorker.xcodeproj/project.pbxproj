@@ -243,6 +243,7 @@
 		B39E51AD2853213100EAE842 /* PhotoAddCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39E51AC2853213100EAE842 /* PhotoAddCell.swift */; };
 		B39E51AF285333A100EAE842 /* AddambientM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39E51AE285333A100EAE842 /* AddambientM.swift */; };
 		B39E51B128533D3E00EAE842 /* JHPhotoAddCollectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39E51B028533D3E00EAE842 /* JHPhotoAddCollectController.swift */; };
+		B3A7C8742886BE260063E3FF /* ReformModules.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A7C8732886BE260063E3FF /* ReformModules.swift */; };
 		B3B12BC32869A1840052E26F /* JHIconLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B12BC22869A1840052E26F /* JHIconLabel.swift */; };
 		B3B12BC7286ADAFA0052E26F /* GetInfoToSelfInspect.json in Resources */ = {isa = PBXBuildFile; fileRef = B3B12BC6286ADAFA0052E26F /* GetInfoToSelfInspect.json */; };
 		B3B12BC9286ADBD40052E26F /* InspectInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B12BC8286ADBD40052E26F /* InspectInfoModel.swift */; };
@@ -650,6 +651,7 @@
 		B39E51AC2853213100EAE842 /* PhotoAddCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAddCell.swift; sourceTree = "<group>"; };
 		B39E51AE285333A100EAE842 /* AddambientM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddambientM.swift; sourceTree = "<group>"; };
 		B39E51B028533D3E00EAE842 /* JHPhotoAddCollectController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHPhotoAddCollectController.swift; sourceTree = "<group>"; };
+		B3A7C8732886BE260063E3FF /* ReformModules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReformModules.swift; sourceTree = "<group>"; };
 		B3B12BC22869A1840052E26F /* JHIconLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHIconLabel.swift; sourceTree = "<group>"; };
 		B3B12BC6286ADAFA0052E26F /* GetInfoToSelfInspect.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GetInfoToSelfInspect.json; sourceTree = "<group>"; };
 		B3B12BC8286ADBD40052E26F /* InspectInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspectInfoModel.swift; sourceTree = "<group>"; };
@@ -1657,12 +1659,12 @@
 		B3C9A50B288543C20066EE81 /* Reform */ = {
 			isa = PBXGroup;
 			children = (
-				B3C9A50D288544230066EE81 /* ReformDisplayData.swift */,
-				B3C9A50E288544230066EE81 /* ReformPresenter.swift */,
-				B3C9A50F288544230066EE81 /* ReformRouter.swift */,
 				B3C9A510288544230066EE81 /* ReformModuleApi.swift */,
+				B3C9A50D288544230066EE81 /* ReformDisplayData.swift */,
 				B3C9A511288544230066EE81 /* ReformInteractor.swift */,
 				B3C9A512288544230066EE81 /* ReformView.swift */,
+				B3C9A50E288544230066EE81 /* ReformPresenter.swift */,
+				B3C9A50F288544230066EE81 /* ReformRouter.swift */,
 			);
 			path = Reform;
 			sourceTree = "<group>";
@@ -1699,6 +1701,7 @@
 		B3EC92D5287FE67E00308DE8 /* 自改自查 */ = {
 			isa = PBXGroup;
 			children = (
+				B3A7C8732886BE260063E3FF /* ReformModules.swift */,
 				B346FB38288406A100B69410 /* Base */,
 				B346FB3B2884077700B69410 /* Service */,
 				B3C9A50B288543C20066EE81 /* Reform */,
@@ -2330,6 +2333,7 @@
 				B3DCCF61285AFFBA0000853C /* JHPhotoDetailController.swift in Sources */,
 				B33D237D28698581009B8B21 /* CheckerBaseVM.swift in Sources */,
 				B34BC89E2884142C00490AC8 /* RecordPresenter.swift in Sources */,
+				B3A7C8742886BE260063E3FF /* ReformModules.swift in Sources */,
 				B323035A278C11240056BDCC /* UnitOrgChainModel.swift in Sources */,
 				B39E51A52852E23500EAE842 /* JHSortViewController.swift in Sources */,
 				B39E515D285189AC00EAE842 /* PhotoCollectCell.swift in Sources */,

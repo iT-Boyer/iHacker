@@ -11,10 +11,24 @@ import Viperit
 
 // MARK: - ReformPresenter Class
 final class ReformPresenter: Presenter {
+    
+    override func viewHasLoaded() {
+        view.showloading()
+        interactor.loadData()
+    }
 }
 
 // MARK: - ReformPresenter API
 extension ReformPresenter: ReformPresenterApi {
+    
+    func receivedResponse(_ data: BaseModel) {
+        view.hideloading()
+        view.refreshUI(model: data)
+    }
+    
+    func receivedError(_ error: ServiceError) {
+        view.hideloading()
+    }
 }
 
 // MARK: - Reform Viper Components

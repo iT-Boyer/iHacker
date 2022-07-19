@@ -6,10 +6,7 @@
 //
 
 import Foundation
-
-struct ResponseModel {
-    var json: [String: Any]
-}
+import SwiftyJSON
 
 enum ServiceError: Error {
     case messageError(message: String)
@@ -23,15 +20,18 @@ enum ServiceError: Error {
 }
 
 struct ServiceResult {
-    var data: ResponseModel?
+    var json: JSON?
     var error: ServiceError?
+    
+    var data:Data?{
+        guard let origin = json else { return nil }
+        if let raw = try? origin.rawData(){
+            return raw
+        }
+        return nil
+    }
 }
 
 
 protocol BaseModel {}
-
-protocol BaseAction {
-    func receivedResponse(_ data: BaseModel?)
-    func receivedError(_ error: ServiceError)
-}
 

@@ -11,7 +11,7 @@ import Viperit
 enum AppModules: String, ViperitModule, CaseIterable {
     case Index //Viper 相关demo入口页面
     case TODO //练习模块
-    case Reform //自查模块
+    case Check //自查模块
     
     var viewType: ViperitViewType {
         switch self {
@@ -23,7 +23,7 @@ enum AppModules: String, ViperitModule, CaseIterable {
         switch self {
         case .Index: return "ViperIt"
         case .TODO: return "TODO清单工具"
-        case .Reform: return "自改自查"
+        case .Check: return "自改自查"
         }
     }
 }

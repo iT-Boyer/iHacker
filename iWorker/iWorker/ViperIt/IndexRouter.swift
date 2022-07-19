@@ -16,8 +16,13 @@ final class IndexRouter: Router {
 // MARK: - IndexRouter API
 extension IndexRouter: IndexRouterApi {
     func showDemo(demo: AppModules) {
-        let vc = demo.build()
-        vc.router.show(from: viewController, embedInNavController: false, setupData: nil)
+        if demo == .Check {
+            let reform = ReformModules.Reform.build()
+            reform.router.show(from: viewController, embedInNavController: false, setupData: nil)
+        }else{
+            let toVC = demo.build()
+            toVC.router.show(from: viewController, embedInNavController: false, setupData: nil)
+        }
     }
 }
 
