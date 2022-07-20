@@ -22,12 +22,34 @@ final class ReformView: ReformBaseNavVC {
     
     override func createView() {
         super.createView()
+        
+        
+        navBar.addSubviews([settingBtn, myRecordBtn, storeRecordBtn])
+        
+        settingBtn.snp.makeConstraints { make in
+            make.centerY.equalTo(navBar.titleLabel.snp.centerY)
+        }
+        
+        storeRecordBtn.snp.makeConstraints { make in
+            make.centerY.equalTo(navBar.titleLabel.snp.centerY)
+            make.left.equalTo(settingBtn.snp.right).offset(10)
+        }
+        
+        myRecordBtn.snp.makeConstraints { make in
+            make.centerY.equalTo(navBar.titleLabel.snp.centerY)
+            make.right.equalTo(-12)
+            make.left.equalTo(storeRecordBtn.snp.right).offset(10)
+        }
+        
+        
         view.addSubview(tableView)
         
         tableView.snp.makeConstraints { make in
             make.top.equalTo(navBar.snp.bottom)
             make.bottom.left.right.equalToSuperview()
         }
+        
+        
     }
     
     lazy var tableView: UITableView = {
@@ -44,8 +66,36 @@ final class ReformView: ReformBaseNavVC {
         if #available (iOS 15.0, *) {
             UITableView.appearance().sectionHeaderTopPadding = 0.5
         }
-        tb.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tb.register(ReformTaskCell.self, forCellReuseIdentifier: "ReformTaskCell")
         return tb
+    }()
+    
+    lazy var myRecordBtn: UIButton = {
+        let btn = UIButton()
+        btn.setImage(.init(named: "gertoj"), for: .normal)
+        btn.jh.setHandleClick {[weak self] button in
+            guard let wf = self else{return}
+            wf.presenter.showMyRecord()
+        }
+        return btn
+    }()
+    lazy var storeRecordBtn: UIButton = {
+        let btn = UIButton()
+        btn.setImage(.init(named: "bustoj"), for: .normal)
+        btn.jh.setHandleClick {[weak self] button in
+            guard let wf = self else{return}
+            wf.presenter.showStoreRecord()
+        }
+        return btn
+    }()
+    lazy var settingBtn: UIButton = {
+        let btn = UIButton()
+        btn.setImage(.init(named: "set"), for: .normal)
+        btn.jh.setHandleClick {[weak self] button in
+            guard let wf = self else{return}
+            wf.presenter.showSetting()
+        }
+        return btn
     }()
 }
 
@@ -61,15 +111,16 @@ extension ReformView:UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ReformTaskCell", for: indexPath)
         configureCell(cell: cell, forRowAt: indexPath)
         return cell
     }
     
     func configureCell(cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard let taskCell:ReformTaskCell = cell as? ReformTaskCell else { return }
         guard let currents = displayData.tableData[indexPath.section] else { return }
         let model = currents[indexPath.row]
-        cell.textLabel?.text = model.classificationName
+        taskCell.model = model
     }
 }
 
@@ -96,16 +147,15 @@ extension ReformView:UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let title = UILabel()
-        title.text = section == 0 ? "我的自查":"督办员工自查"
-        title.textColor = .red
-        title.font = .systemFont(ofSize: 15, weight: .bold)
+        title.text = section == 0 ? "     我的自查":"     督办员工自查"
+        title.textColor = .k2F3856
+        title.font = .systemFont(ofSize: 16, weight: .bold)
         return title
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         nil
     }
-
 }
 
 

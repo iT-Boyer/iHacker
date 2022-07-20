@@ -20,6 +20,18 @@ final class ReformPresenter: Presenter {
 
 // MARK: - ReformPresenter API
 extension ReformPresenter: ReformPresenterApi {
+    func showMyRecord() {
+        router.goMyRecord()
+    }
+    
+    func showStoreRecord() {
+        router.goStoreRecord()
+    }
+    
+    func showSetting() {
+        router.goSetting()
+    }
+    
     
     func receivedResponse(_ data: BaseModel) {
         view.hideloading()
@@ -29,6 +41,7 @@ extension ReformPresenter: ReformPresenterApi {
     func receivedError(_ error: ServiceError) {
         view.hideloading()
     }
+    
 }
 
 // MARK: - Reform Viper Components

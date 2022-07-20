@@ -10,6 +10,9 @@ import Viperit
 
 //MARK: - ReformRouter API
 protocol ReformRouterApi: RouterProtocol {
+    func goMyRecord()
+    func goStoreRecord()
+    func goSetting()
 }
 
 //MARK: - ReformView API
@@ -33,6 +36,10 @@ protocol ReformPresenterApi: PresenterProtocol {
     
     func receivedResponse(_ data: BaseModel)
     func receivedError(_ error: ServiceError)
+    
+    func showMyRecord()
+    func showStoreRecord()
+    func showSetting()
 }
 
 //MARK: - ReformInteractor API

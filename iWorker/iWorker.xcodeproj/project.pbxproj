@@ -78,11 +78,6 @@
 		B34BC8862884139900490AC8 /* CameraModuleApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34BC87F2884139900490AC8 /* CameraModuleApi.swift */; };
 		B34BC8872884139900490AC8 /* CameraInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34BC8802884139900490AC8 /* CameraInteractor.swift */; };
 		B34BC8882884139900490AC8 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34BC8812884139900490AC8 /* CameraView.swift */; };
-		B34BC89D2884142C00490AC8 /* RecordDisplayData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34BC8982884142C00490AC8 /* RecordDisplayData.swift */; };
-		B34BC89E2884142C00490AC8 /* RecordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34BC8992884142C00490AC8 /* RecordPresenter.swift */; };
-		B34BC89F2884142C00490AC8 /* RecordRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34BC89A2884142C00490AC8 /* RecordRouter.swift */; };
-		B34BC8A02884142C00490AC8 /* RecordInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34BC89B2884142C00490AC8 /* RecordInteractor.swift */; };
-		B34BC8A12884142C00490AC8 /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34BC89C2884142C00490AC8 /* RecordView.swift */; };
 		B34BC8B6288416E200490AC8 /* IndexDisplayData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34BC8B0288416E200490AC8 /* IndexDisplayData.swift */; };
 		B34BC8B7288416E200490AC8 /* IndexPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34BC8B1288416E200490AC8 /* IndexPresenter.swift */; };
 		B34BC8B8288416E200490AC8 /* IndexRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34BC8B2288416E200490AC8 /* IndexRouter.swift */; };
@@ -244,6 +239,19 @@
 		B39E51AF285333A100EAE842 /* AddambientM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39E51AE285333A100EAE842 /* AddambientM.swift */; };
 		B39E51B128533D3E00EAE842 /* JHPhotoAddCollectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39E51B028533D3E00EAE842 /* JHPhotoAddCollectController.swift */; };
 		B3A7C8742886BE260063E3FF /* ReformModules.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A7C8732886BE260063E3FF /* ReformModules.swift */; };
+		B3A7C8792887C4C60063E3FF /* ReformTaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A7C8782887C4C60063E3FF /* ReformTaskCell.swift */; };
+		B3A7C8F12887E8F40063E3FF /* StoreRecordDisplayData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A7C8EB2887E8F40063E3FF /* StoreRecordDisplayData.swift */; };
+		B3A7C8F22887E8F40063E3FF /* StoreRecordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A7C8EC2887E8F40063E3FF /* StoreRecordPresenter.swift */; };
+		B3A7C8F32887E8F40063E3FF /* StoreRecordRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A7C8ED2887E8F40063E3FF /* StoreRecordRouter.swift */; };
+		B3A7C8F42887E8F40063E3FF /* StoreRecordModuleApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A7C8EE2887E8F40063E3FF /* StoreRecordModuleApi.swift */; };
+		B3A7C8F52887E8F40063E3FF /* StoreRecordInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A7C8EF2887E8F40063E3FF /* StoreRecordInteractor.swift */; };
+		B3A7C8F62887E8F40063E3FF /* StoreRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A7C8F02887E8F40063E3FF /* StoreRecordView.swift */; };
+		B3A7C8FF2887E9090063E3FF /* MyRecordDisplayData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A7C8F82887E9090063E3FF /* MyRecordDisplayData.swift */; };
+		B3A7C9002887E9090063E3FF /* MyRecordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A7C8F92887E9090063E3FF /* MyRecordPresenter.swift */; };
+		B3A7C9012887E9090063E3FF /* MyRecordRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A7C8FA2887E9090063E3FF /* MyRecordRouter.swift */; };
+		B3A7C9022887E9090063E3FF /* MyRecordModuleApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A7C8FB2887E9090063E3FF /* MyRecordModuleApi.swift */; };
+		B3A7C9032887E9090063E3FF /* MyRecordInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A7C8FC2887E9090063E3FF /* MyRecordInteractor.swift */; };
+		B3A7C9042887E9090063E3FF /* MyRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A7C8FD2887E9090063E3FF /* MyRecordView.swift */; };
 		B3B12BC32869A1840052E26F /* JHIconLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B12BC22869A1840052E26F /* JHIconLabel.swift */; };
 		B3B12BC7286ADAFA0052E26F /* GetInfoToSelfInspect.json in Resources */ = {isa = PBXBuildFile; fileRef = B3B12BC6286ADAFA0052E26F /* GetInfoToSelfInspect.json */; };
 		B3B12BC9286ADBD40052E26F /* InspectInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B12BC8286ADBD40052E26F /* InspectInfoModel.swift */; };
@@ -488,11 +496,6 @@
 		B34BC87F2884139900490AC8 /* CameraModuleApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraModuleApi.swift; sourceTree = "<group>"; };
 		B34BC8802884139900490AC8 /* CameraInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraInteractor.swift; sourceTree = "<group>"; };
 		B34BC8812884139900490AC8 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
-		B34BC8982884142C00490AC8 /* RecordDisplayData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordDisplayData.swift; sourceTree = "<group>"; };
-		B34BC8992884142C00490AC8 /* RecordPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordPresenter.swift; sourceTree = "<group>"; };
-		B34BC89A2884142C00490AC8 /* RecordRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordRouter.swift; sourceTree = "<group>"; };
-		B34BC89B2884142C00490AC8 /* RecordInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordInteractor.swift; sourceTree = "<group>"; };
-		B34BC89C2884142C00490AC8 /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
 		B34BC8B0288416E200490AC8 /* IndexDisplayData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexDisplayData.swift; sourceTree = "<group>"; };
 		B34BC8B1288416E200490AC8 /* IndexPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexPresenter.swift; sourceTree = "<group>"; };
 		B34BC8B2288416E200490AC8 /* IndexRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexRouter.swift; sourceTree = "<group>"; };
@@ -652,6 +655,19 @@
 		B39E51AE285333A100EAE842 /* AddambientM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddambientM.swift; sourceTree = "<group>"; };
 		B39E51B028533D3E00EAE842 /* JHPhotoAddCollectController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHPhotoAddCollectController.swift; sourceTree = "<group>"; };
 		B3A7C8732886BE260063E3FF /* ReformModules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReformModules.swift; sourceTree = "<group>"; };
+		B3A7C8782887C4C60063E3FF /* ReformTaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReformTaskCell.swift; sourceTree = "<group>"; };
+		B3A7C8EB2887E8F40063E3FF /* StoreRecordDisplayData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreRecordDisplayData.swift; sourceTree = "<group>"; };
+		B3A7C8EC2887E8F40063E3FF /* StoreRecordPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreRecordPresenter.swift; sourceTree = "<group>"; };
+		B3A7C8ED2887E8F40063E3FF /* StoreRecordRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreRecordRouter.swift; sourceTree = "<group>"; };
+		B3A7C8EE2887E8F40063E3FF /* StoreRecordModuleApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreRecordModuleApi.swift; sourceTree = "<group>"; };
+		B3A7C8EF2887E8F40063E3FF /* StoreRecordInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreRecordInteractor.swift; sourceTree = "<group>"; };
+		B3A7C8F02887E8F40063E3FF /* StoreRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreRecordView.swift; sourceTree = "<group>"; };
+		B3A7C8F82887E9090063E3FF /* MyRecordDisplayData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecordDisplayData.swift; sourceTree = "<group>"; };
+		B3A7C8F92887E9090063E3FF /* MyRecordPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecordPresenter.swift; sourceTree = "<group>"; };
+		B3A7C8FA2887E9090063E3FF /* MyRecordRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecordRouter.swift; sourceTree = "<group>"; };
+		B3A7C8FB2887E9090063E3FF /* MyRecordModuleApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecordModuleApi.swift; sourceTree = "<group>"; };
+		B3A7C8FC2887E9090063E3FF /* MyRecordInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecordInteractor.swift; sourceTree = "<group>"; };
+		B3A7C8FD2887E9090063E3FF /* MyRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecordView.swift; sourceTree = "<group>"; };
 		B3B12BC22869A1840052E26F /* JHIconLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JHIconLabel.swift; sourceTree = "<group>"; };
 		B3B12BC6286ADAFA0052E26F /* GetInfoToSelfInspect.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GetInfoToSelfInspect.json; sourceTree = "<group>"; };
 		B3B12BC8286ADBD40052E26F /* InspectInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspectInfoModel.swift; sourceTree = "<group>"; };
@@ -1075,18 +1091,6 @@
 				B34BC8812884139900490AC8 /* CameraView.swift */,
 			);
 			path = Camera;
-			sourceTree = "<group>";
-		};
-		B34BC889288413C900490AC8 /* Record */ = {
-			isa = PBXGroup;
-			children = (
-				B34BC8982884142C00490AC8 /* RecordDisplayData.swift */,
-				B34BC8992884142C00490AC8 /* RecordPresenter.swift */,
-				B34BC89A2884142C00490AC8 /* RecordRouter.swift */,
-				B34BC89B2884142C00490AC8 /* RecordInteractor.swift */,
-				B34BC89C2884142C00490AC8 /* RecordView.swift */,
-			);
-			path = Record;
 			sourceTree = "<group>";
 		};
 		B34BC9862884DAF100490AC8 /* Logic */ = {
@@ -1616,6 +1620,58 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		B3A7C8752887C4580063E3FF /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				B3A7C8782887C4C60063E3FF /* ReformTaskCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		B3A7C8762887C4680063E3FF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B3C9A512288544230066EE81 /* ReformView.swift */,
+				B3A7C8752887C4580063E3FF /* Cells */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B3A7C8772887C4760063E3FF /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				B3C9A50D288544230066EE81 /* ReformDisplayData.swift */,
+				B3C9A511288544230066EE81 /* ReformInteractor.swift */,
+			);
+			path = Logic;
+			sourceTree = "<group>";
+		};
+		B3A7C8E92887E8C20063E3FF /* MyRecord */ = {
+			isa = PBXGroup;
+			children = (
+				B3A7C8F82887E9090063E3FF /* MyRecordDisplayData.swift */,
+				B3A7C8F92887E9090063E3FF /* MyRecordPresenter.swift */,
+				B3A7C8FA2887E9090063E3FF /* MyRecordRouter.swift */,
+				B3A7C8FB2887E9090063E3FF /* MyRecordModuleApi.swift */,
+				B3A7C8FC2887E9090063E3FF /* MyRecordInteractor.swift */,
+				B3A7C8FD2887E9090063E3FF /* MyRecordView.swift */,
+			);
+			path = MyRecord;
+			sourceTree = "<group>";
+		};
+		B3A7C8EA2887E8CF0063E3FF /* StoreRecord */ = {
+			isa = PBXGroup;
+			children = (
+				B3A7C8EB2887E8F40063E3FF /* StoreRecordDisplayData.swift */,
+				B3A7C8EC2887E8F40063E3FF /* StoreRecordPresenter.swift */,
+				B3A7C8ED2887E8F40063E3FF /* StoreRecordRouter.swift */,
+				B3A7C8EE2887E8F40063E3FF /* StoreRecordModuleApi.swift */,
+				B3A7C8EF2887E8F40063E3FF /* StoreRecordInteractor.swift */,
+				B3A7C8F02887E8F40063E3FF /* StoreRecordView.swift */,
+			);
+			path = StoreRecord;
+			sourceTree = "<group>";
+		};
 		B3B12BC5286ADACE0052E26F /* JSON */ = {
 			isa = PBXGroup;
 			children = (
@@ -1660,9 +1716,8 @@
 			isa = PBXGroup;
 			children = (
 				B3C9A510288544230066EE81 /* ReformModuleApi.swift */,
-				B3C9A50D288544230066EE81 /* ReformDisplayData.swift */,
-				B3C9A511288544230066EE81 /* ReformInteractor.swift */,
-				B3C9A512288544230066EE81 /* ReformView.swift */,
+				B3A7C8772887C4760063E3FF /* Logic */,
+				B3A7C8762887C4680063E3FF /* Views */,
 				B3C9A50E288544230066EE81 /* ReformPresenter.swift */,
 				B3C9A50F288544230066EE81 /* ReformRouter.swift */,
 			);
@@ -1706,7 +1761,8 @@
 				B346FB3B2884077700B69410 /* Service */,
 				B3C9A50B288543C20066EE81 /* Reform */,
 				B34BC87A2884136B00490AC8 /* Camera */,
-				B34BC889288413C900490AC8 /* Record */,
+				B3A7C8E92887E8C20063E3FF /* MyRecord */,
+				B3A7C8EA2887E8CF0063E3FF /* StoreRecord */,
 				B3EC92DF287FE81300308DE8 /* README.md */,
 				B3EC92D6287FE68F00308DE8 /* JSON */,
 				B3EC92EA287FF9FE00308DE8 /* SuperRectifTaskListController.swift */,
@@ -2296,6 +2352,7 @@
 				B3EC88C32844AA5D0040F664 /* ReportTaskModel.swift in Sources */,
 				B368E06A283350570039D4D7 /* JHNotificationCenterCell.swift in Sources */,
 				B38D893A277B1C7300888EFB /* JHDelegate.swift in Sources */,
+				B3A7C8F52887E8F40063E3FF /* StoreRecordInteractor.swift in Sources */,
 				B37EC65D283B6CB300D92FC1 /* ReportUserMapController.swift in Sources */,
 				B374EA2D27EC47DF0033B72C /* VCTools.swift in Sources */,
 				B38D8937277B1C7300888EFB /* JHMornUpPhotoController.swift in Sources */,
@@ -2323,16 +2380,16 @@
 				B3E2AF10286D6B09002FA252 /* AddSelfInsModel.swift in Sources */,
 				B39C859F284110D5007ABDCC /* ReportGroupView.swift in Sources */,
 				B38E8A762848C78B00884A6A /* JHLocationManager.swift in Sources */,
-				B34BC8A02884142C00490AC8 /* RecordInteractor.swift in Sources */,
 				B3697E7D27E42D10004D8867 /* JHDeviceNickCell.swift in Sources */,
 				B376987E2859BA1800A3A638 /* PhotoEditCell.swift in Sources */,
 				B3B4A6E7282BA469006B5F57 /* JHNewLoginSetPswViewController.swift in Sources */,
 				B39C8589283E22F7007ABDCC /* ReportMapUserTaskStatM.swift in Sources */,
 				B3289D7D28654B5100E1FF1A /* CheckSelfSecondViewController.swift in Sources */,
 				B3E2AF2F2873DECE002FA252 /* JHCameraAlertController.swift in Sources */,
+				B3A7C8FF2887E9090063E3FF /* MyRecordDisplayData.swift in Sources */,
+				B3A7C9032887E9090063E3FF /* MyRecordInteractor.swift in Sources */,
 				B3DCCF61285AFFBA0000853C /* JHPhotoDetailController.swift in Sources */,
 				B33D237D28698581009B8B21 /* CheckerBaseVM.swift in Sources */,
-				B34BC89E2884142C00490AC8 /* RecordPresenter.swift in Sources */,
 				B3A7C8742886BE260063E3FF /* ReformModules.swift in Sources */,
 				B323035A278C11240056BDCC /* UnitOrgChainModel.swift in Sources */,
 				B39E51A52852E23500EAE842 /* JHSortViewController.swift in Sources */,
@@ -2340,7 +2397,6 @@
 				B3289D8528654BEA00E1FF1A /* InsOptDetailViewController.swift in Sources */,
 				B3C9A517288544230066EE81 /* ReformModuleApi.swift in Sources */,
 				B38D893B277B1CD800888EFB /* JHMornUploadModel.swift in Sources */,
-				B34BC8A12884142C00490AC8 /* RecordView.swift in Sources */,
 				B3306D4127B111C1005E7DDC /* JHUnitOrgHigherCell.swift in Sources */,
 				B3F4599927EDDAB300AADC08 /* JHNickViewModel.swift in Sources */,
 				B39E51AD2853213100EAE842 /* PhotoAddCell.swift in Sources */,
@@ -2349,6 +2405,7 @@
 				B3983D00286074DF0018303F /* UITextViewPlaceholder.swift in Sources */,
 				B3EC88D12845BB9E0040F664 /* ReportTrackPachM.swift in Sources */,
 				B38E8A6C2848584700884A6A /* GBPersonalPointMapVC.swift in Sources */,
+				B3A7C8F22887E8F40063E3FF /* StoreRecordPresenter.swift in Sources */,
 				B3E2AF20286EBF13002FA252 /* CheckReportModel.swift in Sources */,
 				B39C859B283F2E9F007ABDCC /* JHMapFilterM.swift in Sources */,
 				B3931915287555EE00A0CBCC /* JHNoteAlertController.swift in Sources */,
@@ -2367,10 +2424,11 @@
 				B323035E278C2B490056BDCC /* JHUnitOrgSearchCell.swift in Sources */,
 				B312022428191D88002D4FA3 /* JHCreateVideoActController.swift in Sources */,
 				B37EC65F283B6CE900D92FC1 /* ReportUserDetailController.swift in Sources */,
+				B3A7C8F32887E8F40063E3FF /* StoreRecordRouter.swift in Sources */,
 				B374E96127EC21F60033B72C /* JHDeviceTimePicker.swift in Sources */,
 				B3E2AF322873E18F002FA252 /* JHCameraCell.swift in Sources */,
+				B3A7C9022887E9090063E3FF /* MyRecordModuleApi.swift in Sources */,
 				B33D237B2869804B009B8B21 /* JHInspectInfoCell.swift in Sources */,
-				B34BC89F2884142C00490AC8 /* RecordRouter.swift in Sources */,
 				B39C858D283E2C40007ABDCC /* ReportUserInfoMapView.swift in Sources */,
 				B346FB3A288406B700B69410 /* BaseModel.swift in Sources */,
 				B3C9A51C28854CE00066EE81 /* JHReformBaseVC.swift in Sources */,
@@ -2389,10 +2447,11 @@
 				B31202192816A6AF002D4FA3 /* JHActivityModel.swift in Sources */,
 				B39E51402850A7F500EAE842 /* PhotoBaseCell.swift in Sources */,
 				B34BC8852884139900490AC8 /* CameraRouter.swift in Sources */,
-				B34BC89D2884142C00490AC8 /* RecordDisplayData.swift in Sources */,
 				B34BC8B8288416E200490AC8 /* IndexRouter.swift in Sources */,
+				B3A7C8F42887E8F40063E3FF /* StoreRecordModuleApi.swift in Sources */,
 				B3F3343628129ED8003B834D /* PersonalVideoActivityController.swift in Sources */,
 				B39E51472850A97000EAE842 /* JHRecommendModel.swift in Sources */,
+				B3A7C9012887E9090063E3FF /* MyRecordRouter.swift in Sources */,
 				B3E2AF12286DB32D002FA252 /* JHOptionsHeaderView.swift in Sources */,
 				B3E2AF1A286E9485002FA252 /* CheckEditBaseCell.swift in Sources */,
 				B316369628447FD300A09F62 /* ReportUserInfoM.swift in Sources */,
@@ -2437,6 +2496,7 @@
 				B3E2AF0D286C53E1002FA252 /* JHSwitchView.swift in Sources */,
 				B34BC8B7288416E200490AC8 /* IndexPresenter.swift in Sources */,
 				B32943FC284DF1E700123F94 /* PhoneBindCombine.swift in Sources */,
+				B3A7C9042887E9090063E3FF /* MyRecordView.swift in Sources */,
 				B3C9A519288544230066EE81 /* ReformView.swift in Sources */,
 				B3289D8328654BC800E1FF1A /* InsSignViewController.swift in Sources */,
 				B313EF3A278EDCD40089625F /* StoreDSelSearchBar.swift in Sources */,
@@ -2450,12 +2510,14 @@
 				B3EE1FB628780BB6007739CD /* InsYearModel.swift in Sources */,
 				B3289D7928654B0200E1FF1A /* JHSelCheckBaseController.swift in Sources */,
 				B3F4599B27F3F1C500AADC08 /* JHSNViewModel.swift in Sources */,
+				B3A7C8792887C4C60063E3FF /* ReformTaskCell.swift in Sources */,
 				B374E95F27EB02610033B72C /* JHDeviceTimesCell.swift in Sources */,
 				B33EF39827BFAD9000A3B6DE /* JHDeviceInviteAPI.swift in Sources */,
 				B3E2AF24286EDBAF002FA252 /* JHSecondStepCell.swift in Sources */,
 				B3E2AF1C286E949C002FA252 /* CheckSignCell.swift in Sources */,
 				B32303382787EDBD0056BDCC /* JHUnitJoinOrgViewController.swift in Sources */,
 				B3C9A514288544230066EE81 /* ReformDisplayData.swift in Sources */,
+				B3A7C8F12887E8F40063E3FF /* StoreRecordDisplayData.swift in Sources */,
 				B3306D3F27B1093E005E7DDC /* JHUnitOrgLowerController.swift in Sources */,
 				B34635BC27E37F8A002CA750 /* JHBindingEditIntelDescisionVC.swift in Sources */,
 				B3C9A51E288552330066EE81 /* JHReformTableVC.swift in Sources */,
@@ -2465,12 +2527,14 @@
 				B3D7C6BB27EC65B300E0EDBA /* JHDeviceBindModel.swift in Sources */,
 				B393191728758C3000A0CBCC /* ReformInfoModel.swift in Sources */,
 				B368E06828333F780039D4D7 /* JHNotificationCenterModel.swift in Sources */,
+				B3A7C8F62887E8F40063E3FF /* StoreRecordView.swift in Sources */,
 				B35E116127BF36E400A8BEF3 /* JHDeviceInvitedController.swift in Sources */,
 				B3289D7F28654B6D00E1FF1A /* CheckSelfThirdViewController.swift in Sources */,
 				B376CD4A283CA7DC00D01B26 /* ReportUserAnnotationView.swift in Sources */,
 				B3F33432281295BC003B834D /* JHVideoActivityBaseController.swift in Sources */,
 				B38E8A6E28485E3C00884A6A /* JHBMKAnnotationListView.swift in Sources */,
 				B39C8583283DFA1F007ABDCC /* MapFilterBarView.swift in Sources */,
+				B3A7C9002887E9090063E3FF /* MyRecordPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

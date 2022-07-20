@@ -15,6 +15,22 @@ final class ReformRouter: Router {
 
 // MARK: - ReformRouter API
 extension ReformRouter: ReformRouterApi {
+    
+    func goMyRecord() {
+        let my = ReformModules.MyRecord.build()
+        my.router.show(from: viewController, embedInNavController: false, setupData: nil)
+    }
+    
+    func goStoreRecord() {
+        let store = ReformModules.StoreRecord.build()
+        store.router.show(from: viewController, embedInNavController: false, setupData: nil)
+    }
+    
+    func goSetting() {
+        let my = ReformModules.Setting.build()
+        my.router.show(from: viewController, embedInNavController: false, setupData: nil)
+    }
+    
 }
 
 // MARK: - Reform Viper Components

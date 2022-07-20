@@ -10,7 +10,7 @@ import Viperit
 
 enum ReformModules:String, ViperitModule {
     case Reform
-    case MeRecord
+    case MyRecord
     case StoreRecord
     case Setting
     case Camera
